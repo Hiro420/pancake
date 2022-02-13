@@ -1,5 +1,5 @@
 let port = 80;
-let host = 'localhost'; // dont change
+let host = '127.0.0.1'; // dont change
 
 const { O_NONBLOCK } = require("constants");
 const fs = require("fs")
@@ -40,9 +40,9 @@ async function executePRoxies( ){
    // udpProxy.execute(22102, host); //nod
    // udpProxy.execute(42472, host);
 
-    require("./src/server").execute(22102);
+    require("./src/server").execute(4242);
+    //require("./src/server").execute(22222);
     //require("./src/server").execute(22101);
-    
     /*
     const name = 'GetShopRsp'; // GetWidgetSlotRsp
     let num = "4"

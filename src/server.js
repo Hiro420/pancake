@@ -13,18 +13,6 @@ const kcp = require("node-kcp");
 
 var clients = {};
 
-var initialKey = function () {
-    let db = new sqlite3.Database('./keys.db', (error) => {
-        if (error) {
-            throw error; // handling is amazing
-        }
-
-        // this is hardcoded too
-        db.get('SELECT * FROM keys WHERE first_bytes=51544', async (err, row) => { // SQLite Database
-            initialKey = Buffer.from(row.key_buffer)
-        });
-    });
-}();
 
 // i hardcoded this so bad lmao
 var seedKey = undefined; // Hardcoding is no more :crab:
@@ -35,9 +23,10 @@ var server = dgram.createSocket("udp4");
 var CharacterID = 10000050
 var TalentID = 50
 
+var MHYKey = "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";
+var initialKey = Buffer.from(MHYKey,'base64');
 
 function handleHandshake(data, type) {
-    console.log(data);
     switch (type) {
         case 255: // 0xFF -- NEW CONNECTION
             var buffer = Buffer.from(data)
@@ -69,7 +58,7 @@ async function sendPacketAsyncByName(kcpobj, name, keyBuffer, Packet = undefined
 
     // Reads the bin file from the packet
     if (Packet == undefined) {
-        //console.log("[FS] READING %s", name)
+        // console.log("[FS] READING %s", name)
         Packet = fs.readFileSync("bin/" + name + ".bin")
     }
 
@@ -80,15 +69,15 @@ async function sendPacketAsyncByName(kcpobj, name, keyBuffer, Packet = undefined
     const packetID = dataUtil.getPacketIDByProtoName(name)
 
     // logs the packet [DEBUG]
-    //console.log(Packet)
+    // console.log(Packet)
     // Sends the packet
     kcpobj.send(await dataUtil.dataToPacket(Packet, packetID, keyBuffer));
     console.log("[SENT] %i (%s) was sent back", packetID, name)
 }
 posScene = {
-    "X": -6200.6272,
-    "Y": 300.67052,
-    "Z": -3000.0728
+    "X": 1996,
+    "Y": 300,
+    "Z": -673
 }
 var AreaRspCount, PointRspCount, WorldAreaCount, GachaRspValue = 0
 async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
@@ -112,7 +101,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
 
             break;
-
         case "MarkMapReq":
             if (!protobuff.op) {
                 posScene = {
@@ -151,8 +139,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 seedKey = Buffer.from(data.toString(), 'hex'); // Key
             });
 
+            console.log(GetPlayerTokenRsp);
 
             data = await dataUtil.objToProtobuffer(GetPlayerTokenRsp, dataUtil.getPacketIDByProtoName("GetPlayerTokenRsp"));
+
             sendPacketAsyncByName(kcpobj, "GetPlayerTokenRsp", keyBuffer, data)
 
             break;
@@ -184,11 +174,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             const AvatarDataNotify1 = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/AvatarDataNotify.bin"), dataUtil.getPacketIDByProtoName("AvatarDataNotify"))
 			
 			//Thoma
-            AvatarDataNotify1.avatarList[4].avatarId = CharacterID
-            AvatarDataNotify1.avatarList[4].guid = AvatarGUID
-            AvatarDataNotify1.avatarList[4].wearingFlycloakId = flyCloak
-			AvatarDataNotify1.avatarList[4].equipGuidList = protobuff.equipGuid
-			AvatarDataNotify1.avatarList[4].propMap = {
+            AvatarDataNotify1.avatarList[0].avatarId = CharacterID
+            AvatarDataNotify1.avatarList[0].guid = AvatarGUID
+            AvatarDataNotify1.avatarList[0].wearingFlycloakId = flyCloak
+			AvatarDataNotify1.avatarList[0].equipGuidList = protobuff.equipGuid
+			AvatarDataNotify1.avatarList[0].propMap = {
 				"1001": {
 					"type": 1001,
 					"ival": "0"
@@ -211,7 +201,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 					"ival": "0"
 				}
 			}
-			AvatarDataNotify1.avatarList[4].fightPropMap = {
+			AvatarDataNotify1.avatarList[0].fightPropMap = {
 				"46": 0,
         		"1010": 30000,
         		"50": 0,
@@ -250,15 +240,15 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         		"44": 0,
         		"45": 0
 			}
-            AvatarDataNotify1.avatarList[4].skillDepotId = 5001
-			AvatarDataNotify1.avatarList[4].fetterInfo.expLevel = 10
-			AvatarDataNotify1.avatarList[4].inherentProudSkillList = [502101, 502201, 502301, 502401, 502501]
-			AvatarDataNotify1.avatarList[4].talentIdList = [501, 502, 503, 504, 505, 506]
-			AvatarDataNotify1.avatarList[4].proudSkillExtraLevelMap = {
+            AvatarDataNotify1.avatarList[0].skillDepotId = 5001
+			AvatarDataNotify1.avatarList[0].fetterInfo.expLevel = 10
+			AvatarDataNotify1.avatarList[0].inherentProudSkillList = [502101, 502201, 502301, 502401, 502501]
+			AvatarDataNotify1.avatarList[0].talentIdList = [501, 502, 503, 504, 505, 506]
+			AvatarDataNotify1.avatarList[0].proudSkillExtraLevelMap = {
 				"5032": 3,
 				"5039": 3
 			}
-            AvatarDataNotify1.avatarList[4].skillLevelMap = {
+            AvatarDataNotify1.avatarList[0].skillLevelMap = {
                 "10501": 10,
                 "10502": 10,
                 "10505": 10
@@ -330,20 +320,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //AvatarDataNotify
             const AvatarDataNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/AvatarDataNotify.bin"), dataUtil.getPacketIDByProtoName("AvatarDataNotify"))
-			AvatarDataNotify.avatarList[4].avatarId = CharacterID
+			AvatarDataNotify.avatarList[0].avatarId = CharacterID
+            
             // To protobuffer
             var AvatarDataNotifyData = await dataUtil.objToProtobuffer(AvatarDataNotify, dataUtil.getPacketIDByProtoName("AvatarDataNotify"));
             sendPacketAsyncByName(kcpobj, "AvatarDataNotify", keyBuffer, AvatarDataNotifyData);
 
             // ActivityScheduleInfoNotify
-			sendPacketAsyncByName(kcpobj, "ActivityScheduleInfoNotify", keyBuffer);
+			// sendPacketAsyncByName(kcpobj, "ActivityScheduleInfoNotify", keyBuffer);
 
             // PlayerPropNotify
-			sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer);
+			// sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer);
 
             // PlayerDataNotify
             const PlayerDataNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerDataNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerDataNotify"))
-            PlayerDataNotify.nickName = "Waffel | PANCAKE (PS)"
+            PlayerDataNotify.nickName = "zhuzhuxd"
 			PlayerDataNotify.propMap["10015"].ival = 99999999
 			PlayerDataNotify.propMap["10015"].val = 99999999
 			
@@ -359,58 +350,67 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             var PlayerDataNotifyData = await dataUtil.objToProtobuffer(PlayerDataNotify, dataUtil.getPacketIDByProtoName("PlayerDataNotify"));
             sendPacketAsyncByName(kcpobj, "PlayerDataNotify", keyBuffer, PlayerDataNotifyData);
 
-            // AchievementUpdateNotify
-            sendPacketAsyncByName(kcpobj, "AchievementUpdateNotify", keyBuffer);
-
             // OpenStateUpdateNotify
-			sendPacketAsyncByName(kcpobj, "OpenStateUpdateNotify", keyBuffer);
+            const OpenStateUpdateNotify = { "openStateMap": {47: 1, 1405: 1, 900: 1, 1104: 1, 1404: 1, 54: 1, 48: 1, 1: 1, 31: 1, 1100: 1, 902: 1, 903: 1, 1103: 1, 59: 1, 901: 1, 15: 1, 49: 0, 38: 1, 2005: 1, 32: 1, 33: 1} }
+			sendPacketAsyncByName(kcpobj, "OpenStateUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(OpenStateUpdateNotify,
+            await dataUtil.getPacketIDByProtoName("OpenStateUpdateNotify")));
+
+            // AchievementUpdateNotify
+            // sendPacketAsyncByName(kcpobj, "AchievementUpdateNotify", keyBuffer);
+
 
             // StoreWeightLimitNotify
             const StoreWeightLimitNotify =  { "storeType": "STORE_PACK", "weightLimit": 90000, "materialCountLimit": 2000, "weaponCountLimit": 2000, "reliquaryCountLimit": 1000, "furnitureCountLimit": 2000 }
 
-            await sendPacketAsyncByName(kcpobj, "StoreWeightLimitNotify", keyBuffer, await dataUtil.objToProtobuffer(StoreWeightLimitNotify,   
+            sendPacketAsyncByName(kcpobj, "StoreWeightLimitNotify", keyBuffer, await dataUtil.objToProtobuffer(StoreWeightLimitNotify,   
             await dataUtil.getPacketIDByProtoName("StoreWeightLimitNotify")))
 
             // PlayerStoreNotify
 
             const PlayerStoreNotify = {
-    "storeType": "STORE_PACK",
-    "itemList": [{
-        "itemId": 13416,
-        "guid": "1",
-        "equip": {
-            "weapon": {
-                "level": 90,
-				"promoteLevel": 6,
-                "affixMap": {
-                    "113416": 0
-				}
+                "storeType": "STORE_PACK",
+                "itemList": [{
+                    "itemId": 13416,
+                    "guid": "1",
+                    "equip": {
+                        "weapon": {
+                            "level": 90,
+                            "promoteLevel": 6,
+                            "affixMap": {
+                                "113416": 0
+                            }
+                        }
+                    }
+                }],
+                "weightLimit": 2000,
             }
-        }
-    }],
-    "weightLimit": 2000,
-}
             await sendPacketAsyncByName(kcpobj, "PlayerStoreNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerStoreNotify, dataUtil.getPacketIDByProtoName("PlayerStoreNotify")))
 
             //AvatarSatiationDataNotify
-            sendPacketAsyncByName(kcpobj, "AvatarSatiationDataNotify", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "AvatarSatiationDataNotify", keyBuffer);
 
             //RegionSearchNotify
-			sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer);
+			// sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer);
 
             //PlayerEnterSceneNotify
             const PlayerEnterSceneNotify1 = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify"))
             PlayerEnterSceneNotify1.pos = posScene
+            console.log(PlayerEnterSceneNotify1)
             sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneNotify1, dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify")));
 
             // Response
             const PlayerLoginRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerLoginRsp.bin"), dataUtil.getPacketIDByProtoName("PlayerLoginRsp"))
             PlayerLoginRsp.targetUid = 1
             PlayerLoginRsp.targetHomeOwnerUid = 1
-            //PlayerLoginRsp.isDataNeedRelogin = false
-            //PlayerLoginRsp.isScOpen = false
-            //PlayerLoginRsp.isUseAbilityHash = false
+
+
+            PlayerLoginRsp.isDataNeedRelogin = false
+            PlayerLoginRsp.isScOpen = false
+            PlayerLoginRsp.isUseAbilityHash = false
+
+
             // To protobuffer
+            console.log(PlayerLoginRsp)
             sendPacketAsyncByName(kcpobj, "PlayerLoginRsp", keyBuffer, await dataUtil.objToProtobuffer(PlayerLoginRsp, dataUtil.getPacketIDByProtoName("PlayerLoginRsp")));
 
             break;
@@ -479,23 +479,30 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "ChangeAvatarReq":
 
             // SceneEntityDisappearNotify
-            sendPacketAsyncByName(kcpobj, "SceneEntityDisappearNotify", keyBuffer)
+            //sendPacketAsyncByName(kcpobj, "SceneEntityDisappearNotify", keyBuffer)
 
             // SceneEntityAppearNotify
-            const SceneEntityAppearNotify3 = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
-            SceneEntityAppearNotify3.entityList[0].motionInfo.pos = {
-                "X": -6200.6272,
-                "Y": 300.67052,
-                "Z": -3000.0728
-            }
+            //const SceneEntityAppearNotify3 = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
+            //SceneEntityAppearNotify3.entityList[0].motionInfo.pos = {
+                //"X": -6200.6272,
+               // "Y": 300.67052,
+               // "Z": -3000.0728
+            //}
             // To protobuffer;
-            sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify3, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
+            const PlayerEnterSceneInfoNotify2 = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneInfoNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify"))
+            PlayerEnterSceneInfoNotify2.curAvatarEntityId = 16777959;
+
+            sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotify2, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify")));
 
             // PlayerEnterSceneInfoNotify
-            sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer)
+            //sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer)
 
+            const ChangeAvatarRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/ChangeAvatarRsp.bin"), dataUtil.getPacketIDByProtoName("ChangeAvatarRsp"))
+            ChangeAvatarRsp.retcode = 0
+            ChangeAvatarRsp.curGuid = protobuff.guid
+            console.log("更换角色")
             // Response
-            sendPacketAsyncByName(kcpobj, "ChangeAvatarRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "ChangeAvatarRsp", keyBuffer,await dataUtil.objToProtobuffer(ChangeAvatarRsp, dataUtil.getPacketIDByProtoName("ChangeAvatarRsp")))
 
             break;
 
@@ -1018,12 +1025,14 @@ module.exports = {
                 console.log(c.colog(31, "[RECV] %s"), packetRemHeader.toString('hex'))
 
                 var keyBuffer = seedKey == undefined ? initialKey : seedKey;    // Gets the key data
+
+                //console.log(keyBuffer)
                 dataUtil.xorData(packetRemHeader, keyBuffer);   // xors the data into packetRemHeader
 
                 // Check if the recived data is a packet
                 if (packetRemHeader.length > 5 && packetRemHeader.readInt16BE(0) == 0x4567 && packetRemHeader.readUInt16BE(packetRemHeader.byteLength - 2) == 0x89AB) {
                     var packetID = packetRemHeader.readUInt16BE(2); // Packet ID
-                    if (![2349, 373, 3187, 19, 1, 49].includes(packetID)) {
+                    if (![2349, 373, 3187, 19, 1, 49,100].includes(packetID)) {
 						var dataBuffer = await dataUtil.dataToProtobuffer(dataUtil.parsePacketData(recv), packetID);
 						console.log(dataBuffer);
                         console.log(c.colog(32, "[KCP] Got packet %i (%s)"), packetID, dataUtil.getProtoNameByPacketID(packetID)); // Debug

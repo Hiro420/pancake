@@ -6,15 +6,15 @@ module.exports = {
             "message": "OK",
             "data": {
                 "account": {
-                    "uid": "420",
+                    "uid": "175674314",
                     "name": "",
-                    "email": "Running On Pancake 1.0.0",
+                    "email": "did****776@163.com",
                     "mobile": "",
                     "is_email_verify": "0",
-                    "realname": "",
-                    "identity_card": "",
-                    "token": "token", // Bueno, se supone que aqui debe de haber un token :+1:
-                    "safe_mobile": "",
+                    "realname": "**英",
+                    "identity_card": "320************839",
+                    "token": "gvl46YSa1iKClQ9gbJXuUpHMPdCJ35hX",
+                    "safe_mobile": "170****0969",
                     "facebook_name": "",
                     "google_name": "",
                     "twitter_name": "",
@@ -22,14 +22,17 @@ module.exports = {
                     "apple_name": "",
                     "sony_name": "",
                     "tap_name": "",
-                    "country": "MX",
+                    "country": "",
                     "reactivate_ticket": "",
-                    "area_code": "**"
+                    "area_code": "",
+                    "device_grant_ticket": "",
+                    "steam_name": ""
                 },
                 "device_grant_required": false,
                 "safe_moblie_required": false,
                 "realperson_required": false,
-                "reactivate_required": false
+                "reactivate_required": false,
+                "realname_operation": "None"
             }
         }
         res.end(JSON.stringify(ret));
