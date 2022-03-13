@@ -395,19 +395,48 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             //PlayerEnterSceneNotify
             const PlayerEnterSceneNotify1 = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify"))
             PlayerEnterSceneNotify1.pos = posScene
+            PlayerEnterSceneNotify1.targetUid = 1
             console.log(PlayerEnterSceneNotify1)
             sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneNotify1, dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify")));
 
             // Response
-            const PlayerLoginRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerLoginRsp.bin"), dataUtil.getPacketIDByProtoName("PlayerLoginRsp"))
-            PlayerLoginRsp.targetUid = 1
-            PlayerLoginRsp.targetHomeOwnerUid = 1
-
-
-            PlayerLoginRsp.isDataNeedRelogin = false
-            PlayerLoginRsp.isScOpen = false
-            PlayerLoginRsp.isUseAbilityHash = false
-
+            // const PlayerLoginRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerLoginRsp.bin"), dataUtil.getPacketIDByProtoName("PlayerLoginRsp"))
+            
+            const PlayerLoginRsp = {
+                "retcode": 0,
+                "playerData": [],
+                "isNewPlayer": false,
+                "targetUid": 1,
+                "loginRand": 0,
+                "isUseAbilityHash": false,
+                "abilityHashCode": 0,
+                "abilityHashMap": {},
+                "clientDataVersion": 0,
+                "isRelogin": false,
+                "clientSilenceDataVersion": 0,
+                "gameBiz": "",
+                "playerDataVersion": 0,
+                "clientMd5": "",
+                "clientSilenceMd5": "",
+                "resVersionConfig": null,
+                "blockInfoMap": {},
+                "clientVersionSuffix": "",
+                "clientSilenceVersionSuffix": "",
+                "shortAbilityHashMap": [],
+                "scInfo": [],
+                "isAudit": false,
+                "isScOpen": false,
+                "registerCps": "",
+                "featureBlockInfoList": [],
+                "isDataNeedRelogin": false,
+                "countryCode": "",
+                "nextResVersionConfig": null,
+                "nextResourceUrl": "",
+                "targetHomeOwnerUid": 1,
+                "isEnableClientHashDebug": false,
+                "isTransfer": false,
+                "totalTickTime": 0.0
+            }
 
             // To protobuffer
             console.log(PlayerLoginRsp)
