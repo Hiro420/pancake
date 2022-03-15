@@ -30,7 +30,6 @@ Now open Genshin Impact and have fun.
 
 # TODO
 * Archives (CodexDataFullNotify?)
-* Event Page
 * Other Character Skill (Need AvatarExcelData)
 * Console (PrivateChatReq)
 * Change Avater (ChangeAvatarReq)

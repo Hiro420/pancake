@@ -250,7 +250,24 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "AvatarDataNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarDataNotify, dataUtil.getPacketIDByProtoName("AvatarDataNotify")));
 
             // ActivityScheduleInfoNotify
-			// sendPacketAsyncByName(kcpobj, "ActivityScheduleInfoNotify", keyBuffer);
+            // EVENTACTIVITY
+
+            const ActivityScheduleInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/ActivityScheduleInfoNotify.bin"), dataUtil.getPacketIDByProtoName("ActivityScheduleInfoNotify"))
+
+            ActivityScheduleInfoNotify.activityScheduleList[2].activityId = 5064
+
+            for (Possible = 3; Possible <= 100; Possible++)
+            {
+                ActivityScheduleInfoNotify.activityScheduleList[Possible] = {
+                    "activityId": 5000 + Possible,
+                    "isOpen": true,
+                    "scheduleId": 5039001,
+                    "beginTime": 1626822000,
+                    "endTime": 1630450800
+                }
+            }
+
+            sendPacketAsyncByName(kcpobj, "ActivityScheduleInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(ActivityScheduleInfoNotify, dataUtil.getPacketIDByProtoName("ActivityScheduleInfoNotify")));
 
             // PlayerPropNotify
 			// sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer);
@@ -278,7 +295,102 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "PlayerDataNotify", keyBuffer, PlayerDataNotifyData);
 
             // OpenStateUpdateNotify
-            const OpenStateUpdateNotify = { "openStateMap": {47: 1, 1405: 1, 900: 1, 1104: 1, 1404: 1, 54: 1, 48: 1, 1: 1, 31: 1, 1100: 1, 902: 1, 903: 1, 1103: 1, 59: 1, 901: 1, 15: 1, 49: 0, 38: 1, 2005: 1, 32: 1, 33: 1} }
+            const OpenStateUpdateNotify = {
+                "openStateMap": {
+                    "1": 1,
+                    "2": 1,
+                    "3": 1,
+                    "4": 1,
+                    "5": 1,
+                    "6": 1,
+                    "7": 1,
+                    "8": 1,
+                    "10": 1,
+                    "11": 1,
+                    "12": 1,
+                    "13": 1,
+                    "14": 1,
+                    "15": 1,
+                    "16": 1,
+                    "18": 1,
+                    "19": 1,
+                    "21": 1,
+                    "22": 1,
+                    "23": 1,
+                    "25": 1,
+                    "27": 1,
+                    "28": 1,
+                    "29": 1,
+                    "30": 1,
+                    "31": 1,
+                    "32": 1,
+                    "33": 1,
+                    "35": 1,
+                    "36": 1,
+                    "37": 1,
+                    "38": 1,
+                    "39": 1,
+                    "40": 1,
+                    "45": 1,
+                    "47": 1,
+                    "49": 1,
+                    "50": 1,
+                    "51": 1,
+                    "52": 1,
+                    "53": 1,
+                    "54": 1,
+                    "55": 1,
+                    "56": 1,
+                    "57": 1,
+                    "58": 1,
+                    "59": 1,
+                    "60": 1,
+                    "61": 1,
+                    "62": 1,
+                    "64": 1,
+                    "65": 1,
+                    "66": 1,
+                    "74": 1,
+                    "800": 1,
+                    "801": 1,
+                    "802": 1,
+                    "900": 1,
+                    "901": 1,
+                    "902": 1,
+                    "903": 1,
+                    "1001": 1,
+                    "1002": 1,
+                    "1003": 1,
+                    "1004": 1,
+                    "1005": 1,
+                    "1006": 1,
+                    "1007": 1,
+                    "1008": 1,
+                    "1009": 1,
+                    "1010": 1,
+                    "1100": 1,
+                    "1102": 1,
+                    "1103": 1,
+                    "1104": 1,
+                    "1300": 1,
+                    "1301": 1,
+                    "1401": 1,
+                    "1402": 1,
+                    "1403": 1,
+                    "1404": 1,
+                    "1405": 1,
+                    "1406": 1,
+                    "1408": 1,
+                    "1501": 1,
+                    "1700": 1,
+                    "2000": 1,
+                    "2100": 1,
+                    "2101": 1,
+                    "2200": 1,
+                    "2400": 1,
+                    "2500": 1
+                  }
+            }
 			sendPacketAsyncByName(kcpobj, "OpenStateUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(OpenStateUpdateNotify,
             await dataUtil.getPacketIDByProtoName("OpenStateUpdateNotify")));
 
@@ -294,8 +406,9 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 for (Possible = 1; Possible<= 200; Possible++){
                     Achievement = {
                         "id": 80000 + Possible + x*1000,
-                        "status": 1,
-                        "totalProgress": 1
+                        "status": "REWARD_TAKEN",
+                        "totalProgress": 1,
+                        "finishTimestamp": 1618420174 // if not remove and change status UNFINISHED
                     }
                     AchievementAllDataNotify.achievementList.push(Achievement)
                 }
@@ -505,6 +618,9 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetPlayerSocialDetailReq":
 
             // Response
+
+            // need to change uid?
+
             sendPacketAsyncByName(kcpobj, "GetPlayerSocialDetailRsp", keyBuffer)
 
             break;
@@ -593,7 +709,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetActivityInfoReq":
             const GetActivityInfoRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/GetActivityInfoRsp.bin"), dataUtil.getPacketIDByProtoName("GetActivityInfoRsp"))
-            GetActivityInfoRsp.activityInfoList[2].activityId= 2002
+            // EVENTACTIVITY
+            
+            for (Possible = 3; Possible <= 100; Possible++)
+            {
+                GetActivityInfoRsp.activityInfoList[Possible] = {
+                    "watcherInfoList": [],
+                    "meetCondList": [],
+                    "expireCondList": [],
+                    "activityCoinMap": {},
+                    "takenRewardList": [],
+                    "activityId": 5000 + Possible,
+                    "scheduleId": 5038001,
+                }
+            }
+            
             // To protobuffer
             var GetActivityInfoRspData = await dataUtil.objToProtobuffer(GetActivityInfoRsp, dataUtil.getPacketIDByProtoName("GetActivityInfoRsp"));
             sendPacketAsyncByName(kcpobj, "GetActivityInfoRsp", keyBuffer, GetActivityInfoRspData);
@@ -604,6 +734,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "WorldOwnerDailyTaskNotify", keyBuffer);
 
             //WorldPlayerInfoNotify
+            // maybe set as getplayersocialdetailrsp would work?
+
             const WorldPlayerInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/WorldPlayerInfoNotify.bin"), dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"))
             WorldPlayerInfoNotify.playerInfoList[0].name = "Waffel | PANCAKE (PS)"
 	    WorldPlayerInfoNotify.playerUidList[0] = 1
@@ -657,6 +789,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "HostPlayerNotify", keyBuffer);
 
             //ScenePlayerInfoNotify
+            // very sus
             const ScenePlayerInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/ScenePlayerInfoNotify.bin"), dataUtil.getPacketIDByProtoName("ScenePlayerInfoNotify"))
             ScenePlayerInfoNotify.playerInfoList[0].name = "TeTT"
             ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.nickname = "TeTT"
