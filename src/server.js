@@ -245,8 +245,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // how to fix skills?
             // do not touch avatarList[0]
             
-            AvatarDataNotify.avatarList[1].avatarId = 10000066;
-            AvatarDataNotify.avatarList[2].avatarId = 10000035;
+            //AvatarDataNotify.avatarList[2].avatarId = 10000035;
             sendPacketAsyncByName(kcpobj, "AvatarDataNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarDataNotify, dataUtil.getPacketIDByProtoName("AvatarDataNotify")));
 
             // ActivityScheduleInfoNotify
@@ -623,7 +622,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
 
             for (View = 1; View <= 3; View++) {
-                for (Viewpoint = 1; Viewpoint <= 28; Viewpoint++) {
+                for (Viewpoint = 1; Viewpoint <= 30; Viewpoint++) {
                     CodexDataFullNotify.typeDataList[6].codexIdList.push(70000000 + 100000*View + Viewpoint);
                     CodexDataFullNotify.typeDataList[6].haveViewedList.push(true);
                 }

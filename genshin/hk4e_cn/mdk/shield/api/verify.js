@@ -8,7 +8,7 @@ module.exports = {
                 "account": {
                     "apple_name": "",
                     "country": "",
-                    "email": "시진핑핑이",
+                    "email": "여행자",
                     "facebook_name": "",
                     "game_center_name": "",
                     "google_name": "",

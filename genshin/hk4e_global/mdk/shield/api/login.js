@@ -8,7 +8,7 @@ module.exports = {
                 "account": {
                     "uid": "175674314",
                     "name": "",
-                    "email": "시진핑핑이",
+                    "email": "여행자",
                     "mobile": "",
                     "is_email_verify": "0",
                     "realname": "**英",
