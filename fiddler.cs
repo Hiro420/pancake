@@ -11,6 +11,7 @@ var list = ["https://api-os-takumi.mihoyo.com",
     "https://hk4e-sdk-os.mihoyo.com",
     "https://dispatchosglobal.yuanshen.com",
     "https://osusadispatch.yuanshen.com",
+    "https://osasiadispatch.yuanshen.com",
     "https://account.mihoyo.com",
     "https://log-upload-os.mihoyo.com",
     "https://dispatchcntest.yuanshen.com",
@@ -25,6 +26,14 @@ var list = ["https://api-os-takumi.mihoyo.com",
     "https://cnbeta02dispatch.yuanshen.com",
     "https://sdk-os-static.mihoyo.com",
     "https://webstatic-sea.mihoyo.com",
+    "https://webstatic-sea.hoyoverse.com",
+    "https://hk4e-sdk-os-static.hoyoverse.com",
+    "https://hk4e-sdk-os.hoyoverse.com",
+    "https://sdk-os-static.hoyoverse.com",
+    "https://account.hoyoverse.com",
+    "https://api-account-os.hoyoverse.com",
+ 
+    
     ];
 
 class Handlers
@@ -36,10 +45,12 @@ class Handlers
                 oS.oRequest.FailSession(404, "Blocked", "yourmom"); // How funny
             }
             
-            for(var i = 0;i<20;i++) {
+            for(var i = 0;i<27;i++) {
                 if(oS.uriContains(list[i])) {
+                    // Console.WriteLine(oS.fullUrl);
                     oS.fullUrl = oS.fullUrl.Replace("https://", "http://");
                     oS.host = "localhost";
+                    // oS.host = "localhost:22223";
                     break;
                 }
             }
