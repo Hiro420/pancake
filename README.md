@@ -29,8 +29,7 @@ Now open Genshin Impact and have fun.
 
 
 # TODO
-* Archives (CodexDataFullNotify?)
-* Other Character Skill (Need AvatarExcelData)
+* Character Skill (Need AvatarExcelData)
 * Console (PrivateChatReq)
 * Change Avater (ChangeAvatarReq)
 * Teleport (SceneTransToPointReq)

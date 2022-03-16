@@ -259,11 +259,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             for (Possible = 3; Possible <= 100; Possible++)
             {
                 ActivityScheduleInfoNotify.activityScheduleList[Possible] = {
-                    "activityId": 5000 + Possible,
+                    "activityId": 5050 + Possible,
                     "isOpen": true,
                     "scheduleId": 5039001,
                     "beginTime": 1626822000,
-                    "endTime": 1630450800
+                    "endTime": 1930450800
                 }
             }
 
@@ -513,48 +513,131 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             const CodexDataFullNotify = {
                 "typeDataList":[
                     {
-                        "type":"CODEX_QUEST",
-                        "codexIdList":[10010002,10010003,10010005,10010006,10010007,10010008,10010009,10010010,10010011,10010012,10010013,10020001,10020002,10020003,10020004,10020005,10020006,10020007,10020008,10020009,10020010,10020011,10020012,10020013,10020014,10020015,10030001,10030002,10030003,10030004,10030005,10030006,10030007,10030008,10050001,10050002,10050003,10050004,10050005,10060001,10060002,10080001,10080002,10080003,10080004,10090001,10090002,10090003,10130001,10130002,10130003,10130004,10130005,10130006,10140001,10140002,10140003,10140004,10140005,10140006,10140007,10150001,10150002,10150003,10150004,10150005,10150006,10160001,10160002,10160003,10160004,10160005,10160006,10170001,10170002,10170003,10170004,10190001,10190002,10190003,10290001,10290002,10290003,10320001,10320002,10320003,10320004,10350001,10350002,10350003,10400001,10400002,10400003],
-                        "haveViewedList":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+                        "type":1,
+                        "codexIdList":[],
+                        "haveViewedList":[]
                     },
                     {
-                        "type":"CODEX_WEAPON",
-                        "codexIdList":[30211201,30211301,30211302,30211303,30211306,30211401,30211406,30212101,30212201,30212301,30212302,30212303,30212305,30212403,30212405,30213101,30213201,30213302,30213303,30214101,30214201,30214301,30214302,30214303,30214304,30214305,30215101,30215201,30215301,30215302,30215303,30215304,30215401,30215405,30211101],
-                        "haveViewedList":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true],
-                        "weaponMaxPromoteLevelMap":{"30211406":1,"30214302":2}
+                        "type":2,
+                        "codexIdList":[],
+                        "haveViewedList":[],
                     },
                     {
-                        "type":"CODEX_ANIMAL",
-                        "codexIdList":[20010101,20010501,20010601,20010701,20010801,20010901,20011001,20011101,20011201,20011301,20011401,20011501,20020101,20040101,20040501,20040601,20050101,21010101,21010201,21010301,21010401,21010501,21010601,21010701,21010901,21011001,21011201,21011301,21011401,21011601,21020101,21020201,21020301,21020401,21020501,21020801,21030101,21030201,21030301,21030401,21030501,21030601,22010101,22010201,22010301,22010401,22020101,23010101,23010201,23010301,23010401,23010501,23010601,23020101,23030101,23040101,24010101,24010201,24010301,24020101,24020201,24020301,24020401,24021101,25010201,25010301,25010401,25010501,25010601,25010701,25020201,25030201,25030301,25060101,25070101,25080101,25080201,25080301,25090101,25100201,26010101,26010201,26020101,26020201,26050101,26060101,26060301,28010102,28010103,28010104,28010105,28010201,28010202,28010205,28010302,28010303,28020102,28020301,28020303,28020401,28020402,28020403,28020404,28020501,28020502,28020504,28020505,28020506,28020602,28020701,28030301,28030303,28030305,28030401,28030501,28040101,28050101,28050102,29010101,29020101,29030101],
-                        "haveViewedList":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+                        "type":3,
+                        "codexIdList":[],
+                        "haveViewedList":[]
                     },
                     {
-                        "type":"CODEX_MATERIAL",
-                        "codexIdList":[40100001,40100002,40100003,40101001,40101002,40101003,40101004,40101005,40101006,40101007,40101008,40101009,40101010,40101011,40101012,40101013,40102001,40102002,40102003,40102004,40102005,40102006,40102007,40103001,40103002,40103003,40103004,40103005,40103006,40103007,40103008,40103009,40104003,40104005,40104006,40104008,40109001,40109002,40109003,40109004,40109005,40110001,40110002,40110003,40110004,40110005,40110008,40200006,40200012,40200013,40200015,40200028,40200033,40210002,40210004,40210006,40210009,40210010,40210021,40210027,40210028,40210029,40210057,40220001,40220002,40220007,40220008,40220009,40230001,40230005,40240001,40240002,40240003,40240004,40240005,40240006,40300010,40310004,40310005,40310006,40310009,40320001,40320002,40320005,40320006,40320009,40320010,40320017,40320018,40320021,40320022,40320025,40320026,40320029,40320030,40330005,40330006,40330017,40330018,40331001,40331004,40331007,40331010,40331011,40332004,40333001,40333007,40334002,40334005,40336001,40337001,40340001,40340002,40350001,40350002,40350004,40350005,40350007,40350008,40350010,40350011,40350013,40350014,40350016,40350017,40350019,40352001,40400007,40400014,40400016,40400021],
-                        "haveViewedList":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+                        "type":4,
+                        "codexIdList":[],
+                        "haveViewedList":[]
                     },
                     {
-                        "type":"CODEX_BOOKS",
+                        "type":5,
                         "codexIdList":[50003007,50007001,50008005,50009001,50012006,50017002,50019001,50019004,50020002,50022001,50023003,50023004,50024003,50025001,50025002,50026001,50027001,50028002,50029001,50029002],
-                        "haveViewedList":[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+                        "haveViewedList":[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
                     },
                     {
-                        "type":"CODEX_PUSHTIPS",
+                        "type":6,
                         "codexIdList":[60100001,60100002,60100003,60100004,60100005,60100006,60100007,60100008,60100009,60100010,60100011,60100012,60100013,60100015,60100016,60200001,60200002,60200003,60200004,60200005,60200006,60200007,60200008,60200009,60200014,60300001,60300002,60300003,60300004,60300005,60300006,60300007,60300008,60300009,60300010,60300011,60300013,60300014,60300017,60300021,60300026,60300028,60400001,60400002,60400003,60400004,60400005,60400011,60400012,60400016,60500001,60500002,60500003,60500004,60500005,60500006,60500007,60500008,60500009,60500010,60500011,60500012,60500013,60500016,60500017,60500018,60500019,60500020,60500021,60500022,60500023,60500024,60500025,60500026,60500027,60500028,60500030,60500031,60500033,60500035,60500036],
                         "haveViewedList":[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
                     },
                     {
-                        "type":"CODEX_VIEW",
-                        "codexIdList":[70100003,70100004,70200001,70200002,70200015,70200016,70300005],
-                        "haveViewedList":[false,false,false,false,false,false,false]
+                        "type":7,
+                        "codexIdList":[],
+                        "haveViewedList":[]
                     },
                     {
-                        "type":"CODEX_RELIQUARY",
-                        "codexIdList":[30105103,30105503,30105903,30106002,30106003,30106101,30106102,30106103,30106301,30106302,30106303,30108303,30108703,30106001],
-                        "haveViewedList":[false,false,false,false,false,false,false,false,false,false,false,false,false,true]
+                        "type":8,
+                        "codexIdList":[],
+                        "haveViewedList":[]
                     }
                 ]
             }
+
+            // Some will not appear in the archive
+            // Then add it yourself
+            // Add everything will occur error because of size problem
+            // Tutorials and Books do later
+
+            for (Quest = 1; Quest <= 50; Quest++) {
+                for (Quest2 = 1; Quest2 <= 20; Quest2++) {
+                    CodexDataFullNotify.typeDataList[0].codexIdList.push(10000000 + 10000*Quest + Quest2);
+                    CodexDataFullNotify.typeDataList[0].haveViewedList.push(true);
+                }
+            }
+
+            for (Weapon = 1; Weapon <= 5; Weapon++) {
+                for (Weapon2 = 1; Weapon2 <= 5; Weapon2++) {
+                    for (Weapon3 = 1; Weapon3 <= 15; Weapon3++) {
+                        CodexDataFullNotify.typeDataList[1].codexIdList.push(30210000 + 1000*Weapon + 100*Weapon2 + Weapon3);
+                        CodexDataFullNotify.typeDataList[1].haveViewedList.push(true);
+                    }
+                }
+            }
+
+            for (Animal = 1; Animal <= 9; Animal++) {
+                for (Animal2 = 1; Animal2 <= 9; Animal2++) {
+                    for (Animal3 = 1; Animal3 <= 10; Animal3++) {
+                        for (Animal4 = 1; Animal4 <= 10; Animal4++) {
+                            CodexDataFullNotify.typeDataList[2].codexIdList.push(20000000 + 1000000*Animal + 10000*Animal2 + 100*Animal3 + Animal4);
+                            CodexDataFullNotify.typeDataList[2].haveViewedList.push(true);
+                        }
+                    }
+                }
+            }
+
+
+
+
+            for (Material = 100; Material <= 110; Material++) {
+                for (Material2 = 1; Material2 <= 50; Material2++) {
+                    CodexDataFullNotify.typeDataList[3].codexIdList.push(40000000 + 1000*Material + Material2);
+                    CodexDataFullNotify.typeDataList[3].haveViewedList.push(true);
+                }
+            }
+            for (Material = 20; Material <= 25; Material++) {
+                for (Material2 = 1; Material2 <= 50; Material2++) {
+                    CodexDataFullNotify.typeDataList[3].codexIdList.push(40000000 + 10000*Material + Material2);
+                    CodexDataFullNotify.typeDataList[3].haveViewedList.push(true);
+                }
+            }
+            for (Material = 30; Material <= 35; Material++) {
+                for (Material2 = 1; Material2 <= 50; Material2++) {
+                    CodexDataFullNotify.typeDataList[3].codexIdList.push(40000000 + 10000*Material + Material2);
+                    CodexDataFullNotify.typeDataList[3].haveViewedList.push(true);
+                }
+            }
+            for (Material = 331; Material <= 339; Material++) {
+                for (Material2 = 1; Material2 <= 50; Material2++) {
+                    CodexDataFullNotify.typeDataList[3].codexIdList.push(40000000 + 1000*Material + Material2);
+                    CodexDataFullNotify.typeDataList[3].haveViewedList.push(true);
+                }
+            }
+            for (Material = 40; Material <= 40; Material++) {
+                for (Material2 = 1; Material2 <= 50; Material2++) {
+                    CodexDataFullNotify.typeDataList[3].codexIdList.push(40000000 + 10000*Material + Material2);
+                    CodexDataFullNotify.typeDataList[3].haveViewedList.push(true);
+                }
+            }
+
+
+            for (View = 1; View <= 3; View++) {
+                for (Viewpoint = 1; Viewpoint <= 28; Viewpoint++) {
+                    CodexDataFullNotify.typeDataList[6].codexIdList.push(70000000 + 100000*View + Viewpoint);
+                    CodexDataFullNotify.typeDataList[6].haveViewedList.push(true);
+                }
+            }
+
+            for (Reliquery = 1; Reliquery <= 9; Reliquery++) {
+                for (Reliquery2 = 1; Reliquery2 <= 9; Reliquery2++) {
+                    for (Reliquery3 = 1; Reliquery3 <= 9; Reliquery3++) {
+                        CodexDataFullNotify.typeDataList[7].codexIdList.push(30100000 + 1000*Reliquery + 100*Reliquery2 + Reliquery3);
+                        CodexDataFullNotify.typeDataList[7].haveViewedList.push(true);
+                    }
+                }
+            }
+
             console.log(CodexDataFullNotify);
             sendPacketAsyncByName(kcpobj, "CodexDataFullNotify", keyBuffer, await dataUtil.objToProtobuffer(CodexDataFullNotify, dataUtil.getPacketIDByProtoName("CodexDataFullNotify")));
 
@@ -719,10 +802,15 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "expireCondList": [],
                     "activityCoinMap": {},
                     "takenRewardList": [],
-                    "activityId": 5000 + Possible,
+                    "activityId": 5050 + Possible,
                     "scheduleId": 5038001,
                 }
             }
+
+            GetActivityInfoRsp.activityInfoList[1].trialAvatarInfo.rewardInfoList[0].trialAvatarIndexId = 45
+            GetActivityInfoRsp.activityInfoList[1].trialAvatarInfo.rewardInfoList[1].trialAvatarIndexId = 46
+            GetActivityInfoRsp.activityInfoList[1].trialAvatarInfo.rewardInfoList[2].trialAvatarIndexId = 47
+            GetActivityInfoRsp.activityInfoList[1].trialAvatarInfo.rewardInfoList[3].trialAvatarIndexId = 48
             
             // To protobuffer
             var GetActivityInfoRspData = await dataUtil.objToProtobuffer(GetActivityInfoRsp, dataUtil.getPacketIDByProtoName("GetActivityInfoRsp"));

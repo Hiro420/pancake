@@ -5,10 +5,10 @@ const protobuf = require("protobufjs");
 // Util
 const dataUtil = require("./util/dataUtil");
 
-var moreSliced = fs.readFileSync("./bin/ActivityInfoNotify.bin");
+var moreSliced = fs.readFileSync("./bin/CodexDataFullNotify.bin");
 
 
-var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName("ActivityInfoNotify"));
+var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName("CodexDataFullNotify"));
 
 
 protobuf.load("./proto/" + protoName + ".proto", function(err, root) {
