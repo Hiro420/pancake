@@ -29,11 +29,11 @@ Now open Genshin Impact and have fun.
 
 
 # TODO
-* Character Skill (Need AvatarExcelData)
-* Console (PrivateChatReq)
+* Character Skill (AvatarExcelData Related)
+* Console (PrivateChatReq, GetPlayerFriendListReq)
 * Change Avater (ChangeAvatarReq)
-* Teleport (SceneTransToPointReq)
-
+* Warp Point Teleport (Currently MarkMap Pin works as teleport)
+* Chasm light up, enable right tab
 
 # Modules Used
 Modules used for this project, will be adding more.

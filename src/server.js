@@ -108,6 +108,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             break;
         case "MarkMapReq":
+            // hack: mark map will teleport
+            
             if (!protobuff.op) {
                 posScene = {
                     "X": protobuff.mark.pos.X,
@@ -119,6 +121,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 const SceneEntityAppearNotifyw = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
                 SceneEntityAppearNotifyw.entityList[0].AvatarId = CharacterID
                 SceneEntityAppearNotifyw.entityList[0].motionInfo.pos = posScene
+
+                const PlayerEnterSceneInfoNotifyMap = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneInfoNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify"))
+                PlayerEnterSceneInfoNotifyMap.curAvatarEntityId = 16777959;
+    
+                sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotifyMap, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify")));
     
                 // To protobuffer;
                 sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotifyw, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
@@ -455,8 +462,19 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             //AvatarSatiationDataNotify
             // sendPacketAsyncByName(kcpobj, "AvatarSatiationDataNotify", keyBuffer);
 
+            // PlayerMatchInfoNotify 
+            const PlayerMatchInfoNotify = {
+                hostUid: 1
+            }
+			sendPacketAsyncByName(kcpobj, "PlayerMatchInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerMatchInfoNotify, dataUtil.getPacketIDByProtoName("PlayerMatchInfoNotify")))
+
+
             //RegionSearchNotify
-			// sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer);
+            const RegionSearchNotify = {
+                regionSearchList: [],
+                uid: 1
+            }
+			sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer, await dataUtil.objToProtobuffer(RegionSearchNotify, dataUtil.getPacketIDByProtoName("RegionSearchNotify")))
 
 
             //PlayerEnterSceneNotify
@@ -508,6 +526,19 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // To protobuffer
             console.log(PlayerLoginRsp)
             sendPacketAsyncByName(kcpobj, "PlayerLoginRsp", keyBuffer, await dataUtil.objToProtobuffer(PlayerLoginRsp, dataUtil.getPacketIDByProtoName("PlayerLoginRsp")));
+
+            // Console Test
+            const pcNotifyFirst = {
+                chatInfo: {
+                    uid: 2,
+                    toUid: 1,
+                    text: "Console",
+                    isRead: false
+                }
+            }
+            data = await dataUtil.objToProtobuffer(pcNotifyFirst, dataUtil.getPacketIDByProtoName("PrivateChatNotify"));
+            sendPacketAsyncByName(kcpobj, "PrivateChatNotify", keyBuffer, data)
+
             
             const CodexDataFullNotify = {
                 "typeDataList":[
@@ -702,8 +733,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // Response
 
             // need to change uid?
+            const GetPlayerSocialDetailRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/GetPlayerSocialDetailRsp.bin"), dataUtil.getPacketIDByProtoName("GetPlayerSocialDetailRsp"))
+            GetPlayerSocialDetailRsp.detailData.uid = 1
 
-            sendPacketAsyncByName(kcpobj, "GetPlayerSocialDetailRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "GetPlayerSocialDetailRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerSocialDetailRsp, dataUtil.getPacketIDByProtoName("GetPlayerSocialDetailRsp")));
 
             break;
 
@@ -768,7 +801,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetPlayerBlacklistReq":
 
             // Response
-            //sendPacketAsyncByName(kcpobj, "GetPlayerBlacklistRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "GetPlayerBlacklistRsp", keyBuffer)
 
             break;
 
@@ -825,7 +858,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             const WorldPlayerInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/WorldPlayerInfoNotify.bin"), dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"))
             WorldPlayerInfoNotify.playerInfoList[0].name = "Waffel | PANCAKE (PS)"
-	    WorldPlayerInfoNotify.playerUidList[0] = 1
             WorldPlayerInfoNotify.playerInfoList[0].uid = 1
             // To protobuffer
             data = await dataUtil.objToProtobuffer(WorldPlayerInfoNotify, dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"));
@@ -856,7 +888,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "SceneDataNotify", keyBuffer);
 
 			//SceneAreaWeatherNotify
-            const SceneAreaWeatherNotify = { "weatherAreaId": 3100, "climateType": 3 }
+            const SceneAreaWeatherNotify = { "weatherAreaId": 1, "climateType": 1 }
 
             sendPacketAsyncByName(kcpobj, "SceneAreaWeatherNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneAreaWeatherNotify, dataUtil.getPacketIDByProtoName("SceneAreaWeatherNotify")))
 
@@ -1174,29 +1206,25 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "GetAllActivatedBargainDataRsp", keyBuffer);
 
             break;
-
+        
         case "GetPlayerFriendListReq": // GetPlayerFriendListReq
-            
-            const GetPlayerFriendListRsp = {
-                "friendList":[
-                    {
-                        "uid":2,
-                        "nickname":"남행자",
-                        "level":59,
-                        "worldLevel":8,
-                        "param":1,
-                        "isMpModeAvailable":true,
-                        "lastActiveTime":1647154513,
-                        "nameCardId":210092,
-                        "showAvatarInfoList":[{"avatarId":10000058,"level":90},{"avatarId":10000052,"level":90},{"avatarId":10000002,"level":90},{"avatarId":10000037,"level":90},{"avatarId":10000049,"level":90},{"avatarId":10000054,"level":90},{"avatarId":10000051,"level":90},{"avatarId":10000046,"level":90}]
-                    }
-                ]
+            const GetPlayerFriendListRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/GetPlayerFriendListRsp.bin"), dataUtil.getPacketIDByProtoName("GetPlayerFriendListRsp"))
+
+            const friendBrief = 
+            {
+                showAvatarInfoList: [],
+                uid: 2,
+                nickname: 'a',
+                level: 59,
+                worldLevel: 8,
+                isMpModeAvailable: true,
+                lastActiveTime: 1647421569,
+                nameCardId: 210092
             }
             // To protobuffer
-            data = await dataUtil.objToProtobuffer(GetPlayerFriendListRsp, dataUtil.getPacketIDByProtoName("GetPlayerFriendListRsp"));
-            console.log(GetPlayerFriendListRsp);
-
-            sendPacketAsyncByName(kcpobj, "GetPlayerFriendListRsp", keyBuffer, data);
+            GetPlayerFriendListRsp.friendList.push(friendBrief)
+            
+            sendPacketAsyncByName(kcpobj, "GetPlayerFriendListRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerFriendListRsp, dataUtil.getPacketIDByProtoName("GetPlayerFriendListRsp")));
             break;
 
         case "ClientAbilityInitFinishNotify": // ClientAbilityInitFinishNotify
@@ -1214,6 +1242,15 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetShopReq":
             //console.log("XD %i", protobuff.shopType)
             //sendPacketAsyncByName(kcpobj, "GetShopRsp4", keyBuffer);
+
+            break;
+        
+        case "NpcTalkReq":
+            const NpcTalkRsp = {
+                curTalkId: protobuff.curTalkId,
+                entityId: protobuff.entityId
+            }
+            sendPacketAsyncByName(kcpobj, "NpcTalkRsp", keyBuffer, await dataUtil.objToProtobuffer(NpcTalkRsp, dataUtil.getPacketIDByProtoName("NpcTalkRsp")));
 
             break;
 
@@ -1355,7 +1392,7 @@ module.exports = {
                     var packetID = packetRemHeader.readUInt16BE(2); // Packet ID
                     if (![2349, 373, 3187, 19, 1, 49,100].includes(packetID)) {
 						var dataBuffer = await dataUtil.dataToProtobuffer(dataUtil.parsePacketData(recv), packetID);
-						console.log(dataBuffer);
+						// console.log(dataBuffer);
                         console.log(c.colog(32, "[KCP] Got packet %i (%s)"), packetID, dataUtil.getProtoNameByPacketID(packetID)); // Debug
                     }
 
