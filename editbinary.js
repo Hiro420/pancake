@@ -5,10 +5,10 @@ const protobuf = require("protobufjs");
 // Util
 const dataUtil = require("./util/dataUtil");
 
-var moreSliced = fs.readFileSync("./bin/ForgeDataNotify.bin");
+var protoname = "PostEnterSceneRsp"
 
-
-var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName("ForgeDataNotify"));
+var moreSliced = fs.readFileSync("./bin/"+protoname+".bin");
+var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName(protoname));
 
 
 protobuf.load("./proto/" + protoName + ".proto", function(err, root) {

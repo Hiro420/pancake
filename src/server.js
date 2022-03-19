@@ -111,11 +111,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // hack: mark map will teleport
             
             if (!protobuff.op) {
-                posScene = {
-                    "X": protobuff.mark.pos.X,
-                    "Y": 500.67052,
-                    "Z": protobuff.mark.pos.Z
+
+                if (protobuff.mark.name != "") {
+                    posScene = {
+                        "X": protobuff.mark.pos.X,
+                        "Y": protobuff.mark.name *= 1,
+                        "Z": protobuff.mark.pos.Z
+                    }
+                } else {
+                    posScene = {
+                        "X": protobuff.mark.pos.X,
+                        "Y": 500,
+                        "Z": protobuff.mark.pos.Z
+                    }
                 }
+            
                 console.log(posScene)
 
                 const SceneEntityAppearNotifyw = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
@@ -854,11 +864,13 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "WorldOwnerDailyTaskNotify", keyBuffer);
 
             //WorldPlayerInfoNotify
-            // maybe set as getplayersocialdetailrsp would work?
 
             const WorldPlayerInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/WorldPlayerInfoNotify.bin"), dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"))
             WorldPlayerInfoNotify.playerInfoList[0].name = "Waffel | PANCAKE (PS)"
             WorldPlayerInfoNotify.playerInfoList[0].uid = 1
+
+            WorldPlayerInfoNotify.playerUidList.push(1)
+            WorldPlayerInfoNotify.playerUidList.push(2)
             // To protobuffer
             data = await dataUtil.objToProtobuffer(WorldPlayerInfoNotify, dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"));
             sendPacketAsyncByName(kcpobj, "WorldPlayerInfoNotify", keyBuffer, data);
@@ -879,7 +891,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "SceneForceUnlockNotify", keyBuffer);
 
             //PlayerGameTimeNotify
-            sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer);
+            const PlayerGameTimeNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerGameTimeNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify"))
+            PlayerGameTimeNotify.uid = 1
+
+            sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer(PlayerGameTimeNotify, dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify")))
 
             //SceneTimeNotify
             sendPacketAsyncByName(kcpobj, "SceneTimeNotify", keyBuffer);
@@ -905,13 +920,16 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify2", keyBuffer);
 
             //HostPlayerNotify
-            sendPacketAsyncByName(kcpobj, "HostPlayerNotify", keyBuffer);
+            const HostPlayerNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/HostPlayerNotify.bin"), dataUtil.getPacketIDByProtoName("HostPlayerNotify"))
+            HostPlayerNotify.hostUid = 1
+
+            sendPacketAsyncByName(kcpobj, "HostPlayerNotify", keyBuffer,  await dataUtil.objToProtobuffer(HostPlayerNotify, dataUtil.getPacketIDByProtoName("HostPlayerNotify")))
 
             //ScenePlayerInfoNotify
             // very sus
             const ScenePlayerInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/ScenePlayerInfoNotify.bin"), dataUtil.getPacketIDByProtoName("ScenePlayerInfoNotify"))
             ScenePlayerInfoNotify.playerInfoList[0].name = "TeTT"
-            ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.nickname = "TeTT"
+            ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.nickname = "Waffel | PANCAKE (PS)"
             ScenePlayerInfoNotify.playerInfoList[0].signature = "응애에요"
 	        ScenePlayerInfoNotify.playerInfoList[0].uid = 1
             ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.uid = 1
@@ -1014,11 +1032,12 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetSceneAreaReq": // GetSceneAreaReq
 
             const GetSceneAreaRsp = {
-                areaIdList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,17,18,200],
+                areaIdList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,17,18,19,20,200],
                     cityInfoList: [
                         { cityId: 1, level: 8 },
                         { cityId: 2, level: 8 },
-                        { cityId: 3, level: 10 }
+                        { cityId: 3, level: 10 },
+                        { cityId: 4, level: 10 }
                     ],
                         sceneId: 3
             }
@@ -1208,23 +1227,34 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             break;
         
         case "GetPlayerFriendListReq": // GetPlayerFriendListReq
-            const GetPlayerFriendListRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/GetPlayerFriendListRsp.bin"), dataUtil.getPacketIDByProtoName("GetPlayerFriendListRsp"))
-
-            const friendBrief = 
-            {
-                showAvatarInfoList: [],
-                uid: 2,
-                nickname: 'a',
-                level: 59,
-                worldLevel: 8,
-                isMpModeAvailable: true,
-                lastActiveTime: 1647421569,
-                nameCardId: 210092
+            const GetPlayerFriendListRsp = {
+                retcode: 0,
+                friendList: [{
+                    uid: 2,
+                    nickname: 'WAFFEL',
+                    level: 59,
+                    worldLevel: 8,
+                    param: 1,
+                    isMpModeAvailable: false,
+                    lastActiveTime: 1647421569,
+                    nameCardId: 210092,
+                    showAvatarInfoList:[{"avatarId":10000058,"level":90},{"avatarId":10000052,"level":90},{"avatarId":10000002,"level":90},{"avatarId":10000037,"level":90},{"avatarId":10000049,"level":90},{"avatarId":10000054,"level":90},{"avatarId":10000051,"level":90},{"avatarId":10000046,"level":90}]
+                }]
             }
             // To protobuffer
-            GetPlayerFriendListRsp.friendList.push(friendBrief)
+            console.log(GetPlayerFriendListRsp)
             
             sendPacketAsyncByName(kcpobj, "GetPlayerFriendListRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerFriendListRsp, dataUtil.getPacketIDByProtoName("GetPlayerFriendListRsp")));
+            break;
+
+        case "GetPlayerAskFriendListReq": // GetPlayerAskFriendListReq
+            const GetPlayerAskFriendListRsp = {
+                askFriendList: []
+            }
+            // To protobuffer
+            console.log(GetPlayerAskFriendListRsp)
+            
+            sendPacketAsyncByName(kcpobj, "GetPlayerAskFriendListRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerAskFriendListRsp, dataUtil.getPacketIDByProtoName("GetPlayerAskFriendListRsp")));
             break;
 
         case "ClientAbilityInitFinishNotify": // ClientAbilityInitFinishNotify
