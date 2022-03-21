@@ -29,9 +29,12 @@ Now open Genshin Impact and have fun.
 
 
 # TODO
-* Console (PrivateChatReq, GetPlayerFriendListReq)
 * Character Skill (AvatarExcelData Related)
 * Change Avater (ChangeAvatarReq)
+
+# Todo but not really needed
+* Console in PrivateChat
+* Teleport Work
 
 # Modules Used
 Modules used for this project, will be adding more.
