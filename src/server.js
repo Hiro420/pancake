@@ -19,6 +19,8 @@ var clients = {};
 // Time
 var epochTime = Date.now();
 
+// SceneId
+var sceneIdSelect = 3
 
 // i hardcoded this so bad lmao
 var seedKey = undefined; // Hardcoding is no more :crab:
@@ -85,7 +87,7 @@ posScene = {
     "Y": 300,
     "Z": -673
 }
-var AreaRspCount, PointRspCount, WorldAreaCount, GachaRspValue = 0
+var AreaRspCount, PointRspCount, WorldAreaCount = 0
 async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
     // Packed ID By Name so no more HARDCODING
@@ -125,8 +127,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         "Z": protobuff.mark.pos.Z
                     }
                 }
-            
-                console.log(posScene)
 
                 const SceneEntityAppearNotifyw = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
                 SceneEntityAppearNotifyw.entityList[0].AvatarId = CharacterID
@@ -150,7 +150,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             // Secret Key is now 2 to make it easier
             GetPlayerTokenRsp.secretKeySeed = 2
-            GetPlayerTokenRsp.uid = 1
+            GetPlayerTokenRsp.uid = 624263971
             //GetPlayerTokenRsp.accountUid = "1"
             //GetPlayerTokenRsp.gmUid = "1"
 
@@ -170,12 +170,27 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             break;
 
+        case "DungeonEntryInfoReq":
+
+            const DungeonEntryInfoRsp = {
+                "pointId":protobuff.pointId,
+                "dungeonEntryList":[{"dungeonId":4019}], // related to drop reward
+                "recommendDungeonId":4019
+            }
+
+            sendPacketAsyncByName(kcpobj, "DungeonEntryInfoRsp", keyBuffer, await dataUtil.objToProtobuffer(DungeonEntryInfoRsp, dataUtil.getPacketIDByProtoName("DungeonEntryInfoRsp")));
+            
+            break;
+
+
         case "TowerAllDataReq": // TowerAllDataReq
 
             const TowerAllDataRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("bin/TowerAllDataRsp.bin"), dataUtil.getPacketIDByProtoName("TowerAllDataRsp"))
 			
 			TowerAllDataRsp.isFinishedEntranceFloor = true
 			TowerAllDataRsp.isFirstInteract = true
+
+            TowerAllDataRsp.towerScheduleId = 43 // Spiral Abyss (Blocked in beta)
 			
 			sendPacketAsyncByName(kcpobj, "TowerAllDataRsp", keyBuffer, await dataUtil.objToProtobuffer(TowerAllDataRsp, dataUtil.getPacketIDByProtoName("TowerAllDataRsp")))
 			
@@ -226,7 +241,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             SceneEntityAppearNotify.entityList[0].AvatarId = CharacterID
 			SceneEntityAppearNotify.entityList[0].equipGuidList = "2600256355860217858"
 			SceneEntityAppearNotify.entityList[0].motionInfo.pos = posScene
-			SceneEntityAppearNotify.entityList[0].avatar.uid = 1
+			SceneEntityAppearNotify.entityList[0].avatar.uid = 624263971
             // To protobuffer;
             sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
             sendPacketAsyncByName(kcpobj, "EnterSceneDoneRsp", keyBuffer)
@@ -474,7 +489,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             // PlayerMatchInfoNotify 
             const PlayerMatchInfoNotify = {
-                hostUid: 1
+                hostUid: 624263971
             }
 			sendPacketAsyncByName(kcpobj, "PlayerMatchInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerMatchInfoNotify, dataUtil.getPacketIDByProtoName("PlayerMatchInfoNotify")))
 
@@ -482,7 +497,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             //RegionSearchNotify
             const RegionSearchNotify = {
                 regionSearchList: [],
-                uid: 1
+                uid: 624263971
             }
 			sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer, await dataUtil.objToProtobuffer(RegionSearchNotify, dataUtil.getPacketIDByProtoName("RegionSearchNotify")))
 
@@ -490,7 +505,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             //PlayerEnterSceneNotify
             const PlayerEnterSceneNotify1 = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify"))
             PlayerEnterSceneNotify1.pos = posScene
-            PlayerEnterSceneNotify1.targetUid = 1
+            PlayerEnterSceneNotify1.targetUid = 624263971
+            PlayerEnterSceneNotify1.sceneId = sceneIdSelect
             console.log(PlayerEnterSceneNotify1)
             sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneNotify1, dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify")));
 
@@ -501,7 +517,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 "retcode": 0,
                 "playerData": [],
                 "isNewPlayer": false,
-                "targetUid": 1,
+                "targetUid": 624263971,
                 "loginRand": 0,
                 "isUseAbilityHash": false,
                 "abilityHashCode": 0,
@@ -527,7 +543,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 "countryCode": "",
                 "nextResVersionConfig": null,
                 "nextResourceUrl": "",
-                "targetHomeOwnerUid": 1,
+                "targetHomeOwnerUid": 624263971,
                 "isEnableClientHashDebug": false,
                 "isTransfer": false,
                 "totalTickTime": 0.0
@@ -536,18 +552,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // To protobuffer
             console.log(PlayerLoginRsp)
             sendPacketAsyncByName(kcpobj, "PlayerLoginRsp", keyBuffer, await dataUtil.objToProtobuffer(PlayerLoginRsp, dataUtil.getPacketIDByProtoName("PlayerLoginRsp")));
-
-            // Console Test
-            const pcNotifyFirst = {
-                chatInfo: {
-                    uid: 2,
-                    toUid: 1,
-                    text: "Console",
-                    isRead: false
-                }
-            }
-            data = await dataUtil.objToProtobuffer(pcNotifyFirst, dataUtil.getPacketIDByProtoName("PrivateChatNotify"));
-            sendPacketAsyncByName(kcpobj, "PrivateChatNotify", keyBuffer, data)
 
             
             const CodexDataFullNotify = {
@@ -744,7 +748,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             // need to change uid?
             const GetPlayerSocialDetailRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/GetPlayerSocialDetailRsp.bin"), dataUtil.getPacketIDByProtoName("GetPlayerSocialDetailRsp"))
-            GetPlayerSocialDetailRsp.detailData.uid = 1
+            GetPlayerSocialDetailRsp.detailData.uid = 624263971
 
             sendPacketAsyncByName(kcpobj, "GetPlayerSocialDetailRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerSocialDetailRsp, dataUtil.getPacketIDByProtoName("GetPlayerSocialDetailRsp")));
 
@@ -825,7 +829,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "EnterSceneReadyReq":
 
             // EnterScenePeerNotify
-            sendPacketAsyncByName(kcpobj, "EnterScenePeerNotify", keyBuffer);
+            const EnterScenePeerNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/EnterScenePeerNotify.bin"), dataUtil.getPacketIDByProtoName("EnterScenePeerNotify"))
+
+            EnterScenePeerNotify.destSceneId = sceneIdSelect
+
+            sendPacketAsyncByName(kcpobj, "EnterScenePeerNotify", keyBuffer, await dataUtil.objToProtobuffer(EnterScenePeerNotify, dataUtil.getPacketIDByProtoName("EnterScenePeerNotify")));
 
             // Response
             sendPacketAsyncByName(kcpobj, "EnterSceneReadyRsp", keyBuffer)
@@ -867,10 +875,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             const WorldPlayerInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/WorldPlayerInfoNotify.bin"), dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"))
             WorldPlayerInfoNotify.playerInfoList[0].name = "Waffel | PANCAKE (PS)"
-            WorldPlayerInfoNotify.playerInfoList[0].uid = 1
+            WorldPlayerInfoNotify.playerInfoList[0].uid = 624263971
 
-            WorldPlayerInfoNotify.playerUidList.push(1)
-            WorldPlayerInfoNotify.playerUidList.push(2)
+            WorldPlayerInfoNotify.playerUidList.push(624263971)
+            WorldPlayerInfoNotify.playerUidList.push(624263972)
             // To protobuffer
             data = await dataUtil.objToProtobuffer(WorldPlayerInfoNotify, dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"));
             sendPacketAsyncByName(kcpobj, "WorldPlayerInfoNotify", keyBuffer, data);
@@ -892,7 +900,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //PlayerGameTimeNotify
             const PlayerGameTimeNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerGameTimeNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify"))
-            PlayerGameTimeNotify.uid = 1
+            PlayerGameTimeNotify.uid = 624263971
 
             sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer(PlayerGameTimeNotify, dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify")))
 
@@ -921,7 +929,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //HostPlayerNotify
             const HostPlayerNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/HostPlayerNotify.bin"), dataUtil.getPacketIDByProtoName("HostPlayerNotify"))
-            HostPlayerNotify.hostUid = 1
+            HostPlayerNotify.hostUid = 624263971
 
             sendPacketAsyncByName(kcpobj, "HostPlayerNotify", keyBuffer,  await dataUtil.objToProtobuffer(HostPlayerNotify, dataUtil.getPacketIDByProtoName("HostPlayerNotify")))
 
@@ -931,9 +939,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             ScenePlayerInfoNotify.playerInfoList[0].name = "TeTT"
             ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.nickname = "Waffel | PANCAKE (PS)"
             ScenePlayerInfoNotify.playerInfoList[0].signature = "응애에요"
-	        ScenePlayerInfoNotify.playerInfoList[0].uid = 1
-            ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.uid = 1
+	        ScenePlayerInfoNotify.playerInfoList[0].uid = 624263971
+            ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.uid = 624263971
             ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.nameCardId = 210112
+            ScenePlayerInfoNotify.playerInfoList[0].sceneId = sceneIdSelect
             // To protobuffer
             data = await dataUtil.objToProtobuffer(ScenePlayerInfoNotify, dataUtil.getPacketIDByProtoName("ScenePlayerInfoNotify"));
             sendPacketAsyncByName(kcpobj, "ScenePlayerInfoNotify", keyBuffer, data);
@@ -1057,8 +1066,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "PrivateChatReq":
             let PrivateChatNotify = {
                 chatInfo: {
-                    uid: 2,
-                    toUid: 1,
+                    uid: 624263972,
+                    toUid: 624263971,
                     text: protobuff.text,
                     isRead: false
                 }
@@ -1181,8 +1190,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             PrivateChatNotify = {
                 chatInfo: {
-                    uid: 2,
-                    toUid: 1,
+                    uid: 624263972,
+                    toUid: 624263971,
                     text: reply,
                     isRead: false
                 }
@@ -1226,18 +1235,37 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             break;
         
+        case "GetChatEmojiCollectionReq": // GetChatEmojiCollectionReq
+            
+            sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer);
+            break;
+        
+        case "PullRecentChatReq":
+            const PullRecentChatRsp = {
+                "chatInfo": [{
+                    "time": 1647437836,
+                    "uid": 624263972,
+                    "toUid": 624263971,
+                    "text": "Console"
+                }]
+            }
+            sendPacketAsyncByName(kcpobj, "PullRecentChatRsp", keyBuffer, await dataUtil.objToProtobuffer(PullRecentChatRsp, dataUtil.getPacketIDByProtoName("PullRecentChatRsp")));
+            break;
+        
         case "GetPlayerFriendListReq": // GetPlayerFriendListReq
             const GetPlayerFriendListRsp = {
-                retcode: 0,
                 friendList: [{
-                    uid: 2,
+                    uid: 624263972,
                     nickname: 'WAFFEL',
                     level: 59,
+                    avatarId: 10000058,
                     worldLevel: 8,
+                    signature: "",
                     param: 1,
                     isMpModeAvailable: false,
                     lastActiveTime: 1647421569,
                     nameCardId: 210092,
+                    isChatNoDisturb: false,
                     showAvatarInfoList:[{"avatarId":10000058,"level":90},{"avatarId":10000052,"level":90},{"avatarId":10000002,"level":90},{"avatarId":10000037,"level":90},{"avatarId":10000049,"level":90},{"avatarId":10000054,"level":90},{"avatarId":10000051,"level":90},{"avatarId":10000046,"level":90}]
                 }]
             }
@@ -1260,12 +1288,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "ClientAbilityInitFinishNotify": // ClientAbilityInitFinishNotify
 
             console.log("ClientAbilityInitFinishNotify")
-
-            break;
-
-        case "TowerAllDataReq":
-
-            sendPacketAsyncByName(kcpobj, "TowerAllDataRsp", keyBuffer);
 
             break;
 
@@ -1302,11 +1324,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             const DoGachaRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/DoGachaRsp.bin"), dataUtil.getPacketIDByProtoName("DoGachaRsp"))
             DoGachaRsp.tenCostItemNum = 0
             
-            for(let x = 0; x<10; x++) {
+            for(let x = 0; x<66; x++) {
                 DoGachaRsp.gachaItemList[x] = {
                         transferItems: [],
                         tokenItemList: [ { itemId: 222, count: 15 } ],
-                        gachaItem_: { itemId: GachaRspValue+x, count: 1 }
+                        gachaItem_: { itemId: 1001+x, count: 1 }
                 }
             }
 
@@ -1319,7 +1341,113 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             break;
             
         case "SetPlayerSignatureReq":
-            GachaRspValue = parseInt(protobuff.signature)
+
+            // $$$ Temporary Console $$$
+
+            
+            var toBuff = Buffer.from(protobuff.signature)
+            var command = toBuff.toString().split(" ")[0]
+            var args = toBuff.toString().trim().split(" ")
+            var reply = "PLACEHOLDER"
+            switch (command) {
+                case "inv":
+                    if (args[1] == "add") {
+                        const obj = {
+                            "itemId": parseInt(args[2]),
+                            "guid": "2681193339516092" + Math.random() * (99 - 10) + 10,
+                        }
+                        if (args[3] == "w") {
+                            obj["equip"] = {
+                                "weapon": {
+                                    "level": args[4]
+                                }
+                            }
+                        }
+                        else if (args[3] == "m") {
+                            obj["material"] = {
+                                count: args[4]
+                            }
+
+                        } else {
+                            reply = "Usage: inv (add) (w/m) (id) (level/count)"
+                            break;
+                        }
+                        PlayerStoreNotify.itemList.push(obj);
+                        data = await dataUtil.objToProtobuffer(PlayerStoreNotify, dataUtil.getPacketIDByProtoName("PlayerStoreNotify"));
+                        sendPacketAsyncByName(kcpobj, "PlayerStoreNotify", keyBuffer, data)
+                    }
+                    else {
+                        reply = "Usage: inv (add) (w/m) (id) (level/count)"
+                        break;
+                    }
+                    reply = `Added ${args[3] == "m" ? "Material" : "Weapon"} number ${args[2]} with a ${args[3] == "m" ? "count" : "level"} of ${args[4]}`
+                    break;
+                case "s":
+                case "send":
+                    sendPacketAsyncByName(kcpobj, args[1], keyBuffer)
+                    reply = `Sent packet ${dataUtil.getPacketIDByProtoName(args[1])} (${args[1]}) to client`
+                    break;
+                case "r":
+                case "backtonormal":
+                case "reset":
+                case "restart":
+                    sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer)
+                    reply = "Restarting..."
+                    break;
+                case "w":
+                case "weather":
+                    const weatherCommandData = {
+                        weatherValueMap: {},
+                        weatherAreaId: parseInt(args[1]),
+                        climateType: 3
+                    }
+                    sendPacketAsyncByName(kcpobj, "SceneAreaWeatherNotify", keyBuffer, await dataUtil.objToProtobuffer(weatherCommandData, dataUtil.getPacketIDByProtoName("SceneAreaWeatherNotify")))
+                    reply = "Weather has been set to: " + args[1]
+                    break;
+                case "t":
+                case "time":
+                    const PlayerGameTimeNotifyData = {
+                        gameTime: parseInt(args[1])
+                    }
+                    sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerGameTimeNotifyData, dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify")))
+                    reply = "Time has been set to: " + args[1]
+                    break;
+                case "av":
+                case "avatar":
+                    if (args[1] == "add" || args[1] == "a") {
+                        ShowAvatarList.push(args[2])
+                    }
+                    else if (args[1] == "remove" || args[1] == "r") {
+                        for (var _ in ShowAvatarList)
+                            if (_ == args[2])
+                                ShowAvatarList.splice(_, 1)
+                    }
+                    else if (args[1] == "list" || args[1] == "l") {
+                        reply = ShowAvatarList
+                    }
+                    else {
+                        reply = "Usage: av ([a]dd/[r]emove/[l]ist) (id)\n\nNOTE: [R]EMOVE IS BY INDEX NOT BY VALUE"
+                        break;
+                    }
+                    break;
+                default:
+                    reply = "Command doesnt seem to exist..."
+            }
+
+            // Console Test
+            const pcNotifyFirst = {
+                chatInfo: {
+                    uid: 624263972,
+                    toUid: 624263971,
+                    text: reply,
+                    isRead: false
+                }
+            }
+            data = await dataUtil.objToProtobuffer(pcNotifyFirst, dataUtil.getPacketIDByProtoName("PrivateChatNotify"));
+            sendPacketAsyncByName(kcpobj, "PrivateChatNotify", keyBuffer, data)
+
+
+
             const SetPlayerSignatureRsp = {
                 retcode: 0,
                 signature: protobuff.signature
