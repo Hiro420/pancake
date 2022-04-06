@@ -31,9 +31,6 @@ Now open Genshin Impact and have fun.
 # TODO
 * Character Skill (AvatarExcelData Related)
 * Change Avater (ChangeAvatarReq)
-
-# Todo but not really needed
-* Console in PrivateChat
 * Teleport Work
 
 # Modules Used
