@@ -29,8 +29,15 @@ var token = 0x00000000;
 
 var server = dgram.createSocket("udp4");
 
-var CharacterID = 10000007
+var CharacterID = 10000066
 var TalentID = 50
+
+var skillLevelMap =   
+{
+    '10661': 1,
+    '10662': 1,
+    '10663': 1,
+}
 
 var MHYKey = "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";
 var initialKey = Buffer.from(MHYKey,'base64');
@@ -132,6 +139,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 const SceneEntityAppearNotifyw = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
                 SceneEntityAppearNotifyw.entityList[0].AvatarId = CharacterID
                 SceneEntityAppearNotifyw.entityList[0].motionInfo.pos = posScene
+                SceneEntityAppearNotifyw.entityList[0].uid = 83000
+
+                SceneEntityAppearNotifyw.entityList[0].skillLevelMap = skillLevelMap
+
 
                 const PlayerEnterSceneInfoNotifyMap = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneInfoNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify"))
                 PlayerEnterSceneInfoNotifyMap.curAvatarEntityId = 16777959;
@@ -175,8 +186,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             const DungeonEntryInfoRsp = {
                 "pointId":protobuff.pointId,
-                "dungeonEntryList":[{"dungeonId":4019}], // related to drop reward
-                "recommendDungeonId":4019
+                "dungeonEntryList":[
+                    {"dungeonId":5200}
+                ], // related to drop reward
+                "recommendDungeonId":5200
             }
 
             sendPacketAsyncByName(kcpobj, "DungeonEntryInfoRsp", keyBuffer, await dataUtil.objToProtobuffer(DungeonEntryInfoRsp, dataUtil.getPacketIDByProtoName("DungeonEntryInfoRsp")));
@@ -240,9 +253,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             //sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer)
             const SceneEntityAppearNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
             SceneEntityAppearNotify.entityList[0].AvatarId = CharacterID
-			SceneEntityAppearNotify.entityList[0].equipGuidList = "2600256355860217858"
 			SceneEntityAppearNotify.entityList[0].motionInfo.pos = posScene
 			SceneEntityAppearNotify.entityList[0].avatar.uid = 83000
+            
+            SceneEntityAppearNotify.entityList[0].skillLevelMap = skillLevelMap
             // To protobuffer;
             sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
             sendPacketAsyncByName(kcpobj, "EnterSceneDoneRsp", keyBuffer)
@@ -278,7 +292,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // how to fix skills?
             // do not touch avatarList[0]
             
-            //AvatarDataNotify.avatarList[2].avatarId = 10000035;
+            AvatarDataNotify.avatarList[1].avatarId = CharacterID;
+            AvatarDataNotify.avatarList[1].skillLevelMap = skillLevelMap;
+            AvatarDataNotify.avatarList[1].skillDepotId = 6601;
+
             sendPacketAsyncByName(kcpobj, "AvatarDataNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarDataNotify, dataUtil.getPacketIDByProtoName("AvatarDataNotify")));
 
             // ActivityScheduleInfoNotify
@@ -291,7 +308,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             for (Possible = 3; Possible <= 100; Possible++)
             {
                 ActivityScheduleInfoNotify.activityScheduleList[Possible] = {
-                    "activityId": 5050 + Possible,
+                    "activityId": 5050 + Possible, // 5000 start
                     "isOpen": true,
                     "scheduleId": 5039001,
                     "beginTime": 1626822000,
@@ -333,63 +350,96 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "2": 1,
                     "3": 1,
                     "4": 1,
+                    "10": 1,
                     "5": 1,
                     "6": 1,
                     "7": 1,
                     "8": 1,
-                    "10": 1,
+                    "9": 1,
                     "11": 1,
                     "12": 1,
+                    "31": 1,
+                    "30": 1,
+                    "37": 1,
+                    "39": 1,
+                    "45": 1,
+                    "54": 1,
+                    "2100": 1,
                     "13": 1,
                     "14": 1,
                     "15": 1,
                     "16": 1,
+                    "17": 1,
                     "18": 1,
                     "19": 1,
+                    "20": 1,
                     "21": 1,
                     "22": 1,
                     "23": 1,
+                    "24": 1,
                     "25": 1,
+                    "26": 1,
                     "27": 1,
                     "28": 1,
                     "29": 1,
-                    "30": 1,
-                    "31": 1,
                     "32": 1,
                     "33": 1,
+                    "34": 1,
                     "35": 1,
                     "36": 1,
-                    "37": 1,
                     "38": 1,
-                    "39": 1,
                     "40": 1,
-                    "45": 1,
-                    "47": 1,
-                    "49": 1,
+                    "41": 1,
                     "50": 1,
                     "51": 1,
+                    "59": 1,
                     "52": 1,
                     "53": 1,
-                    "54": 1,
-                    "55": 1,
                     "56": 1,
-                    "57": 1,
                     "58": 1,
-                    "59": 1,
+                    "76": 1,
                     "60": 1,
                     "61": 1,
                     "62": 1,
+                    "63": 1,
                     "64": 1,
-                    "65": 1,
                     "66": 1,
+                    "67": 1,
+                    "68": 1,
+                    "69": 1,
+                    "70": 1,
+                    "71": 1,
+                    "72": 1,
+                    "73": 1,
                     "74": 1,
-                    "800": 1,
-                    "801": 1,
-                    "802": 1,
-                    "900": 1,
-                    "901": 1,
-                    "902": 1,
-                    "903": 1,
+                    "75": 1,
+                    "77": 1,
+                    "78": 1,
+                    "79": 1,
+                    "80": 1,
+                    "81": 1,
+                    "82": 1,
+                    "83": 1,
+                    "84": 1,
+                    "2001": 1,
+                    "2002": 1,
+                    "2003": 1,
+                    "2004": 1,
+                    "2104": 1,
+                    "2105": 1,
+                    "2106": 1,
+                    "1411": 1,
+                    "1412": 1,
+                    "2205": 1,
+                    "2206": 1,
+                    "2400": 1,
+                    "2401": 1,
+                    "2402": 1,
+                    "2210": 1,
+                    "2211": 1,
+                    "2212": 1,
+                    "57": 1,
+                    "43": 1,
                     "1001": 1,
                     "1002": 1,
                     "1003": 1,
@@ -400,28 +450,67 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "1008": 1,
                     "1009": 1,
                     "1010": 1,
+                    "903": 1,
+                    "901": 1,
+                    "902": 1,
+                    "900": 1,
+                    "1011": 1,
+                    "1013": 1,
                     "1100": 1,
-                    "1102": 1,
                     "1103": 1,
+                    "1101": 1,
+                    "1102": 1,
                     "1104": 1,
+                    "44": 1,
+                    "47": 1,
+                    "48": 1,
+                    "49": 1,
+                    "1403": 1,
+                    "1200": 1,
+                    "1201": 1,
+                    "1202": 1,
                     "1300": 1,
                     "1301": 1,
+                    "55": 1,
                     "1401": 1,
                     "1402": 1,
-                    "1403": 1,
+                    "802": 1,
+                    "800": 1,
+                    "801": 1,
+                    "803": 1,
                     "1404": 1,
                     "1405": 1,
+                    "1409": 1,
+                    "65": 1,
                     "1406": 1,
+                    "1407": 1,
                     "1408": 1,
+                    "1410": 1,
+                    "2200": 1,
+                    "2201": 1,
+                    "1502": 1,
+                    "1500": 1,
                     "1501": 1,
                     "1700": 1,
+                    "1600": 1,
+                    "1504": 1,
+                    "1505": 1,
                     "2000": 1,
-                    "2100": 1,
+                    "1012": 1,
+                    "1503": 1,
+                    "85": 1,
+                    "86": 1,
                     "2101": 1,
-                    "2200": 1,
-                    "2400": 1,
-                    "2500": 1
-                  }
+                    "2103": 1,
+                    "2102": 1,
+                    "2005": 1,
+                    "87": 1,
+                    "88": 1,
+                    "89": 1,
+                    "2500": 1,
+                    "2403": 1,
+                    "2501": 1,
+                }
             }
 			sendPacketAsyncByName(kcpobj, "OpenStateUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(OpenStateUpdateNotify,
             await dataUtil.getPacketIDByProtoName("OpenStateUpdateNotify")));
@@ -879,7 +968,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             WorldPlayerInfoNotify.playerInfoList[0].uid = 83000
 
             WorldPlayerInfoNotify.playerUidList.push(83000)
-            WorldPlayerInfoNotify.playerUidList.push(114514)
             // To protobuffer
             data = await dataUtil.objToProtobuffer(WorldPlayerInfoNotify, dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"));
             sendPacketAsyncByName(kcpobj, "WorldPlayerInfoNotify", keyBuffer, data);
@@ -917,16 +1005,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "SceneAreaWeatherNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneAreaWeatherNotify, dataUtil.getPacketIDByProtoName("SceneAreaWeatherNotify")))
 
             //AvatarEquipChangeNotify
-            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify2", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify", keyBuffer);
 
-            //AvatarEquipChangeNotify1
-            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify1", keyBuffer);
-
-            //AvatarEquipChangeNotify2
-            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify1", keyBuffer);
-
-            //AvatarEquipChangeNotify3
-            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify2", keyBuffer);
 
             //HostPlayerNotify
             const HostPlayerNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/HostPlayerNotify.bin"), dataUtil.getPacketIDByProtoName("HostPlayerNotify"))
@@ -1011,6 +1091,9 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         
         case "CombatInvocationsNotify":
             break;
+        
+        case "InteractDailyDungeonInfoNotify":
+            break;
 
         case "SceneTransToPointReq":
             
@@ -1069,7 +1152,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "PrivateChatReq":
             let PrivateChatNotify = {
                 chatInfo: {
-                    uid: 114514,
+                    uid: 83000,
                     toUid: 83000,
                     text: protobuff.text,
                     isRead: false
@@ -1079,301 +1162,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "PrivateChatNotify", keyBuffer, data)
 
             var toBuff = Buffer.from(protobuff.text)
-            var command = toBuff.toString().split(" ")[0]
-            var args = toBuff.toString().trim().split(" ")
-            var reply = "PLACEHOLDER"
-            switch (command) {
-                case "inv":
-                    if (args[1] == "add") {
-                        const obj = {
-                            "itemId": parseInt(args[2]),
-                            "guid": "2681193339516092" + Math.random() * (99 - 10) + 10,
-                        }
-                        if (args[3] == "w") {
-                            obj["equip"] = {
-                                "weapon": {
-                                    "level": args[4]
-                                }
-                            }
-                        }
-                        else if (args[3] == "m") {
-                            obj["material"] = {
-                                count: args[4]
-                            }
-
-                        } else {
-                            reply = "Usage: inv (add) (w/m) (id) (level/count)"
-                            break;
-                        }
-                        PlayerStoreNotify.itemList.push(obj);
-                        data = await dataUtil.objToProtobuffer(PlayerStoreNotify, dataUtil.getPacketIDByProtoName("PlayerStoreNotify"));
-                        sendPacketAsyncByName(kcpobj, "PlayerStoreNotify", keyBuffer, data)
-                    }
-                    else {
-                        reply = "Usage: inv (add) (w/m) (id) (level/count)"
-                        break;
-                    }
-                    reply = `Added ${args[3] == "m" ? "Material" : "Weapon"} number ${args[2]} with a ${args[3] == "m" ? "count" : "level"} of ${args[4]}`
-                    break;
-                case "s":
-                case "send":
-                    sendPacketAsyncByName(kcpobj, args[1], keyBuffer)
-                    reply = `Sent packet ${dataUtil.getPacketIDByProtoName(args[1])} (${args[1]}) to client`
-                    break;
-                case "r":
-                case "backtonormal":
-                case "reset":
-                case "restart":
-                    sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer)
-                    reply = "Restarting..."
-                    break;
-                case "w":
-                case "weather":
-                    const weatherCommandData = {
-                        weatherValueMap: {},
-                        weatherAreaId: parseInt(args[1]),
-                        climateType: 3
-                    }
-                    sendPacketAsyncByName(kcpobj, "SceneAreaWeatherNotify", keyBuffer, await dataUtil.objToProtobuffer(weatherCommandData, dataUtil.getPacketIDByProtoName("SceneAreaWeatherNotify")))
-                    reply = "Weather has been set to: " + args[1]
-                    break;
-                case "t":
-                case "time":
-                    const PlayerGameTimeNotifyData = {
-                        gameTime: parseInt(args[1])
-                    }
-                    sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerGameTimeNotifyData, dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify")))
-                    reply = "Time has been set to: " + args[1]
-                    break;
-                case "av":
-                case "avatar":
-                    if (args[1] == "add" || args[1] == "a") {
-                        ShowAvatarList.push(args[2])
-                    }
-                    else if (args[1] == "remove" || args[1] == "r") {
-                        for (var _ in ShowAvatarList)
-                            if (_ == args[2])
-                                ShowAvatarList.splice(_, 1)
-                    }
-                    else if (args[1] == "list" || args[1] == "l") {
-                        reply = ShowAvatarList
-                    }
-                    else {
-                        reply = "Usage: av ([a]dd/[r]emove/[l]ist) (id)\n\nNOTE: [R]EMOVE IS BY INDEX NOT BY VALUE"
-                        break;
-                    }
-                    break;
-				case "pos":
-                case "loc":
-                    const SceneEntityAppearNotify5 = {
-                        "entityList": [{
-                            "motionInfo": {
-                                "pos":
-                                {
-                                    "X": parseInt(args[1]) || 0,
-                                    "Y": parseInt(args[2]) || 0,
-                                    "Z": parseInt(args[3]) || 0
-                                },
-                                "rot":
-                                {
-                                    "Y": parseInt(args[4]) || 0
-                                }
-                            }
-                        }],
-                    }
-                    sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify5, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")))
-                    reply = `Player Pos is now X: ${SceneEntityAppearNotify5.entityList[0].motionInfo.pos.X}
-                    Y: ${SceneEntityAppearNotify5.entityList[0].motionInfo.pos.Y}
-                    Z: ${SceneEntityAppearNotify5.entityList[0].motionInfo.pos.Z}
-                    ROT: ${SceneEntityAppearNotify5.entityList[0].motionInfo.rot.Y}`
-                    break;
-                default:
-                    reply = "Command doesnt seem to exist..."
-            }
-
-            PrivateChatNotify = {
-                chatInfo: {
-                    uid: 114514,
-                    toUid: 83000,
-                    text: reply,
-                    isRead: false
-                }
-            }
-            data = await dataUtil.objToProtobuffer(PrivateChatNotify, dataUtil.getPacketIDByProtoName("PrivateChatNotify"));
-            sendPacketAsyncByName(kcpobj, "PrivateChatNotify", keyBuffer, data)
-
-            sendPacketAsyncByName(kcpobj, "PrivateChatRsp", keyBuffer)
-
-            break;
-
-        case "GetScenePointReq": // GetScenePointReq
-
-            // Response
-            var XD = PointRspCount > 0 ? PointRspCount : "";
-            sendPacketAsyncByName(kcpobj, "GetScenePointRsp" + XD, keyBuffer)
-            PointRspCount++
-
-            break;
-
-        case "GetWidgetSlotReq":
-
-            sendPacketAsyncByName(kcpobj, "GetWidgetSlotRsp", keyBuffer)
-
-            break;
-
-        case "GetRegionSearchReq":
-            sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer)
-
-            break;
-
-        case "ReunionBriefInfoReq": // ReunionBriefInfoReq
-
-            sendPacketAsyncByName(kcpobj, "ReunionBriefInfoRsp", keyBuffer)
-
-            break;
-
-        case "GetAllActivatedBargainDataReq": // GetAllActivatedBargainDataReq
-
-            sendPacketAsyncByName(kcpobj, "GetAllActivatedBargainDataRsp", keyBuffer);
-
-            break;
-        
-        case "GetChatEmojiCollectionReq": // GetChatEmojiCollectionReq
-            
-            sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer);
-            break;
-        
-        case "PullRecentChatReq":
-            const PullRecentChatRsp = {
-                "chatInfo": [{
-                    "time": 1647437836,
-                    "uid": 114514,
-                    "toUid": 83000,
-                    "text": "Console"
-                }]
-            }
-            sendPacketAsyncByName(kcpobj, "PullRecentChatRsp", keyBuffer, await dataUtil.objToProtobuffer(PullRecentChatRsp, dataUtil.getPacketIDByProtoName("PullRecentChatRsp")));
-            break;
-        
-        case "GetPlayerFriendListReq": // GetPlayerFriendListReq
-            const GetPlayerFriendListRsp = {
-                friendList: [
-                    {
-                        uid: 114514,
-                        nickname: 'WAFFEL',
-                        level: 59,
-                        avatarId: 10000058,
-                        worldLevel: 8,
-                        signature: "",
-                        onlineState: 1,
-                        param: 1,
-                        isMpModeAvailable: false,
-                        lastActiveTime: 1647421569,
-                        nameCardId: 210092,
-                        isChatNoDisturb: false,
-                    }
-                ]
-            }
-            // To protobuffer
-            console.log(GetPlayerFriendListRsp)
-            
-            sendPacketAsyncByName(kcpobj, "GetPlayerFriendListRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerFriendListRsp, dataUtil.getPacketIDByProtoName("GetPlayerFriendListRsp")));
-            break;
-
-        case "GetPlayerAskFriendListReq": // GetPlayerAskFriendListReq
-            const GetPlayerAskFriendListRsp = {
-                askFriendList: []
-            }
-            // To protobuffer
-            console.log(GetPlayerAskFriendListRsp)
-            
-            sendPacketAsyncByName(kcpobj, "GetPlayerAskFriendListRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerAskFriendListRsp, dataUtil.getPacketIDByProtoName("GetPlayerAskFriendListRsp")));
-            break;
-
-        case "ClientAbilityInitFinishNotify": // ClientAbilityInitFinishNotify
-
-            console.log("ClientAbilityInitFinishNotify")
-
-            break;
-
-        case "GetShopReq":
-            //console.log("XD %i", protobuff.shopType)
-            //sendPacketAsyncByName(kcpobj, "GetShopRsp4", keyBuffer);
-
-            break;
-        
-        case "NpcTalkReq":
-            const NpcTalkRsp = {
-                curTalkId: protobuff.curTalkId,
-                entityId: protobuff.entityId
-            }
-            sendPacketAsyncByName(kcpobj, "NpcTalkRsp", keyBuffer, await dataUtil.objToProtobuffer(NpcTalkRsp, dataUtil.getPacketIDByProtoName("NpcTalkRsp")));
-
-            break;
-        
-        case "QueryPathReq":
-            /*
-            QueryPathReq {
-                destinationPos: [
-                    Vector {
-                    X: 1925.282958984375,
-                    Y: 210.1846923828125,
-                    Z: -707.4301147460938
-                    }
-                ],
-                queryType: 1,
-                queryId: 35,
-                sceneId: 3,
-                sourcePos: Vector {
-                    X: 1935.39697265625,
-                    Y: 209.26100158691406,
-                    Z: -716.53369140625
-                }
-            }
-            */
-            // console.log(protobuff.destinationPos[0])
-            break;
-
-        case "GetGachaInfoReq":
-            var base = "EpsHCMgBEPMGGPDgsJAGIP+ClaEGKOABMAE6E0dhY2hhU2hvd1BhbmVsX0EwMjJCvQFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTNKywFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTIwMCZnYWNoYV9pZD02YTdjMDhjZWU5ZGMyYjk4MTFhOTRiOGIzMzY1MGRmZjdiN2M5MiZ0aW1lc3RhbXA9MTY0NDk2OTA5M1IaVUlfVGFiX0dhY2hhU2hvd1BhbmVsX0EwMjJY4AFgCmj/////D3D/////D3joB4IBvQFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTOKAcsBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0yMDAmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTOaAR5VSV9HQUNIQV9TSE9XX1BBTkVMX0EwMjJfVElUTEUStgcIrQIQ1QYYoNKckQYg79yKkgYo3wEwAToTR2FjaGFTaG93UGFuZWxfQTA3M0K9AWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNUrLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAxJmdhY2hhX2lkPTUxMWYzMzAzMmYxMmM4NWQ4ZjgwOTIzNDFjYmE2OGMzMTJiNTEyJnRpbWVzdGFtcD0xNjQ0OTY5MDA1UhpVSV9UYWJfR2FjaGFTaG93UGFuZWxfQTA3M1jfAWAKaP////8PcP////8PeI5OggG9AWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNYoBywFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTMwMSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNZIBBggBEgKcCJIBCggCEgaICJQIoAiaAR5VSV9HQUNIQV9TSE9XX1BBTkVMX0EwNTJfVElUTEWiAQKcCBLJBwiuAhDpBhig0pyRBiDv3IqSBijfATABOhNHYWNoYVNob3dQYW5lbF9BMDc1Qr0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5SssBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0zMDImZ2FjaGFfaWQ9Mjg5ZWYxMzY4NThjYTkxMDNjNzk3MDUwY2MzYzFkNmFkMDViOWQmdGltZXN0YW1wPTE2NDQ5NjkwNTlSGlVJX1RhYl9HYWNoYVNob3dQYW5lbF9BMDc1WN8BYApo/////w9w/////w94jE6CAb0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5igHLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAyJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5kgEICAESBMVpqnGSAQ4IAhIKjVmAYd9ow3C4eJoBHlVJX0dBQ0hBX1NIT1dfUEFORUxfQTAyMV9USVRMRaIBBMVpqnGqAQKAYcABAsgBARK2BwiQAxDfBhig0pyRBiDv3IqSBijfATABOhNHYWNoYVNob3dQYW5lbF9BMDc0Qr0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzSssBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0zMDEmZ2FjaGFfaWQ9ZDEwODU2YTJmMWYzMWU1ODE1MDZiNGZhNTQ5NjlhZDM0M2IwNWImdGltZXN0YW1wPTE2NDQ5NjkwMzNSGlVJX1RhYl9HYWNoYVNob3dQYW5lbF9BMDc0WN8BYApo/////w9w/////w94jU6CAb0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzigHLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAxJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzkgEGCAESAp4IkgEKCAISBogIlAigCJoBHlVJX0dBQ0hBX1NIT1dfUEFORUxfQTA1M19USVRMRaIBAp4IEvwDCGQg/////w8o4AEwAToTR2FjaGFTaG93UGFuZWxfQTAxNkJOaHR0cHM6Ly93ZWJzdGF0aWMubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWwjL25ld2JpZWdhY2hhSoIBaHR0cHM6Ly93ZWJzdGF0aWMubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTEwMFIaVUlfVGFiX0dhY2hhU2hvd1BhbmVsX0EwMTZY4AFgCHAUeI9OggFSaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sIy9uZXdiaWVnYWNoYYoBhgFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTEwMBj95tDaBQ==";
-            const GetGachaInfoRsp = await dataUtil.dataToProtobuffer(Buffer.from(base,'base64'), dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"))
-            
-            GetGachaInfoRsp.gachaInfoList[1].tenCostItemNum = 0
-            GetGachaInfoRsp.gachaInfoList[1].costItemNum = 0
-
-            console.log(GetGachaInfoRsp);
-            
-            // To protobuffer
-            data = await dataUtil.objToProtobuffer(GetGachaInfoRsp, dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"));
-            sendPacketAsyncByName(kcpobj, "GetGachaInfoRsp", keyBuffer, data)
-            break;
-
-        case "DoGachaReq":
-            const DoGachaRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/DoGachaRsp.bin"), dataUtil.getPacketIDByProtoName("DoGachaRsp"))
-            DoGachaRsp.tenCostItemNum = 0
-            
-            for(let x = 0; x<66; x++) {
-                DoGachaRsp.gachaItemList[x] = {
-                        transferItems: [],
-                        tokenItemList: [ { itemId: 222, count: 15 } ],
-                        gachaItem_: { itemId: 1001+x, count: 1 }
-                }
-            }
-
-            // To protobuffer
-
-            console.log(DoGachaRsp);
-
-            data = await dataUtil.objToProtobuffer(DoGachaRsp, dataUtil.getPacketIDByProtoName("DoGachaRsp"));
-            sendPacketAsyncByName(kcpobj, "DoGachaRsp", keyBuffer, data)
-            break;
-            
-        case "SetPlayerSignatureReq":
-
-            // $$$ Temporary Console $$$
-
-            
-            var toBuff = Buffer.from(protobuff.signature)
             var command = toBuff.toString().split(" ")[0]
             var args = toBuff.toString().trim().split(" ")
             var reply = "PLACEHOLDER"
@@ -1480,23 +1268,280 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
 
                     break;
+
+                case "quest":
+
+                    const QuestListUpdateNotify = {"questList":[{"questId":7051101,"state":3,"startTime":1648390899,"parentQuestId":70511,"startGameTime":150704,"acceptTime":1648390899,"finishProgressList":[1]}]}
+
+                    sendPacketAsyncByName(kcpobj, "QuestListUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(QuestListUpdateNotify, dataUtil.getPacketIDByProtoName("QuestListUpdateNotify")))
+                    
+
+                    break;
+
                 default:
                     reply = "Command doesnt seem to exist..."
             }
 
-            // Console Test
-            const pcNotifyFirst = {
+            PrivateChatNotify = {
                 chatInfo: {
-                    uid: 114514,
+                    uid: 83000,
                     toUid: 83000,
                     text: reply,
                     isRead: false
                 }
             }
-            data = await dataUtil.objToProtobuffer(pcNotifyFirst, dataUtil.getPacketIDByProtoName("PrivateChatNotify"));
+            data = await dataUtil.objToProtobuffer(PrivateChatNotify, dataUtil.getPacketIDByProtoName("PrivateChatNotify"));
             sendPacketAsyncByName(kcpobj, "PrivateChatNotify", keyBuffer, data)
 
+            sendPacketAsyncByName(kcpobj, "PrivateChatRsp", keyBuffer)
 
+            break;
+
+        case "GetScenePointReq": // GetScenePointReq
+
+            // Response
+            var XD = PointRspCount > 0 ? PointRspCount : "";
+            sendPacketAsyncByName(kcpobj, "GetScenePointRsp" + XD, keyBuffer)
+            PointRspCount++
+
+            break;
+        
+            
+
+        case "GetWidgetSlotReq":
+
+            sendPacketAsyncByName(kcpobj, "GetWidgetSlotRsp", keyBuffer)
+
+            break;
+
+        case "GetRegionSearchReq":
+            sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer)
+
+            break;
+
+        case "ReunionBriefInfoReq": // ReunionBriefInfoReq
+
+            sendPacketAsyncByName(kcpobj, "ReunionBriefInfoRsp", keyBuffer)
+
+            break;
+
+        case "GetAllActivatedBargainDataReq": // GetAllActivatedBargainDataReq
+
+            sendPacketAsyncByName(kcpobj, "GetAllActivatedBargainDataRsp", keyBuffer);
+
+            break;
+        
+        case "GetChatEmojiCollectionReq": // GetChatEmojiCollectionReq
+            
+            sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer);
+            break;
+        
+        case "PullRecentChatReq":
+            const PullRecentChatRsp = {
+                "chatInfo": [{
+                    "time": 1647437836,
+                    "uid": 83000,
+                    "toUid": 83000,
+                    "text": "Console"
+                }]
+            }
+            sendPacketAsyncByName(kcpobj, "PullRecentChatRsp", keyBuffer, await dataUtil.objToProtobuffer(PullRecentChatRsp, dataUtil.getPacketIDByProtoName("PullRecentChatRsp")));
+            break;
+        
+        case "GetRecentMpPlayerListReq": 
+
+            const AddFriendNotify= { 
+            "targetUid": 83000,
+            "targetFriendBrief": {
+            "uid": 83000,
+            "nickname": "Soya Console",
+            "level": 100,
+            "worldLevel": 8,
+            "signature": "Console Command",
+            "onlineState": 1,
+            "isMpModeAvailable": true,
+            "nameCardId": 210070,
+            "showAvatarInfoList": [
+            {"avatarId": 10000033,"level": 85},
+            {"avatarId": 10000032,"level": 83},
+            {"avatarId": 10000016,"level": 80},
+            {"avatarId": 10000030,"level": 60},
+            {"avatarId": 10000041,"level": 80},
+            {"avatarId": 10000042,"level": 70},
+            {"avatarId": 10000051,"level": 90},
+            {"avatarId": 10000006,"level": 71}]}}
+            sendPacketAsyncByName(kcpobj, "AddFriendNotify", keyBuffer, await dataUtil.objToProtobuffer(AddFriendNotify, dataUtil.getPacketIDByProtoName("AddFriendNotify")))
+
+            break;
+
+        case "GetPlayerAskFriendListReq": // GetPlayerAskFriendListReq
+            const GetPlayerAskFriendListRsp = {
+                askFriendList: []
+            }
+            // To protobuffer
+            console.log(GetPlayerAskFriendListRsp)
+            
+            sendPacketAsyncByName(kcpobj, "GetPlayerAskFriendListRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerAskFriendListRsp, dataUtil.getPacketIDByProtoName("GetPlayerAskFriendListRsp")));
+            break;
+
+        case "ClientAbilityInitFinishNotify": // ClientAbilityInitFinishNotify
+
+            console.log("ClientAbilityInitFinishNotify")
+
+            break;
+
+        case "GetShopReq":
+            //console.log("XD %i", protobuff.shopType)
+            //sendPacketAsyncByName(kcpobj, "GetShopRsp4", keyBuffer);
+
+            break;
+        
+        case "NpcTalkReq":
+            const NpcTalkRsp = {
+                curTalkId: protobuff.curTalkId,
+                entityId: protobuff.entityId
+            }
+            sendPacketAsyncByName(kcpobj, "NpcTalkRsp", keyBuffer, await dataUtil.objToProtobuffer(NpcTalkRsp, dataUtil.getPacketIDByProtoName("NpcTalkRsp")));
+
+            break;
+        
+        case "SetOpenStateReq":
+            console.log(protobuff)
+            break;
+
+        case "QueryPathReq":
+            /*
+            QueryPathReq {
+                destinationPos: [
+                    Vector {
+                    X: 1925.282958984375,
+                    Y: 210.1846923828125,
+                    Z: -707.4301147460938
+                    }
+                ],
+                queryType: 1,
+                queryId: 35,
+                sceneId: 3,
+                sourcePos: Vector {
+                    X: 1935.39697265625,
+                    Y: 209.26100158691406,
+                    Z: -716.53369140625
+                }
+            }
+            */
+            // console.log(protobuff.destinationPos[0])
+            break;
+        
+        case "PersonalLineAllDataReq":
+            // unlock legend quest but not working
+            // goto archive
+            const PersonalLineAllDataRsp = {
+                "legendaryKeyCount":1,
+                "ongoingPersonalLineList":[
+                   9,
+                   13,
+                ],
+                "lockedPersonalLineList":[
+                     {
+                     "personalLineId":2,
+                     "level":34
+                     },
+                     {
+                     "personalLineId":3,
+                     "level":36
+                     },
+                     {
+                     "personalLineId":4,
+                     "level":38
+                     },
+             
+                     {
+                     "personalLineId":6,
+                     "level":40
+                     },
+                     {
+                         "personalLineId":7,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":8,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":10,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":11,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":12,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":14,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":15,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":16,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":17,
+                         "level":40
+                     },
+                     {
+                         "personalLineId":18,
+                         "level":40
+                     },
+                ]
+             }
+
+            data = await dataUtil.objToProtobuffer(PersonalLineAllDataRsp, dataUtil.getPacketIDByProtoName("PersonalLineAllDataRsp"));
+            sendPacketAsyncByName(kcpobj, "PersonalLineAllDataRsp", keyBuffer, data)
+
+        case "GetGachaInfoReq":
+            var base = "EpsHCMgBEPMGGPDgsJAGIP+ClaEGKOABMAE6E0dhY2hhU2hvd1BhbmVsX0EwMjJCvQFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTNKywFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTIwMCZnYWNoYV9pZD02YTdjMDhjZWU5ZGMyYjk4MTFhOTRiOGIzMzY1MGRmZjdiN2M5MiZ0aW1lc3RhbXA9MTY0NDk2OTA5M1IaVUlfVGFiX0dhY2hhU2hvd1BhbmVsX0EwMjJY4AFgCmj/////D3D/////D3joB4IBvQFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTOKAcsBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0yMDAmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTOaAR5VSV9HQUNIQV9TSE9XX1BBTkVMX0EwMjJfVElUTEUStgcIrQIQ1QYYoNKckQYg79yKkgYo3wEwAToTR2FjaGFTaG93UGFuZWxfQTA3M0K9AWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNUrLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAxJmdhY2hhX2lkPTUxMWYzMzAzMmYxMmM4NWQ4ZjgwOTIzNDFjYmE2OGMzMTJiNTEyJnRpbWVzdGFtcD0xNjQ0OTY5MDA1UhpVSV9UYWJfR2FjaGFTaG93UGFuZWxfQTA3M1jfAWAKaP////8PcP////8PeI5OggG9AWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNYoBywFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTMwMSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNZIBBggBEgKcCJIBCggCEgaICJQIoAiaAR5VSV9HQUNIQV9TSE9XX1BBTkVMX0EwNTJfVElUTEWiAQKcCBLJBwiuAhDpBhig0pyRBiDv3IqSBijfATABOhNHYWNoYVNob3dQYW5lbF9BMDc1Qr0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5SssBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0zMDImZ2FjaGFfaWQ9Mjg5ZWYxMzY4NThjYTkxMDNjNzk3MDUwY2MzYzFkNmFkMDViOWQmdGltZXN0YW1wPTE2NDQ5NjkwNTlSGlVJX1RhYl9HYWNoYVNob3dQYW5lbF9BMDc1WN8BYApo/////w9w/////w94jE6CAb0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5igHLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAyJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5kgEICAESBMVpqnGSAQ4IAhIKjVmAYd9ow3C4eJoBHlVJX0dBQ0hBX1NIT1dfUEFORUxfQTAyMV9USVRMRaIBBMVpqnGqAQKAYcABAsgBARK2BwiQAxDfBhig0pyRBiDv3IqSBijfATABOhNHYWNoYVNob3dQYW5lbF9BMDc0Qr0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzSssBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0zMDEmZ2FjaGFfaWQ9ZDEwODU2YTJmMWYzMWU1ODE1MDZiNGZhNTQ5NjlhZDM0M2IwNWImdGltZXN0YW1wPTE2NDQ5NjkwMzNSGlVJX1RhYl9HYWNoYVNob3dQYW5lbF9BMDc0WN8BYApo/////w9w/////w94jU6CAb0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzigHLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAxJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzkgEGCAESAp4IkgEKCAISBogIlAigCJoBHlVJX0dBQ0hBX1NIT1dfUEFORUxfQTA1M19USVRMRaIBAp4IEvwDCGQg/////w8o4AEwAToTR2FjaGFTaG93UGFuZWxfQTAxNkJOaHR0cHM6Ly93ZWJzdGF0aWMubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWwjL25ld2JpZWdhY2hhSoIBaHR0cHM6Ly93ZWJzdGF0aWMubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTEwMFIaVUlfVGFiX0dhY2hhU2hvd1BhbmVsX0EwMTZY4AFgCHAUeI9OggFSaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sIy9uZXdiaWVnYWNoYYoBhgFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTEwMBj95tDaBQ==";
+            const GetGachaInfoRsp = await dataUtil.dataToProtobuffer(Buffer.from(base,'base64'), dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"))
+            
+            GetGachaInfoRsp.gachaInfoList[1].tenCostItemNum = 0
+            GetGachaInfoRsp.gachaInfoList[1].costItemNum = 0
+
+            console.log(GetGachaInfoRsp);
+            
+            // To protobuffer
+            data = await dataUtil.objToProtobuffer(GetGachaInfoRsp, dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"));
+            sendPacketAsyncByName(kcpobj, "GetGachaInfoRsp", keyBuffer, data)
+            break;
+
+        case "DoGachaReq":
+            const DoGachaRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/DoGachaRsp.bin"), dataUtil.getPacketIDByProtoName("DoGachaRsp"))
+            DoGachaRsp.tenCostItemNum = 0
+            
+            for(let x = 0; x<66; x++) {
+                DoGachaRsp.gachaItemList[x] = {
+                        transferItems: [],
+                        tokenItemList: [ { itemId: 222, count: 15 } ],
+                        gachaItem_: { itemId: 1001+x, count: 1 }
+                }
+            }
+
+            // To protobuffer
+
+            console.log(DoGachaRsp);
+
+            data = await dataUtil.objToProtobuffer(DoGachaRsp, dataUtil.getPacketIDByProtoName("DoGachaRsp"));
+            sendPacketAsyncByName(kcpobj, "DoGachaRsp", keyBuffer, data)
+            break;
+            
+        case "SetPlayerSignatureReq":
+
+            // $$$ Console Removed $$$
 
             const SetPlayerSignatureRsp = {
                 retcode: 0,

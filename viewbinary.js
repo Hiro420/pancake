@@ -5,10 +5,10 @@ const protobuf = require("protobufjs");
 // Util
 const dataUtil = require("./util/dataUtil");
 
-var protoname = "SceneEntityAppearNotify"
+var protoname = "GetGachaInfoRsp"
 
 var moreSliced = fs.readFileSync("./bin/"+protoname+".bin");
-var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"));
+var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName(protoname));
 
 
 protobuf.load("./proto/" + protoName + ".proto", function(err, root) {
