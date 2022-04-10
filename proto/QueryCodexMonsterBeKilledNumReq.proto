@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message QueryCodexMonsterBeKilledNumReq {
@@ -12,5 +11,5 @@ message QueryCodexMonsterBeKilledNumReq {
 		CMD_ID = 4203;
 	}
 
-	repeated uint32 codex_id_list = 1;
+	repeated uint32 codex_id_list = 12;
 }

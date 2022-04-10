@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message QuestDelNotify {
@@ -8,8 +7,8 @@ message QuestDelNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 403;
+		CMD_ID = 481;
 	}
 
-	uint32 quest_id = 1;
+	uint32 quest_id = 12;
 }

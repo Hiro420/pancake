@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerApplyEnterHomeResultNotify {
@@ -8,7 +7,7 @@ message PlayerApplyEnterHomeResultNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4474;
+		CMD_ID = 4512;
 	}
 
 	enum Reason {
@@ -19,10 +18,12 @@ message PlayerApplyEnterHomeResultNotify {
 		HOST_IN_MATCH = 4;
 		PS_PLAYER_NOT_ACCEPT_OTHERS = 5;
 		OPEN_STATE_NOT_OPEN = 6;
+		HOST_IN_EDIT_MODE = 7;
+		PRIOR_CHECK = 8;
 	}
 
-	uint32 target_uid = 1;
-	bool is_agreed = 2;
-	Reason reason = 3;
-	string target_nickname = 4;
+	uint32 target_uid = 12;
+	bool is_agreed = 15;
+	Reason reason = 9;
+	string target_nickname = 14;
 }

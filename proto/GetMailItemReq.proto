@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetMailItemReq {
@@ -9,8 +8,8 @@ message GetMailItemReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1404;
+		CMD_ID = 1483;
 	}
 
-	repeated uint32 mail_id_list = 1;
+	repeated uint32 mail_id_list = 5;
 }

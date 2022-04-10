@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ForwardType.proto";
 import "EvtAnimatorParameterInfo.proto";
@@ -11,9 +10,9 @@ message EvtAnimatorParameterNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 302;
+		CMD_ID = 333;
 	}
 
-	ForwardType forward_type = 1;
-	EvtAnimatorParameterInfo animator_param_info = 2;
+	ForwardType forward_type = 10;
+	EvtAnimatorParameterInfo animator_param_info = 12;
 }

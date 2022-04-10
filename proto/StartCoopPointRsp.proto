@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MainCoop.proto";
 
@@ -9,11 +8,11 @@ message StartCoopPointRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1965;
+		CMD_ID = 1984;
 	}
 
-	int32 retcode = 1;
-	uint32 coop_point = 2;
-	bool is_start = 3;
-	MainCoop start_main_coop = 4;
+	int32 retcode = 3;
+	uint32 coop_point = 5;
+	bool is_start = 12;
+	MainCoop start_main_coop = 9;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HuntingPair.proto";
 
@@ -9,7 +8,7 @@ message HuntingFailNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4311;
+		CMD_ID = 4609;
 	}
 
 	HuntingPair hunting_pair = 1;

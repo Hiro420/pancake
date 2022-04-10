@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -9,7 +8,7 @@ message EntityJumpNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 221;
+		CMD_ID = 206;
 	}
 
 	enum Type {
@@ -18,8 +17,8 @@ message EntityJumpNotify {
 		PASSIVE = 2;
 	}
 
-	uint32 entity_id = 1;
-	Type jump_type = 2;
-	Vector pos = 3;
-	Vector rot = 4;
+	uint32 entity_id = 13;
+	Type jump_type = 1;
+	Vector pos = 10;
+	Vector rot = 12;
 }

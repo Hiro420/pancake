@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ShopGoods.proto";
 
@@ -10,10 +9,10 @@ message BuyGoodsReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 703;
+		CMD_ID = 781;
 	}
 
-	uint32 shop_type = 1;
-	ShopGoods goods = 2;
-	uint32 buy_count = 3;
+	uint32 shop_type = 13;
+	ShopGoods goods = 15;
+	uint32 buy_count = 1;
 }

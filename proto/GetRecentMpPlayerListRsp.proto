@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "FriendBrief.proto";
 
@@ -10,9 +9,9 @@ message GetRecentMpPlayerListRsp {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4033;
+		CMD_ID = 4022;
 	}
 
-	int32 retcode = 1;
-	repeated FriendBrief recent_mp_player_brief_list = 2;
+	int32 retcode = 6;
+	repeated FriendBrief recent_mp_player_brief_list = 5;
 }

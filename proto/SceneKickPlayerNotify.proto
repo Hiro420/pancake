@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SceneKickPlayerNotify {
@@ -9,9 +8,9 @@ message SceneKickPlayerNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 273;
+		CMD_ID = 256;
 	}
 
-	uint32 kicker_uid = 1;
-	uint32 target_uid = 2;
+	uint32 kicker_uid = 4;
+	uint32 target_uid = 12;
 }

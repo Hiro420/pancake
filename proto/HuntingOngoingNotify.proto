@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HuntingPair.proto";
 import "Vector.proto";
@@ -10,12 +9,13 @@ message HuntingOngoingNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4312;
+		CMD_ID = 4457;
 	}
 
-	HuntingPair hunting_pair = 1;
-	Vector next_position = 2;
-	uint32 fail_time = 3;
-	bool is_started = 4;
+	HuntingPair hunting_pair = 8;
+	Vector next_position = 7;
+	uint32 fail_time = 1;
+	bool is_started = 11;
 	uint32 finish_clue_count = 5;
+	bool is_final = 6;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message RegionSearchChangeRegionNotify {
@@ -9,15 +8,15 @@ message RegionSearchChangeRegionNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 5602;
+		CMD_ID = 5641;
 	}
 
 	enum RegionEvent {
-		RegionEvent_NONE = 0;
-		RegionEvent_ENTER = 1;
-		RegionEvent_LEAVE = 2;
+		NONE = 0;
+		ENTER = 1;
+		LEAVE = 2;
 	}
 
-	uint32 region_id = 1;
-	RegionEvent event = 2;
+	uint32 region_id = 4;
+	RegionEvent event = 13;
 }

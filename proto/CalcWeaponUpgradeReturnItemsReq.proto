@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ItemParam.proto";
 
@@ -10,10 +9,10 @@ message CalcWeaponUpgradeReturnItemsReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 661;
+		CMD_ID = 625;
 	}
 
-	uint64 target_weapon_guid = 1;
-	repeated uint64 food_weapon_guid_list = 2;
-	repeated ItemParam item_param_list = 3;
+	uint64 target_weapon_guid = 10;
+	repeated uint64 food_weapon_guid_list = 4;
+	repeated ItemParam item_param_list = 11;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message JoinHomeWorldFailNotify {
@@ -8,9 +7,9 @@ message JoinHomeWorldFailNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4453;
+		CMD_ID = 4578;
 	}
 
-	int32 retcode = 1;
-	uint32 target_uid = 2;
+	int32 retcode = 14;
+	uint32 target_uid = 8;
 }

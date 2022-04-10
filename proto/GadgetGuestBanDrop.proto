@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum GadgetGuestBanDrop {
 	GADGET_GUEST_BAN_NONE = 0;

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeBattlePassMissionPointReq {
@@ -9,8 +8,8 @@ message TakeBattlePassMissionPointReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2607;
+		CMD_ID = 2603;
 	}
 
-	repeated uint32 mission_id_list = 1;
+	repeated uint32 mission_id_list = 5;
 }

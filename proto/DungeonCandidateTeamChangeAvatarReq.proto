@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message DungeonCandidateTeamChangeAvatarReq {
@@ -9,8 +8,8 @@ message DungeonCandidateTeamChangeAvatarReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 942;
+		CMD_ID = 973;
 	}
 
-	repeated uint64 avatar_guid_list = 1;
+	repeated uint64 avatar_guid_list = 11;
 }

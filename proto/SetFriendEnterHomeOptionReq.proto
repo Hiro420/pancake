@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "FriendEnterHomeOption.proto";
 
@@ -10,8 +9,8 @@ message SetFriendEnterHomeOptionReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4469;
+		CMD_ID = 4482;
 	}
 
-	FriendEnterHomeOption option = 1;
+	FriendEnterHomeOption option = 11;
 }

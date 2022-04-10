@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "CookRecipeData.proto";
 import "ItemParam.proto";
@@ -10,13 +9,13 @@ message PlayerCookRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 127;
+		CMD_ID = 139;
 	}
 
-	int32 retcode = 1;
-	CookRecipeData recipe_data = 2;
-	repeated ItemParam item_list = 3;
-	uint32 qte_quality = 4;
-	uint32 cook_count = 5;
-	repeated ItemParam extral_item_list = 6;
+	int32 retcode = 8;
+	CookRecipeData recipe_data = 4;
+	repeated ItemParam item_list = 5;
+	uint32 qte_quality = 7;
+	uint32 cook_count = 3;
+	repeated ItemParam extral_item_list = 12;
 }

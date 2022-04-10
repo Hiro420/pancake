@@ -1,7 +1,7 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AvatarFetterInfo.proto";
+import "AvatarExcelInfo.proto";
 import "PropValue.proto";
 import "ShowEquip.proto";
 
@@ -17,4 +17,6 @@ message ShowAvatarInfo {
 	map<uint32, uint32> proud_skill_extra_level_map = 9;
 	repeated ShowEquip equip_list = 10;
 	AvatarFetterInfo fetter_info = 11;
+	uint32 costume_id = 12;
+	AvatarExcelInfo excel_info = 13;
 }

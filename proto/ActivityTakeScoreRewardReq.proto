@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ActivityTakeScoreRewardReq {
@@ -9,9 +8,9 @@ message ActivityTakeScoreRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 8058;
+		CMD_ID = 8159;
 	}
 
 	uint32 activity_id = 1;
-	uint32 reward_config_id = 2;
+	uint32 reward_config_id = 12;
 }

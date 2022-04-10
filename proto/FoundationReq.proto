@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "FoundationOpType.proto";
 
@@ -10,11 +9,11 @@ message FoundationReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 816;
+		CMD_ID = 841;
 	}
 
-	uint32 gadget_entity_id = 1;
-	FoundationOpType op_type = 2;
-	uint32 building_id = 3;
-	uint32 point_config_id = 4;
+	uint32 gadget_entity_id = 3;
+	FoundationOpType op_type = 8;
+	uint32 building_id = 6;
+	uint32 point_config_id = 2;
 }

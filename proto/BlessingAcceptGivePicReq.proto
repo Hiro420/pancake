@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message BlessingAcceptGivePicReq {
@@ -9,9 +8,9 @@ message BlessingAcceptGivePicReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2149;
+		CMD_ID = 2042;
 	}
 
-	uint32 uid = 1;
-	uint32 index = 2;
+	uint32 uid = 15;
+	uint32 index = 9;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SceneInitFinishReq {
@@ -9,8 +8,8 @@ message SceneInitFinishReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 204;
+		CMD_ID = 283;
 	}
 
-	uint32 enter_scene_token = 1;
+	uint32 enter_scene_token = 15;
 }

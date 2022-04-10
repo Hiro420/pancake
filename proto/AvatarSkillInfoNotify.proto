@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AvatarSkillInfo.proto";
 
@@ -9,9 +8,9 @@ message AvatarSkillInfoNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1008;
+		CMD_ID = 1018;
 	}
 
-	uint64 guid = 1;
-	map<uint32, AvatarSkillInfo> skill_map = 2;
+	uint64 guid = 5;
+	map<uint32, AvatarSkillInfo> skill_map = 10;
 }

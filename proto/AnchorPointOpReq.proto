@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AnchorPointOpReq {
@@ -9,7 +8,7 @@ message AnchorPointOpReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4254;
+		CMD_ID = 4251;
 	}
 
 	enum AnchorPointOpType {
@@ -18,6 +17,6 @@ message AnchorPointOpReq {
 		ANCHOR_POINT_OP_REMOVE = 2;
 	}
 
-	uint32 anchor_point_op_type = 1;
-	uint32 anchor_point_id = 2;
+	uint32 anchor_point_op_type = 5;
+	uint32 anchor_point_id = 9;
 }

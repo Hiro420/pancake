@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "SceneTeamAvatar.proto";
 
@@ -9,9 +8,9 @@ message SceneTeamUpdateNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1738;
+		CMD_ID = 1608;
 	}
 
-	repeated SceneTeamAvatar scene_team_avatar_list = 1;
-	bool is_in_mp = 3;
+	repeated SceneTeamAvatar scene_team_avatar_list = 11;
+	bool is_in_mp = 12;
 }

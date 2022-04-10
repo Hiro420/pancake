@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message UpdatePlayerShowAvatarListReq {
@@ -9,9 +8,9 @@ message UpdatePlayerShowAvatarListReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4045;
+		CMD_ID = 4009;
 	}
 
-	repeated uint32 show_avatar_id_list = 1;
-	bool is_show_avatar = 2;
+	repeated uint32 show_avatar_id_list = 6;
+	bool is_show_avatar = 13;
 }

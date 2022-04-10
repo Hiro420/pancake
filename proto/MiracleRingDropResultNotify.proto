@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message MiracleRingDropResultNotify {
@@ -8,9 +7,9 @@ message MiracleRingDropResultNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5206;
+		CMD_ID = 5233;
 	}
 
-	int32 drop_result = 1;
-	int32 last_take_reward_time = 2;
+	int32 drop_result = 6;
+	int32 last_take_reward_time = 4;
 }

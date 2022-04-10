@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum ProtEntityType {
 	PROT_ENTITY_NONE = 0;

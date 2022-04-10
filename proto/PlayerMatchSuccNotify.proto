@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MatchType.proto";
 import "GeneralMatchInfo.proto";
@@ -10,14 +9,14 @@ message PlayerMatchSuccNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4157;
+		CMD_ID = 4153;
 	}
 
-	MatchType match_type = 1;
-	uint32 confirm_end_time = 2;
-	uint32 host_uid = 3;
-	uint32 dungeon_id = 11;
+	MatchType match_type = 15;
+	uint32 confirm_end_time = 10;
+	uint32 host_uid = 1;
+	uint32 dungeon_id = 13;
 	uint32 mp_play_id = 12;
-	uint32 mechanicus_difficult_level = 13;
-	GeneralMatchInfo general_match_info = 14;
+	uint32 mechanicus_difficult_level = 7;
+	GeneralMatchInfo general_match_info = 11;
 }

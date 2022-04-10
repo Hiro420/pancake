@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -9,7 +8,7 @@ message WindSeedClientNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1110;
+		CMD_ID = 1127;
 	}
 
 	message RefreshNotify {
@@ -27,8 +26,8 @@ message WindSeedClientNotify {
 	}
 
 	oneof Notify {
-		RefreshNotify refresh_notify = 1;
-		AddWindBulletNotify add_wind_bullet_notify = 2;
-		AreaNotify area_notify = 3;
 	}
+	RefreshNotify refresh_notify = 15;
+	AddWindBulletNotify add_wind_bullet_notify = 14;
+	AreaNotify area_notify = 11;
 }

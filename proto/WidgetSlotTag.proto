@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum WidgetSlotTag {
 	WIDGET_SLOT_QUICK_USE = 0;

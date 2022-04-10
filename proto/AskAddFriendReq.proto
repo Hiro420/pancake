@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AskAddFriendReq {
@@ -9,7 +8,7 @@ message AskAddFriendReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4005;
+		CMD_ID = 4076;
 	}
 
 	uint32 target_uid = 1;

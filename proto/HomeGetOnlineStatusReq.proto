@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message HomeGetOnlineStatusReq {
@@ -9,7 +8,7 @@ message HomeGetOnlineStatusReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4485;
+		CMD_ID = 4538;
 	}
 
 }

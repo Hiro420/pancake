@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HomeLimitedShopInfo.proto";
 
@@ -10,7 +9,7 @@ message HomeLimitedShopInfoNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4652;
+		CMD_ID = 4735;
 	}
 
 	HomeLimitedShopInfo shop_info = 1;

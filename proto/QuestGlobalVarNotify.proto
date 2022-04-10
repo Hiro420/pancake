@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "QuestGlobalVar.proto";
 
@@ -9,8 +8,8 @@ message QuestGlobalVarNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 432;
+		CMD_ID = 403;
 	}
 
-	repeated QuestGlobalVar var_list = 1;
+	repeated QuestGlobalVar var_list = 7;
 }

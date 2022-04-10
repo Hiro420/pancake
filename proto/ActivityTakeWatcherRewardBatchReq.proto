@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ActivityTakeWatcherRewardBatchReq {
@@ -9,9 +8,9 @@ message ActivityTakeWatcherRewardBatchReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2199;
+		CMD_ID = 2189;
 	}
 
-	uint32 activity_id = 1;
-	repeated uint32 watcher_id_list = 2;
+	uint32 activity_id = 8;
+	repeated uint32 watcher_id_list = 9;
 }

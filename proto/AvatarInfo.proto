@@ -1,9 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "TrialAvatarInfo.proto";
 import "AvatarFetterInfo.proto";
 import "AvatarExpeditionState.proto";
+import "AvatarExcelInfo.proto";
 import "PropValue.proto";
 import "AvatarSkillInfo.proto";
 import "AvatarEquipAffixInfo.proto";
@@ -32,4 +32,7 @@ message AvatarInfo {
 	repeated AvatarEquipAffixInfo equip_affix_list = 22;
 	uint32 born_time = 23;
 	repeated uint32 pending_promote_reward_list = 24;
+	uint32 costume_id = 25;
+	AvatarExcelInfo excel_info = 26;
+	uint32 anim_hash = 27;
 }

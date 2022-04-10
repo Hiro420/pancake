@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
+
 
 message ShortAbilityHashPair {
 	int32 ability_name_hash = 1;

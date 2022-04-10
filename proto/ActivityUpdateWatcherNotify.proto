@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ActivityWatcherInfo.proto";
 
@@ -10,9 +9,9 @@ message ActivityUpdateWatcherNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2010;
+		CMD_ID = 2145;
 	}
 
-	uint32 activity_id = 1;
-	ActivityWatcherInfo watcher_info = 2;
+	uint32 activity_id = 4;
+	ActivityWatcherInfo watcher_info = 12;
 }

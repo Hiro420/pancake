@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HuntingPair.proto";
 import "Vector.proto";
@@ -10,7 +9,7 @@ message HuntingRevealClueNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4308;
+		CMD_ID = 4880;
 	}
 
 	HuntingPair hunting_pair = 1;

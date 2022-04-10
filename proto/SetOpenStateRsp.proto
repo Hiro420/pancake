@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SetOpenStateRsp {
@@ -8,10 +7,10 @@ message SetOpenStateRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 123;
+		CMD_ID = 186;
 	}
 
-	int32 retcode = 1;
-	uint32 key = 2;
-	uint32 value = 3;
+	int32 retcode = 7;
+	uint32 key = 14;
+	uint32 value = 8;
 }

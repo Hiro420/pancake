@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerApplyEnterHomeResultReq {
@@ -9,9 +8,9 @@ message PlayerApplyEnterHomeResultReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4472;
+		CMD_ID = 4847;
 	}
 
-	uint32 apply_uid = 1;
-	bool is_agreed = 2;
+	uint32 apply_uid = 11;
+	bool is_agreed = 14;
 }

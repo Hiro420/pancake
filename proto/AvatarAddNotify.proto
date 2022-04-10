@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AvatarInfo.proto";
 
@@ -9,9 +8,9 @@ message AvatarAddNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1701;
+		CMD_ID = 1646;
 	}
 
 	AvatarInfo avatar = 1;
-	bool is_in_team = 2;
+	bool is_in_team = 14;
 }

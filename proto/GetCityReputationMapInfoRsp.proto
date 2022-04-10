@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetCityReputationMapInfoRsp {
@@ -8,12 +7,12 @@ message GetCityReputationMapInfoRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2813;
+		CMD_ID = 2823;
 	}
 
-	int32 retcode = 1;
-	repeated uint32 reward_city_list = 2;
-	bool is_new_request = 3;
-	bool is_new_hunting = 4;
-	repeated uint32 unlock_hunting_city_list = 5;
+	int32 retcode = 14;
+	repeated uint32 reward_city_list = 12;
+	bool is_new_request = 4;
+	bool is_new_hunting = 9;
+	repeated uint32 unlock_hunting_city_list = 10;
 }

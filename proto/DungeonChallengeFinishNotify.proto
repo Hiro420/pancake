@@ -1,7 +1,7 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ChannellerSlabLoopDungeonResultInfo.proto";
+import "EffigyChallengeDungeonResultInfo.proto";
 import "StrengthenPointData.proto";
 
 message DungeonChallengeFinishNotify {
@@ -10,16 +10,17 @@ message DungeonChallengeFinishNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 919;
+		CMD_ID = 929;
 	}
 
 	oneof Detail {
 		ChannellerSlabLoopDungeonResultInfo channeller_slab_loop_dungeon_result_info = 101;
+		EffigyChallengeDungeonResultInfo effigy_challenge_dungeon_result_info = 102;
 	}
-	uint32 challenge_index = 1;
-	bool is_success = 2;
-	bool is_new_record = 3;
-	uint32 challenge_record_type = 4;
-	uint32 current_value = 5;
+	uint32 challenge_index = 4;
+	bool is_success = 12;
+	bool is_new_record = 13;
+	uint32 challenge_record_type = 7;
+	uint32 current_value = 15;
 	map<uint32, StrengthenPointData> strengthen_point_data_map = 6;
 }

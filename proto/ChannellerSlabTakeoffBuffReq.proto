@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ChannellerSlabTakeoffBuffReq {
@@ -9,10 +8,10 @@ message ChannellerSlabTakeoffBuffReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 8005;
+		CMD_ID = 8817;
 	}
 
-	uint32 buff_id = 1;
-	uint32 slot_id = 2;
-	bool is_mp = 3;
+	uint32 buff_id = 13;
+	uint32 slot_id = 7;
+	bool is_mp = 6;
 }

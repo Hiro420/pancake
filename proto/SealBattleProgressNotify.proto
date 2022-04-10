@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SealBattleProgressNotify {
@@ -8,12 +7,12 @@ message SealBattleProgressNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 266;
+		CMD_ID = 298;
 	}
 
-	uint32 seal_entity_id = 1;
-	uint32 progress = 2;
-	uint32 max_progress = 3;
+	uint32 seal_entity_id = 3;
+	uint32 progress = 6;
+	uint32 max_progress = 1;
 	uint32 end_time = 4;
-	uint32 seal_radius = 5;
+	uint32 seal_radius = 10;
 }

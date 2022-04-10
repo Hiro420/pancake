@@ -1,6 +1,6 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
+import "ProfilePicture.proto";
 
 message BlessingFriendPicData {
 	uint32 uid = 1;
@@ -9,4 +9,5 @@ message BlessingFriendPicData {
 	string nickname = 4;
 	map<uint32, uint32> pic_num_map = 5;
 	string remark_name = 6;
+	ProfilePicture profile_picture = 7;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ChannelerSlabStageOneoffDungeonNotify {
@@ -8,9 +7,9 @@ message ChannelerSlabStageOneoffDungeonNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 8002;
+		CMD_ID = 8600;
 	}
 
-	uint32 stage_id = 1;
-	bool is_done = 2;
+	uint32 stage_id = 9;
+	bool is_done = 5;
 }

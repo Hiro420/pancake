@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SceneAudioNotify {
@@ -9,12 +8,12 @@ message SceneAudioNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 3065;
+		CMD_ID = 3241;
 	}
 
-	uint32 source_uid = 1;
-	int32 type = 2;
-	repeated uint32 param1 = 3;
-	repeated float param2 = 4;
+	uint32 source_uid = 2;
+	int32 type = 14;
+	repeated uint32 param1 = 10;
+	repeated float param2 = 11;
 	repeated string param3 = 5;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PrivateChatSetSequenceRsp {
@@ -8,8 +7,8 @@ message PrivateChatSetSequenceRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4955;
+		CMD_ID = 5026;
 	}
 
-	int32 retcode = 1;
+	int32 retcode = 2;
 }

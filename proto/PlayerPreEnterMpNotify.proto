@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerPreEnterMpNotify {
@@ -8,7 +7,7 @@ message PlayerPreEnterMpNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1808;
+		CMD_ID = 1804;
 	}
 
 	enum State {
@@ -17,7 +16,7 @@ message PlayerPreEnterMpNotify {
 		TIMEOUT = 2;
 	}
 
-	uint32 uid = 1;
-	State state = 2;
-	string nickname = 3;
+	uint32 uid = 15;
+	State state = 11;
+	string nickname = 13;
 }

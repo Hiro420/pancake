@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "CreateEntityInfo.proto";
 
@@ -9,13 +8,13 @@ message QuestCreateEntityRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 411;
+		CMD_ID = 480;
 	}
 
-	int32 retcode = 1;
-	uint32 entity_id = 2;
-	CreateEntityInfo entity = 3;
-	uint32 quest_id = 7;
-	bool is_rewind = 8;
-	uint32 parent_quest_id = 9;
+	int32 retcode = 3;
+	uint32 entity_id = 7;
+	CreateEntityInfo entity = 4;
+	uint32 quest_id = 13;
+	bool is_rewind = 9;
+	uint32 parent_quest_id = 10;
 }

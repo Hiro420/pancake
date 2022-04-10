@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ExpeditionStartReq {
@@ -9,11 +8,11 @@ message ExpeditionStartReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2161;
+		CMD_ID = 2104;
 	}
 
-	uint32 path_id = 1;
-	repeated uint32 avatar_id_list = 2;
+	uint32 path_id = 11;
+	repeated uint32 avatar_id_list = 14;
 	uint32 assist_uid = 3;
 	uint32 assist_avatar_id = 4;
 }

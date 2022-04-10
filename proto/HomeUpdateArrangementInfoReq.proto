@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HomeSceneArrangementInfo.proto";
 
@@ -10,8 +9,8 @@ message HomeUpdateArrangementInfoReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4465;
+		CMD_ID = 4568;
 	}
 
-	HomeSceneArrangementInfo scene_arrangement_info = 1;
+	HomeSceneArrangementInfo scene_arrangement_info = 5;
 }

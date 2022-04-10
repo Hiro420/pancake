@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "TowerFloorRecord.proto";
 
@@ -9,9 +8,9 @@ message TowerFloorRecordChangeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2402;
+		CMD_ID = 2433;
 	}
 
-	repeated TowerFloorRecord tower_floor_record_list = 1;
-	bool is_finished_entrance_floor = 2;
+	repeated TowerFloorRecord tower_floor_record_list = 10;
+	bool is_finished_entrance_floor = 8;
 }

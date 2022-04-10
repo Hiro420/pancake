@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message HideAndSeekSelectSkillReq {
@@ -9,8 +8,8 @@ message HideAndSeekSelectSkillReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 8053;
+		CMD_ID = 8208;
 	}
 
-	repeated uint32 skill_list = 1;
+	repeated uint32 skill_list = 11;
 }

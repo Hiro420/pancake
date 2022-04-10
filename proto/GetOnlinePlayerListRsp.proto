@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "OnlinePlayerInfo.proto";
 
@@ -9,10 +8,10 @@ message GetOnlinePlayerListRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 9;
+		CMD_ID = 63;
 	}
 
-	int32 retcode = 1;
-	repeated OnlinePlayerInfo player_info_list = 2;
-	uint32 param = 3;
+	int32 retcode = 9;
+	repeated OnlinePlayerInfo player_info_list = 13;
+	uint32 param = 5;
 }

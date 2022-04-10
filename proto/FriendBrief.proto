@@ -1,8 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "FriendOnlineState.proto";
 import "FriendEnterHomeOption.proto";
+import "ProfilePicture.proto";
+import "PlatformType.proto";
 import "SocialShowAvatarInfo.proto";
 
 message FriendBrief {
@@ -24,4 +25,8 @@ message FriendBrief {
 	string remark_name = 17;
 	repeated SocialShowAvatarInfo show_avatar_info_list = 22;
 	FriendEnterHomeOption friend_enter_home_option = 23;
+	ProfilePicture profile_picture = 24;
+	bool is_game_source = 25;
+	bool is_psn_source = 26;
+	PlatformType platform_type = 27;
 }

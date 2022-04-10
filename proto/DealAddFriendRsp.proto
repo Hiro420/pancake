@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "DealAddFriendResultType.proto";
 
@@ -10,10 +9,10 @@ message DealAddFriendRsp {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4008;
+		CMD_ID = 4018;
 	}
 
-	int32 retcode = 1;
-	uint32 target_uid = 2;
-	DealAddFriendResultType deal_add_friend_result = 3;
+	int32 retcode = 13;
+	uint32 target_uid = 14;
+	DealAddFriendResultType deal_add_friend_result = 6;
 }

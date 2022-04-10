@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "SeaLampActivityDetailInfo.proto";
 import "CrucibleActivityDetailInfo.proto";
@@ -21,6 +20,19 @@ import "ChannelerSlabActivityDetailInfo.proto";
 import "MistTrialActivityDetailInfo.proto";
 import "HideAndSeekActivityDetailInfo.proto";
 import "FindHilichurlDetailInfo.proto";
+import "SummerTimeDetailInfo.proto";
+import "BuoyantCombatDetailInfo.proto";
+import "EchoShellDetailInfo.proto";
+import "BounceConjuringActivityDetailInfo.proto";
+import "BlitzRushActivityDetailInfo.proto";
+import "ChessActivityDetailInfo.proto";
+import "SumoActivityDetailInfo.proto";
+import "MoonfinTrialActivityDetailInfo.proto";
+import "LunaRiteDetailInfo.proto";
+import "PlantFlowerActivityDetailInfo.proto";
+import "MusicGameActivityDetailInfo.proto";
+import "RoguelikeDungeonActivityDetailInfo.proto";
+import "DigActivityDetailInfo.proto";
 import "ActivityWatcherInfo.proto";
 
 message ActivityInfo {
@@ -45,6 +57,19 @@ message ActivityInfo {
 		MistTrialActivityDetailInfo mist_trial_activity_info = 62;
 		HideAndSeekActivityDetailInfo hide_and_seek_info = 63;
 		FindHilichurlDetailInfo find_hilichurl_info = 64;
+		SummerTimeDetailInfo summer_time_info = 65;
+		BuoyantCombatDetailInfo buoyant_combat_info = 66;
+		EchoShellDetailInfo echo_shell_info = 67;
+		BounceConjuringActivityDetailInfo bounce_conjuring_info = 68;
+		BlitzRushActivityDetailInfo blitz_rush_info = 69;
+		ChessActivityDetailInfo chess_info = 70;
+		SumoActivityDetailInfo sumo_info = 71;
+		MoonfinTrialActivityDetailInfo moonfin_trial_info = 72;
+		LunaRiteDetailInfo luna_rite_info = 73;
+		PlantFlowerActivityDetailInfo plant_flower_info = 74;
+		MusicGameActivityDetailInfo music_game_info = 75;
+		RoguelikeDungeonActivityDetailInfo roguelike_dungoen_info = 76;
+		DigActivityDetailInfo dig_info = 77;
 	}
 	uint32 activity_id = 1;
 	uint32 schedule_id = 2;
@@ -62,4 +87,6 @@ message ActivityInfo {
 	uint32 score_limit = 19;
 	uint32 cur_score = 20;
 	repeated uint32 taken_reward_list = 24;
+	bool is_hidden = 26;
+	uint32 first_day_start_time = 27;
 }

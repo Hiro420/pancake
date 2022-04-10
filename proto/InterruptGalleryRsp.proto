@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message InterruptGalleryRsp {
@@ -9,9 +8,9 @@ message InterruptGalleryRsp {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 5514;
+		CMD_ID = 5517;
 	}
 
-	int32 retcode = 1;
-	uint32 gallery_id = 2;
+	int32 retcode = 9;
+	uint32 gallery_id = 4;
 }

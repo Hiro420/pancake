@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerQuitFromHomeNotify {
@@ -8,7 +7,7 @@ message PlayerQuitFromHomeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4498;
+		CMD_ID = 4819;
 	}
 
 	enum QuitReason {
@@ -21,5 +20,5 @@ message PlayerQuitFromHomeNotify {
 		CUR_MODULE_CLOSED = 6;
 	}
 
-	QuitReason reason = 1;
+	QuitReason reason = 5;
 }

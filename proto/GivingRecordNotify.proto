@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "GivingRecord.proto";
 
@@ -9,8 +8,8 @@ message GivingRecordNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 155;
+		CMD_ID = 126;
 	}
 
-	repeated GivingRecord giving_record_list = 1;
+	repeated GivingRecord giving_record_list = 5;
 }

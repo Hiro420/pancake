@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "GachaUpInfo.proto";
 
@@ -22,4 +21,11 @@ message GachaInfo {
 	string gacha_prob_url_oversea = 16;
 	string gacha_record_url_oversea = 17;
 	repeated GachaUpInfo gacha_up_info_list = 18;
+	string title_textmap = 19;
+	repeated uint32 display_up5_item_list = 20;
+	repeated uint32 display_up4_item_list = 21;
+	uint32 wish_item_id = 22;
+	uint32 wish_progress = 23;
+	uint32 wish_max_progress = 24;
+	bool is_new_wish = 25;
 }

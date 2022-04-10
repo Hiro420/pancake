@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SetUpAvatarTeamRsp {
@@ -8,11 +7,11 @@ message SetUpAvatarTeamRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1704;
+		CMD_ID = 1775;
 	}
 
-	int32 retcode = 1;
-	uint32 team_id = 2;
+	int32 retcode = 8;
+	uint32 team_id = 1;
 	repeated uint64 avatar_team_guid_list = 3;
-	uint64 cur_avatar_guid = 4;
+	uint64 cur_avatar_guid = 13;
 }

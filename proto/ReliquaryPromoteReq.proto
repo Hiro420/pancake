@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ReliquaryPromoteReq {
@@ -9,9 +8,9 @@ message ReliquaryPromoteReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 625;
+		CMD_ID = 674;
 	}
 
-	uint64 target_guid = 1;
-	uint64 item_guid = 2;
+	uint64 target_guid = 12;
+	uint64 item_guid = 9;
 }

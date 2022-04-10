@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Reward.proto";
 
@@ -9,8 +8,8 @@ message GrantRewardNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 629;
+		CMD_ID = 668;
 	}
 
-	Reward reward = 1;
+	Reward reward = 9;
 }

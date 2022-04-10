@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message MpPlayOwnerStartInviteReq {
@@ -9,9 +8,9 @@ message MpPlayOwnerStartInviteReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1817;
+		CMD_ID = 1826;
 	}
 
-	uint32 mp_play_id = 1;
-	bool is_skip_match = 2;
+	uint32 mp_play_id = 13;
+	bool is_skip_match = 9;
 }

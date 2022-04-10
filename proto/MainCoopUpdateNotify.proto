@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MainCoop.proto";
 
@@ -9,8 +8,8 @@ message MainCoopUpdateNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1952;
+		CMD_ID = 1991;
 	}
 
-	repeated MainCoop main_coop_list = 1;
+	repeated MainCoop main_coop_list = 5;
 }

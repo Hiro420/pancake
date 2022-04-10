@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message EvtAvatarStandUpNotify {
@@ -9,11 +8,11 @@ message EvtAvatarStandUpNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 342;
+		CMD_ID = 373;
 	}
 
-	uint32 entity_id = 1;
-	int32 direction = 2;
-	int32 perform_i_d = 3;
-	uint64 chair_id = 4;
+	uint32 entity_id = 3;
+	int32 direction = 6;
+	int32 perform_i_d = 11;
+	uint64 chair_id = 13;
 }

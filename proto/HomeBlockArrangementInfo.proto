@@ -1,11 +1,12 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HomeFurnitureData.proto";
 import "HomeNpcData.proto";
 import "HomeFurnitureSuiteData.proto";
 import "HomeAnimalData.proto";
 import "WeekendDjinnInfo.proto";
+import "HomeBlockDotPattern.proto";
+import "HomeBlockFieldData.proto";
 
 message HomeBlockArrangementInfo {
 	uint32 block_id = 1;
@@ -17,4 +18,6 @@ message HomeBlockArrangementInfo {
 	bool is_unlocked = 7;
 	uint32 comfort_value = 8;
 	repeated WeekendDjinnInfo weekend_djinn_info_list = 9;
+	repeated HomeBlockDotPattern dot_pattern_list = 10;
+	repeated HomeBlockFieldData field_list = 11;
 }

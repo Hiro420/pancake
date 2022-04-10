@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerInjectFixNotify {
@@ -8,9 +7,9 @@ message PlayerInjectFixNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 166;
+		CMD_ID = 198;
 	}
 
-	uint32 id = 1;
-	bytes inject_fix = 2;
+	uint32 id = 2;
+	bytes inject_fix = 4;
 }

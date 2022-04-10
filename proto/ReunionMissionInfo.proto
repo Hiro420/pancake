@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ReunionWatcherInfo.proto";
 
@@ -10,4 +9,6 @@ message ReunionMissionInfo {
 	bool is_finished = 4;
 	bool is_taken_reward = 5;
 	uint32 next_refresh_time = 6;
+	repeated bool is_taken_reward_list = 7;
+	repeated ReunionWatcherInfo watcher_list = 8;
 }

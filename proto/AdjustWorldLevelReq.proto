@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AdjustWorldLevelReq {
@@ -9,9 +8,9 @@ message AdjustWorldLevelReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 171;
+		CMD_ID = 105;
 	}
 
-	uint32 cur_world_level = 1;
-	uint32 expect_world_level = 2;
+	uint32 cur_world_level = 6;
+	uint32 expect_world_level = 14;
 }

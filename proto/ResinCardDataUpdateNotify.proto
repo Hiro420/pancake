@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ResinCardData.proto";
 
@@ -9,9 +8,9 @@ message ResinCardDataUpdateNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4110;
+		CMD_ID = 4116;
 	}
 
-	repeated ResinCardData card_data_list = 1;
-	uint32 today_start_time = 2;
+	repeated ResinCardData card_data_list = 4;
+	uint32 today_start_time = 3;
 }

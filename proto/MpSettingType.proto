@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum MpSettingType {
 	MP_SETTING_NO_ENTER = 0;

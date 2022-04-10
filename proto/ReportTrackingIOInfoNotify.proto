@@ -1,19 +1,19 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
+
 
 message ReportTrackingIOInfoNotify {
 	enum CmdId {
 		option allow_alias = true;
-		NONE = 0;
 		ENET_CHANNEL_ID = 0;
+		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4107;
+		CMD_ID = 4103;
 	}
 
-	string appid = 1;
-	string deviceid = 2;
-	string mac = 3;
-	string rydevicetype = 4;
-	string client_tz = 5;
+	string appid = 4;
+	string deviceid = 10;
+	string mac = 12;
+	string rydevicetype = 6;
+	string client_tz = 11;
 }

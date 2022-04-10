@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TowerAllDataReq {
@@ -9,8 +8,8 @@ message TowerAllDataReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2408;
+		CMD_ID = 2418;
 	}
 
-	bool is_interact = 1;
+	bool is_interact = 6;
 }

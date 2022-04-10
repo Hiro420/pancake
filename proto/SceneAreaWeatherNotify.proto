@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SceneAreaWeatherNotify {
@@ -8,12 +7,12 @@ message SceneAreaWeatherNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 244;
+		CMD_ID = 207;
 	}
 
-	uint32 weather_gadget_id = 1;
-	map<uint32, string> weather_value_map = 2;
-	uint32 weather_area_id = 3;
-	uint32 climate_type = 4;
-	float trans_duration = 5;
+	uint32 weather_gadget_id = 9;
+	map<uint32, string> weather_value_map = 13;
+	uint32 weather_area_id = 4;
+	uint32 climate_type = 14;
+	float trans_duration = 3;
 }

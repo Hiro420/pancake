@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Quest.proto";
 
@@ -9,8 +8,8 @@ message QuestListNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 401;
+		CMD_ID = 458;
 	}
 
-	repeated Quest quest_list = 1;
+	repeated Quest quest_list = 10;
 }

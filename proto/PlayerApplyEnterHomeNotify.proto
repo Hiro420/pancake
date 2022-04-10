@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "OnlinePlayerInfo.proto";
 
@@ -9,9 +8,9 @@ message PlayerApplyEnterHomeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4471;
+		CMD_ID = 4661;
 	}
 
-	OnlinePlayerInfo src_player_info = 1;
-	uint32 src_app_id = 2;
+	OnlinePlayerInfo src_player_info = 4;
+	uint32 src_app_id = 12;
 }

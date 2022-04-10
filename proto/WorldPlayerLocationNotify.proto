@@ -1,7 +1,7 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "PlayerLocationInfo.proto";
+import "PlayerWorldLocationInfo.proto";
 
 message WorldPlayerLocationNotify {
 	enum CmdId {
@@ -9,8 +9,9 @@ message WorldPlayerLocationNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 246;
+		CMD_ID = 207;
 	}
 
-	repeated PlayerLocationInfo player_loc_list = 1;
+	repeated PlayerLocationInfo player_loc_list = 9;
+	repeated PlayerWorldLocationInfo player_world_loc_list = 13;
 }

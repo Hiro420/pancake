@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AiSyncInfo.proto";
 
@@ -10,9 +9,9 @@ message EntityAiSyncNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 354;
+		CMD_ID = 371;
 	}
 
-	repeated AiSyncInfo info_list = 1;
-	repeated uint32 local_avatar_alerted_monster_list = 2;
+	repeated AiSyncInfo info_list = 9;
+	repeated uint32 local_avatar_alerted_monster_list = 5;
 }

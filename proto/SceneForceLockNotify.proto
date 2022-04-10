@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SceneForceLockNotify {
@@ -8,8 +7,8 @@ message SceneForceLockNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 232;
+		CMD_ID = 203;
 	}
 
-	repeated uint32 force_id_list = 1;
+	repeated uint32 force_id_list = 10;
 }

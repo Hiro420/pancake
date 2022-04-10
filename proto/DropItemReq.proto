@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "StoreType.proto";
 import "Vector.proto";
@@ -11,11 +10,11 @@ message DropItemReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 610;
+		CMD_ID = 627;
 	}
 
-	StoreType store_type = 1;
-	uint64 guid = 2;
+	StoreType store_type = 13;
+	uint64 guid = 7;
 	uint32 count = 3;
-	Vector pos = 4;
+	Vector pos = 6;
 }

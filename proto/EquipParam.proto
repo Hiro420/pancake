@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
+
 
 message EquipParam {
 	uint32 item_id = 1;

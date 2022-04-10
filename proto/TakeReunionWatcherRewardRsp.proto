@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeReunionWatcherRewardRsp {
@@ -8,10 +7,10 @@ message TakeReunionWatcherRewardRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5062;
+		CMD_ID = 5065;
 	}
 
-	int32 retcode = 1;
-	uint32 mission_id = 2;
-	uint32 watcher_id = 3;
+	int32 retcode = 4;
+	uint32 mission_id = 8;
+	uint32 watcher_id = 15;
 }

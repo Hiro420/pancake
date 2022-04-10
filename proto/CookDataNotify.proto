@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "CookRecipeData.proto";
 
@@ -9,9 +8,9 @@ message CookDataNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 130;
+		CMD_ID = 172;
 	}
 
-	uint32 grade = 1;
-	repeated CookRecipeData recipe_data_list = 2;
+	uint32 grade = 3;
+	repeated CookRecipeData recipe_data_list = 6;
 }

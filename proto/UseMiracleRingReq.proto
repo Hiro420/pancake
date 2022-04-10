@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -10,7 +9,7 @@ message UseMiracleRingReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 5201;
+		CMD_ID = 5231;
 	}
 
 	enum MiracleRingOpType {
@@ -20,6 +19,6 @@ message UseMiracleRingReq {
 	}
 
 	uint32 miracle_ring_op_type = 1;
-	Vector pos = 2;
-	Vector rot = 3;
+	Vector pos = 4;
+	Vector rot = 14;
 }

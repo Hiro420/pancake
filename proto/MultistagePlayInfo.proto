@@ -1,15 +1,16 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "InBattleMechanicusInfo.proto";
 import "InBattleFleurFairInfo.proto";
 import "HideAndSeekStageInfo.proto";
+import "InBattleChessInfo.proto";
 
 message MultistagePlayInfo {
 	oneof Detail {
 		InBattleMechanicusInfo mechanicus_info = 101;
 		InBattleFleurFairInfo fleur_fair_info = 102;
 		HideAndSeekStageInfo hide_and_seek_info = 103;
+		InBattleChessInfo chess_info = 104;
 	}
 	uint32 play_index = 1;
 	uint32 group_id = 2;

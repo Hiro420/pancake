@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ActivitySelectAvatarCardReq {
@@ -9,9 +8,9 @@ message ActivitySelectAvatarCardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2011;
+		CMD_ID = 2118;
 	}
 
-	uint32 activity_id = 1;
-	uint32 reward_id = 2;
+	uint32 activity_id = 12;
+	uint32 reward_id = 13;
 }

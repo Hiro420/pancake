@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message StartEffigyChallengeReq {
@@ -9,11 +8,11 @@ message StartEffigyChallengeReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2101;
+		CMD_ID = 2005;
 	}
 
 	uint32 challenge_id = 1;
-	uint32 difficulty_id = 2;
-	repeated uint32 condition_id_list = 3;
+	uint32 difficulty_id = 11;
+	repeated uint32 condition_id_list = 2;
 	uint32 point_id = 4;
 }

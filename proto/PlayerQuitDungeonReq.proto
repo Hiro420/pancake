@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerQuitDungeonReq {
@@ -9,9 +8,9 @@ message PlayerQuitDungeonReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 905;
+		CMD_ID = 976;
 	}
 
-	uint32 point_id = 1;
-	bool is_quit_immediately = 2;
+	uint32 point_id = 14;
+	bool is_quit_immediately = 12;
 }

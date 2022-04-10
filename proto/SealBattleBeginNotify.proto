@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "SealBattleType.proto";
 
@@ -9,11 +8,11 @@ message SealBattleBeginNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 264;
+		CMD_ID = 236;
 	}
 
-	uint32 seal_entity_id = 1;
-	uint32 seal_radius = 2;
-	uint32 seal_max_progress = 3;
-	SealBattleType battle_type = 4;
+	uint32 seal_entity_id = 11;
+	uint32 seal_radius = 9;
+	uint32 seal_max_progress = 13;
+	SealBattleType battle_type = 10;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message DungeonWayPointActivateReq {
@@ -9,8 +8,8 @@ message DungeonWayPointActivateReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 908;
+		CMD_ID = 918;
 	}
 
-	uint32 way_point_id = 1;
+	uint32 way_point_id = 2;
 }

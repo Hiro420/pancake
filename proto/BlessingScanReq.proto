@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message BlessingScanReq {
@@ -9,7 +8,7 @@ message BlessingScanReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2141;
+		CMD_ID = 2136;
 	}
 
 	uint32 entity_id = 1;

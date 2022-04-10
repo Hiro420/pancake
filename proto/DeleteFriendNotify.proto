@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message DeleteFriendNotify {
@@ -8,8 +7,8 @@ message DeleteFriendNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4020;
+		CMD_ID = 4070;
 	}
 
-	uint32 target_uid = 1;
+	uint32 target_uid = 6;
 }

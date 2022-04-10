@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message DungeonSlipRevivePointActivateRsp {
@@ -8,9 +7,9 @@ message DungeonSlipRevivePointActivateRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 947;
+		CMD_ID = 910;
 	}
 
-	int32 retcode = 1;
-	uint32 slip_revive_point_id = 2;
+	int32 retcode = 14;
+	uint32 slip_revive_point_id = 12;
 }

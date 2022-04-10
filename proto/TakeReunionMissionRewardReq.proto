@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeReunionMissionRewardReq {
@@ -9,9 +8,10 @@ message TakeReunionMissionRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 5064;
+		CMD_ID = 5058;
 	}
 
-	uint32 mission_id = 1;
-	uint32 reward_id = 2;
+	uint32 mission_id = 2;
+	uint32 reward_id = 4;
+	uint32 reward_index = 7;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "PlayerDieType.proto";
 
@@ -9,13 +8,13 @@ message WorldPlayerDieNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 287;
+		CMD_ID = 216;
 	}
 
 	oneof Entity {
-		uint32 monster_id = 3;
-		uint32 gadget_id = 4;
 	}
-	PlayerDieType die_type = 1;
-	uint32 murderer_entity_id = 2;
+	PlayerDieType die_type = 6;
+	uint32 murderer_entity_id = 15;
+	uint32 monster_id = 8;
+	uint32 gadget_id = 1;
 }

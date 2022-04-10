@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetActivityInfoReq {
@@ -9,8 +8,8 @@ message GetActivityInfoReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2003;
+		CMD_ID = 2198;
 	}
 
-	repeated uint32 activity_id_list = 1;
+	repeated uint32 activity_id_list = 10;
 }

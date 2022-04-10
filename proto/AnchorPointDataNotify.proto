@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AnchorPointData.proto";
 
@@ -9,9 +8,9 @@ message AnchorPointDataNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4251;
+		CMD_ID = 4281;
 	}
 
-	repeated AnchorPointData anchor_point_list = 1;
-	uint32 next_usable_time = 2;
+	repeated AnchorPointData anchor_point_list = 2;
+	uint32 next_usable_time = 5;
 }

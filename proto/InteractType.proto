@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum InteractType {
 	INTERACT_NONE = 0;
@@ -13,4 +12,8 @@ enum InteractType {
 	INTERACT_GENERAL_REWARD = 8;
 	INTERACT_MIRACLE_RING = 9;
 	INTERACT_FOUNDATION = 10;
+	INTERACT_ECHO_SHELL = 11;
+	INTERACT_HOME_GATHER = 12;
+	INTERACT_ENV_ANIMAL = 13;
+	INTERACT_QUEST_GADGET = 14;
 }

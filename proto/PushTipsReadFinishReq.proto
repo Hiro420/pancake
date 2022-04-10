@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PushTipsReadFinishReq {
@@ -9,8 +8,8 @@ message PushTipsReadFinishReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2223;
+		CMD_ID = 2286;
 	}
 
-	uint32 push_tips_id = 1;
+	uint32 push_tips_id = 9;
 }

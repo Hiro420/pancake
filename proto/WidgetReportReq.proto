@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message WidgetReportReq {
@@ -9,10 +8,10 @@ message WidgetReportReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4263;
+		CMD_ID = 4259;
 	}
 
-	uint32 material_id = 1;
-	bool is_clear_hint = 2;
-	bool is_client_collect = 3;
+	uint32 material_id = 9;
+	bool is_clear_hint = 11;
+	bool is_client_collect = 4;
 }

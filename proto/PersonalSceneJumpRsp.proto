@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -9,10 +8,10 @@ message PersonalSceneJumpRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 263;
+		CMD_ID = 242;
 	}
 
-	int32 retcode = 1;
-	uint32 dest_scene_id = 2;
-	Vector dest_pos = 3;
+	int32 retcode = 9;
+	uint32 dest_scene_id = 12;
+	Vector dest_pos = 1;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ServerTimeNotify {
@@ -8,8 +7,8 @@ message ServerTimeNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		ENET_CHANNEL_ID = 1;
-		CMD_ID = 10;
+		CMD_ID = 27;
 	}
 
-	uint64 server_time = 1;
+	uint64 server_time = 3;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "PbNavMeshStatsInfo.proto";
 
@@ -10,7 +9,7 @@ message NavMeshStatsNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2355;
+		CMD_ID = 2326;
 	}
 
 	repeated PbNavMeshStatsInfo infos = 1;

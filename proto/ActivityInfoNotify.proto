@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ActivityInfo.proto";
 
@@ -10,8 +9,8 @@ message ActivityInfoNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2006;
+		CMD_ID = 2081;
 	}
 
-	ActivityInfo activity_info = 1;
+	ActivityInfo activity_info = 12;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum InBattleMechanicusCardChallengeState {
 	IN_BATTLE_MECHANICUS_CARD_CHALLENGE_NONE = 0;

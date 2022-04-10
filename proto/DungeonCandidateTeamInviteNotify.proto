@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message DungeonCandidateTeamInviteNotify {
@@ -8,10 +7,10 @@ message DungeonCandidateTeamInviteNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 926;
+		CMD_ID = 908;
 	}
 
-	uint32 player_uid = 1;
-	uint32 dungeon_id = 2;
-	uint32 vaild_deadline_time_sec = 3;
+	uint32 player_uid = 4;
+	uint32 dungeon_id = 9;
+	uint32 vaild_deadline_time_sec = 15;
 }

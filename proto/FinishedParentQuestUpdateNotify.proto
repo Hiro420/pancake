@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ParentQuest.proto";
 
@@ -9,7 +8,7 @@ message FinishedParentQuestUpdateNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 405;
+		CMD_ID = 476;
 	}
 
 	repeated ParentQuest parent_quest_list = 1;

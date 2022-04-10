@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SetNameCardReq {
@@ -9,8 +8,8 @@ message SetNameCardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4023;
+		CMD_ID = 4086;
 	}
 
-	uint32 name_card_id = 1;
+	uint32 name_card_id = 12;
 }

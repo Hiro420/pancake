@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
+
 
 message ItemCdGroupTimeNotify {
 	enum CmdId {
@@ -7,8 +7,8 @@ message ItemCdGroupTimeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 632;
+		CMD_ID = 603;
 	}
 
-	map<uint32, uint64> item_cd_map = 1;
+	map<uint32, uint64> item_cd_map = 4;
 }

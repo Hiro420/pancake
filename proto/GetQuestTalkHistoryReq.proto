@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetQuestTalkHistoryReq {
@@ -9,8 +8,8 @@ message GetQuestTalkHistoryReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 408;
+		CMD_ID = 418;
 	}
 
-	uint32 parent_quest_id = 1;
+	uint32 parent_quest_id = 5;
 }

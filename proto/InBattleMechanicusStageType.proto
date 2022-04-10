@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum InBattleMechanicusStageType {
 	IN_BATTLE_MECHANICUS_STAGE_NONE = 0;

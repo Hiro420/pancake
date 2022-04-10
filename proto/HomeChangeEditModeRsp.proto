@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message HomeChangeEditModeRsp {
@@ -8,9 +7,9 @@ message HomeChangeEditModeRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4458;
+		CMD_ID = 4645;
 	}
 
-	int32 retcode = 1;
-	bool is_enter_edit_mode = 2;
+	int32 retcode = 10;
+	bool is_enter_edit_mode = 12;
 }

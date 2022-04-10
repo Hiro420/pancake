@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ItemParam.proto";
 
@@ -9,7 +8,7 @@ message TowerLevelEndNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2430;
+		CMD_ID = 2472;
 	}
 
 	enum ContinueStateType {
@@ -18,9 +17,9 @@ message TowerLevelEndNotify {
 		CONTINUE_STATE_CAN_ENTER_NEXT_FLOOR = 2;
 	}
 
-	bool is_success = 1;
-	repeated uint32 finished_star_cond_list = 2;
-	repeated ItemParam reward_item_list = 3;
-	uint32 continue_state = 4;
-	uint32 next_floor_id = 5;
+	bool is_success = 3;
+	repeated uint32 finished_star_cond_list = 4;
+	repeated ItemParam reward_item_list = 11;
+	uint32 continue_state = 5;
+	uint32 next_floor_id = 12;
 }

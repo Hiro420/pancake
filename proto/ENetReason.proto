@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum ENetReason {
 	ENET_TIMEOUT = 0;
@@ -17,6 +16,7 @@ enum ENetReason {
 	ENET_SERVER_KILL_CLIENT = 12;
 	ENET_CHECK_MOVE_SPEED = 13;
 	ENET_ACCOUNT_PASSWORD_CHANGE = 14;
+	ENET_SECURITY_KICK = 15;
 	ENET_CLIENT_EDITOR_CONNECT_KEY = 987654321;
 	ENET_CLIENT_CONNECT_KEY = 1234567890;
 }

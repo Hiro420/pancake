@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeOfferingLevelRewardReq {
@@ -9,9 +8,9 @@ message TakeOfferingLevelRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2904;
+		CMD_ID = 2901;
 	}
 
-	uint32 offering_id = 1;
-	uint32 level = 2;
+	uint32 offering_id = 7;
+	uint32 level = 5;
 }

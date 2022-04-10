@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "EntityConfigHashEntry.proto";
 
@@ -10,10 +9,10 @@ message EntityConfigHashNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 3059;
+		CMD_ID = 3272;
 	}
 
-	repeated EntityConfigHashEntry ability_entry_list = 1;
-	repeated EntityConfigHashEntry combat_entry_list = 2;
-	repeated EntityConfigHashEntry avatar_entry_list = 3;
+	repeated EntityConfigHashEntry ability_entry_list = 11;
+	repeated EntityConfigHashEntry combat_entry_list = 12;
+	repeated EntityConfigHashEntry avatar_entry_list = 5;
 }

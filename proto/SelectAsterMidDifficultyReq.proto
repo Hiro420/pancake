@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SelectAsterMidDifficultyReq {
@@ -9,10 +8,10 @@ message SelectAsterMidDifficultyReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2061;
+		CMD_ID = 2027;
 	}
 
-	uint32 schedule_id = 1;
+	uint32 schedule_id = 15;
 	uint32 gadget_entity_id = 2;
 	uint32 difficulty_id = 3;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "GadgetGeneralRewardInfo.proto";
 
@@ -9,9 +8,9 @@ message GadgetGeneralRewardInfoNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 813;
+		CMD_ID = 823;
 	}
 
-	uint32 entity_id = 1;
-	GadgetGeneralRewardInfo general_reward_info = 2;
+	uint32 entity_id = 9;
+	GadgetGeneralRewardInfo general_reward_info = 13;
 }

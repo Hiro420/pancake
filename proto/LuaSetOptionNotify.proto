@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message LuaSetOptionNotify {
@@ -8,7 +7,7 @@ message LuaSetOptionNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 355;
+		CMD_ID = 326;
 	}
 
 	enum LuaOptionType {
@@ -16,6 +15,6 @@ message LuaSetOptionNotify {
 		LUA_OPTION_PLAYER_INPUT = 1;
 	}
 
-	LuaOptionType option_type = 1;
-	string lua_set_param = 2;
+	LuaOptionType option_type = 3;
+	string lua_set_param = 11;
 }

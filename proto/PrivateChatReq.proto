@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PrivateChatReq {
@@ -9,12 +8,12 @@ message PrivateChatReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4951;
+		CMD_ID = 5008;
 	}
 
 	oneof Content {
-		string text = 2;
-		uint32 icon = 3;
 	}
-	uint32 target_uid = 1;
+	uint32 target_uid = 4;
+	string text = 12;
+	uint32 icon = 6;
 }

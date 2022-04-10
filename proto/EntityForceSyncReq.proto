@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MotionInfo.proto";
 
@@ -10,11 +9,11 @@ message EntityForceSyncReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 235;
+		CMD_ID = 201;
 	}
 
-	uint32 entity_id = 1;
-	MotionInfo motion_info = 2;
-	uint32 scene_time = 3;
-	uint32 room_id = 4;
+	uint32 entity_id = 7;
+	MotionInfo motion_info = 5;
+	uint32 scene_time = 12;
+	uint32 room_id = 8;
 }

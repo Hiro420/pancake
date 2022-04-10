@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum CombatTypeArgument {
 	COMBAT_NONE = 0;
@@ -17,4 +16,5 @@ enum CombatTypeArgument {
 	COMBAT_MONSTER_DO_BLINK = 12;
 	COMBAT_FIXED_RUSH_MOVE = 13;
 	COMBAT_SYNC_TRANSFORM = 14;
+	COMBAT_LIGHT_CORE_MOVE = 15;
 }

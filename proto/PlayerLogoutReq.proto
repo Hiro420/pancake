@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerLogoutReq {
@@ -9,7 +8,7 @@ message PlayerLogoutReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 105;
+		CMD_ID = 176;
 	}
 
 	enum Reason {
@@ -23,5 +22,5 @@ message PlayerLogoutReq {
 		CLIENT_CHECKSUM_INVALID = 7;
 	}
 
-	Reason reason = 1;
+	Reason reason = 4;
 }

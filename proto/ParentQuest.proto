@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ParentQuestRandomInfo.proto";
 import "ChildQuest.proto";
@@ -13,4 +12,5 @@ message ParentQuest {
 	repeated int32 quest_var = 6;
 	uint32 parent_quest_state = 7;
 	uint32 quest_var_seq = 8;
+	map<uint32, uint32> time_var_map = 9;
 }

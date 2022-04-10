@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum SealBattleType {
 	SEAL_BATTLE_KEEP_ALIVE = 0;

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MotionInfo.proto";
 
@@ -9,13 +8,13 @@ message ForceDragAvatarNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 3060;
+		CMD_ID = 3334;
 	}
 
-	uint32 entity_id = 1;
-	MotionInfo motion_info = 2;
-	uint32 scene_time = 3;
-	uint64 last_move_time_ms = 4;
-	uint64 delta_time_ms = 5;
-	bool is_first_valid = 6;
+	uint32 entity_id = 10;
+	MotionInfo motion_info = 8;
+	uint32 scene_time = 6;
+	uint64 last_move_time_ms = 11;
+	uint64 delta_time_ms = 1;
+	bool is_first_valid = 7;
 }

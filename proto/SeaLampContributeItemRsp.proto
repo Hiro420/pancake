@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SeaLampContributeItemRsp {
@@ -8,11 +7,11 @@ message SeaLampContributeItemRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2021;
+		CMD_ID = 2022;
 	}
 
-	int32 retcode = 1;
-	uint32 total_contribution = 2;
-	uint32 add_contribution = 3;
-	uint32 add_progress = 4;
+	int32 retcode = 13;
+	uint32 total_contribution = 8;
+	uint32 add_contribution = 11;
+	uint32 add_progress = 10;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MechanicusInfo.proto";
 
@@ -9,7 +8,7 @@ message GetMechanicusInfoRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 3902;
+		CMD_ID = 3958;
 	}
 
 	int32 retcode = 1;

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ClientPauseNotify {
@@ -12,5 +11,5 @@ message ClientPauseNotify {
 		CMD_ID = 267;
 	}
 
-	bool is_open = 1;
+	bool is_open = 7;
 }

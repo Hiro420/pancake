@@ -1,7 +1,7 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "PlayerLocationInfo.proto";
+import "VehicleLocationInfo.proto";
 
 message ScenePlayerLocationNotify {
 	enum CmdId {
@@ -9,9 +9,10 @@ message ScenePlayerLocationNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		ENET_CHANNEL_ID = 1;
-		CMD_ID = 213;
+		CMD_ID = 223;
 	}
 
 	uint32 scene_id = 1;
-	repeated PlayerLocationInfo player_loc_list = 2;
+	repeated PlayerLocationInfo player_loc_list = 5;
+	repeated VehicleLocationInfo vehicle_loc_list = 10;
 }

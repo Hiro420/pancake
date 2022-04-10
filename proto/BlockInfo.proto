@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
+
 
 message BlockInfo {
 	uint32 block_id = 1;

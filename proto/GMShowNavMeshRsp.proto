@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "PBNavMeshTile.proto";
 
@@ -9,9 +8,9 @@ message GMShowNavMeshRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2354;
+		CMD_ID = 2371;
 	}
 
-	int32 retcode = 1;
-	repeated PBNavMeshTile tiles = 2;
+	int32 retcode = 10;
+	repeated PBNavMeshTile tiles = 3;
 }

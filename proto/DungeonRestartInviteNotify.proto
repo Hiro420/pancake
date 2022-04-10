@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message DungeonRestartInviteNotify {
@@ -9,11 +8,11 @@ message DungeonRestartInviteNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 953;
+		CMD_ID = 964;
 	}
 
-	uint32 player_uid = 1;
-	uint32 point_id = 2;
-	uint32 dungeon_id = 3;
-	uint32 cd = 4;
+	uint32 player_uid = 4;
+	uint32 point_id = 6;
+	uint32 dungeon_id = 14;
+	uint32 cd = 10;
 }

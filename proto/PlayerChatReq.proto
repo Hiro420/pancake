@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ChatInfo.proto";
 
@@ -10,9 +9,9 @@ message PlayerChatReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 3018;
+		CMD_ID = 3251;
 	}
 
-	uint32 channel_id = 1;
-	ChatInfo chat_info = 2;
+	uint32 channel_id = 15;
+	ChatInfo chat_info = 12;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message NormalUidOpNotify {
@@ -8,11 +7,11 @@ message NormalUidOpNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5701;
+		CMD_ID = 5731;
 	}
 
 	uint32 param_index = 1;
-	repeated uint32 param_list = 2;
-	repeated uint32 param_uid_list = 3;
-	uint32 duration = 4;
+	repeated uint32 param_list = 5;
+	repeated uint32 param_uid_list = 4;
+	uint32 duration = 15;
 }

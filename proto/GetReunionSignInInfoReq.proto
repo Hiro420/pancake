@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetReunionSignInInfoReq {
@@ -9,8 +8,8 @@ message GetReunionSignInInfoReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 5055;
+		CMD_ID = 5087;
 	}
 
-	uint32 sign_in_config_id = 1;
+	uint32 sign_in_config_id = 15;
 }

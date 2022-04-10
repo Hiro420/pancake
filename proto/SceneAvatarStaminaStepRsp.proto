@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -9,10 +8,10 @@ message SceneAvatarStaminaStepRsp {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		ENET_CHANNEL_ID = 1;
-		CMD_ID = 211;
+		CMD_ID = 280;
 	}
 
-	int32 retcode = 1;
-	bool use_client_rot = 2;
-	Vector rot = 3;
+	int32 retcode = 5;
+	bool use_client_rot = 4;
+	Vector rot = 10;
 }

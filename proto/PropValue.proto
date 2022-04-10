@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
+
 
 message PropValue {
 	oneof Value {

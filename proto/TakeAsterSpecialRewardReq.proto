@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeAsterSpecialRewardReq {
@@ -9,7 +8,7 @@ message TakeAsterSpecialRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2067;
+		CMD_ID = 2135;
 	}
 
 	uint32 schedule_id = 1;

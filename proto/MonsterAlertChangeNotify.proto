@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message MonsterAlertChangeNotify {
@@ -9,10 +8,10 @@ message MonsterAlertChangeNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 329;
+		CMD_ID = 368;
 	}
 
-	uint32 avatar_entity_id = 2;
-	uint32 is_alert = 3;
-	repeated uint32 monster_entity_list = 4;
+	uint32 avatar_entity_id = 5;
+	uint32 is_alert = 4;
+	repeated uint32 monster_entity_list = 9;
 }

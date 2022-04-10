@@ -1,6 +1,6 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
+import "MaterialDeleteReturnType.proto";
 
 message TakeMaterialDeleteReturnReq {
 	enum CmdId {
@@ -9,7 +9,8 @@ message TakeMaterialDeleteReturnReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 652;
+		CMD_ID = 631;
 	}
 
+	MaterialDeleteReturnType type = 6;
 }

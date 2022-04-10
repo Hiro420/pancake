@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "GalleryFlowerStartParam.proto";
 
@@ -9,12 +8,13 @@ message GalleryStartNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5501;
+		CMD_ID = 5558;
 	}
 
 	oneof Detail {
-		GalleryFlowerStartParam flower_start_param = 11;
 	}
-	uint32 gallery_id = 1;
-	uint32 end_time = 2;
+	uint32 gallery_id = 6;
+	uint32 end_time = 13;
+	uint32 player_count = 1;
+	GalleryFlowerStartParam flower_start_param = 15;
 }

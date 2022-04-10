@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "DraftInviteFailInfo.proto";
 
@@ -10,11 +9,11 @@ message DraftOwnerStartInviteRsp {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 5404;
+		CMD_ID = 5483;
 	}
 
-	int32 retcode = 1;
-	uint32 draft_id = 2;
-	uint32 wrong_uid = 3;
-	repeated DraftInviteFailInfo invite_fail_info_list = 4;
+	int32 retcode = 4;
+	uint32 draft_id = 13;
+	uint32 wrong_uid = 1;
+	repeated DraftInviteFailInfo invite_fail_info_list = 5;
 }

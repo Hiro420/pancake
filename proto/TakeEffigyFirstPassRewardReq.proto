@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeEffigyFirstPassRewardReq {
@@ -9,8 +8,8 @@ message TakeEffigyFirstPassRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2105;
+		CMD_ID = 2101;
 	}
 
-	uint32 challenge_id = 1;
+	uint32 challenge_id = 10;
 }

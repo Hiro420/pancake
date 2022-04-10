@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "StoreType.proto";
 
@@ -9,9 +8,9 @@ message StoreItemDelNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 604;
+		CMD_ID = 683;
 	}
 
-	StoreType store_type = 1;
-	repeated uint64 guid_list = 2;
+	StoreType store_type = 15;
+	repeated uint64 guid_list = 3;
 }

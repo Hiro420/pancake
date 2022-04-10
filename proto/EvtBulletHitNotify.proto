@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ForwardType.proto";
 import "HitColliderType.proto";
@@ -12,15 +11,15 @@ message EvtBulletHitNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 313;
+		CMD_ID = 323;
 	}
 
-	ForwardType forward_type = 1;
-	uint32 forward_peer = 2;
-	uint32 entity_id = 3;
+	ForwardType forward_type = 3;
+	uint32 forward_peer = 7;
+	uint32 entity_id = 8;
 	uint32 hit_entity_id = 4;
-	HitColliderType hit_collider_type = 5;
-	int32 hit_box_index = 6;
-	Vector hit_point = 7;
-	Vector hit_normal = 8;
+	HitColliderType hit_collider_type = 12;
+	int32 hit_box_index = 1;
+	Vector hit_point = 13;
+	Vector hit_normal = 14;
 }

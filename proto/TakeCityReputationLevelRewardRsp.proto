@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ItemParam.proto";
 
@@ -9,11 +8,11 @@ message TakeCityReputationLevelRewardRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2804;
+		CMD_ID = 2883;
 	}
 
-	int32 retcode = 1;
+	int32 retcode = 7;
 	uint32 city_id = 2;
 	uint32 level = 3;
-	repeated ItemParam item_list = 4;
+	repeated ItemParam item_list = 10;
 }

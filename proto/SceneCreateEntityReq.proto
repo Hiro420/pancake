@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "CreateEntityInfo.proto";
 import "CreateReason.proto";
@@ -11,10 +10,10 @@ message SceneCreateEntityReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 227;
+		CMD_ID = 239;
 	}
 
-	CreateEntityInfo entity = 1;
-	CreateReason reason = 2;
-	bool is_destroy_when_disconnect = 3;
+	CreateEntityInfo entity = 14;
+	CreateReason reason = 6;
+	bool is_destroy_when_disconnect = 4;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MatchType.proto";
 import "OnlinePlayerInfo.proto";
@@ -10,10 +9,10 @@ message PlayerApplyEnterMpAfterMatchAgreedNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4162;
+		CMD_ID = 4165;
 	}
 
-	MatchType match_type = 1;
-	OnlinePlayerInfo src_player_info = 2;
-	uint32 matchserver_id = 3;
+	MatchType match_type = 3;
+	OnlinePlayerInfo src_player_info = 9;
+	uint32 matchserver_id = 5;
 }

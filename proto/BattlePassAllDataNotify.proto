@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "BattlePassSchedule.proto";
 import "BattlePassMission.proto";
@@ -10,10 +9,10 @@ message BattlePassAllDataNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2601;
+		CMD_ID = 2631;
 	}
 
-	bool have_cur_schedule = 1;
-	BattlePassSchedule cur_schedule = 2;
-	repeated BattlePassMission mission_list = 3;
+	bool have_cur_schedule = 10;
+	BattlePassSchedule cur_schedule = 3;
+	repeated BattlePassMission mission_list = 15;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AddQuestContentProgressReq {
@@ -9,10 +8,10 @@ message AddQuestContentProgressReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 406;
+		CMD_ID = 435;
 	}
 
-	uint32 content_type = 1;
-	uint32 param = 2;
-	uint32 add_progress = 3;
+	uint32 content_type = 7;
+	uint32 param = 9;
+	uint32 add_progress = 10;
 }

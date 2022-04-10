@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ArenaChallengeChildChallengeInfo.proto";
 
@@ -9,11 +8,11 @@ message ArenaChallengeFinishNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2197;
+		CMD_ID = 2098;
 	}
 
-	uint32 arena_challenge_id = 1;
-	uint32 arena_challenge_level = 2;
+	uint32 arena_challenge_id = 5;
+	uint32 arena_challenge_level = 11;
 	bool is_success = 3;
 	repeated ArenaChallengeChildChallengeInfo child_challenge_list = 4;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message BigTalentPointConvertReq {
@@ -9,9 +8,9 @@ message BigTalentPointConvertReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1005;
+		CMD_ID = 1076;
 	}
 
-	uint64 avatar_guid = 1;
-	repeated uint64 item_guid_list = 2;
+	uint64 avatar_guid = 14;
+	repeated uint64 item_guid_list = 5;
 }

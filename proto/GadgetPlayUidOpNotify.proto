@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GadgetPlayUidOpNotify {
@@ -8,13 +7,13 @@ message GadgetPlayUidOpNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 812;
+		CMD_ID = 890;
 	}
 
-	uint32 play_type = 1;
-	uint32 entity_id = 2;
-	repeated uint32 uid_list = 3;
-	uint32 op = 4;
-	string param_str = 5;
-	repeated uint32 param_list = 6;
+	uint32 play_type = 13;
+	uint32 entity_id = 7;
+	repeated uint32 uid_list = 11;
+	uint32 op = 15;
+	string param_str = 14;
+	repeated uint32 param_list = 9;
 }

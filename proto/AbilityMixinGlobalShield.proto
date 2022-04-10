@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AbilityMixinGlobalShield {
@@ -8,4 +7,5 @@ message AbilityMixinGlobalShield {
 	string shield_effect_name = 3;
 	float height_offset = 4;
 	bool is_create_effect = 5;
+	float max_shield = 6;
 }

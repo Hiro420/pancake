@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message WearEquipReq {
@@ -9,9 +8,9 @@ message WearEquipReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 614;
+		CMD_ID = 617;
 	}
 
-	uint64 avatar_guid = 1;
-	uint64 equip_guid = 2;
+	uint64 avatar_guid = 15;
+	uint64 equip_guid = 14;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -9,9 +8,9 @@ message AddRandTaskInfoNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 150;
+		CMD_ID = 162;
 	}
 
-	uint32 rand_task_id = 1;
-	Vector pos = 2;
+	uint32 rand_task_id = 7;
+	Vector pos = 12;
 }

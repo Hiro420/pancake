@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "BargainResultType.proto";
 
@@ -9,11 +8,11 @@ message BargainOfferPriceRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 425;
+		CMD_ID = 474;
 	}
 
-	int32 retcode = 1;
+	int32 retcode = 9;
 	BargainResultType bargain_result = 2;
-	uint32 result_param = 3;
-	int32 cur_mood = 4;
+	uint32 result_param = 8;
+	int32 cur_mood = 12;
 }

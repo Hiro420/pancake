@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message BuyResinRsp {
@@ -9,9 +8,9 @@ message BuyResinRsp {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 650;
+		CMD_ID = 662;
 	}
 
-	int32 retcode = 1;
-	uint32 cur_value = 2;
+	int32 retcode = 8;
+	uint32 cur_value = 14;
 }

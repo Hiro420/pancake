@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "SvrMsgId.proto";
 import "MsgParam.proto";
@@ -10,9 +9,9 @@ message ShowMessageNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4;
+		CMD_ID = 83;
 	}
 
-	SvrMsgId msg_id = 1;
-	repeated MsgParam params = 2;
+	SvrMsgId msg_id = 5;
+	repeated MsgParam params = 8;
 }

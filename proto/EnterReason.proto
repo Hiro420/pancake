@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum EnterReason {
 	NONE = 0;
@@ -34,4 +33,11 @@ enum EnterReason {
 	GALLERY = 67;
 	HOME_SCENE_JUMP = 68;
 	HIDE_AND_SEEK = 69;
+	SUMMER_TIME_MIST_ZONE = 70;
+	FORCE_QUIT_SCENE = 71;
+	HERO_COURSE = 72;
+	TRANS_CLIMATE = 73;
+	SUMMER_TIME_BOAT_RESTART = 74;
+	TSURUMI_MIST_CLIMATE = 75;
+	TSURUMI_REGIONAL_MIST_CLIMATE = 76;
 }

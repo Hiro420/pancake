@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GadgetTalkChangeNotify {
@@ -8,9 +7,9 @@ message GadgetTalkChangeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 819;
+		CMD_ID = 829;
 	}
 
-	uint32 gadget_entity_id = 1;
-	uint32 cur_gadget_talk_state = 2;
+	uint32 gadget_entity_id = 4;
+	uint32 cur_gadget_talk_state = 13;
 }

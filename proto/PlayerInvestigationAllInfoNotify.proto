@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Investigation.proto";
 import "InvestigationTarget.proto";
@@ -13,6 +12,6 @@ message PlayerInvestigationAllInfoNotify {
 		CMD_ID = 1901;
 	}
 
-	repeated Investigation investigation_list = 1;
-	repeated InvestigationTarget investigation_target_list = 2;
+	repeated Investigation investigation_list = 2;
+	repeated InvestigationTarget investigation_target_list = 14;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message CookGradeDataNotify {
@@ -8,8 +7,8 @@ message CookGradeDataNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 132;
+		CMD_ID = 103;
 	}
 
-	uint32 grade = 1;
+	uint32 grade = 12;
 }

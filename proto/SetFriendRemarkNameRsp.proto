@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SetFriendRemarkNameRsp {
@@ -8,10 +7,11 @@ message SetFriendRemarkNameRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4044;
+		CMD_ID = 4007;
 	}
 
-	int32 retcode = 1;
-	uint32 uid = 2;
-	string remark_name = 3;
+	int32 retcode = 9;
+	uint32 uid = 1;
+	string remark_name = 12;
+	bool is_clear_remark = 14;
 }

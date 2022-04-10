@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerCookReq {
@@ -9,11 +8,11 @@ message PlayerCookReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 126;
+		CMD_ID = 108;
 	}
 
-	uint32 recipe_id = 1;
-	uint32 qte_quality = 2;
-	uint32 assist_avatar = 3;
-	uint32 cook_count = 4;
+	uint32 recipe_id = 2;
+	uint32 qte_quality = 6;
+	uint32 assist_avatar = 13;
+	uint32 cook_count = 10;
 }

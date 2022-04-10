@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message UseItemReq {
@@ -9,12 +8,12 @@ message UseItemReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 608;
+		CMD_ID = 618;
 	}
 
 	uint64 guid = 1;
-	uint32 count = 2;
-	uint64 target_guid = 3;
-	uint32 option_idx = 4;
-	bool is_enter_mp_dungeon_team = 5;
+	uint32 count = 3;
+	uint64 target_guid = 5;
+	uint32 option_idx = 8;
+	bool is_enter_mp_dungeon_team = 13;
 }

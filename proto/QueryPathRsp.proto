@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -9,7 +8,7 @@ message QueryPathRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2302;
+		CMD_ID = 2333;
 	}
 
 	enum PathStatusType {
@@ -18,8 +17,8 @@ message QueryPathRsp {
 		STATUS_PARTIAL = 2;
 	}
 
-	int32 retcode = 1;
-	int32 query_id = 2;
-	PathStatusType query_status = 3;
-	repeated Vector corners = 4;
+	int32 retcode = 14;
+	int32 query_id = 15;
+	PathStatusType query_status = 9;
+	repeated Vector corners = 2;
 }

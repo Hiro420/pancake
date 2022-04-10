@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "LunchBoxData.proto";
 
@@ -10,8 +9,8 @@ message SetUpLunchBoxWidgetReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4258;
+		CMD_ID = 4254;
 	}
 
-	LunchBoxData lunch_box_data = 1;
+	LunchBoxData lunch_box_data = 6;
 }

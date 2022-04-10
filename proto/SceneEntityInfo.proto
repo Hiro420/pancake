@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "SceneAvatarInfo.proto";
 import "SceneMonsterInfo.proto";
@@ -13,6 +12,7 @@ import "PropPair.proto";
 import "FightPropPair.proto";
 import "AnimatorParameterValueInfoPair.proto";
 import "EntityEnvironmentInfo.proto";
+import "ServerBuff.proto";
 
 message SceneEntityInfo {
 	oneof Entity {
@@ -35,4 +35,5 @@ message SceneEntityInfo {
 	repeated EntityEnvironmentInfo entity_environment_info_list = 20;
 	EntityAuthorityInfo entity_authority_info = 21;
 	repeated string tag_list = 22;
+	repeated ServerBuff server_buff_list = 23;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum PlatformType {
 	EDITOR = 0;
@@ -11,4 +10,6 @@ enum PlatformType {
 	CLOUD_ANDROID = 6;
 	CLOUD_IOS = 7;
 	PS5 = 8;
+	CLOUD_WEB = 9;
+	CLOUD_TV = 10;
 }

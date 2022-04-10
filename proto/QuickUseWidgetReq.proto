@@ -1,7 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
-import "Vector.proto";
+import "WidgetCreateLocationInfo.proto";
+import "WidgetCameraInfo.proto";
+import "WidgetCreatorInfo.proto";
+import "WidgetThunderBirdFeatherInfo.proto";
 
 message QuickUseWidgetReq {
 	enum CmdId {
@@ -10,9 +12,13 @@ message QuickUseWidgetReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4260;
+		CMD_ID = 4266;
 	}
 
-	bool is_pos_valid = 1;
-	Vector pos = 2;
+	oneof Param {
+	}
+	WidgetCreateLocationInfo location_info = 361;
+	WidgetCameraInfo camera_info = 951;
+	WidgetCreatorInfo creator_info = 793;
+	WidgetThunderBirdFeatherInfo thunder_bird_feather_info = 596;
 }

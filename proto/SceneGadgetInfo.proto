@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Item.proto";
 import "GatherGadgetInfo.proto";
@@ -14,6 +13,12 @@ import "MpPlayRewardInfo.proto";
 import "GadgetGeneralRewardInfo.proto";
 import "OfferingInfo.proto";
 import "FoundationInfo.proto";
+import "VehicleInfo.proto";
+import "EchoShellInfo.proto";
+import "ScreenInfo.proto";
+import "FishPoolInfo.proto";
+import "CustomGadgetTreeInfo.proto";
+import "RoguelikeGadgetInfo.proto";
 import "GadgetBornType.proto";
 import "PlatformInfo.proto";
 import "GadgetPlayInfo.proto";
@@ -33,6 +38,12 @@ message SceneGadgetInfo {
 		GadgetGeneralRewardInfo general_reward = 43;
 		OfferingInfo offering_info = 44;
 		FoundationInfo foundation_info = 45;
+		VehicleInfo vehicle_info = 46;
+		EchoShellInfo shell_info = 47;
+		ScreenInfo screen_info = 48;
+		FishPoolInfo fish_pool_info = 59;
+		CustomGadgetTreeInfo custom_gadget_tree_info = 60;
+		RoguelikeGadgetInfo roguelike_gadget_info = 61;
 	}
 	uint32 gadget_id = 1;
 	uint32 group_id = 2;

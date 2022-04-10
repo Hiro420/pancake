@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HuntingPair.proto";
 
@@ -9,9 +8,9 @@ message HuntingGiveUpRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4314;
+		CMD_ID = 4797;
 	}
 
-	int32 retcode = 1;
-	HuntingPair hunting_pair = 2;
+	int32 retcode = 5;
+	HuntingPair hunting_pair = 12;
 }

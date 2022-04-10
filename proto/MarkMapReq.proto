@@ -9,7 +9,7 @@ message MarkMapReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 3010;
+		CMD_ID = 3235;
 	}
 
 	enum Operation {
@@ -19,7 +19,7 @@ message MarkMapReq {
 		GET = 3;
 	}
 
-	Operation op = 1;
-	MapMarkPoint old = 2;
-	MapMarkPoint mark = 3;
+	Operation op = 2;
+	MapMarkPoint old = 10;
+	MapMarkPoint mark = 15;
 }

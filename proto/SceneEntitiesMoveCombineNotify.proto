@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "EntityMoveInfo.proto";
 
@@ -9,8 +8,8 @@ message SceneEntitiesMoveCombineNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 0;
 		ENET_CHANNEL_ID = 1;
-		CMD_ID = 3001;
+		CMD_ID = 3459;
 	}
 
-	repeated EntityMoveInfo entity_move_info_list = 1;
+	repeated EntityMoveInfo entity_move_info_list = 6;
 }

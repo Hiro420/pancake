@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ChangeGameTimeReq {
@@ -9,9 +8,10 @@ message ChangeGameTimeReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 109;
+		CMD_ID = 163;
 	}
 
-	uint32 game_time = 1;
-	bool is_force_set = 2;
+	uint32 game_time = 10;
+	bool is_force_set = 7;
+	uint32 extra_days = 2;
 }

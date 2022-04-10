@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ScenePlayOutofRegionNotify {
@@ -9,8 +8,8 @@ message ScenePlayOutofRegionNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4366;
+		CMD_ID = 4391;
 	}
 
-	uint32 play_id = 1;
+	uint32 play_id = 7;
 }

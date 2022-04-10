@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "SegmentCRCInfo.proto";
 
@@ -10,8 +9,8 @@ message CheckSegmentCRCReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 20;
+		CMD_ID = 70;
 	}
 
-	repeated SegmentCRCInfo info_list = 1;
+	repeated SegmentCRCInfo info_list = 15;
 }

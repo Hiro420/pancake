@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ExecuteGadgetLuaRsp {
@@ -11,5 +10,5 @@ message ExecuteGadgetLuaRsp {
 		CMD_ID = 294;
 	}
 
-	int32 retcode = 1;
+	int32 retcode = 3;
 }

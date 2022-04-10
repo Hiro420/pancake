@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "FriendBrief.proto";
 
@@ -9,9 +8,9 @@ message GetPlayerBlacklistRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4040;
+		CMD_ID = 4065;
 	}
 
-	int32 retcode = 1;
-	repeated FriendBrief blacklist = 2;
+	int32 retcode = 6;
+	repeated FriendBrief blacklist = 9;
 }

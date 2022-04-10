@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ResVersionConfig.proto";
 
@@ -9,10 +8,10 @@ message GetNextResourceInfoRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 170;
+		CMD_ID = 161;
 	}
 
-	int32 retcode = 1;
-	ResVersionConfig next_res_version_config = 2;
-	string next_resource_url = 3;
+	int32 retcode = 13;
+	ResVersionConfig next_res_version_config = 3;
+	string next_resource_url = 11;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum PropChangeReason {
 	PROP_CHANGE_NONE = 0;

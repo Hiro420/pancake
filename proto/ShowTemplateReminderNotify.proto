@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ShowTemplateReminderNotify {
@@ -8,10 +7,11 @@ message ShowTemplateReminderNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 3046;
+		CMD_ID = 3440;
 	}
 
-	uint32 template_reminder_id = 1;
-	repeated int32 param_list = 2;
-	repeated uint32 param_uid_list = 3;
+	uint32 template_reminder_id = 2;
+	repeated int32 param_list = 8;
+	repeated uint32 param_uid_list = 1;
+	bool is_revoke = 12;
 }

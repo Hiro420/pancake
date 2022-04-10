@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetBattlePassProductRsp {
@@ -8,12 +7,12 @@ message GetBattlePassProductRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2610;
+		CMD_ID = 2616;
 	}
 
-	int32 retcode = 1;
-	uint32 battle_pass_product_play_type = 2;
-	uint32 cur_schedule_id = 3;
-	string product_id = 4;
-	string price_tier = 5;
+	int32 retcode = 6;
+	uint32 battle_pass_product_play_type = 14;
+	uint32 cur_schedule_id = 1;
+	string product_id = 8;
+	string price_tier = 9;
 }

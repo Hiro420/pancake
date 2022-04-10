@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message MpPlayGuestReplyNotify {
@@ -8,10 +7,10 @@ message MpPlayGuestReplyNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1822;
+		CMD_ID = 1819;
 	}
 
-	uint32 mp_play_id = 1;
-	uint32 uid = 2;
-	bool is_agree = 3;
+	uint32 mp_play_id = 12;
+	uint32 uid = 6;
+	bool is_agree = 4;
 }

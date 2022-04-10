@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "WorldRoutineInfo.proto";
 
@@ -9,9 +8,9 @@ message WorldRoutineChangeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 3504;
+		CMD_ID = 3501;
 	}
 
-	uint32 routine_type = 1;
-	WorldRoutineInfo routine_info = 2;
+	uint32 routine_type = 4;
+	WorldRoutineInfo routine_info = 3;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "StoreType.proto";
 import "Item.proto";
@@ -10,10 +9,10 @@ message PlayerStoreNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 601;
+		CMD_ID = 658;
 	}
 
 	StoreType store_type = 1;
-	repeated Item item_list = 2;
-	uint32 weight_limit = 3;
+	repeated Item item_list = 10;
+	uint32 weight_limit = 7;
 }

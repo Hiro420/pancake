@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ServerGlobalValueChangeNotify {
@@ -8,10 +7,10 @@ message ServerGlobalValueChangeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1114;
+		CMD_ID = 1117;
 	}
 
-	uint32 entity_id = 1;
-	uint32 key_hash = 2;
-	float value = 3;
+	uint32 entity_id = 15;
+	uint32 key_hash = 3;
+	float value = 7;
 }

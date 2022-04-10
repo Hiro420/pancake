@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message InBattleMechanicusConfirmCardRsp {
@@ -8,11 +7,11 @@ message InBattleMechanicusConfirmCardRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5312;
+		CMD_ID = 5390;
 	}
 
-	int32 retcode = 1;
-	uint32 play_index = 2;
-	uint32 group_id = 3;
-	uint32 card_id = 4;
+	int32 retcode = 15;
+	uint32 play_index = 13;
+	uint32 group_id = 8;
+	uint32 card_id = 11;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetCityReputationInfoReq {
@@ -9,8 +8,8 @@ message GetCityReputationInfoReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2801;
+		CMD_ID = 2858;
 	}
 
-	uint32 city_id = 1;
+	uint32 city_id = 6;
 }

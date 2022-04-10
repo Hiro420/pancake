@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum BlossomScheduleState {
 	BLOSSOM_SCHEDULE_NONE = 0;

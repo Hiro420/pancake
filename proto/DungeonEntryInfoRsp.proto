@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "DungeonEntryInfo.proto";
 
@@ -9,11 +8,11 @@ message DungeonEntryInfoRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 902;
+		CMD_ID = 933;
 	}
 
-	int32 retcode = 1;
-	uint32 point_id = 2;
+	int32 retcode = 4;
+	uint32 point_id = 9;
 	repeated DungeonEntryInfo dungeon_entry_list = 3;
-	uint32 recommend_dungeon_id = 4;
+	uint32 recommend_dungeon_id = 12;
 }

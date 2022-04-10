@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "BlossomScheduleInfo.proto";
 
@@ -10,8 +9,8 @@ message WorldOwnerBlossomScheduleInfoNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2705;
+		CMD_ID = 2776;
 	}
 
-	BlossomScheduleInfo schedule_info = 1;
+	BlossomScheduleInfo schedule_info = 7;
 }

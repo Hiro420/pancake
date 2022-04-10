@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SetSceneWeatherAreaReq {
@@ -9,9 +8,9 @@ message SetSceneWeatherAreaReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 291;
+		CMD_ID = 277;
 	}
 
-	uint32 weather_gadget_id = 1;
-	map<uint32, string> weather_value_map = 2;
+	uint32 weather_gadget_id = 7;
+	map<uint32, string> weather_value_map = 6;
 }

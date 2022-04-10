@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "CombatInvokeEntry.proto";
 
@@ -10,8 +9,8 @@ message CombatInvocationsNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 350;
+		CMD_ID = 362;
 	}
 
-	repeated CombatInvokeEntry invoke_list = 1;
+	repeated CombatInvokeEntry invoke_list = 15;
 }

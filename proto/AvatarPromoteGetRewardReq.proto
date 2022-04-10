@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AvatarPromoteGetRewardReq {
@@ -9,9 +8,9 @@ message AvatarPromoteGetRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1751;
+		CMD_ID = 1757;
 	}
 
-	uint64 avatar_guid = 1;
-	uint32 promote_level = 2;
+	uint64 avatar_guid = 4;
+	uint32 promote_level = 5;
 }

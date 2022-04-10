@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum PlayerDieOption {
 	DIE_OPT_NONE = 0;

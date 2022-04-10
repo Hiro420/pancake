@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ForwardType.proto";
 import "EvtBeingHitInfo.proto";
@@ -11,9 +10,9 @@ message EvtBeingHitsCombineNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 337;
+		CMD_ID = 340;
 	}
 
-	ForwardType forward_type = 1;
-	repeated EvtBeingHitInfo evt_being_hit_info_list = 2;
+	ForwardType forward_type = 15;
+	repeated EvtBeingHitInfo evt_being_hit_info_list = 5;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SeaLampPopularityNotify {
@@ -8,8 +7,8 @@ message SeaLampPopularityNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2030;
+		CMD_ID = 2074;
 	}
 
-	uint32 popularity = 1;
+	uint32 popularity = 3;
 }

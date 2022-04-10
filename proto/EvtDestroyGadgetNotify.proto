@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ForwardType.proto";
 
@@ -10,9 +9,9 @@ message EvtDestroyGadgetNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 306;
+		CMD_ID = 335;
 	}
 
-	ForwardType forward_type = 1;
+	ForwardType forward_type = 7;
 	uint32 entity_id = 2;
 }

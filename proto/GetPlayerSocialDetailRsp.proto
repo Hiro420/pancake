@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "SocialDetail.proto";
 
@@ -9,9 +8,9 @@ message GetPlayerSocialDetailRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4010;
+		CMD_ID = 4027;
 	}
 
-	int32 retcode = 1;
-	SocialDetail detail_data = 2;
+	int32 retcode = 14;
+	SocialDetail detail_data = 10;
 }

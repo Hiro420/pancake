@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message InBattleMechanicusExcapeMonsterNotify {
@@ -8,8 +7,8 @@ message InBattleMechanicusExcapeMonsterNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5305;
+		CMD_ID = 5376;
 	}
 
-	uint32 excaped_monster_num = 1;
+	uint32 excaped_monster_num = 15;
 }

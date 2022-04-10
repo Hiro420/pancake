@@ -1,6 +1,6 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
+import "ProfilePicture.proto";
 
 message SetPlayerHeadImageRsp {
 	enum CmdId {
@@ -8,9 +8,10 @@ message SetPlayerHeadImageRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4018;
+		CMD_ID = 4015;
 	}
 
-	int32 retcode = 1;
-	uint32 avatar_id = 2;
+	int32 retcode = 4;
+	uint32 avatar_id = 11;
+	ProfilePicture profile_picture = 7;
 }

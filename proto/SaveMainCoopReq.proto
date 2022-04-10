@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SaveMainCoopReq {
@@ -9,12 +8,12 @@ message SaveMainCoopReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1953;
+		CMD_ID = 1975;
 	}
 
 	uint32 id = 1;
-	uint32 save_point_id = 2;
-	uint32 self_confidence = 3;
-	map<uint32, int32> normal_var_map = 4;
+	uint32 save_point_id = 7;
+	uint32 self_confidence = 12;
+	map<uint32, int32> normal_var_map = 13;
 	map<uint32, int32> temp_var_map = 5;
 }

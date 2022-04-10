@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Birthday.proto";
 
@@ -10,8 +9,8 @@ message SetPlayerBirthdayReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4013;
+		CMD_ID = 4023;
 	}
 
-	Birthday birthday = 1;
+	Birthday birthday = 9;
 }

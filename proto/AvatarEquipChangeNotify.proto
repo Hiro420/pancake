@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "SceneWeaponInfo.proto";
 import "SceneReliquaryInfo.proto";
@@ -11,13 +10,13 @@ message AvatarEquipChangeNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 618;
+		CMD_ID = 615;
 	}
 
-	uint64 avatar_guid = 1;
+	uint64 avatar_guid = 14;
 	uint32 equip_type = 2;
-	uint32 item_id = 3;
-	uint64 equip_guid = 4;
-	SceneWeaponInfo weapon = 5;
-	SceneReliquaryInfo reliquary = 6;
+	uint32 item_id = 8;
+	uint64 equip_guid = 12;
+	SceneWeaponInfo weapon = 9;
+	SceneReliquaryInfo reliquary = 3;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "TreasureMapRegionInfo.proto";
 import "TreasureMapBonusChallengeInfo.proto";
@@ -13,4 +12,5 @@ message TreasureMapActivityDetailInfo {
 	uint32 currency_num = 6;
 	repeated TreasureMapBonusChallengeInfo bonus_challenge_list = 7;
 	bool is_mp_challenge_touched = 8;
+	uint32 total_mp_spot_num = 9;
 }

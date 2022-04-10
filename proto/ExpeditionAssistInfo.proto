@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ExpeditionAssistInfo {
@@ -7,4 +6,5 @@ message ExpeditionAssistInfo {
 	uint32 assist_time = 2;
 	string target_nick_name = 3;
 	string online_id = 4;
+	uint32 costume_id = 5;
 }

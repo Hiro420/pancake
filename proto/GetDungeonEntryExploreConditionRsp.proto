@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "DungeonEntryCond.proto";
 
@@ -9,9 +8,9 @@ message GetDungeonEntryExploreConditionRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 3036;
+		CMD_ID = 3378;
 	}
 
-	int32 retcode = 1;
-	DungeonEntryCond dungeon_entry_cond = 2;
+	int32 retcode = 10;
+	DungeonEntryCond dungeon_entry_cond = 8;
 }

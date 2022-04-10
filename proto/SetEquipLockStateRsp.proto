@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SetEquipLockStateRsp {
@@ -8,10 +7,10 @@ message SetEquipLockStateRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 660;
+		CMD_ID = 645;
 	}
 
-	int32 retcode = 1;
-	uint64 target_equip_guid = 2;
-	bool is_locked = 3;
+	int32 retcode = 15;
+	uint64 target_equip_guid = 7;
+	bool is_locked = 5;
 }

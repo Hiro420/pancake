@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ReunionMissionInfo.proto";
 
@@ -9,9 +8,9 @@ message GetReunionMissionInfoRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5060;
+		CMD_ID = 5066;
 	}
 
 	int32 retcode = 1;
-	ReunionMissionInfo mission_info = 2;
+	ReunionMissionInfo mission_info = 6;
 }

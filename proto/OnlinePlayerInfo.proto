@@ -1,7 +1,7 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MpSettingType.proto";
+import "ProfilePicture.proto";
 
 message OnlinePlayerInfo {
 	uint32 uid = 1;
@@ -15,4 +15,6 @@ message OnlinePlayerInfo {
 	uint32 name_card_id = 9;
 	repeated uint32 blacklist_uid_list = 10;
 	string signature = 11;
+	ProfilePicture profile_picture = 12;
+	string psn_id = 13;
 }

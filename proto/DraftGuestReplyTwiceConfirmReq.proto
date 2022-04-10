@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message DraftGuestReplyTwiceConfirmReq {
@@ -9,9 +8,9 @@ message DraftGuestReplyTwiceConfirmReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 5411;
+		CMD_ID = 5480;
 	}
 
 	uint32 draft_id = 1;
-	bool is_agree = 2;
+	bool is_agree = 14;
 }

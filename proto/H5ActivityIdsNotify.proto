@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message H5ActivityIdsNotify {
@@ -8,8 +7,9 @@ message H5ActivityIdsNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5653;
+		CMD_ID = 5681;
 	}
 
-	map<uint32, uint32> h5_activity_map = 1;
+	map<uint32, uint32> h5_activity_map = 4;
+	uint32 client_red_dot_timestamp = 6;
 }

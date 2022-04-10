@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message EchoNotify {
@@ -8,9 +7,9 @@ message EchoNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 22;
+		CMD_ID = 43;
 	}
 
-	uint32 seq_id = 1;
-	string content = 2;
+	uint32 seq_id = 11;
+	string content = 10;
 }

@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
+
 
 message PlayerLevelRewardUpdateNotify {
 	enum CmdId {
@@ -7,8 +7,8 @@ message PlayerLevelRewardUpdateNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 154;
+		CMD_ID = 171;
 	}
 
-	repeated uint32 level_list = 1;
+	repeated uint32 level_list = 6;
 }

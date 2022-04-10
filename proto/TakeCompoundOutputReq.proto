@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeCompoundOutputReq {
@@ -9,8 +8,9 @@ message TakeCompoundOutputReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 135;
+		CMD_ID = 101;
 	}
 
-	uint32 compound_id = 1;
+	uint32 compound_id = 8;
+	uint32 compound_group_id = 6;
 }

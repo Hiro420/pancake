@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AvatarSkillUpgradeReq {
@@ -9,10 +8,10 @@ message AvatarSkillUpgradeReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1012;
+		CMD_ID = 1090;
 	}
 
-	uint64 avatar_guid = 1;
-	uint32 avatar_skill_id = 2;
-	uint32 old_level = 3;
+	uint64 avatar_guid = 7;
+	uint32 avatar_skill_id = 6;
+	uint32 old_level = 1;
 }

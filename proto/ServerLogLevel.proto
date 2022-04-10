@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum ServerLogLevel {
 	LOG_LEVEL_NONE = 0;

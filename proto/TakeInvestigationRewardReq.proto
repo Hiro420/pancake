@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeInvestigationRewardReq {
@@ -9,8 +8,8 @@ message TakeInvestigationRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1902;
+		CMD_ID = 1914;
 	}
 
-	uint32 id = 1;
+	uint32 id = 6;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AbilityInvokeEntryHead.proto";
 import "AbilityInvokeArgument.proto";
@@ -13,4 +12,5 @@ message AbilityInvokeEntry {
 	ForwardType forward_type = 5;
 	uint32 forward_peer = 6;
 	uint32 event_id = 7;
+	double total_tick_time = 8;
 }

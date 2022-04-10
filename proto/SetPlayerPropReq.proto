@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "PropValue.proto";
 
@@ -10,8 +9,8 @@ message SetPlayerPropReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 114;
+		CMD_ID = 117;
 	}
 
-	repeated PropValue prop_list = 1;
+	repeated PropValue prop_list = 13;
 }

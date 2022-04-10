@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ReunionWatcherInfo {
@@ -7,4 +6,5 @@ message ReunionWatcherInfo {
 	uint32 cur_progress = 2;
 	uint32 total_progress = 3;
 	bool is_taken_reward = 4;
+	uint32 reward_unlock_time = 5;
 }

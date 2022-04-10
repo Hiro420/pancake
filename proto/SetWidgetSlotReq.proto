@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "WidgetSlotOp.proto";
 import "WidgetSlotTag.proto";
@@ -11,7 +10,7 @@ message SetWidgetSlotReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4279;
+		CMD_ID = 4252;
 	}
 
 	WidgetSlotOp op = 2;

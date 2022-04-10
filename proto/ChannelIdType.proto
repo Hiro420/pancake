@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum ChannelIdType {
 	CHANNEL_ID_NONE = 0;

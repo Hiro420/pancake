@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MotionInfo.proto";
 
@@ -10,11 +9,11 @@ message SceneEntityMoveReq {
 		NONE = 0;
 		ENET_CHANNEL_ID = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 208;
+		CMD_ID = 218;
 	}
 
-	uint32 entity_id = 1;
-	MotionInfo motion_info = 2;
-	uint32 scene_time = 3;
-	uint32 reliable_seq = 4;
+	uint32 entity_id = 11;
+	MotionInfo motion_info = 6;
+	uint32 scene_time = 12;
+	uint32 reliable_seq = 10;
 }

@@ -1,9 +1,9 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ShopMcoinProduct.proto";
 import "ShopCardProduct.proto";
 import "PlayProduct.proto";
+import "ShopConcertProduct.proto";
 
 message RechargeReq {
 	enum CmdId {
@@ -12,10 +12,11 @@ message RechargeReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4101;
+		CMD_ID = 4131;
 	}
 
-	ShopMcoinProduct mcoin_product = 1;
-	ShopCardProduct card_product = 2;
+	ShopMcoinProduct mcoin_product = 6;
+	ShopCardProduct card_product = 12;
 	PlayProduct play_product = 4;
+	ShopConcertProduct concert_product = 8;
 }

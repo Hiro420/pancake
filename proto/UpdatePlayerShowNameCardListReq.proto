@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message UpdatePlayerShowNameCardListReq {
@@ -9,8 +8,8 @@ message UpdatePlayerShowNameCardListReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4049;
+		CMD_ID = 4084;
 	}
 
-	repeated uint32 show_name_card_id_list = 1;
+	repeated uint32 show_name_card_id_list = 15;
 }

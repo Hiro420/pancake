@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message CutSceneBeginNotify {
@@ -11,6 +10,6 @@ message CutSceneBeginNotify {
 		CMD_ID = 295;
 	}
 
-	uint32 cutscene_id = 1;
-	bool is_wait_others = 2;
+	uint32 cutscene_id = 6;
+	bool is_wait_others = 10;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ObstacleInfo.proto";
 
@@ -10,12 +9,12 @@ message PathfindingEnterSceneReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2305;
+		CMD_ID = 2376;
 	}
 
-	uint32 scene_id = 1;
-	uint32 version = 2;
-	repeated ObstacleInfo obstacles = 3;
-	bool is_editor = 4;
-	repeated uint32 activity_id = 5;
+	uint32 scene_id = 4;
+	uint32 version = 9;
+	repeated ObstacleInfo obstacles = 11;
+	bool is_editor = 2;
+	repeated uint32 activity_id = 6;
 }

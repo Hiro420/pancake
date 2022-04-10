@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ChangeTeamNameRsp {
@@ -8,10 +7,10 @@ message ChangeTeamNameRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1737;
+		CMD_ID = 1649;
 	}
 
-	int32 team_id = 1;
-	string team_name = 2;
-	int32 retcode = 3;
+	int32 team_id = 11;
+	string team_name = 13;
+	int32 retcode = 8;
 }

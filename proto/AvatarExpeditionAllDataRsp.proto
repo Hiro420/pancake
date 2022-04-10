@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AvatarExpeditionInfo.proto";
 
@@ -9,11 +8,11 @@ message AvatarExpeditionAllDataRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1726;
+		CMD_ID = 1636;
 	}
 
-	int32 retcode = 1;
+	int32 retcode = 10;
 	map<uint64, AvatarExpeditionInfo> expedition_info_map = 2;
 	repeated uint32 open_expedition_list = 3;
-	uint32 expedition_count_limit = 4;
+	uint32 expedition_count_limit = 12;
 }

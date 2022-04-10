@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "TransmitReason.proto";
 
@@ -9,9 +8,9 @@ message ClientTransmitRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 241;
+		CMD_ID = 212;
 	}
 
-	int32 retcode = 1;
-	TransmitReason reason = 2;
+	int32 retcode = 9;
+	TransmitReason reason = 14;
 }

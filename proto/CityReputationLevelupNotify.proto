@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message CityReputationLevelupNotify {
@@ -8,9 +7,9 @@ message CityReputationLevelupNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2805;
+		CMD_ID = 2876;
 	}
 
-	uint32 city_id = 1;
-	uint32 level = 2;
+	uint32 city_id = 14;
+	uint32 level = 13;
 }

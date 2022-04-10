@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "OpActivityInfo.proto";
 
@@ -9,8 +8,8 @@ message OpActivityDataNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5103;
+		CMD_ID = 5181;
 	}
 
-	repeated OpActivityInfo op_activity_info_list = 1;
+	repeated OpActivityInfo op_activity_info_list = 11;
 }

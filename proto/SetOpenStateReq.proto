@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SetOpenStateReq {
@@ -9,9 +8,9 @@ message SetOpenStateReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 122;
+		CMD_ID = 143;
 	}
 
-	uint32 key = 1;
-	uint32 value = 2;
+	uint32 key = 15;
+	uint32 value = 8;
 }

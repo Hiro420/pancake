@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum EnterType {
 	ENTER_NONE = 0;
@@ -13,4 +12,5 @@ enum EnterType {
 	ENTER_GOTO_BY_PORTAL = 8;
 	ENTER_SELF_HOME = 9;
 	ENTER_OTHER_HOME = 10;
+	ENTER_GOTO_RECREATE = 11;
 }

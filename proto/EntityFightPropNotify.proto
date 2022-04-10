@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message EntityFightPropNotify {
@@ -8,9 +7,9 @@ message EntityFightPropNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1203;
+		CMD_ID = 1281;
 	}
 
-	uint32 entity_id = 1;
-	map<uint32, float> fight_prop_map = 2;
+	uint32 entity_id = 14;
+	map<uint32, float> fight_prop_map = 15;
 }

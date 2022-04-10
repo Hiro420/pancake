@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetAuthkeyRsp {
@@ -8,13 +7,13 @@ message GetAuthkeyRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1409;
+		CMD_ID = 1463;
 	}
 
-	int32 retcode = 1;
-	string authkey = 2;
-	string auth_appid = 3;
-	uint32 sign_type = 4;
+	int32 retcode = 8;
+	string authkey = 15;
+	string auth_appid = 11;
+	uint32 sign_type = 13;
 	uint32 authkey_ver = 5;
-	string game_biz = 6;
+	string game_biz = 14;
 }

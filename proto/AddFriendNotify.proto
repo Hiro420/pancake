@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "FriendBrief.proto";
 
@@ -9,9 +8,9 @@ message AddFriendNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4021;
+		CMD_ID = 4006;
 	}
 
-	uint32 target_uid = 1;
-	FriendBrief target_friend_brief = 2;
+	uint32 target_uid = 10;
+	FriendBrief target_friend_brief = 3;
 }

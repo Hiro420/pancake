@@ -1,6 +1,6 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
+import "ProfilePicture.proto";
 import "ExhibitionDisplayInfo.proto";
 
 message HideAndSeekSettleInfo {
@@ -9,4 +9,5 @@ message HideAndSeekSettleInfo {
 	uint32 head_image = 4;
 	string nickname = 5;
 	string online_id = 6;
+	ProfilePicture profile_picture = 7;
 }

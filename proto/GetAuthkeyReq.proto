@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetAuthkeyReq {
@@ -9,10 +8,10 @@ message GetAuthkeyReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1408;
+		CMD_ID = 1418;
 	}
 
-	string auth_appid = 1;
+	string auth_appid = 4;
 	uint32 sign_type = 2;
-	uint32 authkey_ver = 3;
+	uint32 authkey_ver = 8;
 }

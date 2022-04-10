@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message MultistagePlayFinishStageRsp {
@@ -8,10 +7,10 @@ message MultistagePlayFinishStageRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 5315;
+		CMD_ID = 5337;
 	}
 
 	int32 retcode = 1;
-	uint32 play_index = 2;
-	uint32 group_id = 3;
+	uint32 play_index = 8;
+	uint32 group_id = 2;
 }

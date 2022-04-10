@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HomeLimitedShopInfo.proto";
 
@@ -9,9 +8,9 @@ message HomeLimitedShopInfoRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4651;
+		CMD_ID = 4657;
 	}
 
-	int32 retcode = 1;
-	HomeLimitedShopInfo shop_info = 2;
+	int32 retcode = 4;
+	HomeLimitedShopInfo shop_info = 13;
 }

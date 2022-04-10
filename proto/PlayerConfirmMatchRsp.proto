@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MatchType.proto";
 
@@ -9,11 +8,11 @@ message PlayerConfirmMatchRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4159;
+		CMD_ID = 4200;
 	}
 
-	int32 retcode = 1;
-	MatchType match_type = 2;
-	bool is_agreed = 3;
-	uint32 match_id = 4;
+	int32 retcode = 6;
+	MatchType match_type = 5;
+	bool is_agreed = 11;
+	uint32 match_id = 8;
 }

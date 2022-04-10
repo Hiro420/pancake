@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message UpdatePlayerShowAvatarListRsp {
@@ -8,10 +7,10 @@ message UpdatePlayerShowAvatarListRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4046;
+		CMD_ID = 4079;
 	}
 
-	int32 retcode = 1;
-	repeated uint32 show_avatar_id_list = 2;
-	bool is_show_avatar = 3;
+	int32 retcode = 9;
+	repeated uint32 show_avatar_id_list = 12;
+	bool is_show_avatar = 13;
 }

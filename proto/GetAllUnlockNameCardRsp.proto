@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetAllUnlockNameCardRsp {
@@ -9,9 +8,9 @@ message GetAllUnlockNameCardRsp {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4026;
+		CMD_ID = 4008;
 	}
 
-	int32 retcode = 1;
-	repeated uint32 name_card_list = 2;
+	int32 retcode = 14;
+	repeated uint32 name_card_list = 15;
 }

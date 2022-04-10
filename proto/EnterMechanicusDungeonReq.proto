@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message EnterMechanicusDungeonReq {
@@ -9,8 +8,8 @@ message EnterMechanicusDungeonReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 3911;
+		CMD_ID = 3927;
 	}
 
-	uint32 difficult_level = 1;
+	uint32 difficult_level = 5;
 }

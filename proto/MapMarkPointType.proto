@@ -7,4 +7,5 @@ enum MapMarkPointType {
 	MINE = 3;
 	COLLECTION = 4;
 	MONSTER = 5;
+	FISH_POOL = 6;
 }

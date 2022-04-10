@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "PropChangeReason.proto";
 
@@ -9,11 +8,11 @@ message PlayerPropChangeReasonNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1210;
+		CMD_ID = 1227;
 	}
 
-	uint32 prop_type = 1;
-	float old_value = 2;
-	float cur_value = 3;
-	PropChangeReason reason = 4;
+	uint32 prop_type = 2;
+	float old_value = 6;
+	float cur_value = 15;
+	PropChangeReason reason = 10;
 }

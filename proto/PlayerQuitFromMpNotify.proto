@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerQuitFromMpNotify {
@@ -8,7 +7,7 @@ message PlayerQuitFromMpNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1807;
+		CMD_ID = 1803;
 	}
 
 	enum QuitReason {
@@ -20,8 +19,9 @@ message PlayerQuitFromMpNotify {
 		KICK_BY_HOST_BLOCK = 5;
 		BE_BLOCKED = 6;
 		KICK_BY_HOST_ENTER_HOME = 7;
-		KICK_BY_PLAY = 8;
+		HOST_SCENE_INVALID = 8;
+		KICK_BY_PLAY = 9;
 	}
 
-	QuitReason reason = 1;
+	QuitReason reason = 4;
 }

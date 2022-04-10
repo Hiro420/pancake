@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "PlatformInfo.proto";
 
@@ -9,10 +8,10 @@ message PlatformStopRouteNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 259;
+		CMD_ID = 248;
 	}
 
-	uint32 entity_id = 1;
-	uint32 scene_time = 2;
-	PlatformInfo platform = 3;
+	uint32 entity_id = 6;
+	uint32 scene_time = 11;
+	PlatformInfo platform = 13;
 }

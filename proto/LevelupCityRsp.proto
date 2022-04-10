@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "CityInfo.proto";
 
@@ -9,11 +8,11 @@ message LevelupCityRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 256;
+		CMD_ID = 266;
 	}
 
-	int32 retcode = 1;
-	uint32 scene_id = 2;
-	uint32 area_id = 3;
-	CityInfo city_info = 4;
+	int32 retcode = 15;
+	uint32 scene_id = 4;
+	uint32 area_id = 12;
+	CityInfo city_info = 6;
 }

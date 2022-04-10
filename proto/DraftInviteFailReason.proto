@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum DraftInviteFailReason {
 	DRAFT_FAIL_UNKNOWN = 0;

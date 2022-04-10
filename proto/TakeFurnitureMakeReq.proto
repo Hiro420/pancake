@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeFurnitureMakeReq {
@@ -9,10 +8,10 @@ message TakeFurnitureMakeReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4603;
+		CMD_ID = 4887;
 	}
 
-	uint32 index = 1;
+	uint32 index = 11;
 	uint32 make_id = 2;
 	bool is_fast_finish = 3;
 }

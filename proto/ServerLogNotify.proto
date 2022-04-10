@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ServerLogType.proto";
 import "ServerLogLevel.proto";
@@ -10,10 +9,10 @@ message ServerLogNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		ENET_CHANNEL_ID = 1;
-		CMD_ID = 11;
+		CMD_ID = 80;
 	}
 
-	ServerLogType log_type = 1;
-	ServerLogLevel log_level = 2;
-	string server_log = 3;
+	ServerLogType log_type = 11;
+	ServerLogLevel log_level = 14;
+	string server_log = 13;
 }

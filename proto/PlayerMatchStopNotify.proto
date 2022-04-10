@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "MatchReason.proto";
 
@@ -9,9 +8,9 @@ message PlayerMatchStopNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4156;
+		CMD_ID = 4183;
 	}
 
-	uint32 host_uid = 1;
-	MatchReason reason = 2;
+	uint32 host_uid = 2;
+	MatchReason reason = 6;
 }

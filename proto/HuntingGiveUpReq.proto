@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "HuntingPair.proto";
 
@@ -10,7 +9,7 @@ message HuntingGiveUpReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4313;
+		CMD_ID = 4608;
 	}
 
 	HuntingPair hunting_pair = 1;

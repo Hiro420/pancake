@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SeaLampTakePhaseRewardReq {
@@ -12,6 +11,6 @@ message SeaLampTakePhaseRewardReq {
 		CMD_ID = 2018;
 	}
 
-	uint32 activity_id = 2;
-	uint32 phase_id = 1;
+	uint32 activity_id = 6;
+	uint32 phase_id = 13;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AiThreatInfo.proto";
 
@@ -10,8 +9,8 @@ message EvtAiSyncCombatThreatInfoNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 352;
+		CMD_ID = 331;
 	}
 
-	map<uint32, AiThreatInfo> combat_threat_info_map = 1;
+	map<uint32, AiThreatInfo> combat_threat_info_map = 3;
 }

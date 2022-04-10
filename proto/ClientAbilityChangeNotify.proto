@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AbilityInvokeEntry.proto";
 
@@ -10,9 +9,9 @@ message ClientAbilityChangeNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1112;
+		CMD_ID = 1190;
 	}
 
-	uint32 entity_id = 1;
-	repeated AbilityInvokeEntry invokes = 2;
+	uint32 entity_id = 9;
+	repeated AbilityInvokeEntry invokes = 12;
 }

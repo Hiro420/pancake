@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum ReportReasonType {
 	REPORT_REASON_NONE = 0;

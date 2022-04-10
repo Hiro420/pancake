@@ -158,12 +158,20 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetPlayerTokenReq": // GetPlayerTokenReq
 
             // Needs to be readed and passed to protobuffer to change the secretKeySeed
-            const GetPlayerTokenRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("bin/GetPlayerTokenRsp.bin"), dataUtil.getPacketIDByProtoName("GetPlayerTokenRsp"))
-
-            // Secret Key is now 2 to make it easier
-            GetPlayerTokenRsp.secretKeySeed = 2
-            GetPlayerTokenRsp.uid = 83000
-            //GetPlayerTokenRsp.accountUid = "1"
+            const GetPlayerTokenRsp = {
+                "uid":83000,
+                "token":"5d3a68649e77deb7870e76cb2a882f6afd683e58",
+                "accountType":1,
+                "accountUid":"1",
+                "isProficientPlayer":true,
+                "secretKeySeed":2,
+                "securityCmdBuffer": Buffer.from("bOWfEaq03Yd8HWvHODwqi5UfAlUGMgqwAopeu26XS7I=", 'base64'),
+                "platformType":3,
+                "channelId":1,
+                "subChannelId":1,
+                "tag":3,
+                "countryCode":"MX"
+            }
             //GetPlayerTokenRsp.gmUid = "1"
 
             // Executes C# compiled EXE that returns the XOR Blob determined by secretKeySeed
@@ -286,20 +294,49 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "PlayerLoginReq": // PlayerLoginReq
 
             //AvatarDataNotify
-            const AvatarDataNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/AvatarDataNotify.bin"), dataUtil.getPacketIDByProtoName("AvatarDataNotify"))
-            
-            // Preview character
-            // how to fix skills?
-            // do not touch avatarList[0]
-            
-            AvatarDataNotify.avatarList[1].avatarId = CharacterID;
-            AvatarDataNotify.avatarList[1].skillLevelMap = skillLevelMap;
-            AvatarDataNotify.avatarList[1].skillDepotId = 6601;
+            const AvatarDataNotify = {
+                "avatarList":[
+                    {
+                        "avatarId":10000007,
+                        "guid":"3544845098770497537",
+                        "propMap":{
+                            "1001":{"type":1001,"ival":"3826","val":"3826"},
+                            "1002":{"type":1002,"ival":"1","val":"1"},
+                            "1003":{"type":1003,"ival":"0"},
+                            "1004":{"type":1004,"ival":"0"},
+                            "4001":{"type":4001,"ival":"20","val":"20"}
+                        },
+                        "lifeState":1,
+                        "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
+                        "talentIdList":[71,72,73],
+                        "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
+                        "skillDepotId":704,
+                        "fetterInfo":{
+                            "expLevel":1,
+                            "fetterList":[
+                                {"fetterId":2124,"fetterState":1},{"fetterId":2123,"fetterState":1},{"fetterId":2122,"fetterState":1},{"fetterId":2121,"fetterState":1},{"fetterId":2120,"fetterState":1},{"fetterId":2119,"fetterState":1},{"fetterId":2118,"fetterState":1},{"fetterId":2117,"fetterState":1},{"fetterId":2116,"fetterState":1},{"fetterId":2115,"fetterState":1},{"fetterId":2114,"fetterState":1},{"fetterId":2113,"fetterState":1},{"fetterId":2112,"fetterState":1},{"fetterId":2111,"fetterState":1},{"fetterId":2110,"fetterState":3},{"fetterId":2109,"fetterState":1},{"fetterId":2108,"fetterState":1},{"fetterId":2107,"fetterState":1},{"fetterId":2106,"fetterState":3},{"fetterId":2105,"fetterState":3},{"fetterId":2303,"fetterState":3},{"fetterId":2104,"fetterState":3},{"fetterId":2302,"fetterState":3},{"fetterId":2103,"fetterState":3},{"fetterId":2301,"fetterState":3},{"fetterId":2102,"fetterState":1},{"fetterId":2101,"fetterState":1},{"fetterId":2046,"fetterState":3},{"fetterId":2045,"fetterState":3},{"fetterId":2044,"fetterState":3},{"fetterId":2019,"fetterState":3},{"fetterId":2018,"fetterState":3},{"fetterId":2017,"fetterState":3},{"fetterId":2016,"fetterState":3},{"fetterId":2015,"fetterState":3},{"fetterId":2014,"fetterState":3},{"fetterId":2013,"fetterState":3},{"fetterId":2012,"fetterState":3},{"fetterId":2011,"fetterState":3},{"fetterId":2010,"fetterState":3},{"fetterId":2009,"fetterState":3},{"fetterId":2207,"fetterState":2},{"fetterId":2008,"fetterState":3},{"fetterId":2200,"fetterState":2},{"fetterId":2001,"fetterState":3},{"fetterId":2098,"fetterState":1},{"fetterId":2201,"fetterState":2},{"fetterId":2002,"fetterState":3},{"fetterId":2099,"fetterState":1},{"fetterId":2401,"fetterState":3},{"fetterId":2202,"fetterState":2},{"fetterId":2003,"fetterState":3},{"fetterId":2100,"fetterState":1},{"fetterId":2402,"fetterState":3},{"fetterId":2203,"fetterState":1},{"fetterId":2004,"fetterState":3},{"fetterId":2403,"fetterState":3},{"fetterId":2204,"fetterState":1},{"fetterId":2005,"fetterState":3},{"fetterId":2205,"fetterState":1},{"fetterId":2006,"fetterState":3},{"fetterId":2206,"fetterState":1},{"fetterId":2007,"fetterState":3},{"fetterId":2020,"fetterState":3},{"fetterId":2021,"fetterState":3},{"fetterId":2035,"fetterState":3},{"fetterId":2036,"fetterState":3},{"fetterId":2037,"fetterState":3},{"fetterId":2038,"fetterState":3},{"fetterId":2039,"fetterState":3},{"fetterId":2043,"fetterState":3},{"fetterId":2034,"fetterState":3},{"fetterId":2032,"fetterState":3},{"fetterId":2042,"fetterState":3},{"fetterId":2041,"fetterState":3},{"fetterId":2040,"fetterState":3},{"fetterId":2033,"fetterState":3},{"fetterId":2078,"fetterState":3},{"fetterId":2031,"fetterState":3},{"fetterId":2030,"fetterState":3},{"fetterId":2029,"fetterState":3},{"fetterId":2028,"fetterState":3},{"fetterId":2027,"fetterState":3},{"fetterId":2026,"fetterState":3},{"fetterId":2025,"fetterState":3},{"fetterId":2024,"fetterState":3},{"fetterId":2023,"fetterState":3},{"fetterId":2022,"fetterState":3},{"fetterId":2047,"fetterState":3},{"fetterId":2048,"fetterState":3},{"fetterId":2049,"fetterState":3},{"fetterId":2050,"fetterState":3},{"fetterId":2051,"fetterState":3},{"fetterId":2052,"fetterState":3},{"fetterId":2053,"fetterState":3},{"fetterId":2054,"fetterState":3},{"fetterId":2055,"fetterState":3},{"fetterId":2056,"fetterState":3},{"fetterId":2057,"fetterState":3},{"fetterId":2058,"fetterState":3},{"fetterId":2059,"fetterState":3},{"fetterId":2060,"fetterState":3},{"fetterId":2061,"fetterState":3},{"fetterId":2062,"fetterState":3},{"fetterId":2063,"fetterState":3},{"fetterId":2064,"fetterState":3},{"fetterId":2065,"fetterState":3},{"fetterId":2066,"fetterState":3},{"fetterId":2067,"fetterState":3},{"fetterId":2068,"fetterState":3},{"fetterId":2069,"fetterState":3},{"fetterId":2070,"fetterState":3},{"fetterId":2071,"fetterState":3},{"fetterId":2072,"fetterState":3},{"fetterId":2073,"fetterState":3},{"fetterId":2074,"fetterState":3},{"fetterId":2075,"fetterState":3},{"fetterId":2076,"fetterState":3},{"fetterId":2077,"fetterState":3},{"fetterId":2079,"fetterState":3},{"fetterId":2080,"fetterState":3},{"fetterId":2081,"fetterState":3},{"fetterId":2084,"fetterState":3},{"fetterId":2085,"fetterState":3},{"fetterId":2086,"fetterState":3},{"fetterId":2087,"fetterState":3},{"fetterId":2088,"fetterState":3},{"fetterId":2089,"fetterState":1},{"fetterId":2090,"fetterState":1},{"fetterId":2091,"fetterState":1},{"fetterId":2092,"fetterState":1},{"fetterId":2093,"fetterState":1},{"fetterId":105,"fetterState":2},{"fetterId":2095,"fetterState":1},{"fetterId":2096,"fetterState":3},{"fetterId":2097,"fetterState":1}]},"inherentProudSkillList":[72101],"skillLevelMap":{"10067":1,"10068":1,"100553":1},"proudSkillExtraLevelMap":{"739":3},"avatarType":1,"wearingFlycloakId":140001,"bornTime":1614322820,"pendingPromoteRewardList":[3,5]},{"avatarId":10000021,"guid":"3544845098770497572","propMap":{"1001":{"type":1001,"ival":"0"},"1002":{"type":1002,"ival":"0"},"1003":{"type":1003,"ival":"0"},"1004":{"type":1004,"ival":"0"},"4001":{"type":4001,"ival":"20","val":"20"}},"lifeState":1,"equipGuidList":["3544845098770497573"],"fightPropMap":{"1":2037.8802490234375,"4":71.28118896484375,"6":0,"7":129.3697052001953,"20":0.05000000074505806,"21":0,"22":0.5,"23":1,"26":0,"27":0,"28":0,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"70":40,"1000":40,"1010":2037.8802490234375,"2000":2037.8802490234375,"2001":71.28118896484375,"2002":129.3697052001953,"2003":0},"skillDepotId":2101,"fetterInfo":{"expNumber":305,"expLevel":1,"fetterList":[{"fetterId":10203,"fetterState":1},{"fetterId":10106,"fetterState":3},{"fetterId":10202,"fetterState":1},{"fetterId":10105,"fetterState":3},{"fetterId":10201,"fetterState":2},{"fetterId":10104,"fetterState":3},{"fetterId":10151,"fetterState":3},{"fetterId":10150,"fetterState":3},{"fetterId":10149,"fetterState":3},{"fetterId":10147,"fetterState":3},{"fetterId":10146,"fetterState":3},{"fetterId":10145,"fetterState":3},{"fetterId":10144,"fetterState":1},{"fetterId":10143,"fetterState":1},{"fetterId":10142,"fetterState":1},{"fetterId":10141,"fetterState":1},{"fetterId":10140,"fetterState":3},{"fetterId":10139,"fetterState":3},{"fetterId":10138,"fetterState":3},{"fetterId":10135,"fetterState":1},{"fetterId":10102,"fetterState":3},{"fetterId":10134,"fetterState":1},{"fetterId":110,"fetterState":2},{"fetterId":10101,"fetterState":3},{"fetterId":10133,"fetterState":1},{"fetterId":10100,"fetterState":3},{"fetterId":10132,"fetterState":1},{"fetterId":10123,"fetterState":1},{"fetterId":10122,"fetterState":1},{"fetterId":10120,"fetterState":1},{"fetterId":10167,"fetterState":3},{"fetterId":10164,"fetterState":3},{"fetterId":10117,"fetterState":1},{"fetterId":10121,"fetterState":1},{"fetterId":10168,"fetterState":3},{"fetterId":10169,"fetterState":3},{"fetterId":10124,"fetterState":1},{"fetterId":10171,"fetterState":3},{"fetterId":10170,"fetterState":3},{"fetterId":10131,"fetterState":3},{"fetterId":10136,"fetterState":3},{"fetterId":10125,"fetterState":1},{"fetterId":10172,"fetterState":3},{"fetterId":10148,"fetterState":3},{"fetterId":10137,"fetterState":3},{"fetterId":10130,"fetterState":1},{"fetterId":10127,"fetterState":1},{"fetterId":10174,"fetterState":3},{"fetterId":10173,"fetterState":3},{"fetterId":10126,"fetterState":1},{"fetterId":10175,"fetterState":3},{"fetterId":10128,"fetterState":1},{"fetterId":10129,"fetterState":1},{"fetterId":10163,"fetterState":3},{"fetterId":10116,"fetterState":1},{"fetterId":10119,"fetterState":3},{"fetterId":10162,"fetterState":3},{"fetterId":10115,"fetterState":3},{"fetterId":10118,"fetterState":3},{"fetterId":10161,"fetterState":3},{"fetterId":10114,"fetterState":3},{"fetterId":10160,"fetterState":3},{"fetterId":10113,"fetterState":3},{"fetterId":10159,"fetterState":3},{"fetterId":10403,"fetterState":1},{"fetterId":10112,"fetterState":3},{"fetterId":10156,"fetterState":3},{"fetterId":10303,"fetterState":3},{"fetterId":10206,"fetterState":1},{"fetterId":10109,"fetterState":3},{"fetterId":10155,"fetterState":3},{"fetterId":10302,"fetterState":3},{"fetterId":10205,"fetterState":1},{"fetterId":10108,"fetterState":3},{"fetterId":10402,"fetterState":1},{"fetterId":10208,"fetterState":1},{"fetterId":10111,"fetterState":3},{"fetterId":10153,"fetterState":3},{"fetterId":10152,"fetterState":3},{"fetterId":10154,"fetterState":3},{"fetterId":10301,"fetterState":3},{"fetterId":10204,"fetterState":1},{"fetterId":10107,"fetterState":3},{"fetterId":10401,"fetterState":3},{"fetterId":10207,"fetterState":1},{"fetterId":10110,"fetterState":3},{"fetterId":10103,"fetterState":3}]},"inherentProudSkillList":[212301],"skillLevelMap":{"10017":1,"10032":1,"10041":1},"expeditionState":"AVATAR_EXPEDITION_FINISH_WAIT_REWARD","avatarType":1,"wearingFlycloakId":140001,"bornTime":1614323315,"pendingPromoteRewardList":[1,3,5]},{"avatarId":10000034,"guid":"3544845098770497775","propMap":{"1001":{"type":1001,"ival":"0"},"1002":{"type":1002,"ival":"0"},"1003":{"type":1003,"ival":"0"},"1004":{"type":1004,"ival":"0"},"4001":{"type":4001,"ival":"20","val":"20"}},"lifeState":1,"equipGuidList":["3544845098770502592"],"talentIdList":[341],"fightPropMap":{"1":2600.05419921875,"4":159.73919677734375,"7":172.00289916992188,"9":0,"20":0.05000000074505806,"21":0,"22":0.5,"23":1.1178005933761597,"26":0,"27":0,"28":0,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"76":60,"1006":60,"1010":2600.05419921875,"2000":2600.05419921875,"2001":159.73919677734375,"2002":172.00289916992188,"2003":0},"skillDepotId":3401,"fetterInfo":{"expNumber":860,"expLevel":1,"fetterList":[{"fetterId":21202,"fetterState":1},{"fetterId":21201,"fetterState":2},{"fetterId":21027,"fetterState":3},{"fetterId":21026,"fetterState":1},{"fetterId":21025,"fetterState":1,"condIndexList":[2]},{"fetterId":21024,"fetterState":1},{"fetterId":21023,"fetterState":3},{"fetterId":21022,"fetterState":3},{"fetterId":21021,"fetterState":3},{"fetterId":21020,"fetterState":1},{"fetterId":21019,"fetterState":3},{"fetterId":21018,"fetterState":3},{"fetterId":21017,"fetterState":3},{"fetterId":21016,"fetterState":3},{"fetterId":21403,"fetterState":1},{"fetterId":21015,"fetterState":3},{"fetterId":21402,"fetterState":1},{"fetterId":21208,"fetterState":1},{"fetterId":21014,"fetterState":3},{"fetterId":21401,"fetterState":3},{"fetterId":21207,"fetterState":1},{"fetterId":21013,"fetterState":3},{"fetterId":21303,"fetterState":3},{"fetterId":21206,"fetterState":1},{"fetterId":21012,"fetterState":3},{"fetterId":21302,"fetterState":3},{"fetterId":21205,"fetterState":1},{"fetterId":21011,"fetterState":3},{"fetterId":21033,"fetterState":1},{"fetterId":21034,"fetterState":1},{"fetterId":21035,"fetterState":1},{"fetterId":21036,"fetterState":1},{"fetterId":21037,"fetterState":1},{"fetterId":21038,"fetterState":3},{"fetterId":21039,"fetterState":1},{"fetterId":21040,"fetterState":1},{"fetterId":21041,"fetterState":1},{"fetterId":21042,"fetterState":1},{"fetterId":21043,"fetterState":3},{"fetterId":21044,"fetterState":3},{"fetterId":21051,"fetterState":1},{"fetterId":21052,"fetterState":3},{"fetterId":21053,"fetterState":3},{"fetterId":21055,"fetterState":3},{"fetterId":21054,"fetterState":3},{"fetterId":21050,"fetterState":1},{"fetterId":21049,"fetterState":1},{"fetterId":21048,"fetterState":1},{"fetterId":21047,"fetterState":3},{"fetterId":21046,"fetterState":3},{"fetterId":21045,"fetterState":3},{"fetterId":21032,"fetterState":1},{"fetterId":21031,"fetterState":1},{"fetterId":21030,"fetterState":1},{"fetterId":21029,"fetterState":1},{"fetterId":21028,"fetterState":3},{"fetterId":21071,"fetterState":3},{"fetterId":21070,"fetterState":3},{"fetterId":21069,"fetterState":3},{"fetterId":21068,"fetterState":3},{"fetterId":21065,"fetterState":3},{"fetterId":21064,"fetterState":3},{"fetterId":21063,"fetterState":3},{"fetterId":21062,"fetterState":3},{"fetterId":21061,"fetterState":3},{"fetterId":21060,"fetterState":3},{"fetterId":21059,"fetterState":3},{"fetterId":21058,"fetterState":3},{"fetterId":21057,"fetterState":3},{"fetterId":21301,"fetterState":3},{"fetterId":21204,"fetterState":1,"condIndexList":[2]},{"fetterId":21010,"fetterState":3},{"fetterId":21056,"fetterState":3},{"fetterId":21203,"fetterState":1},{"fetterId":21009,"fetterState":3},{"fetterId":122,"fetterState":2},{"fetterId":21074,"fetterState":3},{"fetterId":21073,"fetterState":3},{"fetterId":21072,"fetterState":3}
+                            ]
+                        },
+                        "inherentProudSkillList":[342301],
+                        "skillLevelMap":{"10341":1,"10342":1,"10343":1},
+                        "avatarType":1,
+                        "wearingFlycloakId":140001,
+                        "bornTime":1614324280,
+                        "pendingPromoteRewardList":[1,3,5]
+                    }
+                ],
+                "avatarTeamMap":{"1":{"avatarGuidList":["3544845098770497537"]},"2":{},"3":{},"4":{}},
+                "curAvatarTeamId":1,
+                "chooseAvatarGuid":"3544845098770497537",
+                "ownedFlycloakList":[140001,140002]
+            }
 
             sendPacketAsyncByName(kcpobj, "AvatarDataNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarDataNotify, dataUtil.getPacketIDByProtoName("AvatarDataNotify")));
 
             // ActivityScheduleInfoNotify
             // EVENTACTIVITY
+
+            /*
 
             const ActivityScheduleInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/ActivityScheduleInfoNotify.bin"), dataUtil.getPacketIDByProtoName("ActivityScheduleInfoNotify"))
 
@@ -317,28 +354,52 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             }
 
             sendPacketAsyncByName(kcpobj, "ActivityScheduleInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(ActivityScheduleInfoNotify, dataUtil.getPacketIDByProtoName("ActivityScheduleInfoNotify")));
+            */
 
             // PlayerPropNotify
 			// sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer);
 
             // PlayerDataNotify
-            const PlayerDataNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerDataNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerDataNotify"))
-            PlayerDataNotify.nickName = "여행자"
+            const PlayerDataNotify = {
+                "nickName":"여행자",
+                "serverTime":epochTime,
+                "isFirstLoginToday":true,
+                "regionId":51,
+                "propMap":{
+                    "10004":{"type":10004,"ival":"1","val":"1"},
+                    "10005":{"type":10005,"ival":"100","val":"100"},
+                    "10006":{"type":10006,"ival":"1","val":"1"},
+                    "10007":{"type":10007,"ival":"0"},
+                    "10008":{"type":10008,"ival":"0"},
+                    "10009":{"type":10009,"ival":"1","val":"1"},
+                    "10010":{"type":10010,"ival":"16000","val":"16000"},
+                    "10011":{"type":10011,"ival":"16000","val":"16000"},
+                    "10012":{"type":10012,"ival":"0"},
+                    "10013":{"type":10013,"ival":"31","val":"31"},
+                    "10014":{"type":10014,"ival":"103","val":"103"},
+                    "10015":{"type":10015,"ival":"157","val":"157"},
+                    "10016":{"type":10016,"ival":"4116603","val":"4116603"},
+                    "10017":{"type":10017,"ival":"2","val":"2"},
+                    "10019":{"type":10019,"ival":"3","val":"3"},
+                    "10020":{"type":10020,"ival":"160","val":"160"},
+                    "10022":{"type":10022,"ival":"0"},
+                    "10023":{"type":10023,"ival":"0"},
+                    "10025":{"type":10025,"ival":"0"},
+                    "10026":{"type":10026,"ival":"0"},
+                    "10027":{"type":10027,"ival":"1","val":"1"},
+                    "10035":{"type":10035,"ival":"0"},
+                    "10036":{"type":10036,"ival":"0"},
+                    "10037":{"type":10037,"ival":"0"},
+                    "10038":{"type":10038,"ival":"0"},
+                    "10039":{"type":10039,"ival":"3","val":"3"},
+                    "10040":{"type":10040,"ival":"0"},
+                    "10041":{"type":10041,"ival":"0"},
+                    "10042":{"type":10042,"ival":"0"},
+                    "10043":{"type":10043,"ival":"0"},
+                    "10044":{"type":10044,"ival":"0"}
+                }
+            }
 
-            PlayerDataNotify.serverTime = epochTime
-            // Time adjustment
-
-			PlayerDataNotify.propMap["10015"].ival = 99999999
-			PlayerDataNotify.propMap["10015"].val = 99999999  // Primo
-			
-			PlayerDataNotify.propMap["10013"].ival = 60
-			PlayerDataNotify.propMap["10013"].val = 60 // Player level
-
-			PlayerDataNotify.propMap["10016"].ival = 99999999
-			PlayerDataNotify.propMap["10016"].val = 99999999  // Genesis
-
-			PlayerDataNotify.propMap["10019"].ival = 8
-			PlayerDataNotify.propMap["10019"].val = 8  // World level
             // To protobuffer
             var PlayerDataNotifyData = await dataUtil.objToProtobuffer(PlayerDataNotify, dataUtil.getPacketIDByProtoName("PlayerDataNotify"));
             sendPacketAsyncByName(kcpobj, "PlayerDataNotify", keyBuffer, PlayerDataNotifyData);
@@ -516,6 +577,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             await dataUtil.getPacketIDByProtoName("OpenStateUpdateNotify")));
 
             // AchievementAllDataNotify
+            /*
             
             const AchievementAllDataNotify = {
                 "achievementList": []
@@ -536,6 +598,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             }
 
             sendPacketAsyncByName(kcpobj, "AchievementAllDataNotify", keyBuffer, await dataUtil.objToProtobuffer(AchievementAllDataNotify, getPacketIDByProtoName("AchievementAllDataNotify")));
+            */
 
 
             // StoreWeightLimitNotify
@@ -578,25 +641,36 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // sendPacketAsyncByName(kcpobj, "AvatarSatiationDataNotify", keyBuffer);
 
             // PlayerMatchInfoNotify 
+            /*
             const PlayerMatchInfoNotify = {
                 hostUid: 83000
             }
 			sendPacketAsyncByName(kcpobj, "PlayerMatchInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerMatchInfoNotify, dataUtil.getPacketIDByProtoName("PlayerMatchInfoNotify")))
+            */
 
 
             //RegionSearchNotify
+            /*
             const RegionSearchNotify = {
                 regionSearchList: [],
                 uid: 83000
             }
 			sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer, await dataUtil.objToProtobuffer(RegionSearchNotify, dataUtil.getPacketIDByProtoName("RegionSearchNotify")))
-
+            */
 
             //PlayerEnterSceneNotify
-            const PlayerEnterSceneNotify1 = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify"))
-            PlayerEnterSceneNotify1.pos = posScene
-            PlayerEnterSceneNotify1.targetUid = 83000
-            PlayerEnterSceneNotify1.sceneId = sceneIdSelect
+            const PlayerEnterSceneNotify1 = {
+                "sceneId":sceneIdSelect,
+                "pos":posScene,
+                "sceneBeginTime":"1648038912774",
+                "type":1,
+                "targetUid":83000,
+                "worldLevel":3,
+                "enterSceneToken":3495,
+                "sceneTagIdList":[107,113,117,125,134,139],
+                "isFirstLoginEnterScene": true,
+                "enterReason":1
+            }
             console.log(PlayerEnterSceneNotify1)
             sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneNotify1, dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify")));
 
@@ -643,7 +717,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             console.log(PlayerLoginRsp)
             sendPacketAsyncByName(kcpobj, "PlayerLoginRsp", keyBuffer, await dataUtil.objToProtobuffer(PlayerLoginRsp, dataUtil.getPacketIDByProtoName("PlayerLoginRsp")));
 
-            
+            /*
             const CodexDataFullNotify = {
                 "typeDataList":[
                     {
@@ -775,8 +849,9 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             console.log(CodexDataFullNotify);
             sendPacketAsyncByName(kcpobj, "CodexDataFullNotify", keyBuffer, await dataUtil.objToProtobuffer(CodexDataFullNotify, dataUtil.getPacketIDByProtoName("CodexDataFullNotify")));
 
+			*/
             break;
-			
+
         case "SetPlayerHeadImageReq":
           
             sendPacketAsyncByName(kcpobj, "SetPlayerHeadImageRsp", keyBuffer, await dataUtil.objToProtobuffer({"avatarId": protobuff.avatarId,"profilePicture":{"avatarId": protobuff.avatarId}}, dataUtil.getPacketIDByProtoName("SetPlayerHeadImageRsp")))
@@ -837,8 +912,19 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // Response
 
             // need to change uid?
-            const GetPlayerSocialDetailRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/GetPlayerSocialDetailRsp.bin"), dataUtil.getPacketIDByProtoName("GetPlayerSocialDetailRsp"))
-            GetPlayerSocialDetailRsp.detailData.uid = 83000
+            const GetPlayerSocialDetailRsp = {
+                "detailData":{
+                    "uid":83000,
+                    "nickname":"여행자",
+                    "level":31,
+                    "birthday":{"month":2,"day":27},
+                    "worldLevel":3,
+                    "onlineState":1,
+                    "isFriend":true,
+                    "isMpModeAvailable":true,
+                    "nameCardId":210028,
+                    "finishAchievementNum":112}
+                }
 
             sendPacketAsyncByName(kcpobj, "GetPlayerSocialDetailRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerSocialDetailRsp, dataUtil.getPacketIDByProtoName("GetPlayerSocialDetailRsp")));
 
@@ -905,7 +991,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetPlayerBlacklistReq":
 
             // Response
-            sendPacketAsyncByName(kcpobj, "GetPlayerBlacklistRsp", keyBuffer)
+            // sendPacketAsyncByName(kcpobj, "GetPlayerBlacklistRsp", keyBuffer)
 
             break;
 
@@ -1333,7 +1419,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         
         case "GetChatEmojiCollectionReq": // GetChatEmojiCollectionReq
             
-            sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer);
             break;
         
         case "PullRecentChatReq":

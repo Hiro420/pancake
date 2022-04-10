@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AvatarEnterElementViewNotify {
@@ -9,9 +8,9 @@ message AvatarEnterElementViewNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 332;
+		CMD_ID = 303;
 	}
 
-	uint32 avatar_entity_id = 1;
-	bool is_triggerd = 2;
+	uint32 avatar_entity_id = 4;
+	bool is_triggerd = 15;
 }

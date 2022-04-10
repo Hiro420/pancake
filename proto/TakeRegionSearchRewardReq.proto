@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeRegionSearchRewardReq {
@@ -9,9 +8,9 @@ message TakeRegionSearchRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 5603;
+		CMD_ID = 5625;
 	}
 
-	uint32 id = 1;
-	uint32 search_id = 2;
+	uint32 id = 4;
+	uint32 search_id = 10;
 }

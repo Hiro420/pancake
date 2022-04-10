@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message GetBonusActivityRewardReq {
@@ -9,8 +8,8 @@ message GetBonusActivityRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2515;
+		CMD_ID = 2537;
 	}
 
-	uint32 bonus_activity_id = 1;
+	uint32 bonus_activity_id = 3;
 }

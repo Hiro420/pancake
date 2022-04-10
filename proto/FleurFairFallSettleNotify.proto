@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "FleurFairFallSettleInfo.proto";
 
@@ -9,9 +8,9 @@ message FleurFairFallSettleNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2182;
+		CMD_ID = 2010;
 	}
 
-	map<uint32, FleurFairFallSettleInfo> settle_info_map = 1;
-	uint32 minigame_id = 2;
+	map<uint32, FleurFairFallSettleInfo> settle_info_map = 8;
+	uint32 minigame_id = 1;
 }

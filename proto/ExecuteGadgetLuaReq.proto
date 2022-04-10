@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ExecuteGadgetLuaReq {
@@ -9,11 +8,11 @@ message ExecuteGadgetLuaReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 293;
+		CMD_ID = 299;
 	}
 
-	uint32 source_entity_id = 1;
-	int32 param1 = 2;
-	int32 param2 = 3;
-	int32 param3 = 4;
+	uint32 source_entity_id = 13;
+	int32 param1 = 4;
+	int32 param2 = 11;
+	int32 param3 = 3;
 }

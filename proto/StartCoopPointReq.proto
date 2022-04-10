@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message StartCoopPointReq {
@@ -9,8 +8,8 @@ message StartCoopPointReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1964;
+		CMD_ID = 1958;
 	}
 
-	uint32 coop_point = 1;
+	uint32 coop_point = 11;
 }

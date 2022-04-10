@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PlayerGameTimeNotify {
@@ -9,9 +8,10 @@ message PlayerGameTimeNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 111;
+		CMD_ID = 180;
 	}
 
-	uint32 game_time = 1;
-	uint32 uid = 2;
+	uint32 game_time = 6;
+	uint32 uid = 7;
+	bool is_home = 4;
 }

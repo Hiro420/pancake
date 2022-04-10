@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AuthorityChange.proto";
 
@@ -10,8 +9,8 @@ message EntityAuthorityChangeNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 326;
+		CMD_ID = 308;
 	}
 
-	repeated AuthorityChange authority_change_list = 1;
+	repeated AuthorityChange authority_change_list = 12;
 }

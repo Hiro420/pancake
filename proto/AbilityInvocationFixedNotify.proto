@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AbilityInvokeEntry.proto";
 
@@ -10,13 +9,13 @@ message AbilityInvocationFixedNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 1101;
+		CMD_ID = 1158;
 	}
 
-	AbilityInvokeEntry invoke1_st = 1;
-	AbilityInvokeEntry invoke2_nd = 2;
-	AbilityInvokeEntry invoke3_rd = 3;
-	AbilityInvokeEntry invoke4_th = 4;
-	AbilityInvokeEntry invoke5_th = 5;
-	AbilityInvokeEntry invoke6_th = 6;
+	AbilityInvokeEntry invoke1_st = 15;
+	AbilityInvokeEntry invoke2_nd = 3;
+	AbilityInvokeEntry invoke3_rd = 10;
+	AbilityInvokeEntry invoke4_th = 11;
+	AbilityInvokeEntry invoke5_th = 1;
+	AbilityInvokeEntry invoke6_th = 5;
 }

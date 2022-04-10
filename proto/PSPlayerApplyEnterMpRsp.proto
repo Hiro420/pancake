@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message PSPlayerApplyEnterMpRsp {
@@ -8,10 +7,10 @@ message PSPlayerApplyEnterMpRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1814;
+		CMD_ID = 1808;
 	}
 
-	int32 retcode = 1;
+	int32 retcode = 12;
 	string target_psn_id = 2;
-	uint32 param = 3;
+	uint32 param = 4;
 }

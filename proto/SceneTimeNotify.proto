@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message SceneTimeNotify {
@@ -8,10 +7,10 @@ message SceneTimeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 281;
+		CMD_ID = 251;
 	}
 
-	uint32 scene_id = 1;
-	bool is_paused = 2;
-	uint64 scene_time = 3;
+	uint32 scene_id = 11;
+	bool is_paused = 15;
+	uint64 scene_time = 7;
 }

@@ -1,5 +1,5 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
+
 
 message OpenStateChangeNotify {
 	enum CmdId {
@@ -7,8 +7,8 @@ message OpenStateChangeNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 125;
+		CMD_ID = 174;
 	}
 
-	map<uint32, uint32> open_state_map = 1;
+	map<uint32, uint32> open_state_map = 3;
 }

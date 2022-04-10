@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -10,10 +9,10 @@ message UseWidgetCreateGadgetReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 4285;
+		CMD_ID = 4274;
 	}
 
-	uint32 material_id = 1;
+	uint32 material_id = 4;
 	Vector pos = 2;
-	Vector rot = 3;
+	Vector rot = 11;
 }

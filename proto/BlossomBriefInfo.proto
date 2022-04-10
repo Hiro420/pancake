@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "Vector.proto";
 
@@ -13,4 +12,5 @@ message BlossomBriefInfo {
 	uint32 monster_level = 7;
 	bool is_guide_opened = 8;
 	uint32 state = 9;
+	uint32 scene_id = 10;
 }

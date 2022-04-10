@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ItemParam.proto";
 
@@ -20,4 +19,8 @@ message ShopGoods {
 	uint32 mcoin = 14;
 	uint32 disable_type = 15;
 	uint32 secondary_sheet_id = 16;
+	uint32 discount_id = 17;
+	uint32 discount_begin_time = 18;
+	uint32 discount_end_time = 19;
+	uint32 single_limit = 20;
 }

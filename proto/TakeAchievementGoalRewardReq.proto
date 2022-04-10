@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message TakeAchievementGoalRewardReq {
@@ -9,8 +8,8 @@ message TakeAchievementGoalRewardReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2655;
+		CMD_ID = 2687;
 	}
 
-	repeated uint32 id_list = 1;
+	repeated uint32 id_list = 13;
 }

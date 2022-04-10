@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "AnnounceData.proto";
 
@@ -9,8 +8,8 @@ message ServerAnnounceNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 2022;
+		CMD_ID = 2053;
 	}
 
-	repeated AnnounceData announce_data_list = 1;
+	repeated AnnounceData announce_data_list = 4;
 }

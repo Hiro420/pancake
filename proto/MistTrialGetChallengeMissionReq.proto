@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message MistTrialGetChallengeMissionReq {
@@ -9,8 +8,8 @@ message MistTrialGetChallengeMissionReq {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 8023;
+		CMD_ID = 8523;
 	}
 
-	uint32 trial_id = 1;
+	uint32 trial_id = 4;
 }

@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ObstacleInfo.proto";
 
@@ -10,10 +9,10 @@ message ObstacleModifyNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2303;
+		CMD_ID = 2381;
 	}
 
-	uint32 scene_id = 1;
-	repeated ObstacleInfo add_obstacles = 2;
-	repeated int32 remove_obstacle_ids = 3;
+	uint32 scene_id = 7;
+	repeated ObstacleInfo add_obstacles = 15;
+	repeated int32 remove_obstacle_ids = 10;
 }

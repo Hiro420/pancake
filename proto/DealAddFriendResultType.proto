@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 enum DealAddFriendResultType {
 	DEAL_ADD_FRIEND_REJECT = 0;

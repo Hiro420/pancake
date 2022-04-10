@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 import "ForwardType.proto";
 import "EvtAnimatorStateChangedInfo.proto";
@@ -11,9 +10,9 @@ message EvtAnimatorStateChangedNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 311;
+		CMD_ID = 380;
 	}
 
-	ForwardType forward_type = 1;
-	EvtAnimatorStateChangedInfo evt_animator_state_changed_info = 2;
+	ForwardType forward_type = 3;
+	EvtAnimatorStateChangedInfo evt_animator_state_changed_info = 7;
 }

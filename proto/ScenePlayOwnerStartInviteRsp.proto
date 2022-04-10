@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ScenePlayOwnerStartInviteRsp {
@@ -8,10 +7,10 @@ message ScenePlayOwnerStartInviteRsp {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 4355;
+		CMD_ID = 4426;
 	}
 
-	int32 retcode = 1;
-	uint32 play_id = 2;
-	bool is_skip_match = 3;
+	int32 retcode = 6;
+	uint32 play_id = 13;
+	bool is_skip_match = 10;
 }

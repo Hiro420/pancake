@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message AvatarFightPropNotify {
@@ -8,7 +7,7 @@ message AvatarFightPropNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 1205;
+		CMD_ID = 1276;
 	}
 
 	uint64 avatar_guid = 1;

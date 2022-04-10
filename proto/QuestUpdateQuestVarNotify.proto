@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message QuestUpdateQuestVarNotify {
@@ -8,10 +7,10 @@ message QuestUpdateQuestVarNotify {
 		NONE = 0;
 		ENET_CHANNEL_ID = 0;
 		ENET_IS_RELIABLE = 1;
-		CMD_ID = 420;
+		CMD_ID = 470;
 	}
 
-	uint32 parent_quest_id = 1;
-	repeated int32 quest_var = 2;
-	uint32 parent_quest_var_seq = 3;
+	uint32 parent_quest_id = 11;
+	repeated int32 quest_var = 8;
+	uint32 parent_quest_var_seq = 4;
 }

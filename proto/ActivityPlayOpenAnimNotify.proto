@@ -1,5 +1,4 @@
 syntax = "proto3";
-option csharp_namespace = "YSFreedom.Common.Protocol";
 
 
 message ActivityPlayOpenAnimNotify {
@@ -9,8 +8,8 @@ message ActivityPlayOpenAnimNotify {
 		NONE = 0;
 		ENET_IS_RELIABLE = 1;
 		IS_ALLOW_CLIENT = 1;
-		CMD_ID = 2005;
+		CMD_ID = 2124;
 	}
 
-	uint32 activity_id = 1;
+	uint32 activity_id = 8;
 }
