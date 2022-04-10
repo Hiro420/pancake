@@ -29,6 +29,7 @@ Now open Genshin Impact and have fun.
 
 
 # TODO
+* Everything related to field
 * Character Skill (AvatarExcelData Related)
 * Change Avater (ChangeAvatarReq)
 * Teleport Work
