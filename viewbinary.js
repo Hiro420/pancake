@@ -5,7 +5,7 @@ const protobuf = require("protobufjs");
 // Util
 const dataUtil = require("./util/dataUtil");
 
-var protoname = "EnterScenePeerNotify"
+var protoname = "StoreWeightLimitNotify"
 
 var moreSliced = fs.readFileSync("./bin/"+protoname+".bin");
 var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName(protoname));

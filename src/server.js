@@ -29,8 +29,7 @@ var token = 0x00000000;
 
 var server = dgram.createSocket("udp4");
 
-var CharacterID = 10000066
-var TalentID = 50
+var CharacterID = 10000007
 
 var skillLevelMap =   
 {
@@ -168,8 +167,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 "securityCmdBuffer": Buffer.from("bOWfEaq03Yd8HWvHODwqi5UfAlUGMgqwAopeu26XS7I=", 'base64'),
                 "platformType":3,
                 "channelId":1,
-                "subChannelId":1,
-                "tag":3,
                 "countryCode":"MX"
             }
             //GetPlayerTokenRsp.gmUid = "1"
@@ -258,14 +255,81 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "EnterSceneDoneReq":
 
-            //sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer)
-            const SceneEntityAppearNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
-            SceneEntityAppearNotify.entityList[0].AvatarId = CharacterID
-			SceneEntityAppearNotify.entityList[0].motionInfo.pos = posScene
-			SceneEntityAppearNotify.entityList[0].avatar.uid = 83000
-            
-            SceneEntityAppearNotify.entityList[0].skillLevelMap = skillLevelMap
+            const SceneEntityAppearNotify = {
+                "entityList":[
+                    {
+                        "entityType":1,
+                        "entityId":16777677,
+                        "motionInfo":{
+                            "pos":posScene,
+                            "rot":{"Y":posScene.Y},
+                            "speed":{}
+                        },
+                        "propList":[
+                            {
+                                "type":4001,
+                                "propValue":{"type":4001,"ival":40,"val":40}
+                            }
+                        ],
+                        "fightPropList":[
+                            {"propType":1,"propValue":5162.9599609375},
+                            {"propType":2,"propValue":530.3800048828125},
+                            {"propType":3,"propValue":0.08399999886751175},
+                            {"propType":4,"propValue":102.85320281982422},
+                            {"propType":5,"propValue":67.47000122070312},
+                            {"propType":6,"propValue":0.40400001406669617},
+                            {"propType":7,"propValue":321.1906433105469},
+                            {"propType":8,"propValue":10},
+                            {"propType":9,"propValue":0.043699998408555984},
+                            {"propType":20,"propValue":0.10359999537467957},
+                            {"propType":21},{"propType":22,"propValue":0.5465999841690063},
+                            {"propType":23,"propValue":1.0700000524520874},
+                            {"propType":26},{"propType":27},{"propType":28},{"propType":29},{"propType":30},{"propType":40},{"propType":41},{"propType":42},{"propType":43},{"propType":44},{"propType":45},{"propType":46},{"propType":50},{"propType":51},{"propType":52},{"propType":53},{"propType":54},{"propType":55},{"propType":56},{"propType":70,"propValue":60},{"propType":2000,"propValue":6127.0283203125},{"propType":2001,"propValue":211.8759002685547},{"propType":2002,"propValue":345.2266540527344},{"propType":2003},{"propType":1000,"propValue":1.0700000524520874},{"propType":1010,"propValue":6127.0283203125}
+                        ],
+                        "lifeState":1,
+                        "animatorParaList":[{}],
+                        "avatar":{
+                            "uid":83000,
+                            "avatarId":10000007,
+                            "guid":"3544845098770497537",
+                            "peerId":1,
+                            "equipIdList":[60341,55321,59352,51312,51332,11101],
+                            "skillDepotId":3201,
+                            "weapon":{
+                                "entityId":100663758,
+                                "gadgetId":50011101,
+                                "itemId":11101,
+                                "guid":"3544845098770512337",
+                                "level":1,
+                                "abilityInfo":{}
+                            },
+                            "reliquaryList":[
+                                {"itemId":60341,"guid":"3544845098770501585","level":1},
+                                {"itemId":55321,"guid":"3544845098770501445","level":5},
+                                {"itemId":59352,"guid":"3544845098770501869","level":5},
+                                {"itemId":51312,"guid":"3544845098770500721","level":5},
+                                {"itemId":51332,"guid":"3544845098770499172","level":1}
+                            ],
+                            "inherentProudSkillList":[322101,322301],
+                            "skillLevelMap":{"10321":1,"10322":1,"10323":1},
+                            "teamResonanceList":[10801],
+                            "wearingFlycloakId":140001,
+                            "bornTime":1639411514
+                        },
+                        "entityClientData":{},
+                        "entityAuthorityInfo":{
+                            "abilityInfo":{},
+                            "rendererChangedInfo":{},
+                            "aiInfo":{"isAiOpen":true,"bornPos":{}},
+                        }
+                    }
+                ],
+                "appearType":12
+            }
+
             // To protobuffer;
+            console.log(SceneEntityAppearNotify)
+
             sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
             sendPacketAsyncByName(kcpobj, "EnterSceneDoneRsp", keyBuffer)
 
@@ -293,6 +357,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "PlayerLoginReq": // PlayerLoginReq
 
+            console.log(protobuff)
+
             //AvatarDataNotify
             const AvatarDataNotify = {
                 "avatarList":[
@@ -300,11 +366,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         "avatarId":10000007,
                         "guid":"3544845098770497537",
                         "propMap":{
-                            "1001":{"type":1001,"ival":"3826","val":"3826"},
-                            "1002":{"type":1002,"ival":"1","val":"1"},
-                            "1003":{"type":1003,"ival":"0"},
-                            "1004":{"type":1004,"ival":"0"},
-                            "4001":{"type":4001,"ival":"20","val":"20"}
+                            "1001":{"type":1001,"ival":3826,"val":3826},
+                            "1002":{"type":1002,"ival":1,"val":1},
+                            "1003":{"type":1003,"ival":0},
+                            "1004":{"type":1004,"ival":0},
+                            "4001":{"type":4001,"ival":20,"val":20}
                         },
                         "lifeState":1,
                         "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
@@ -313,9 +379,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         "skillDepotId":704,
                         "fetterInfo":{
                             "expLevel":1,
-                            "fetterList":[
-                                {"fetterId":2124,"fetterState":1},{"fetterId":2123,"fetterState":1},{"fetterId":2122,"fetterState":1},{"fetterId":2121,"fetterState":1},{"fetterId":2120,"fetterState":1},{"fetterId":2119,"fetterState":1},{"fetterId":2118,"fetterState":1},{"fetterId":2117,"fetterState":1},{"fetterId":2116,"fetterState":1},{"fetterId":2115,"fetterState":1},{"fetterId":2114,"fetterState":1},{"fetterId":2113,"fetterState":1},{"fetterId":2112,"fetterState":1},{"fetterId":2111,"fetterState":1},{"fetterId":2110,"fetterState":3},{"fetterId":2109,"fetterState":1},{"fetterId":2108,"fetterState":1},{"fetterId":2107,"fetterState":1},{"fetterId":2106,"fetterState":3},{"fetterId":2105,"fetterState":3},{"fetterId":2303,"fetterState":3},{"fetterId":2104,"fetterState":3},{"fetterId":2302,"fetterState":3},{"fetterId":2103,"fetterState":3},{"fetterId":2301,"fetterState":3},{"fetterId":2102,"fetterState":1},{"fetterId":2101,"fetterState":1},{"fetterId":2046,"fetterState":3},{"fetterId":2045,"fetterState":3},{"fetterId":2044,"fetterState":3},{"fetterId":2019,"fetterState":3},{"fetterId":2018,"fetterState":3},{"fetterId":2017,"fetterState":3},{"fetterId":2016,"fetterState":3},{"fetterId":2015,"fetterState":3},{"fetterId":2014,"fetterState":3},{"fetterId":2013,"fetterState":3},{"fetterId":2012,"fetterState":3},{"fetterId":2011,"fetterState":3},{"fetterId":2010,"fetterState":3},{"fetterId":2009,"fetterState":3},{"fetterId":2207,"fetterState":2},{"fetterId":2008,"fetterState":3},{"fetterId":2200,"fetterState":2},{"fetterId":2001,"fetterState":3},{"fetterId":2098,"fetterState":1},{"fetterId":2201,"fetterState":2},{"fetterId":2002,"fetterState":3},{"fetterId":2099,"fetterState":1},{"fetterId":2401,"fetterState":3},{"fetterId":2202,"fetterState":2},{"fetterId":2003,"fetterState":3},{"fetterId":2100,"fetterState":1},{"fetterId":2402,"fetterState":3},{"fetterId":2203,"fetterState":1},{"fetterId":2004,"fetterState":3},{"fetterId":2403,"fetterState":3},{"fetterId":2204,"fetterState":1},{"fetterId":2005,"fetterState":3},{"fetterId":2205,"fetterState":1},{"fetterId":2006,"fetterState":3},{"fetterId":2206,"fetterState":1},{"fetterId":2007,"fetterState":3},{"fetterId":2020,"fetterState":3},{"fetterId":2021,"fetterState":3},{"fetterId":2035,"fetterState":3},{"fetterId":2036,"fetterState":3},{"fetterId":2037,"fetterState":3},{"fetterId":2038,"fetterState":3},{"fetterId":2039,"fetterState":3},{"fetterId":2043,"fetterState":3},{"fetterId":2034,"fetterState":3},{"fetterId":2032,"fetterState":3},{"fetterId":2042,"fetterState":3},{"fetterId":2041,"fetterState":3},{"fetterId":2040,"fetterState":3},{"fetterId":2033,"fetterState":3},{"fetterId":2078,"fetterState":3},{"fetterId":2031,"fetterState":3},{"fetterId":2030,"fetterState":3},{"fetterId":2029,"fetterState":3},{"fetterId":2028,"fetterState":3},{"fetterId":2027,"fetterState":3},{"fetterId":2026,"fetterState":3},{"fetterId":2025,"fetterState":3},{"fetterId":2024,"fetterState":3},{"fetterId":2023,"fetterState":3},{"fetterId":2022,"fetterState":3},{"fetterId":2047,"fetterState":3},{"fetterId":2048,"fetterState":3},{"fetterId":2049,"fetterState":3},{"fetterId":2050,"fetterState":3},{"fetterId":2051,"fetterState":3},{"fetterId":2052,"fetterState":3},{"fetterId":2053,"fetterState":3},{"fetterId":2054,"fetterState":3},{"fetterId":2055,"fetterState":3},{"fetterId":2056,"fetterState":3},{"fetterId":2057,"fetterState":3},{"fetterId":2058,"fetterState":3},{"fetterId":2059,"fetterState":3},{"fetterId":2060,"fetterState":3},{"fetterId":2061,"fetterState":3},{"fetterId":2062,"fetterState":3},{"fetterId":2063,"fetterState":3},{"fetterId":2064,"fetterState":3},{"fetterId":2065,"fetterState":3},{"fetterId":2066,"fetterState":3},{"fetterId":2067,"fetterState":3},{"fetterId":2068,"fetterState":3},{"fetterId":2069,"fetterState":3},{"fetterId":2070,"fetterState":3},{"fetterId":2071,"fetterState":3},{"fetterId":2072,"fetterState":3},{"fetterId":2073,"fetterState":3},{"fetterId":2074,"fetterState":3},{"fetterId":2075,"fetterState":3},{"fetterId":2076,"fetterState":3},{"fetterId":2077,"fetterState":3},{"fetterId":2079,"fetterState":3},{"fetterId":2080,"fetterState":3},{"fetterId":2081,"fetterState":3},{"fetterId":2084,"fetterState":3},{"fetterId":2085,"fetterState":3},{"fetterId":2086,"fetterState":3},{"fetterId":2087,"fetterState":3},{"fetterId":2088,"fetterState":3},{"fetterId":2089,"fetterState":1},{"fetterId":2090,"fetterState":1},{"fetterId":2091,"fetterState":1},{"fetterId":2092,"fetterState":1},{"fetterId":2093,"fetterState":1},{"fetterId":105,"fetterState":2},{"fetterId":2095,"fetterState":1},{"fetterId":2096,"fetterState":3},{"fetterId":2097,"fetterState":1}]},"inherentProudSkillList":[72101],"skillLevelMap":{"10067":1,"10068":1,"100553":1},"proudSkillExtraLevelMap":{"739":3},"avatarType":1,"wearingFlycloakId":140001,"bornTime":1614322820,"pendingPromoteRewardList":[3,5]},{"avatarId":10000021,"guid":"3544845098770497572","propMap":{"1001":{"type":1001,"ival":"0"},"1002":{"type":1002,"ival":"0"},"1003":{"type":1003,"ival":"0"},"1004":{"type":1004,"ival":"0"},"4001":{"type":4001,"ival":"20","val":"20"}},"lifeState":1,"equipGuidList":["3544845098770497573"],"fightPropMap":{"1":2037.8802490234375,"4":71.28118896484375,"6":0,"7":129.3697052001953,"20":0.05000000074505806,"21":0,"22":0.5,"23":1,"26":0,"27":0,"28":0,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"70":40,"1000":40,"1010":2037.8802490234375,"2000":2037.8802490234375,"2001":71.28118896484375,"2002":129.3697052001953,"2003":0},"skillDepotId":2101,"fetterInfo":{"expNumber":305,"expLevel":1,"fetterList":[{"fetterId":10203,"fetterState":1},{"fetterId":10106,"fetterState":3},{"fetterId":10202,"fetterState":1},{"fetterId":10105,"fetterState":3},{"fetterId":10201,"fetterState":2},{"fetterId":10104,"fetterState":3},{"fetterId":10151,"fetterState":3},{"fetterId":10150,"fetterState":3},{"fetterId":10149,"fetterState":3},{"fetterId":10147,"fetterState":3},{"fetterId":10146,"fetterState":3},{"fetterId":10145,"fetterState":3},{"fetterId":10144,"fetterState":1},{"fetterId":10143,"fetterState":1},{"fetterId":10142,"fetterState":1},{"fetterId":10141,"fetterState":1},{"fetterId":10140,"fetterState":3},{"fetterId":10139,"fetterState":3},{"fetterId":10138,"fetterState":3},{"fetterId":10135,"fetterState":1},{"fetterId":10102,"fetterState":3},{"fetterId":10134,"fetterState":1},{"fetterId":110,"fetterState":2},{"fetterId":10101,"fetterState":3},{"fetterId":10133,"fetterState":1},{"fetterId":10100,"fetterState":3},{"fetterId":10132,"fetterState":1},{"fetterId":10123,"fetterState":1},{"fetterId":10122,"fetterState":1},{"fetterId":10120,"fetterState":1},{"fetterId":10167,"fetterState":3},{"fetterId":10164,"fetterState":3},{"fetterId":10117,"fetterState":1},{"fetterId":10121,"fetterState":1},{"fetterId":10168,"fetterState":3},{"fetterId":10169,"fetterState":3},{"fetterId":10124,"fetterState":1},{"fetterId":10171,"fetterState":3},{"fetterId":10170,"fetterState":3},{"fetterId":10131,"fetterState":3},{"fetterId":10136,"fetterState":3},{"fetterId":10125,"fetterState":1},{"fetterId":10172,"fetterState":3},{"fetterId":10148,"fetterState":3},{"fetterId":10137,"fetterState":3},{"fetterId":10130,"fetterState":1},{"fetterId":10127,"fetterState":1},{"fetterId":10174,"fetterState":3},{"fetterId":10173,"fetterState":3},{"fetterId":10126,"fetterState":1},{"fetterId":10175,"fetterState":3},{"fetterId":10128,"fetterState":1},{"fetterId":10129,"fetterState":1},{"fetterId":10163,"fetterState":3},{"fetterId":10116,"fetterState":1},{"fetterId":10119,"fetterState":3},{"fetterId":10162,"fetterState":3},{"fetterId":10115,"fetterState":3},{"fetterId":10118,"fetterState":3},{"fetterId":10161,"fetterState":3},{"fetterId":10114,"fetterState":3},{"fetterId":10160,"fetterState":3},{"fetterId":10113,"fetterState":3},{"fetterId":10159,"fetterState":3},{"fetterId":10403,"fetterState":1},{"fetterId":10112,"fetterState":3},{"fetterId":10156,"fetterState":3},{"fetterId":10303,"fetterState":3},{"fetterId":10206,"fetterState":1},{"fetterId":10109,"fetterState":3},{"fetterId":10155,"fetterState":3},{"fetterId":10302,"fetterState":3},{"fetterId":10205,"fetterState":1},{"fetterId":10108,"fetterState":3},{"fetterId":10402,"fetterState":1},{"fetterId":10208,"fetterState":1},{"fetterId":10111,"fetterState":3},{"fetterId":10153,"fetterState":3},{"fetterId":10152,"fetterState":3},{"fetterId":10154,"fetterState":3},{"fetterId":10301,"fetterState":3},{"fetterId":10204,"fetterState":1},{"fetterId":10107,"fetterState":3},{"fetterId":10401,"fetterState":3},{"fetterId":10207,"fetterState":1},{"fetterId":10110,"fetterState":3},{"fetterId":10103,"fetterState":3}]},"inherentProudSkillList":[212301],"skillLevelMap":{"10017":1,"10032":1,"10041":1},"expeditionState":"AVATAR_EXPEDITION_FINISH_WAIT_REWARD","avatarType":1,"wearingFlycloakId":140001,"bornTime":1614323315,"pendingPromoteRewardList":[1,3,5]},{"avatarId":10000034,"guid":"3544845098770497775","propMap":{"1001":{"type":1001,"ival":"0"},"1002":{"type":1002,"ival":"0"},"1003":{"type":1003,"ival":"0"},"1004":{"type":1004,"ival":"0"},"4001":{"type":4001,"ival":"20","val":"20"}},"lifeState":1,"equipGuidList":["3544845098770502592"],"talentIdList":[341],"fightPropMap":{"1":2600.05419921875,"4":159.73919677734375,"7":172.00289916992188,"9":0,"20":0.05000000074505806,"21":0,"22":0.5,"23":1.1178005933761597,"26":0,"27":0,"28":0,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"76":60,"1006":60,"1010":2600.05419921875,"2000":2600.05419921875,"2001":159.73919677734375,"2002":172.00289916992188,"2003":0},"skillDepotId":3401,"fetterInfo":{"expNumber":860,"expLevel":1,"fetterList":[{"fetterId":21202,"fetterState":1},{"fetterId":21201,"fetterState":2},{"fetterId":21027,"fetterState":3},{"fetterId":21026,"fetterState":1},{"fetterId":21025,"fetterState":1,"condIndexList":[2]},{"fetterId":21024,"fetterState":1},{"fetterId":21023,"fetterState":3},{"fetterId":21022,"fetterState":3},{"fetterId":21021,"fetterState":3},{"fetterId":21020,"fetterState":1},{"fetterId":21019,"fetterState":3},{"fetterId":21018,"fetterState":3},{"fetterId":21017,"fetterState":3},{"fetterId":21016,"fetterState":3},{"fetterId":21403,"fetterState":1},{"fetterId":21015,"fetterState":3},{"fetterId":21402,"fetterState":1},{"fetterId":21208,"fetterState":1},{"fetterId":21014,"fetterState":3},{"fetterId":21401,"fetterState":3},{"fetterId":21207,"fetterState":1},{"fetterId":21013,"fetterState":3},{"fetterId":21303,"fetterState":3},{"fetterId":21206,"fetterState":1},{"fetterId":21012,"fetterState":3},{"fetterId":21302,"fetterState":3},{"fetterId":21205,"fetterState":1},{"fetterId":21011,"fetterState":3},{"fetterId":21033,"fetterState":1},{"fetterId":21034,"fetterState":1},{"fetterId":21035,"fetterState":1},{"fetterId":21036,"fetterState":1},{"fetterId":21037,"fetterState":1},{"fetterId":21038,"fetterState":3},{"fetterId":21039,"fetterState":1},{"fetterId":21040,"fetterState":1},{"fetterId":21041,"fetterState":1},{"fetterId":21042,"fetterState":1},{"fetterId":21043,"fetterState":3},{"fetterId":21044,"fetterState":3},{"fetterId":21051,"fetterState":1},{"fetterId":21052,"fetterState":3},{"fetterId":21053,"fetterState":3},{"fetterId":21055,"fetterState":3},{"fetterId":21054,"fetterState":3},{"fetterId":21050,"fetterState":1},{"fetterId":21049,"fetterState":1},{"fetterId":21048,"fetterState":1},{"fetterId":21047,"fetterState":3},{"fetterId":21046,"fetterState":3},{"fetterId":21045,"fetterState":3},{"fetterId":21032,"fetterState":1},{"fetterId":21031,"fetterState":1},{"fetterId":21030,"fetterState":1},{"fetterId":21029,"fetterState":1},{"fetterId":21028,"fetterState":3},{"fetterId":21071,"fetterState":3},{"fetterId":21070,"fetterState":3},{"fetterId":21069,"fetterState":3},{"fetterId":21068,"fetterState":3},{"fetterId":21065,"fetterState":3},{"fetterId":21064,"fetterState":3},{"fetterId":21063,"fetterState":3},{"fetterId":21062,"fetterState":3},{"fetterId":21061,"fetterState":3},{"fetterId":21060,"fetterState":3},{"fetterId":21059,"fetterState":3},{"fetterId":21058,"fetterState":3},{"fetterId":21057,"fetterState":3},{"fetterId":21301,"fetterState":3},{"fetterId":21204,"fetterState":1,"condIndexList":[2]},{"fetterId":21010,"fetterState":3},{"fetterId":21056,"fetterState":3},{"fetterId":21203,"fetterState":1},{"fetterId":21009,"fetterState":3},{"fetterId":122,"fetterState":2},{"fetterId":21074,"fetterState":3},{"fetterId":21073,"fetterState":3},{"fetterId":21072,"fetterState":3}
-                            ]
+                            "fetterList":[{"fetterId":2124,"fetterState":1},{"fetterId":2123,"fetterState":1},{"fetterId":2122,"fetterState":1},{"fetterId":2121,"fetterState":1},{"fetterId":2120,"fetterState":1},{"fetterId":2119,"fetterState":1},{"fetterId":2118,"fetterState":1},{"fetterId":2117,"fetterState":1},{"fetterId":2116,"fetterState":1},{"fetterId":2115,"fetterState":1},{"fetterId":2114,"fetterState":1},{"fetterId":2113,"fetterState":1},{"fetterId":2112,"fetterState":1},{"fetterId":2111,"fetterState":1},{"fetterId":2110,"fetterState":3},{"fetterId":2109,"fetterState":1},{"fetterId":2108,"fetterState":1},{"fetterId":2107,"fetterState":1},{"fetterId":2106,"fetterState":3},{"fetterId":2105,"fetterState":3},{"fetterId":2303,"fetterState":3},{"fetterId":2104,"fetterState":3},{"fetterId":2302,"fetterState":3},{"fetterId":2103,"fetterState":3},{"fetterId":2301,"fetterState":3},{"fetterId":2102,"fetterState":1},{"fetterId":2101,"fetterState":1},{"fetterId":2046,"fetterState":3},{"fetterId":2045,"fetterState":3},{"fetterId":2044,"fetterState":3},{"fetterId":2019,"fetterState":3},{"fetterId":2018,"fetterState":3},{"fetterId":2017,"fetterState":3},{"fetterId":2016,"fetterState":3},{"fetterId":2015,"fetterState":3},{"fetterId":2014,"fetterState":3},{"fetterId":2013,"fetterState":3},{"fetterId":2012,"fetterState":3},{"fetterId":2011,"fetterState":3},{"fetterId":2010,"fetterState":3},{"fetterId":2009,"fetterState":3},{"fetterId":2207,"fetterState":2},{"fetterId":2008,"fetterState":3},{"fetterId":2200,"fetterState":2},{"fetterId":2001,"fetterState":3},{"fetterId":2098,"fetterState":1},{"fetterId":2201,"fetterState":2},{"fetterId":2002,"fetterState":3},{"fetterId":2099,"fetterState":1},{"fetterId":2401,"fetterState":3},{"fetterId":2202,"fetterState":2},{"fetterId":2003,"fetterState":3},{"fetterId":2100,"fetterState":1},{"fetterId":2402,"fetterState":3},{"fetterId":2203,"fetterState":1},{"fetterId":2004,"fetterState":3},{"fetterId":2403,"fetterState":3},{"fetterId":2204,"fetterState":1},{"fetterId":2005,"fetterState":3},{"fetterId":2205,"fetterState":1},{"fetterId":2006,"fetterState":3},{"fetterId":2206,"fetterState":1},{"fetterId":2007,"fetterState":3},{"fetterId":2020,"fetterState":3},{"fetterId":2021,"fetterState":3},{"fetterId":2035,"fetterState":3},{"fetterId":2036,"fetterState":3},{"fetterId":2037,"fetterState":3},{"fetterId":2038,"fetterState":3},{"fetterId":2039,"fetterState":3},{"fetterId":2043,"fetterState":3},{"fetterId":2034,"fetterState":3},{"fetterId":2032,"fetterState":3},{"fetterId":2042,"fetterState":3},{"fetterId":2041,"fetterState":3},{"fetterId":2040,"fetterState":3},{"fetterId":2033,"fetterState":3},{"fetterId":2078,"fetterState":3},{"fetterId":2031,"fetterState":3},{"fetterId":2030,"fetterState":3},{"fetterId":2029,"fetterState":3},{"fetterId":2028,"fetterState":3},{"fetterId":2027,"fetterState":3},{"fetterId":2026,"fetterState":3},{"fetterId":2025,"fetterState":3},{"fetterId":2024,"fetterState":3},{"fetterId":2023,"fetterState":3},{"fetterId":2022,"fetterState":3},{"fetterId":2047,"fetterState":3},{"fetterId":2048,"fetterState":3},{"fetterId":2049,"fetterState":3},{"fetterId":2050,"fetterState":3},{"fetterId":2051,"fetterState":3},{"fetterId":2052,"fetterState":3},{"fetterId":2053,"fetterState":3},{"fetterId":2054,"fetterState":3},{"fetterId":2055,"fetterState":3},{"fetterId":2056,"fetterState":3},{"fetterId":2057,"fetterState":3},{"fetterId":2058,"fetterState":3},{"fetterId":2059,"fetterState":3},{"fetterId":2060,"fetterState":3},{"fetterId":2061,"fetterState":3},{"fetterId":2062,"fetterState":3},{"fetterId":2063,"fetterState":3},{"fetterId":2064,"fetterState":3},{"fetterId":2065,"fetterState":3},{"fetterId":2066,"fetterState":3},{"fetterId":2067,"fetterState":3},{"fetterId":2068,"fetterState":3},{"fetterId":2069,"fetterState":3},{"fetterId":2070,"fetterState":3},{"fetterId":2071,"fetterState":3},{"fetterId":2072,"fetterState":3},{"fetterId":2073,"fetterState":3},{"fetterId":2074,"fetterState":3},{"fetterId":2075,"fetterState":3},{"fetterId":2076,"fetterState":3},{"fetterId":2077,"fetterState":3},{"fetterId":2079,"fetterState":3},{"fetterId":2080,"fetterState":3},{"fetterId":2081,"fetterState":3},{"fetterId":2084,"fetterState":3},{"fetterId":2085,"fetterState":3},{"fetterId":2086,"fetterState":3},{"fetterId":2087,"fetterState":3},{"fetterId":2088,"fetterState":3},{"fetterId":2089,"fetterState":1},{"fetterId":2090,"fetterState":1},{"fetterId":2091,"fetterState":1},{"fetterId":2092,"fetterState":1},{"fetterId":2093,"fetterState":1},{"fetterId":105,"fetterState":2},{"fetterId":2095,"fetterState":1},{"fetterId":2096,"fetterState":3},{"fetterId":2097,"fetterState":1}]
                         },
                         "inherentProudSkillList":[342301],
                         "skillLevelMap":{"10341":1,"10342":1,"10343":1},
@@ -330,6 +394,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 "chooseAvatarGuid":"3544845098770497537",
                 "ownedFlycloakList":[140001,140002]
             }
+
+            console.log(AvatarDataNotify)
 
             sendPacketAsyncByName(kcpobj, "AvatarDataNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarDataNotify, dataUtil.getPacketIDByProtoName("AvatarDataNotify")));
 
@@ -366,40 +432,41 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 "isFirstLoginToday":true,
                 "regionId":51,
                 "propMap":{
-                    "10004":{"type":10004,"ival":"1","val":"1"},
-                    "10005":{"type":10005,"ival":"100","val":"100"},
-                    "10006":{"type":10006,"ival":"1","val":"1"},
-                    "10007":{"type":10007,"ival":"0"},
-                    "10008":{"type":10008,"ival":"0"},
-                    "10009":{"type":10009,"ival":"1","val":"1"},
-                    "10010":{"type":10010,"ival":"16000","val":"16000"},
-                    "10011":{"type":10011,"ival":"16000","val":"16000"},
-                    "10012":{"type":10012,"ival":"0"},
-                    "10013":{"type":10013,"ival":"31","val":"31"},
-                    "10014":{"type":10014,"ival":"103","val":"103"},
-                    "10015":{"type":10015,"ival":"157","val":"157"},
-                    "10016":{"type":10016,"ival":"4116603","val":"4116603"},
-                    "10017":{"type":10017,"ival":"2","val":"2"},
-                    "10019":{"type":10019,"ival":"3","val":"3"},
-                    "10020":{"type":10020,"ival":"160","val":"160"},
-                    "10022":{"type":10022,"ival":"0"},
-                    "10023":{"type":10023,"ival":"0"},
-                    "10025":{"type":10025,"ival":"0"},
-                    "10026":{"type":10026,"ival":"0"},
-                    "10027":{"type":10027,"ival":"1","val":"1"},
-                    "10035":{"type":10035,"ival":"0"},
-                    "10036":{"type":10036,"ival":"0"},
-                    "10037":{"type":10037,"ival":"0"},
-                    "10038":{"type":10038,"ival":"0"},
-                    "10039":{"type":10039,"ival":"3","val":"3"},
-                    "10040":{"type":10040,"ival":"0"},
-                    "10041":{"type":10041,"ival":"0"},
-                    "10042":{"type":10042,"ival":"0"},
-                    "10043":{"type":10043,"ival":"0"},
-                    "10044":{"type":10044,"ival":"0"}
+                    "10004":{"type":10004,"ival":1,"val":1},
+                    "10005":{"type":10005,"ival":100,"val":100},
+                    "10006":{"type":10006,"ival":1,"val":1},
+                    "10007":{"type":10007,"ival":0},
+                    "10008":{"type":10008,"ival":0},
+                    "10009":{"type":10009,"ival":1,"val":1},
+                    "10010":{"type":10010,"ival":16000,"val":16000},
+                    "10011":{"type":10011,"ival":16000,"val":16000},
+                    "10012":{"type":10012,"ival":0},
+                    "10013":{"type":10013,"ival":31,"val":31},
+                    "10014":{"type":10014,"ival":103,"val":103},
+                    "10015":{"type":10015,"ival":157,"val":157},
+                    "10016":{"type":10016,"ival":4116603,"val":4116603},
+                    "10017":{"type":10017,"ival":2,"val":2},
+                    "10019":{"type":10019,"ival":3,"val":3},
+                    "10020":{"type":10020,"ival":160,"val":160},
+                    "10022":{"type":10022,"ival":0},
+                    "10023":{"type":10023,"ival":0},
+                    "10025":{"type":10025,"ival":0},
+                    "10026":{"type":10026,"ival":0},
+                    "10027":{"type":10027,"ival":1,"val":1},
+                    "10035":{"type":10035,"ival":0},
+                    "10036":{"type":10036,"ival":0},
+                    "10037":{"type":10037,"ival":0},
+                    "10038":{"type":10038,"ival":0},
+                    "10039":{"type":10039,"ival":3,"val":3},
+                    "10040":{"type":10040,"ival":0},
+                    "10041":{"type":10041,"ival":0},
+                    "10042":{"type":10042,"ival":0},
+                    "10043":{"type":10043,"ival":0},
+                    "10044":{"type":10044,"ival":0}
                 }
             }
 
+            console.log(PlayerDataNotify)
             // To protobuffer
             var PlayerDataNotifyData = await dataUtil.objToProtobuffer(PlayerDataNotify, dataUtil.getPacketIDByProtoName("PlayerDataNotify"));
             sendPacketAsyncByName(kcpobj, "PlayerDataNotify", keyBuffer, PlayerDataNotifyData);
@@ -602,7 +669,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
 
             // StoreWeightLimitNotify
-            const StoreWeightLimitNotify =  { "storeType": "STORE_PACK", "weightLimit": 90000, "materialCountLimit": 2000, "weaponCountLimit": 2000, "reliquaryCountLimit": 1000, "furnitureCountLimit": 2000 }
+            const StoreWeightLimitNotify =  { "storeType": 1, "weightLimit": 90000, "materialCountLimit": 2000, "weaponCountLimit": 2000, "reliquaryCountLimit": 1000, "furnitureCountLimit": 2000 }
 
             sendPacketAsyncByName(kcpobj, "StoreWeightLimitNotify", keyBuffer, await dataUtil.objToProtobuffer(StoreWeightLimitNotify,   
             await dataUtil.getPacketIDByProtoName("StoreWeightLimitNotify")))
@@ -610,7 +677,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // PlayerStoreNotify
 
             const PlayerStoreNotify = {
-                "storeType": "STORE_PACK",
+                "storeType": 1,
                 "itemList": [
                     {
                         "itemId": 11510,
@@ -630,10 +697,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             }
 
 
-            
+            /*
             for (Possible = 1; Possible < 2000; Possible++) { // Unlock Artifacts
                 PlayerStoreNotify.itemList[Possible] = {"itemId":97000+Possible,"guid":"96413"+Possible,"equip":{"reliquary":{"level":1,"mainPropId":12001}}};
             }
+            */
 
             await sendPacketAsyncByName(kcpobj, "PlayerStoreNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerStoreNotify, dataUtil.getPacketIDByProtoName("PlayerStoreNotify")))
 
@@ -662,11 +730,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             const PlayerEnterSceneNotify1 = {
                 "sceneId":sceneIdSelect,
                 "pos":posScene,
-                "sceneBeginTime":"1648038912774",
+                "sceneBeginTime":epochTime-100,
                 "type":1,
                 "targetUid":83000,
                 "worldLevel":3,
-                "enterSceneToken":3495,
+                "enterSceneToken":23511,
                 "sceneTagIdList":[107,113,117,125,134,139],
                 "isFirstLoginEnterScene": true,
                 "enterReason":1
@@ -1005,14 +1073,20 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "EnterSceneReadyReq":
 
             // EnterScenePeerNotify
-            const EnterScenePeerNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/EnterScenePeerNotify.bin"), dataUtil.getPacketIDByProtoName("EnterScenePeerNotify"))
-
-            EnterScenePeerNotify.destSceneId = sceneIdSelect
+            const EnterScenePeerNotify = {
+                "destSceneId": sceneIdSelect,
+                "peerId": 1,
+                "hostPeerId": 1,
+                "enterSceneToken": 23511
+            }
 
             sendPacketAsyncByName(kcpobj, "EnterScenePeerNotify", keyBuffer, await dataUtil.objToProtobuffer(EnterScenePeerNotify, dataUtil.getPacketIDByProtoName("EnterScenePeerNotify")));
 
+            const EnterSceneDoneRsp = {
+                "enterSceneToken": 23511
+            }
             // Response
-            sendPacketAsyncByName(kcpobj, "EnterSceneReadyRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "EnterSceneReadyRsp", keyBuffer, await dataUtil.objToProtobuffer(EnterSceneDoneRsp, dataUtil.getPacketIDByProtoName("EnterSceneDoneRsp")));
 
             break;
 
@@ -1049,11 +1123,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //WorldPlayerInfoNotify
 
-            const WorldPlayerInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/WorldPlayerInfoNotify.bin"), dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"))
-            WorldPlayerInfoNotify.playerInfoList[0].name = "Waffel | PANCAKE (PS)"
-            WorldPlayerInfoNotify.playerInfoList[0].uid = 83000
+            const WorldPlayerInfoNotify = {
+                "playerInfoList":[
+                    {
+                        "uid":83000,
+                        "nickname":"여행자",
+                        "playerLevel":31,
+                        "mpSettingType":2,
+                        "curPlayerNumInWorld":1,
+                        "worldLevel":3,
+                        "nameCardId":210028
+                    }
+                ],
+                "playerUidList":[83000]
+            }
 
-            WorldPlayerInfoNotify.playerUidList.push(83000)
             // To protobuffer
             data = await dataUtil.objToProtobuffer(WorldPlayerInfoNotify, dataUtil.getPacketIDByProtoName("WorldPlayerInfoNotify"));
             sendPacketAsyncByName(kcpobj, "WorldPlayerInfoNotify", keyBuffer, data);
@@ -1062,10 +1146,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "WorldDataNotify", keyBuffer);
 
             //WorldOwnerBlossomBriefInfoNotify
-            sendPacketAsyncByName(kcpobj, "WorldOwnerBlossomBriefInfoNotify", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "WorldOwnerBlossomBriefInfoNotify", keyBuffer);
 
             //TeamResonanceChangeNotify
-            sendPacketAsyncByName(kcpobj, "TeamResonanceChangeNotify", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "TeamResonanceChangeNotify", keyBuffer);
 
             //WorldAllRoutineTypeNotify
             sendPacketAsyncByName(kcpobj, "WorldAllRoutineTypeNotify", keyBuffer);
@@ -1102,14 +1186,24 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //ScenePlayerInfoNotify
             // very sus
-            const ScenePlayerInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/ScenePlayerInfoNotify.bin"), dataUtil.getPacketIDByProtoName("ScenePlayerInfoNotify"))
-            ScenePlayerInfoNotify.playerInfoList[0].name = "TeTT"
-            ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.nickname = "Waffel | PANCAKE (PS)"
-            ScenePlayerInfoNotify.playerInfoList[0].signature = "응애에요"
-	        ScenePlayerInfoNotify.playerInfoList[0].uid = 83000
-            ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.uid = 83000
-            ScenePlayerInfoNotify.playerInfoList[0].onlinePlayerInfo.nameCardId = 210112
-            ScenePlayerInfoNotify.playerInfoList[0].sceneId = sceneIdSelect
+            const ScenePlayerInfoNotify = {
+                "playerInfoList": [
+                    {
+                        "uid":83000,"peerId":1,
+                        "name":"여행자",
+                        "sceneId":3,
+                        "onlinePlayerInfo":{
+                            "uid":83000,
+                            "nickname":"여행자",
+                            "playerLevel":31,
+                            "mpSettingType":2,
+                            "curPlayerNumInWorld":1,
+                            "worldLevel":3,
+                            "nameCardId":210028
+                        }
+                    }
+                ]
+            }
             // To protobuffer
             data = await dataUtil.objToProtobuffer(ScenePlayerInfoNotify, dataUtil.getPacketIDByProtoName("ScenePlayerInfoNotify"));
             sendPacketAsyncByName(kcpobj, "ScenePlayerInfoNotify", keyBuffer, data);
@@ -1125,19 +1219,19 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "SyncTeamEntityNotify", keyBuffer);
 
             //SyncScenePlayTeamEntityNotify
-            sendPacketAsyncByName(kcpobj, "SyncScenePlayTeamEntityNotify", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "SyncScenePlayTeamEntityNotify", keyBuffer);
 
             //ScenePlayBattleInfoListNotify
-            sendPacketAsyncByName(kcpobj, "ScenePlayBattleInfoListNotify", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "ScenePlayBattleInfoListNotify", keyBuffer);
 
             //SceneTeamUpdateNotify
             sendPacketAsyncByName(kcpobj, "SceneTeamUpdateNotify", keyBuffer);
 
             //AllMarkPointNotify
-            sendPacketAsyncByName(kcpobj, "AllMarkPointNotify", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "AllMarkPointNotify", keyBuffer);
 
             //PlayerPropNotify1
-            sendPacketAsyncByName(kcpobj, "PlayerPropNotify1", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "PlayerPropNotify1", keyBuffer);
 
             //SceneInitFinishRsp
             // Response
@@ -1212,6 +1306,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetSceneAreaReq": // GetSceneAreaReq
 
+            /*
+
             const GetSceneAreaRsp = {
                 areaIdList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,17,18,19,20,200],
                     cityInfoList: [
@@ -1223,6 +1319,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         sceneId: 3
             }
             sendPacketAsyncByName(kcpobj, "GetSceneAreaRsp", keyBuffer, await dataUtil.objToProtobuffer(GetSceneAreaRsp, dataUtil.getPacketIDByProtoName("GetSceneAreaRsp")))
+            */
+
             break;
 			
         case "GetScenePointReq": // GetScenePointReq
@@ -1401,19 +1499,19 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             break;
 
         case "GetRegionSearchReq":
-            sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer)
+            // sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer)
 
             break;
 
         case "ReunionBriefInfoReq": // ReunionBriefInfoReq
 
-            sendPacketAsyncByName(kcpobj, "ReunionBriefInfoRsp", keyBuffer)
+            // sendPacketAsyncByName(kcpobj, "ReunionBriefInfoRsp", keyBuffer)
 
             break;
 
         case "GetAllActivatedBargainDataReq": // GetAllActivatedBargainDataReq
 
-            sendPacketAsyncByName(kcpobj, "GetAllActivatedBargainDataRsp", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "GetAllActivatedBargainDataRsp", keyBuffer);
 
             break;
         
@@ -1521,6 +1619,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "PersonalLineAllDataReq":
             // unlock legend quest but not working
             // goto archive
+            /*
             const PersonalLineAllDataRsp = {
                 "legendaryKeyCount":1,
                 "ongoingPersonalLineList":[
@@ -1590,8 +1689,12 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             data = await dataUtil.objToProtobuffer(PersonalLineAllDataRsp, dataUtil.getPacketIDByProtoName("PersonalLineAllDataRsp"));
             sendPacketAsyncByName(kcpobj, "PersonalLineAllDataRsp", keyBuffer, data)
+            */
+            break;
 
         case "GetGachaInfoReq":
+
+            /*
             var base = "EpsHCMgBEPMGGPDgsJAGIP+ClaEGKOABMAE6E0dhY2hhU2hvd1BhbmVsX0EwMjJCvQFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTNKywFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTIwMCZnYWNoYV9pZD02YTdjMDhjZWU5ZGMyYjk4MTFhOTRiOGIzMzY1MGRmZjdiN2M5MiZ0aW1lc3RhbXA9MTY0NDk2OTA5M1IaVUlfVGFiX0dhY2hhU2hvd1BhbmVsX0EwMjJY4AFgCmj/////D3D/////D3joB4IBvQFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTOKAcsBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0yMDAmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTOaAR5VSV9HQUNIQV9TSE9XX1BBTkVMX0EwMjJfVElUTEUStgcIrQIQ1QYYoNKckQYg79yKkgYo3wEwAToTR2FjaGFTaG93UGFuZWxfQTA3M0K9AWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNUrLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAxJmdhY2hhX2lkPTUxMWYzMzAzMmYxMmM4NWQ4ZjgwOTIzNDFjYmE2OGMzMTJiNTEyJnRpbWVzdGFtcD0xNjQ0OTY5MDA1UhpVSV9UYWJfR2FjaGFTaG93UGFuZWxfQTA3M1jfAWAKaP////8PcP////8PeI5OggG9AWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNYoBywFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTMwMSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNZIBBggBEgKcCJIBCggCEgaICJQIoAiaAR5VSV9HQUNIQV9TSE9XX1BBTkVMX0EwNTJfVElUTEWiAQKcCBLJBwiuAhDpBhig0pyRBiDv3IqSBijfATABOhNHYWNoYVNob3dQYW5lbF9BMDc1Qr0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5SssBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0zMDImZ2FjaGFfaWQ9Mjg5ZWYxMzY4NThjYTkxMDNjNzk3MDUwY2MzYzFkNmFkMDViOWQmdGltZXN0YW1wPTE2NDQ5NjkwNTlSGlVJX1RhYl9HYWNoYVNob3dQYW5lbF9BMDc1WN8BYApo/////w9w/////w94jE6CAb0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5igHLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAyJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5kgEICAESBMVpqnGSAQ4IAhIKjVmAYd9ow3C4eJoBHlVJX0dBQ0hBX1NIT1dfUEFORUxfQTAyMV9USVRMRaIBBMVpqnGqAQKAYcABAsgBARK2BwiQAxDfBhig0pyRBiDv3IqSBijfATABOhNHYWNoYVNob3dQYW5lbF9BMDc0Qr0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzSssBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0zMDEmZ2FjaGFfaWQ9ZDEwODU2YTJmMWYzMWU1ODE1MDZiNGZhNTQ5NjlhZDM0M2IwNWImdGltZXN0YW1wPTE2NDQ5NjkwMzNSGlVJX1RhYl9HYWNoYVNob3dQYW5lbF9BMDc0WN8BYApo/////w9w/////w94jU6CAb0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzigHLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAxJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzkgEGCAESAp4IkgEKCAISBogIlAigCJoBHlVJX0dBQ0hBX1NIT1dfUEFORUxfQTA1M19USVRMRaIBAp4IEvwDCGQg/////w8o4AEwAToTR2FjaGFTaG93UGFuZWxfQTAxNkJOaHR0cHM6Ly93ZWJzdGF0aWMubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWwjL25ld2JpZWdhY2hhSoIBaHR0cHM6Ly93ZWJzdGF0aWMubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTEwMFIaVUlfVGFiX0dhY2hhU2hvd1BhbmVsX0EwMTZY4AFgCHAUeI9OggFSaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sIy9uZXdiaWVnYWNoYYoBhgFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTEwMBj95tDaBQ==";
             const GetGachaInfoRsp = await dataUtil.dataToProtobuffer(Buffer.from(base,'base64'), dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"))
             
@@ -1603,6 +1706,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // To protobuffer
             data = await dataUtil.objToProtobuffer(GetGachaInfoRsp, dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"));
             sendPacketAsyncByName(kcpobj, "GetGachaInfoRsp", keyBuffer, data)
+            */
             break;
 
         case "DoGachaReq":
