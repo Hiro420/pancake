@@ -178,11 +178,9 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 }
                 seedKey = Buffer.from(data.toString(), 'hex'); // Key
             });
-
             console.log(GetPlayerTokenRsp);
 
             data = await dataUtil.objToProtobuffer(GetPlayerTokenRsp, dataUtil.getPacketIDByProtoName("GetPlayerTokenRsp"));
-
             sendPacketAsyncByName(kcpobj, "GetPlayerTokenRsp", keyBuffer, data)
 
             break;
@@ -204,13 +202,31 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "TowerAllDataReq": // TowerAllDataReq
 
-            const TowerAllDataRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("bin/TowerAllDataRsp.bin"), dataUtil.getPacketIDByProtoName("TowerAllDataRsp"))
-			
-			TowerAllDataRsp.isFinishedEntranceFloor = true
-			TowerAllDataRsp.isFirstInteract = true
+            const TowerAllDataRsp = {
+                towerFloorRecordList: [
+                   {
+                    passedLevelMap: {},
+                    passedLevelRecordList: [],
+                    floorId: 1001
+                  }
+                ],
+                floorOpenTimeMap: {
+                  '1020': 1626426000,
+                  '1021': 1626426000,
+                  '1022': 1626426000,
+                  '1023': 1626426000
+                },
+                skipFloorGrantedRewardItemMap: {},
+                towerScheduleId: 26,
+                curLevelRecord: {
+                  towerTeamList: [],
+                  buffIdList: [],
+                  isEmpty: true
+                },
+                nextScheduleChangeTime: 1627808399,
+                scheduleStartTime: 1626426000
+              }
 
-            TowerAllDataRsp.towerScheduleId = 43 // Spiral Abyss (Blocked in beta)
-			
 			sendPacketAsyncByName(kcpobj, "TowerAllDataRsp", keyBuffer, await dataUtil.objToProtobuffer(TowerAllDataRsp, dataUtil.getPacketIDByProtoName("TowerAllDataRsp")))
 			
 			break;
@@ -239,14 +255,28 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             // To protobuffer
 
-            const AvatarEquipChangeNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/AvatarEquipChangeNotify.bin"), dataUtil.getPacketIDByProtoName("AvatarEquipChangeNotify"))
-			
-            AvatarEquipChangeNotify.avatarGuid = protobuff.avatarGuid
-            AvatarEquipChangeNotify.equipGuid = protobuff.equipGuid
-            AvatarEquipChangeNotify.weapon.guid = protobuff.equipGuid
-			AvatarEquipChangeNotify.weapon.itemId = 13416
             
-            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarEquipChangeNotify, dataUtil.getPacketIDByProtoName("AvatarEquipChangeNotify")));
+            const AvatarEquipChangeNotify2 = {
+                avatarGuid: 3544845098770497537,
+                equipType: 6,
+                itemId: 11201,
+                equipGuid: 3544845098770512337,
+                weapon: {
+                    "entityId":100663758,
+                    "gadgetId":50011101,
+                    "itemId":11101,
+                    "guid":"3544845098770512337",
+                    "level":1,
+                    "abilityInfo":{}
+                }
+            }
+
+            AvatarEquipChangeNotify2.avatarGuid = protobuff.avatarGuid
+            AvatarEquipChangeNotify2.equipGuid = protobuff.equipGuid
+            AvatarEquipChangeNotify2.weapon.guid = protobuff.equipGuid
+			AvatarEquipChangeNotify2.weapon.itemId = 13416
+            
+            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarEquipChangeNotify2, dataUtil.getPacketIDByProtoName("AvatarEquipChangeNotify")));
 
             console.log(WearEquipRsp)
             sendPacketAsyncByName(kcpobj, "WearEquipRsp", keyBuffer, await dataUtil.objToProtobuffer(WearEquipRsp, dataUtil.getPacketIDByProtoName("WearEquipRsp")))
@@ -258,20 +288,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             const SceneEntityAppearNotify = {
                 "entityList":[
                     {
-                        "entityType":1,
-                        "entityId":16777677,
-                        "motionInfo":{
-                            "pos":posScene,
-                            "rot":{"Y":posScene.Y},
-                            "speed":{}
+                        entityId: 16777677,
+                        entityType: 1,
+                        name: "여행자",
+                        motionInfo: {
+                            pos: posScene,
+                            rot: {Y: posScene.Y},
+                            speed: {}
                         },
-                        "propList":[
+                        propList: [
                             {
                                 "type":4001,
                                 "propValue":{"type":4001,"ival":40,"val":40}
                             }
                         ],
-                        "fightPropList":[
+                        fightPropList: [
                             {"propType":1,"propValue":5162.9599609375},
                             {"propType":2,"propValue":530.3800048828125},
                             {"propType":3,"propValue":0.08399999886751175},
@@ -286,52 +317,49 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                             {"propType":23,"propValue":1.0700000524520874},
                             {"propType":26},{"propType":27},{"propType":28},{"propType":29},{"propType":30},{"propType":40},{"propType":41},{"propType":42},{"propType":43},{"propType":44},{"propType":45},{"propType":46},{"propType":50},{"propType":51},{"propType":52},{"propType":53},{"propType":54},{"propType":55},{"propType":56},{"propType":70,"propValue":60},{"propType":2000,"propValue":6127.0283203125},{"propType":2001,"propValue":211.8759002685547},{"propType":2002,"propValue":345.2266540527344},{"propType":2003},{"propType":1000,"propValue":1.0700000524520874},{"propType":1010,"propValue":6127.0283203125}
                         ],
-                        "lifeState":1,
-                        "animatorParaList":[{}],
-                        "avatar":{
-                            "uid":83000,
+                        lifeState: 1,
+                        avatar: {
                             "avatarId":10000007,
                             "guid":"3544845098770497537",
-                            "peerId":1,
-                            "equipIdList":[60341,55321,59352,51312,51332,11101],
-                            "skillDepotId":3201,
-                            "weapon":{
-                                "entityId":100663758,
-                                "gadgetId":50011101,
-                                "itemId":11101,
-                                "guid":"3544845098770512337",
-                                "level":1,
-                                "abilityInfo":{}
+                            "propMap":{
+                                "1001":{"type":1001,"ival":3826,"val":3826},
+                                "1002":{"type":1002,"ival":1,"val":1},
+                                "1003":{"type":1003,"ival":0,"val":0},
+                                "1004":{"type":1004,"ival":0,"val":0},
+                                "4001":{"type":4001,"ival":20,"val":20}
                             },
-                            "reliquaryList":[
-                                {"itemId":60341,"guid":"3544845098770501585","level":1},
-                                {"itemId":55321,"guid":"3544845098770501445","level":5},
-                                {"itemId":59352,"guid":"3544845098770501869","level":5},
-                                {"itemId":51312,"guid":"3544845098770500721","level":5},
-                                {"itemId":51332,"guid":"3544845098770499172","level":1}
-                            ],
-                            "inherentProudSkillList":[322101,322301],
-                            "skillLevelMap":{"10321":1,"10322":1,"10323":1},
-                            "teamResonanceList":[10801],
+                            "lifeState":1,
+                            "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
+                            "talentIdList":[71,72,73],
+                            "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
+                            "skillDepotId":704,
+                            "fetterInfo":{
+                                expLevel:10,
+                                expNumber:0,
+                            },
+                            "inherentProudSkillList":[342301],
+                            "skillLevelMap":{"10341":1,"10342":1,"10343":1},
+                            "avatarType":1,
                             "wearingFlycloakId":140001,
-                            "bornTime":1639411514
-                        },
-                        "entityClientData":{},
-                        "entityAuthorityInfo":{
-                            "abilityInfo":{},
-                            "rendererChangedInfo":{},
-                            "aiInfo":{"isAiOpen":true,"bornPos":{}},
+                            "bornTime":1614324280,
+                            "pendingPromoteRewardList":[1,3,5]
                         }
                     }
                 ],
-                "appearType":12
+                "appearType":12,
+                "param":0
             }
 
             // To protobuffer;
             console.log(SceneEntityAppearNotify)
 
             sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
-            sendPacketAsyncByName(kcpobj, "EnterSceneDoneRsp", keyBuffer)
+            
+            const EnterSceneDoneRsp = {
+                "enterSceneToken": 23511
+            }
+            
+            sendPacketAsyncByName(kcpobj, "EnterSceneDoneRsp", keyBuffer, await dataUtil.objToProtobuffer(EnterSceneDoneRsp, dataUtil.getPacketIDByProtoName("EnterSceneDoneRsp")));
 
             break;
 
@@ -368,8 +396,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         "propMap":{
                             "1001":{"type":1001,"ival":3826,"val":3826},
                             "1002":{"type":1002,"ival":1,"val":1},
-                            "1003":{"type":1003,"ival":0},
-                            "1004":{"type":1004,"ival":0},
+                            "1003":{"type":1003,"ival":0,"val":0},
+                            "1004":{"type":1004,"ival":0,"val":0},
                             "4001":{"type":4001,"ival":20,"val":20}
                         },
                         "lifeState":1,
@@ -378,8 +406,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
                         "skillDepotId":704,
                         "fetterInfo":{
-                            "expLevel":1,
-                            "fetterList":[{"fetterId":2124,"fetterState":1},{"fetterId":2123,"fetterState":1},{"fetterId":2122,"fetterState":1},{"fetterId":2121,"fetterState":1},{"fetterId":2120,"fetterState":1},{"fetterId":2119,"fetterState":1},{"fetterId":2118,"fetterState":1},{"fetterId":2117,"fetterState":1},{"fetterId":2116,"fetterState":1},{"fetterId":2115,"fetterState":1},{"fetterId":2114,"fetterState":1},{"fetterId":2113,"fetterState":1},{"fetterId":2112,"fetterState":1},{"fetterId":2111,"fetterState":1},{"fetterId":2110,"fetterState":3},{"fetterId":2109,"fetterState":1},{"fetterId":2108,"fetterState":1},{"fetterId":2107,"fetterState":1},{"fetterId":2106,"fetterState":3},{"fetterId":2105,"fetterState":3},{"fetterId":2303,"fetterState":3},{"fetterId":2104,"fetterState":3},{"fetterId":2302,"fetterState":3},{"fetterId":2103,"fetterState":3},{"fetterId":2301,"fetterState":3},{"fetterId":2102,"fetterState":1},{"fetterId":2101,"fetterState":1},{"fetterId":2046,"fetterState":3},{"fetterId":2045,"fetterState":3},{"fetterId":2044,"fetterState":3},{"fetterId":2019,"fetterState":3},{"fetterId":2018,"fetterState":3},{"fetterId":2017,"fetterState":3},{"fetterId":2016,"fetterState":3},{"fetterId":2015,"fetterState":3},{"fetterId":2014,"fetterState":3},{"fetterId":2013,"fetterState":3},{"fetterId":2012,"fetterState":3},{"fetterId":2011,"fetterState":3},{"fetterId":2010,"fetterState":3},{"fetterId":2009,"fetterState":3},{"fetterId":2207,"fetterState":2},{"fetterId":2008,"fetterState":3},{"fetterId":2200,"fetterState":2},{"fetterId":2001,"fetterState":3},{"fetterId":2098,"fetterState":1},{"fetterId":2201,"fetterState":2},{"fetterId":2002,"fetterState":3},{"fetterId":2099,"fetterState":1},{"fetterId":2401,"fetterState":3},{"fetterId":2202,"fetterState":2},{"fetterId":2003,"fetterState":3},{"fetterId":2100,"fetterState":1},{"fetterId":2402,"fetterState":3},{"fetterId":2203,"fetterState":1},{"fetterId":2004,"fetterState":3},{"fetterId":2403,"fetterState":3},{"fetterId":2204,"fetterState":1},{"fetterId":2005,"fetterState":3},{"fetterId":2205,"fetterState":1},{"fetterId":2006,"fetterState":3},{"fetterId":2206,"fetterState":1},{"fetterId":2007,"fetterState":3},{"fetterId":2020,"fetterState":3},{"fetterId":2021,"fetterState":3},{"fetterId":2035,"fetterState":3},{"fetterId":2036,"fetterState":3},{"fetterId":2037,"fetterState":3},{"fetterId":2038,"fetterState":3},{"fetterId":2039,"fetterState":3},{"fetterId":2043,"fetterState":3},{"fetterId":2034,"fetterState":3},{"fetterId":2032,"fetterState":3},{"fetterId":2042,"fetterState":3},{"fetterId":2041,"fetterState":3},{"fetterId":2040,"fetterState":3},{"fetterId":2033,"fetterState":3},{"fetterId":2078,"fetterState":3},{"fetterId":2031,"fetterState":3},{"fetterId":2030,"fetterState":3},{"fetterId":2029,"fetterState":3},{"fetterId":2028,"fetterState":3},{"fetterId":2027,"fetterState":3},{"fetterId":2026,"fetterState":3},{"fetterId":2025,"fetterState":3},{"fetterId":2024,"fetterState":3},{"fetterId":2023,"fetterState":3},{"fetterId":2022,"fetterState":3},{"fetterId":2047,"fetterState":3},{"fetterId":2048,"fetterState":3},{"fetterId":2049,"fetterState":3},{"fetterId":2050,"fetterState":3},{"fetterId":2051,"fetterState":3},{"fetterId":2052,"fetterState":3},{"fetterId":2053,"fetterState":3},{"fetterId":2054,"fetterState":3},{"fetterId":2055,"fetterState":3},{"fetterId":2056,"fetterState":3},{"fetterId":2057,"fetterState":3},{"fetterId":2058,"fetterState":3},{"fetterId":2059,"fetterState":3},{"fetterId":2060,"fetterState":3},{"fetterId":2061,"fetterState":3},{"fetterId":2062,"fetterState":3},{"fetterId":2063,"fetterState":3},{"fetterId":2064,"fetterState":3},{"fetterId":2065,"fetterState":3},{"fetterId":2066,"fetterState":3},{"fetterId":2067,"fetterState":3},{"fetterId":2068,"fetterState":3},{"fetterId":2069,"fetterState":3},{"fetterId":2070,"fetterState":3},{"fetterId":2071,"fetterState":3},{"fetterId":2072,"fetterState":3},{"fetterId":2073,"fetterState":3},{"fetterId":2074,"fetterState":3},{"fetterId":2075,"fetterState":3},{"fetterId":2076,"fetterState":3},{"fetterId":2077,"fetterState":3},{"fetterId":2079,"fetterState":3},{"fetterId":2080,"fetterState":3},{"fetterId":2081,"fetterState":3},{"fetterId":2084,"fetterState":3},{"fetterId":2085,"fetterState":3},{"fetterId":2086,"fetterState":3},{"fetterId":2087,"fetterState":3},{"fetterId":2088,"fetterState":3},{"fetterId":2089,"fetterState":1},{"fetterId":2090,"fetterState":1},{"fetterId":2091,"fetterState":1},{"fetterId":2092,"fetterState":1},{"fetterId":2093,"fetterState":1},{"fetterId":105,"fetterState":2},{"fetterId":2095,"fetterState":1},{"fetterId":2096,"fetterState":3},{"fetterId":2097,"fetterState":1}]
+                            expLevel:10,
+                            expNumber:0,
                         },
                         "inherentProudSkillList":[342301],
                         "skillLevelMap":{"10341":1,"10342":1,"10343":1},
@@ -402,10 +430,33 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // ActivityScheduleInfoNotify
             // EVENTACTIVITY
 
-            /*
+            
 
-            const ActivityScheduleInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/ActivityScheduleInfoNotify.bin"), dataUtil.getPacketIDByProtoName("ActivityScheduleInfoNotify"))
-
+            const ActivityScheduleInfoNotify = {
+                activityScheduleList: [
+                   {
+                    activityId: 5039,
+                    isOpen: true,
+                    scheduleId: 5039001,
+                    beginTime: 1626822000,
+                    endTime: 1630450800
+                  },
+                   {
+                    activityId: 5002,
+                    isOpen: true,
+                    scheduleId: 5002016,
+                    beginTime: 1626822000,
+                    endTime: 1628636340
+                  },
+                   {
+                    activityId: 5038,
+                    isOpen: true,
+                    scheduleId: 5038001,
+                    beginTime: 1626822000,
+                    endTime: 1630450800
+                  }
+                ]
+              }
             ActivityScheduleInfoNotify.activityScheduleList[2].activityId = 5064
 
             for (Possible = 3; Possible <= 100; Possible++)
@@ -420,11 +471,15 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             }
 
             sendPacketAsyncByName(kcpobj, "ActivityScheduleInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(ActivityScheduleInfoNotify, dataUtil.getPacketIDByProtoName("ActivityScheduleInfoNotify")));
-            */
+            
 
             // PlayerPropNotify
-			// sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer);
-
+			
+            const PlayerPropNotify = {
+                propMap: { '10020': { type: 10020, ival: 160, val: 160 } }
+            }
+            sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerPropNotify, dataUtil.getPacketIDByProtoName("PlayerPropNotify")));
+            
             // PlayerDataNotify
             const PlayerDataNotify = {
                 "nickName":"여행자",
@@ -435,12 +490,12 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "10004":{"type":10004,"ival":1,"val":1},
                     "10005":{"type":10005,"ival":100,"val":100},
                     "10006":{"type":10006,"ival":1,"val":1},
-                    "10007":{"type":10007,"ival":0},
-                    "10008":{"type":10008,"ival":0},
+                    "10007":{"type":10007,"ival":0,"val":0},
+                    "10008":{"type":10008,"ival":0,"val":0},
                     "10009":{"type":10009,"ival":1,"val":1},
                     "10010":{"type":10010,"ival":16000,"val":16000},
                     "10011":{"type":10011,"ival":16000,"val":16000},
-                    "10012":{"type":10012,"ival":0},
+                    "10012":{"type":10012,"ival":0,"val":0},
                     "10013":{"type":10013,"ival":31,"val":31},
                     "10014":{"type":10014,"ival":103,"val":103},
                     "10015":{"type":10015,"ival":157,"val":157},
@@ -448,21 +503,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "10017":{"type":10017,"ival":2,"val":2},
                     "10019":{"type":10019,"ival":3,"val":3},
                     "10020":{"type":10020,"ival":160,"val":160},
-                    "10022":{"type":10022,"ival":0},
-                    "10023":{"type":10023,"ival":0},
-                    "10025":{"type":10025,"ival":0},
-                    "10026":{"type":10026,"ival":0},
+                    "10022":{"type":10022,"ival":0,"val":0},
+                    "10023":{"type":10023,"ival":0,"val":0},
+                    "10025":{"type":10025,"ival":0,"val":0},
+                    "10026":{"type":10026,"ival":0,"val":0},
                     "10027":{"type":10027,"ival":1,"val":1},
-                    "10035":{"type":10035,"ival":0},
-                    "10036":{"type":10036,"ival":0},
-                    "10037":{"type":10037,"ival":0},
-                    "10038":{"type":10038,"ival":0},
+                    "10035":{"type":10035,"ival":0,"val":0},
+                    "10036":{"type":10036,"ival":0,"val":0},
+                    "10037":{"type":10037,"ival":0,"val":0},
+                    "10038":{"type":10038,"ival":0,"val":0},
                     "10039":{"type":10039,"ival":3,"val":3},
-                    "10040":{"type":10040,"ival":0},
-                    "10041":{"type":10041,"ival":0},
-                    "10042":{"type":10042,"ival":0},
-                    "10043":{"type":10043,"ival":0},
-                    "10044":{"type":10044,"ival":0}
+                    "10040":{"type":10040,"ival":0,"val":0},
+                    "10041":{"type":10041,"ival":0,"val":0},
+                    "10042":{"type":10042,"ival":0,"val":0},
+                    "10043":{"type":10043,"ival":0,"val":0},
+                    "10044":{"type":10044,"ival":0,"val":0}
                 }
             }
 
@@ -644,7 +699,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             await dataUtil.getPacketIDByProtoName("OpenStateUpdateNotify")));
 
             // AchievementAllDataNotify
-            /*
             
             const AchievementAllDataNotify = {
                 "achievementList": []
@@ -665,8 +719,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             }
 
             sendPacketAsyncByName(kcpobj, "AchievementAllDataNotify", keyBuffer, await dataUtil.objToProtobuffer(AchievementAllDataNotify, getPacketIDByProtoName("AchievementAllDataNotify")));
-            */
-
+ 
 
             // StoreWeightLimitNotify
             const StoreWeightLimitNotify =  { "storeType": 1, "weightLimit": 90000, "materialCountLimit": 2000, "weaponCountLimit": 2000, "reliquaryCountLimit": 1000, "furnitureCountLimit": 2000 }
@@ -703,28 +756,31 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             }
             */
 
-            await sendPacketAsyncByName(kcpobj, "PlayerStoreNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerStoreNotify, dataUtil.getPacketIDByProtoName("PlayerStoreNotify")))
+            await sendPacketAsyncByName(kcpobj, "PlayerStoreNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerStoreNotify, dataUtil.getPacketIDByProtoName("PlayerStoreNotify")));
 
             //AvatarSatiationDataNotify
-            // sendPacketAsyncByName(kcpobj, "AvatarSatiationDataNotify", keyBuffer);
+            const AvatarSatiationDataNotify = {
+                satiationDataList: [{
+                    avatarGuid: 3544845098770497537,
+                    finishTime: 17169.43359375,
+                    penaltyFinishTime: 17169.43359375
+                }]
+            }
+            sendPacketAsyncByName(kcpobj, "AvatarSatiationDataNotify", keyBuffer,  await dataUtil.objToProtobuffer(AvatarSatiationDataNotify, dataUtil.getPacketIDByProtoName("AvatarSatiationDataNotify")));
 
             // PlayerMatchInfoNotify 
-            /*
             const PlayerMatchInfoNotify = {
                 hostUid: 83000
             }
 			sendPacketAsyncByName(kcpobj, "PlayerMatchInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerMatchInfoNotify, dataUtil.getPacketIDByProtoName("PlayerMatchInfoNotify")))
-            */
 
 
             //RegionSearchNotify
-            /*
             const RegionSearchNotify = {
                 regionSearchList: [],
                 uid: 83000
             }
 			sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer, await dataUtil.objToProtobuffer(RegionSearchNotify, dataUtil.getPacketIDByProtoName("RegionSearchNotify")))
-            */
 
             //PlayerEnterSceneNotify
             const PlayerEnterSceneNotify1 = {
@@ -743,8 +799,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneNotify1, dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify")));
 
             // Response
-            // const PlayerLoginRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerLoginRsp.bin"), dataUtil.getPacketIDByProtoName("PlayerLoginRsp"))
-            
             const PlayerLoginRsp = {
                 "retcode": 0,
                 "playerData": [],
@@ -785,7 +839,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             console.log(PlayerLoginRsp)
             sendPacketAsyncByName(kcpobj, "PlayerLoginRsp", keyBuffer, await dataUtil.objToProtobuffer(PlayerLoginRsp, dataUtil.getPacketIDByProtoName("PlayerLoginRsp")));
 
-            /*
             const CodexDataFullNotify = {
                 "typeDataList":[
                     {
@@ -917,7 +970,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             console.log(CodexDataFullNotify);
             sendPacketAsyncByName(kcpobj, "CodexDataFullNotify", keyBuffer, await dataUtil.objToProtobuffer(CodexDataFullNotify, dataUtil.getPacketIDByProtoName("CodexDataFullNotify")));
 
-			*/
             break;
 
         case "SetPlayerHeadImageReq":
@@ -946,7 +998,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 			
         case "GetAllUnlockNameCardReq":
             CardList = []
-            for (Possible = 0; Possible < 118; Possible++) { // Unlock Namecard Lists
+            for (Possible = 0; Possible < 121; Possible++) { // Unlock Namecard Lists
                 CardList[Possible] = 210001 + Possible
             }
             const GetAllUnlockNameCardRsp = { "nameCardList": CardList }
@@ -978,8 +1030,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetPlayerSocialDetailReq":
 
             // Response
-
-            // need to change uid?
             const GetPlayerSocialDetailRsp = {
                 "detailData":{
                     "uid":83000,
@@ -993,6 +1043,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "nameCardId":210028,
                     "finishAchievementNum":112}
                 }
+
+            console.log(GetPlayerSocialDetailRsp)
 
             sendPacketAsyncByName(kcpobj, "GetPlayerSocialDetailRsp", keyBuffer, await dataUtil.objToProtobuffer(GetPlayerSocialDetailRsp, dataUtil.getPacketIDByProtoName("GetPlayerSocialDetailRsp")));
 
@@ -1065,8 +1117,18 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetShopReq":
 
+            const GetShopRsp = {
+                shop: {
+                    goodsList: [],
+                    mcoinProductList: [],
+                    cardProductList: [],
+                    shopType: 900,
+                }
+            }
+
             // Response
-            //sendPacketAsyncByName(kcpobj, "GetShopRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "GetShopRsp", keyBuffer, await dataUtil.objToProtobuffer(GetShopRsp, dataUtil.getPacketIDByProtoName("GetShopRsp")));
+
 
             break;
 
@@ -1082,16 +1144,66 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             sendPacketAsyncByName(kcpobj, "EnterScenePeerNotify", keyBuffer, await dataUtil.objToProtobuffer(EnterScenePeerNotify, dataUtil.getPacketIDByProtoName("EnterScenePeerNotify")));
 
-            const EnterSceneDoneRsp = {
-                "enterSceneToken": 23511
-            }
             // Response
-            sendPacketAsyncByName(kcpobj, "EnterSceneReadyRsp", keyBuffer, await dataUtil.objToProtobuffer(EnterSceneDoneRsp, dataUtil.getPacketIDByProtoName("EnterSceneDoneRsp")));
+            const EnterSceneReadyRsp = {
+                enterSceneToken: 23511
+            }
+            sendPacketAsyncByName(kcpobj, "EnterSceneReadyRsp", keyBuffer, await dataUtil.objToProtobuffer(EnterSceneReadyRsp, dataUtil.getPacketIDByProtoName("EnterSceneReadyRsp")));
 
             break;
 
         case "GetActivityInfoReq":
-            const GetActivityInfoRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/GetActivityInfoRsp.bin"), dataUtil.getPacketIDByProtoName("GetActivityInfoRsp"))
+            const GetActivityInfoRsp = {
+                activityInfoList: [
+                   {
+                    watcherInfoList: [],
+                    meetCondList: [],
+                    expireCondList: [],
+                    activityCoinMap: {},
+                    takenRewardList: [],
+                    activityId: 5039,
+                    scheduleId: 5039001,
+                    beginTime: 1626822000,
+                    endTime: 1630450800,
+                    activityType: 2005
+                  },
+                   {
+                    watcherInfoList: [],
+                    meetCondList: [],
+                    expireCondList: [],
+                    activityCoinMap: {},
+                    takenRewardList: [],
+                    activityId: 5002,
+                    scheduleId: 5002016,
+                    beginTime: 1626822000,
+                    endTime: 1628636340,
+                    activityType: 4,
+                    trialAvatarInfo: {
+                        rewardInfoList: [
+                            
+                            { trialAvatarIndexId: 47 },
+                            { trialAvatarIndexId: 48 },
+                            { trialAvatarIndexId: 49 },
+                            { trialAvatarIndexId: 50 }
+                        ]
+                    }
+                  },
+                   {
+                    watcherInfoList: [],
+                    meetCondList: [],
+                    expireCondList: [],
+                    activityCoinMap: {},
+                    takenRewardList: [],
+                    activityId: 5038,
+                    scheduleId: 5038001,
+                    beginTime: 1626822000,
+                    endTime: 1630450800,
+                    activityType: 8
+                  }
+                ],
+                activatedSaleIdList: []
+              }
+           
             // EVENTACTIVITY
             
             for (Possible = 3; Possible <= 100; Possible++)
@@ -1106,12 +1218,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "scheduleId": 5038001,
                 }
             }
-
-            GetActivityInfoRsp.activityInfoList[1].trialAvatarInfo.rewardInfoList[0].trialAvatarIndexId = 45
-            GetActivityInfoRsp.activityInfoList[1].trialAvatarInfo.rewardInfoList[1].trialAvatarIndexId = 46
-            GetActivityInfoRsp.activityInfoList[1].trialAvatarInfo.rewardInfoList[2].trialAvatarIndexId = 47
-            GetActivityInfoRsp.activityInfoList[1].trialAvatarInfo.rewardInfoList[3].trialAvatarIndexId = 48
-            
             // To protobuffer
             var GetActivityInfoRspData = await dataUtil.objToProtobuffer(GetActivityInfoRsp, dataUtil.getPacketIDByProtoName("GetActivityInfoRsp"));
             sendPacketAsyncByName(kcpobj, "GetActivityInfoRsp", keyBuffer, GetActivityInfoRspData);
@@ -1119,7 +1225,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "SceneInitFinishReq":
 
             // WorldOwnerDailyTaskNotify
-            sendPacketAsyncByName(kcpobj, "WorldOwnerDailyTaskNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "WorldOwnerDailyTaskNotify", keyBuffer, await dataUtil.objToProtobuffer({taskList: []}, dataUtil.getPacketIDByProtoName("WorldOwnerDailyTaskNotify")));
 
             //WorldPlayerInfoNotify
 
@@ -1143,7 +1249,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "WorldPlayerInfoNotify", keyBuffer, data);
 
             //WorldDataNotify
-            sendPacketAsyncByName(kcpobj, "WorldDataNotify", keyBuffer);
+            const WorldDataNotify = {"worldPropMap":{"1":{"type":1,"ival":3,"val":3},"2":{"type":2,"ival":0}}}
+            sendPacketAsyncByName(kcpobj, "WorldDataNotify", keyBuffer, await dataUtil.objToProtobuffer(WorldDataNotify, dataUtil.getPacketIDByProtoName("WorldDataNotify")));
 
             //WorldOwnerBlossomBriefInfoNotify
             // sendPacketAsyncByName(kcpobj, "WorldOwnerBlossomBriefInfoNotify", keyBuffer);
@@ -1152,40 +1259,47 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // sendPacketAsyncByName(kcpobj, "TeamResonanceChangeNotify", keyBuffer);
 
             //WorldAllRoutineTypeNotify
-            sendPacketAsyncByName(kcpobj, "WorldAllRoutineTypeNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "WorldAllRoutineTypeNotify", keyBuffer, await dataUtil.objToProtobuffer({ worldRoutineTypeList: [] }, dataUtil.getPacketIDByProtoName("WorldAllRoutineTypeNotify")))
 
             // SceneForceUnlockNotify
-            sendPacketAsyncByName(kcpobj, "SceneForceUnlockNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "SceneForceUnlockNotify", keyBuffer, await dataUtil.objToProtobuffer({ forceIdList: [] }, dataUtil.getPacketIDByProtoName("SceneForceUnlockNotify")))
 
             //PlayerGameTimeNotify
-            const PlayerGameTimeNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerGameTimeNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify"))
-            PlayerGameTimeNotify.uid = 83000
-
-            sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer(PlayerGameTimeNotify, dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify")))
+            sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer({ gameTime: 16469, uid: 83000 }, dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify")))
 
             //SceneTimeNotify
-            sendPacketAsyncByName(kcpobj, "SceneTimeNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "SceneTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer({ sceneId: 3 }, dataUtil.getPacketIDByProtoName("SceneTimeNotify")))
 
             //SceneDataNotify
-            sendPacketAsyncByName(kcpobj, "SceneDataNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "SceneDataNotify", keyBuffer,  await dataUtil.objToProtobuffer( { levelConfigNameList: [] }, dataUtil.getPacketIDByProtoName("SceneDataNotify")))
 
 			//SceneAreaWeatherNotify
             const SceneAreaWeatherNotify = { "weatherAreaId": 1, "climateType": 1 }
 
-            sendPacketAsyncByName(kcpobj, "SceneAreaWeatherNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneAreaWeatherNotify, dataUtil.getPacketIDByProtoName("SceneAreaWeatherNotify")))
+            // sendPacketAsyncByName(kcpobj, "SceneAreaWeatherNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneAreaWeatherNotify, dataUtil.getPacketIDByProtoName("SceneAreaWeatherNotify")))
 
             //AvatarEquipChangeNotify
-            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify", keyBuffer);
+            const AvatarEquipChangeNotify = {
+                avatarGuid: 3544845098770497537,
+                equipType: 6,
+                itemId: 11201,
+                equipGuid: 3544845098770512337,
+                weapon: {
+                    "entityId":100663758,
+                    "gadgetId":50011101,
+                    "itemId":11101,
+                    "guid":"3544845098770512337",
+                    "level":1,
+                    "abilityInfo":{}
+                }
+            }
+            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify", keyBuffer,  await dataUtil.objToProtobuffer(AvatarEquipChangeNotify, dataUtil.getPacketIDByProtoName("AvatarEquipChangeNotify")))
 
 
             //HostPlayerNotify
-            const HostPlayerNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/HostPlayerNotify.bin"), dataUtil.getPacketIDByProtoName("HostPlayerNotify"))
-            HostPlayerNotify.hostUid = 83000
-
-            sendPacketAsyncByName(kcpobj, "HostPlayerNotify", keyBuffer,  await dataUtil.objToProtobuffer(HostPlayerNotify, dataUtil.getPacketIDByProtoName("HostPlayerNotify")))
+            sendPacketAsyncByName(kcpobj, "HostPlayerNotify", keyBuffer,  await dataUtil.objToProtobuffer({ hostUid: 83000, hostPeerId: 1 }, dataUtil.getPacketIDByProtoName("HostPlayerNotify")))
 
             //ScenePlayerInfoNotify
-            // very sus
             const ScenePlayerInfoNotify = {
                 "playerInfoList": [
                     {
@@ -1209,14 +1323,57 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "ScenePlayerInfoNotify", keyBuffer, data);
 
             //PlayerEnterSceneInfoNotify
-            const PlayerEnterSceneInfoNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneInfoNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify"))
-            PlayerEnterSceneInfoNotify.avatarEnterInfo[0].avatarEntityId = CharacterID
+            const PlayerEnterSceneInfoNotify = {
+                avatarEnterInfo: [{
+                    buffIdList: [],
+                    avatarGuid: 3544845098770497537,
+                    avatarEntityId: 16777677,
+                    avatarAbilityInfo: {
+                        dynamicValueMap: [],
+                        appliedAbilities: [],
+                        appliedModifiers: [],
+                        mixinRecoverInfos: []
+                    },
+                    weaponGuid: 3544845098770512337,
+                    weaponEntityId: 100663758,
+                    weaponAbilityInfo: {
+                        dynamicValueMap: [],
+                        appliedAbilities: [],
+                        appliedModifiers: [],
+                        mixinRecoverInfos: []
+                    }
+                }],
+                curAvatarEntityId: 16777677,
+                teamEnterInfo: {
+                    teamEntityId: 150995686,
+                    teamAbilityInfo: {
+                        dynamicValueMap: [],
+                        appliedAbilities: [],
+                        appliedModifiers: [],
+                        mixinRecoverInfos: []
+                    }
+                },
+                mpLevelEntityInfo: {
+                    entityId: 184550127,
+                    authorityPeerId: 1,
+                    abilityInfo: {
+                        dynamicValueMap: [],
+                        appliedAbilities: [],
+                        appliedModifiers: [],
+                        mixinRecoverInfos: []
+                    }
+                },
+                enterSceneToken: 23511
+            }
+            console.log(PlayerEnterSceneInfoNotify)
+
             // To protobuffer
             var PlayerEnterSceneInfoNotifyData = await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotify, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify"));
             sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, PlayerEnterSceneInfoNotifyData);
 
             //SyncTeamEntityNotify
-            sendPacketAsyncByName(kcpobj, "SyncTeamEntityNotify", keyBuffer);
+            const SyncTeamEntityNotify = { teamEntityInfoList: [], sceneId: 3 }
+            sendPacketAsyncByName(kcpobj, "SyncTeamEntityNotify", keyBuffer, await dataUtil.objToProtobuffer(SyncTeamEntityNotify, dataUtil.getPacketIDByProtoName("SyncTeamEntityNotify")));
 
             //SyncScenePlayTeamEntityNotify
             // sendPacketAsyncByName(kcpobj, "SyncScenePlayTeamEntityNotify", keyBuffer);
@@ -1225,7 +1382,133 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // sendPacketAsyncByName(kcpobj, "ScenePlayBattleInfoListNotify", keyBuffer);
 
             //SceneTeamUpdateNotify
-            sendPacketAsyncByName(kcpobj, "SceneTeamUpdateNotify", keyBuffer);
+
+            const SceneTeamUpdateNotify = {
+                sceneTeamAvatarList: [{
+                    playerUid: 83000,
+                    avatarGuid: 3544845098770497537,
+                    sceneId: 3,
+                    entityId: 16777677,
+                    avatarInfo: {
+                        "avatarId":10000007,
+                        "guid":"3544845098770497537",
+                        "propMap":{
+                            "1001":{"type":1001,"ival":3826,"val":3826},
+                            "1002":{"type":1002,"ival":1,"val":1},
+                            "1003":{"type":1003,"ival":0,"val":0},
+                            "1004":{"type":1004,"ival":0,"val":0},
+                            "4001":{"type":4001,"ival":20,"val":20}
+                        },
+                        "lifeState":1,
+                        "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
+                        "talentIdList":[71,72,73],
+                        "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
+                        "skillDepotId":704,
+                        "fetterInfo":{
+                            expLevel:10,
+                            expNumber:0,
+                        },
+                        "inherentProudSkillList":[342301],
+                        "skillLevelMap":{"10341":1,"10342":1,"10343":1},
+                        "avatarType":1,
+                        "wearingFlycloakId":140001,
+                        "bornTime":1614324280,
+                        "pendingPromoteRewardList":[1,3,5]
+                    },
+                    sceneAvatarInfo: {
+                        uid: 83000,
+                        avatarId: 10000007,
+                        guid: 3544845098770497537,
+                        peerId: 1,
+                        equipIdList: [60341,55321,59352,51312,51332,11101],
+                        skillDepotId: 704,
+                        talentIdList: [71,72,73],
+                        weapon: {
+                            "entityId":100663758,
+                            "gadgetId":50011101,
+                            "itemId":11101,
+                            "guid":"3544845098770512337",
+                            "level":1,
+                            "abilityInfo":{}
+                        },
+        
+                        reliquaryList: [],
+                        coreProudSkillLevel: 5,
+                        inherentProudSkillList: [],
+                        skillLevelMap: {"10341":1,"10342":1,"10343":1},
+                        proudSkillExtraLevelMap: { },
+                        serverBuffList: [],
+                        teamResonanceList: [10801],
+                        wearingFlycloakId: 140001,
+                        bornTime: 1614324280
+                    },
+                    sceneEntityInfo: {
+                        entityId: 16777677,
+                        entityType: 1,
+                        name: "여행자",
+                        motionInfo: {
+                            pos: posScene,
+                            rot: {Y: posScene.Y},
+                            speed: {}
+                        },
+                        propList: [
+                            {
+                                "type":4001,
+                                "propValue":{"type":4001,"ival":40,"val":40}
+                            }
+                        ],
+                        fightPropList: [
+                            {"propType":1,"propValue":5162.9599609375},
+                            {"propType":2,"propValue":530.3800048828125},
+                            {"propType":3,"propValue":0.08399999886751175},
+                            {"propType":4,"propValue":102.85320281982422},
+                            {"propType":5,"propValue":67.47000122070312},
+                            {"propType":6,"propValue":0.40400001406669617},
+                            {"propType":7,"propValue":321.1906433105469},
+                            {"propType":8,"propValue":10},
+                            {"propType":9,"propValue":0.043699998408555984},
+                            {"propType":20,"propValue":0.10359999537467957},
+                            {"propType":21},{"propType":22,"propValue":0.5465999841690063},
+                            {"propType":23,"propValue":1.0700000524520874},
+                            {"propType":26},{"propType":27},{"propType":28},{"propType":29},{"propType":30},{"propType":40},{"propType":41},{"propType":42},{"propType":43},{"propType":44},{"propType":45},{"propType":46},{"propType":50},{"propType":51},{"propType":52},{"propType":53},{"propType":54},{"propType":55},{"propType":56},{"propType":70,"propValue":60},{"propType":2000,"propValue":6127.0283203125},{"propType":2001,"propValue":211.8759002685547},{"propType":2002,"propValue":345.2266540527344},{"propType":2003},{"propType":1000,"propValue":1.0700000524520874},{"propType":1010,"propValue":6127.0283203125}
+                        ],
+                        lifeState: 1,
+                        avatar: {
+                            "avatarId":10000007,
+                            "guid":"3544845098770497537",
+                            "propMap":{
+                                "1001":{"type":1001,"ival":3826,"val":3826},
+                                "1002":{"type":1002,"ival":1,"val":1},
+                                "1003":{"type":1003,"ival":0,"val":0},
+                                "1004":{"type":1004,"ival":0,"val":0},
+                                "4001":{"type":4001,"ival":20,"val":20}
+                            },
+                            "lifeState":1,
+                            "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
+                            "talentIdList":[71,72,73],
+                            "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
+                            "skillDepotId":704,
+                            "fetterInfo":{
+                                expLevel:10,
+                                expNumber:0,
+                            },
+                            "inherentProudSkillList":[342301],
+                            "skillLevelMap":{"10341":1,"10342":1,"10343":1},
+                            "avatarType":1,
+                            "wearingFlycloakId":140001,
+                            "bornTime":1614324280,
+                            "pendingPromoteRewardList":[1,3,5]
+                        }
+                    },
+                    weaponGuid: "3544845098770512337",
+                    weaponEntityId: 100663758,
+                    isReconnect: false,
+                    isPlayerCurAvatar: true,
+                    isOnScene: false
+                }],
+            }
+
+            sendPacketAsyncByName(kcpobj, "SceneTeamUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneTeamUpdateNotify, dataUtil.getPacketIDByProtoName("SceneTeamUpdateNotify")));
 
             //AllMarkPointNotify
             // sendPacketAsyncByName(kcpobj, "AllMarkPointNotify", keyBuffer);
@@ -1235,27 +1518,30 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //SceneInitFinishRsp
             // Response
-            sendPacketAsyncByName(kcpobj, "SceneInitFinishRsp", keyBuffer);
+            const SceneInitFinishRsp = {
+                enterSceneToken: 23511
+            }
+            sendPacketAsyncByName(kcpobj, "SceneInitFinishRsp", keyBuffer,  await dataUtil.objToProtobuffer(SceneInitFinishRsp, dataUtil.getPacketIDByProtoName("SceneInitFinishRsp")));
 
             break;
 
         case "PathfindingEnterSceneReq": // PathfindingEnterSceneReq
 
-            sendPacketAsyncByName(kcpobj, "PathfindingEnterSceneRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "PathfindingEnterSceneRsp", keyBuffer, await dataUtil.objToProtobuffer({}, dataUtil.getPacketIDByProtoName("PathfindingEnterSceneRsp")));
 
 
             break;
 
         case "EnterWorldAreaReq":
-
-            var XD3 = WorldAreaCount > 0 ? WorldAreaCount : "";
-            sendPacketAsyncByName(kcpobj, "EnterWorldAreaRsp" + XD3, keyBuffer)
+            sendPacketAsyncByName(kcpobj, "EnterWorldAreaRsp", keyBuffer,await dataUtil.objToProtobuffer({ areaType: 1, areaId: 1 }, dataUtil.getPacketIDByProtoName("EnterWorldAreaRsp")));
 
             break;
 
         case "PostEnterSceneReq":
 
-            sendPacketAsyncByName(kcpobj, "PostEnterSceneRsp", keyBuffer)
+            const PostEnterSceneRsp = { enterSceneToken: 23511 }
+
+            sendPacketAsyncByName(kcpobj, "PostEnterSceneRsp", keyBuffer,  await dataUtil.objToProtobuffer(PostEnterSceneRsp, dataUtil.getPacketIDByProtoName("PostEnterSceneRsp")));
 
             break;
 
@@ -1306,7 +1592,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetSceneAreaReq": // GetSceneAreaReq
 
-            /*
 
             const GetSceneAreaRsp = {
                 areaIdList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,17,18,19,20,200],
@@ -1319,7 +1604,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         sceneId: 3
             }
             sendPacketAsyncByName(kcpobj, "GetSceneAreaRsp", keyBuffer, await dataUtil.objToProtobuffer(GetSceneAreaRsp, dataUtil.getPacketIDByProtoName("GetSceneAreaRsp")))
-            */
 
             break;
 			
@@ -1477,7 +1761,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             data = await dataUtil.objToProtobuffer(PrivateChatNotify, dataUtil.getPacketIDByProtoName("PrivateChatNotify"));
             sendPacketAsyncByName(kcpobj, "PrivateChatNotify", keyBuffer, data)
 
-            sendPacketAsyncByName(kcpobj, "PrivateChatRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "PrivateChatRsp", keyBuffer, await dataUtil.objToProtobuffer({}, dataUtil.getPacketIDByProtoName("PrivateChatRsp")))
+                    
 
             break;
 
@@ -1499,8 +1784,13 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             break;
 
         case "GetRegionSearchReq":
-            // sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer)
+            
+            const RegionSearchNotify2 = {
+                regionSearchList: [],
+                uid: 83000
+            }
 
+			sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer, await dataUtil.objToProtobuffer(RegionSearchNotify2, dataUtil.getPacketIDByProtoName("RegionSearchNotify")))
             break;
 
         case "ReunionBriefInfoReq": // ReunionBriefInfoReq
@@ -1532,13 +1822,14 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "PullRecentChatRsp", keyBuffer, await dataUtil.objToProtobuffer(PullRecentChatRsp, dataUtil.getPacketIDByProtoName("PullRecentChatRsp")));
             break;
         
+        case "GetPlayerFriendListReq":
         case "GetRecentMpPlayerListReq": 
 
             const AddFriendNotify= { 
             "targetUid": 83000,
             "targetFriendBrief": {
             "uid": 83000,
-            "nickname": "Soya Console",
+            "nickname": "Console",
             "level": 100,
             "worldLevel": 8,
             "signature": "Console Command",
@@ -1594,119 +1885,110 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             break;
 
         case "QueryPathReq":
-            /*
-            QueryPathReq {
-                destinationPos: [
-                    Vector {
-                    X: 1925.282958984375,
-                    Y: 210.1846923828125,
-                    Z: -707.4301147460938
-                    }
-                ],
-                queryType: 1,
-                queryId: 35,
-                sceneId: 3,
-                sourcePos: Vector {
-                    X: 1935.39697265625,
-                    Y: 209.26100158691406,
-                    Z: -716.53369140625
-                }
-            }
-            */
-            // console.log(protobuff.destinationPos[0])
             break;
-        
         case "PersonalLineAllDataReq":
-            // unlock legend quest but not working
-            // goto archive
-            /*
             const PersonalLineAllDataRsp = {
                 "legendaryKeyCount":1,
                 "ongoingPersonalLineList":[
-                   9,
-                   13,
+                9,
+                13,
+                19,
                 ],
                 "lockedPersonalLineList":[
-                     {
-                     "personalLineId":2,
-                     "level":34
-                     },
-                     {
-                     "personalLineId":3,
-                     "level":36
-                     },
-                     {
-                     "personalLineId":4,
-                     "level":38
-                     },
-             
-                     {
-                     "personalLineId":6,
-                     "level":40
-                     },
-                     {
-                         "personalLineId":7,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":8,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":10,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":11,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":12,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":14,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":15,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":16,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":17,
-                         "level":40
-                     },
-                     {
-                         "personalLineId":18,
-                         "level":40
-                     },
+                    {
+                    "personalLineId":2,
+                    "level":34
+                    },
+                    {
+                    "personalLineId":3,
+                    "level":36
+                    },
+                    {
+                    "personalLineId":4,
+                    "level":38
+                    },
+            
+                    {
+                    "personalLineId":6,
+                    "level":40
+                    },
+                    {
+                        "personalLineId":7,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":8,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":10,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":11,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":12,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":14,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":15,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":16,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":17,
+                        "level":40
+                    },
+                    {
+                        "personalLineId":18,
+                        "level":40
+                    },
                 ]
-             }
+            }
 
             data = await dataUtil.objToProtobuffer(PersonalLineAllDataRsp, dataUtil.getPacketIDByProtoName("PersonalLineAllDataRsp"));
             sendPacketAsyncByName(kcpobj, "PersonalLineAllDataRsp", keyBuffer, data)
-            */
+
             break;
 
         case "GetGachaInfoReq":
-
-            /*
-            var base = "EpsHCMgBEPMGGPDgsJAGIP+ClaEGKOABMAE6E0dhY2hhU2hvd1BhbmVsX0EwMjJCvQFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTNKywFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTIwMCZnYWNoYV9pZD02YTdjMDhjZWU5ZGMyYjk4MTFhOTRiOGIzMzY1MGRmZjdiN2M5MiZ0aW1lc3RhbXA9MTY0NDk2OTA5M1IaVUlfVGFiX0dhY2hhU2hvd1BhbmVsX0EwMjJY4AFgCmj/////D3D/////D3joB4IBvQFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTOKAcsBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0yMDAmZ2FjaGFfaWQ9NmE3YzA4Y2VlOWRjMmI5ODExYTk0YjhiMzM2NTBkZmY3YjdjOTImdGltZXN0YW1wPTE2NDQ5NjkwOTOaAR5VSV9HQUNIQV9TSE9XX1BBTkVMX0EwMjJfVElUTEUStgcIrQIQ1QYYoNKckQYg79yKkgYo3wEwAToTR2FjaGFTaG93UGFuZWxfQTA3M0K9AWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNUrLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAxJmdhY2hhX2lkPTUxMWYzMzAzMmYxMmM4NWQ4ZjgwOTIzNDFjYmE2OGMzMTJiNTEyJnRpbWVzdGFtcD0xNjQ0OTY5MDA1UhpVSV9UYWJfR2FjaGFTaG93UGFuZWxfQTA3M1jfAWAKaP////8PcP////8PeI5OggG9AWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNYoBywFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTMwMSZnYWNoYV9pZD01MTFmMzMwMzJmMTJjODVkOGY4MDkyMzQxY2JhNjhjMzEyYjUxMiZ0aW1lc3RhbXA9MTY0NDk2OTAwNZIBBggBEgKcCJIBCggCEgaICJQIoAiaAR5VSV9HQUNIQV9TSE9XX1BBTkVMX0EwNTJfVElUTEWiAQKcCBLJBwiuAhDpBhig0pyRBiDv3IqSBijfATABOhNHYWNoYVNob3dQYW5lbF9BMDc1Qr0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5SssBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0zMDImZ2FjaGFfaWQ9Mjg5ZWYxMzY4NThjYTkxMDNjNzk3MDUwY2MzYzFkNmFkMDViOWQmdGltZXN0YW1wPTE2NDQ5NjkwNTlSGlVJX1RhYl9HYWNoYVNob3dQYW5lbF9BMDc1WN8BYApo/////w9w/////w94jE6CAb0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5igHLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAyJmdhY2hhX2lkPTI4OWVmMTM2ODU4Y2E5MTAzYzc5NzA1MGNjM2MxZDZhZDA1YjlkJnRpbWVzdGFtcD0xNjQ0OTY5MDU5kgEICAESBMVpqnGSAQ4IAhIKjVmAYd9ow3C4eJoBHlVJX0dBQ0hBX1NIT1dfUEFORUxfQTAyMV9USVRMRaIBBMVpqnGqAQKAYcABAsgBARK2BwiQAxDfBhig0pyRBiDv3IqSBijfATABOhNHYWNoYVNob3dQYW5lbF9BMDc0Qr0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzSssBaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmluaXRfdHlwZT0zMDEmZ2FjaGFfaWQ9ZDEwODU2YTJmMWYzMWU1ODE1MDZiNGZhNTQ5NjlhZDM0M2IwNWImdGltZXN0YW1wPTE2NDQ5NjkwMzNSGlVJX1RhYl9HYWNoYVNob3dQYW5lbF9BMDc0WN8BYApo/////w9w/////w94jU6CAb0BaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sP2F1dGhrZXlfdmVyPTEmc2lnbl90eXBlPTImYXV0aF9hcHBpZD13ZWJ2aWV3X2dhY2hhJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzigHLAWh0dHBzOi8vd2Vic3RhdGljLXNlYS5taWhveW8uY29tL2hrNGUvZXZlbnQvZTIwMTkwOTA5Z2FjaGEvaW5kZXguaHRtbD9hdXRoa2V5X3Zlcj0xJnNpZ25fdHlwZT0yJmF1dGhfYXBwaWQ9d2Vidmlld19nYWNoYSZpbml0X3R5cGU9MzAxJmdhY2hhX2lkPWQxMDg1NmEyZjFmMzFlNTgxNTA2YjRmYTU0OTY5YWQzNDNiMDViJnRpbWVzdGFtcD0xNjQ0OTY5MDMzkgEGCAESAp4IkgEKCAISBogIlAigCJoBHlVJX0dBQ0hBX1NIT1dfUEFORUxfQTA1M19USVRMRaIBAp4IEvwDCGQg/////w8o4AEwAToTR2FjaGFTaG93UGFuZWxfQTAxNkJOaHR0cHM6Ly93ZWJzdGF0aWMubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWwjL25ld2JpZWdhY2hhSoIBaHR0cHM6Ly93ZWJzdGF0aWMubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTEwMFIaVUlfVGFiX0dhY2hhU2hvd1BhbmVsX0EwMTZY4AFgCHAUeI9OggFSaHR0cHM6Ly93ZWJzdGF0aWMtc2VhLm1paG95by5jb20vaGs0ZS9ldmVudC9lMjAxOTA5MDlnYWNoYS9pbmRleC5odG1sIy9uZXdiaWVnYWNoYYoBhgFodHRwczovL3dlYnN0YXRpYy1zZWEubWlob3lvLmNvbS9oazRlL2V2ZW50L2UyMDE5MDkwOWdhY2hhL2luZGV4Lmh0bWw/YXV0aGtleV92ZXI9MSZzaWduX3R5cGU9MiZhdXRoX2FwcGlkPXdlYnZpZXdfZ2FjaGEmaW5pdF90eXBlPTEwMBj95tDaBQ==";
-            const GetGachaInfoRsp = await dataUtil.dataToProtobuffer(Buffer.from(base,'base64'), dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"))
-            
-            GetGachaInfoRsp.gachaInfoList[1].tenCostItemNum = 0
-            GetGachaInfoRsp.gachaInfoList[1].costItemNum = 0
-
+            const GetGachaInfoRsp = {
+                gachaInfoList: [
+                    {
+                        gachaUpInfoList: [],
+                        gachaType: 100,
+                        endTime: 4294967295,
+                        costItemId: 224,
+                        costItemNum: 1,
+                        gachaPrefabPath: 'GachaShowPanel_A016',
+                        gachaProbUrl: 'https://webstatic.mihoyo.com/hk4e/event/e20190909gacha/index.html#/newbiegacha',
+                        gachaRecordUrl: 'https://webstatic.mihoyo.com/hk4e/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=100',
+                        gachaPreviewPrefabPath: 'UI_Tab_GachaShowPanel_A016',
+                        tenCostItemId: 224,
+                        tenCostItemNum: 8,
+                        leftGachaTimes: 10,
+                        gachaTimesLimit: 20,
+                        gachaSortId: 9999,
+                        gachaProbUrlOversea: 'https://webstatic-sea.mihoyo.com/hk4e/event/e20190909gacha/index.html#/newbiegacha',
+                        gachaRecordUrlOversea: 'https://webstatic-sea.mihoyo.com/hk4e/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=100'
+                    }
+                ],
+                gachaRandom: 3596445971
+            }
             console.log(GetGachaInfoRsp);
             
             // To protobuffer
             data = await dataUtil.objToProtobuffer(GetGachaInfoRsp, dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"));
             sendPacketAsyncByName(kcpobj, "GetGachaInfoRsp", keyBuffer, data)
-            */
             break;
 
         case "DoGachaReq":

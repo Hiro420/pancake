@@ -5,16 +5,16 @@ const protobuf = require("protobufjs");
 // Util
 const dataUtil = require("./util/dataUtil");
 
-var protoname = "StoreWeightLimitNotify"
+var protoname = "GetActivityInfoRsp"
 
-var moreSliced = fs.readFileSync("./bin/"+protoname+".bin");
+var moreSliced = fs.readFileSync("./bin_old/"+protoname+".bin");
 var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName(protoname));
 
 
 protobuf.load("./proto_old/" + protoName + ".proto", function(err, root) {
     const testMessage = root.lookup(protoName);
     const message = testMessage.decode(moreSliced);
-    console.log(message)
+    console.log(message.activityInfoList[1])
     
 });
 
