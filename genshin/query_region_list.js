@@ -7,9 +7,12 @@ async function query_list_test() {
 
     const root = await protobuf.load("proto/QueryRegionListHttpRsp.proto");
     const testMessage = root.lookup("QueryRegionListHttpRsp");
-    const message = testMessage.decode(Buffer.from(hack_query, 'base64'));
-    //message["regionList"][0].title = zhuzhu服
-    //message["regionList"][0].dispatchUrl ='http://localhost:80/query_cur_region'
+    
+    //const message = testMessage.decode(Buffer.from(hack_query, 'base64'));
+    
+    const message = testMessage.decode(Buffer.from(query_region_list, 'base64'));
+    message["regionList"][0].title = "Iridium Dump Goto Here"
+    message["regionList"][0].dispatchUrl ='http://localhost:80/query_cur_region'
     const encoded = testMessage.encode(message).finish();
     return encoded;
 }

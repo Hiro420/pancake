@@ -31,12 +31,719 @@ var server = dgram.createSocket("udp4");
 
 var CharacterID = 10000007
 
-var skillLevelMap =   
-{
-    '10661': 1,
-    '10662': 1,
-    '10663': 1,
+posScene = {
+    "X": 1996.01,
+    "Y": 300.01,
+    "Z": -673.01
 }
+
+const PlayerStoreNotify = {
+    "storeType": 1,
+    "itemList": [
+        {
+            "itemId": 11510,
+            "guid": "1",
+            "equip": {
+                "weapon": {
+                    "level": 90,
+                    "promoteLevel": 6,
+                    "affixMap": {
+                        "113416": 0
+                    }
+                }
+            }
+        }
+    ],
+    "weightLimit": 2000,
+}
+
+
+const PlayerEnterSceneNotify1 = {
+    "sceneId":sceneIdSelect,
+    "pos":posScene,
+    "sceneBeginTime":epochTime-100,
+    "type":1,
+    "targetUid":83000,
+    "worldLevel":3,
+    "enterSceneToken":3495,
+    "sceneTagIdList":[
+        102,
+        107,
+        113,
+        117
+    ],
+    "isFirstLoginEnterScene": true,
+    "enterReason":1,
+    "worldType": 1,
+    "sceneTransaction": "3-1337-1634238866-5602"
+
+}
+
+var myAvatarInfo = {
+    //3544845098770497537
+
+    "avatarId": 10000007,
+    "guid": 3544845098770497537,
+    "propMap": {
+        "1001": {
+            "type": 1001,
+            "ival": {
+                "low": 975,
+                "high": 0,
+                "unsigned": false
+            },
+            "val": {
+                "low": 975,
+                "high": 0,
+                "unsigned": false
+            }
+        },
+        "1002": {
+            "type": 1002,
+            "ival": {
+                "low": 0,
+                "high": 0,
+                "unsigned": false
+            }
+        },
+        "1003": {
+            "type": 1003,
+            "ival": {
+                "low": 0,
+                "high": 0,
+                "unsigned": false
+            }
+        },
+        "1004": {
+            "type": 1004,
+            "ival": {
+                "low": 0,
+                "high": 0,
+                "unsigned": false
+            }
+        },
+        "4001": {
+            "type": 4001,
+            "ival": {
+                "low": 7,
+                "high": 0,
+                "unsigned": false
+            },
+            "val": {
+                "low": 7,
+                "high": 0,
+                "unsigned": false
+            }
+        }
+    },
+    "lifeState": 1,
+    "equipGuidList": [
+        {
+            "low": 113,
+            "high": 624263971,
+            "unsigned": true
+        },
+        {
+            "low": 79,
+            "high": 624263971,
+            "unsigned": true
+        }
+    ],
+    "fightPropMap": {
+        "1": 1363.1275634765625,
+        "4": 59.55296325683594,
+        "6": 0,
+        "7": 85.55137634277344,
+        "20": 0.07100000232458115,
+        "21": 0,
+        "22": 0.5,
+        "23": 1,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "30": 0,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "50": 0,
+        "51": 0,
+        "52": 0,
+        "53": 0,
+        "54": 0,
+        "55": 0,
+        "56": 0,
+        "74": 60,
+        "1004": 2,
+        "1010": 1363.1275634765625,
+        "2000": 1363.1275634765625,
+        "2001": 59.55296325683594,
+        "2002": 85.55137634277344,
+        "2003": 0
+    },
+    "skillDepotId": 704,
+    "fetterInfo": {
+        "expLevel": 1,
+        "fetterList": [
+            {
+                "fetterId": 2115,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2114,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2113,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2112,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2111,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2110,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2109,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2108,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2107,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2106,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2105,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2303,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2104,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2016,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2015,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2014,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2013,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2012,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2011,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2010,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2009,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2207,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2008,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2200,
+                "fetterState": 2
+            },
+            {
+                "fetterId": 2001,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2098,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 105,
+                "fetterState": 2
+            },
+            {
+                "fetterId": 2095,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2096,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2201,
+                "fetterState": 2
+            },
+            {
+                "fetterId": 2002,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2099,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2401,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2202,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2003,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2100,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2402,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2203,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2004,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2101,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2403,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2204,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2005,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2301,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2102,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2205,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2006,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2302,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2103,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2206,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2007,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2020,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2021,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2022,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2023,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2024,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2025,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2038,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2039,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2040,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2041,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2032,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2042,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2078,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2031,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2090,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2043,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2029,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2076,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2077,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2030,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2037,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2036,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2035,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2034,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2033,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2075,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2028,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2027,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2026,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2017,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2018,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2019,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2044,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2045,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2046,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2047,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2048,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2049,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2050,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2051,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2052,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2053,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2054,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2055,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2056,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2057,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2058,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2059,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2060,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2061,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2062,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2063,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2064,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2065,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2066,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2067,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2068,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2069,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2070,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2071,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2072,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2073,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2074,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2084,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2085,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2086,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2087,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2088,
+                "fetterState": 3
+            },
+            {
+                "fetterId": 2089,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2091,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2092,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2093,
+                "fetterState": 1
+            },
+            {
+                "fetterId": 2097,
+                "fetterState": 1
+            }
+        ]
+    },
+    "inherentProudSkillList": [
+        92101,
+        92201
+    ],
+    "skillLevelMap": {
+        "10077": 1,
+        "10078": 2,
+        "100555": 1
+    },
+    "proudSkillExtraLevelMap": {
+        "932": 3,
+        "939": 3
+    },
+    "avatarType": 1,
+    "wearingFlycloakId": 140006,
+    "bornTime": 1612730395,
+    "pendingPromoteRewardList": [
+        5
+    ],
+    "excelInfo": {
+        "prefabPathHash": "217316872338",
+        "prefabPathRemoteHash": "681809261527",
+        "controllerPathHash": "664801677487",
+        "controllerPathRemoteHash": "980732318872",
+        "combatConfigHash": "1052021163257"
+    }
+}
+
+var mySceneAvatarInfo = {
+    uid: 83000,
+    avatarId: myAvatarInfo.avatarId,
+    guid: myAvatarInfo.guid,
+    peerId: 1,
+    equipIdList: [11101],
+    skillDepotId: myAvatarInfo.skillDepotId,
+    talentIdList: [],
+    
+    weapon: {
+        "entityId":100663758,
+        "gadgetId":50011101,
+        "itemId":11101,
+        "guid":"3544845098770512337",
+        "level":1,
+        "abilityInfo":{}
+    },
+
+    reliquaryList: [],
+    coreProudSkillLevel: 5,
+    inherentProudSkillList: [],
+    skillLevelMap: myAvatarInfo.skillLevelMap,
+    proudSkillExtraLevelMap: { },
+    serverBuffList: [],
+    teamResonanceList: [],
+    wearingFlycloakId: myAvatarInfo.wearingFlycloakId,
+    bornTime: 1617308968
+}
+
 
 var MHYKey = "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";
 var initialKey = Buffer.from(MHYKey,'base64');
@@ -74,7 +781,7 @@ async function sendPacketAsyncByName(kcpobj, name, keyBuffer, Packet = undefined
     // Reads the bin file from the packet
     if (Packet == undefined) {
         // console.log("[FS] READING %s", name)
-        Packet = fs.readFileSync("bin/" + name + ".bin")
+        Packet = Buffer.from(fs.readFileSync("base64/" + name + ".txt"), 'base64')
     }
 
     if (parseInt(name.charAt(name.length - 1))) {
@@ -88,11 +795,6 @@ async function sendPacketAsyncByName(kcpobj, name, keyBuffer, Packet = undefined
     // Sends the packet
     kcpobj.send(await dataUtil.dataToPacket(Packet, packetID, keyBuffer));
     console.log("[SENT] %i (%s) was sent back", packetID, name)
-}
-posScene = {
-    "X": 1996,
-    "Y": 300,
-    "Z": -673
 }
 var AreaRspCount, PointRspCount, WorldAreaCount = 0
 async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
@@ -139,9 +841,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 SceneEntityAppearNotifyw.entityList[0].AvatarId = CharacterID
                 SceneEntityAppearNotifyw.entityList[0].motionInfo.pos = posScene
                 SceneEntityAppearNotifyw.entityList[0].uid = 83000
-
-                SceneEntityAppearNotifyw.entityList[0].skillLevelMap = skillLevelMap
-
 
                 const PlayerEnterSceneInfoNotifyMap = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneInfoNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify"))
                 PlayerEnterSceneInfoNotifyMap.curAvatarEntityId = 16777959;
@@ -318,36 +1017,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                             {"propType":26},{"propType":27},{"propType":28},{"propType":29},{"propType":30},{"propType":40},{"propType":41},{"propType":42},{"propType":43},{"propType":44},{"propType":45},{"propType":46},{"propType":50},{"propType":51},{"propType":52},{"propType":53},{"propType":54},{"propType":55},{"propType":56},{"propType":70,"propValue":60},{"propType":2000,"propValue":6127.0283203125},{"propType":2001,"propValue":211.8759002685547},{"propType":2002,"propValue":345.2266540527344},{"propType":2003},{"propType":1000,"propValue":1.0700000524520874},{"propType":1010,"propValue":6127.0283203125}
                         ],
                         lifeState: 1,
-                        avatar: {
-                            "avatarId":10000007,
-                            "guid":"3544845098770497537",
-                            "propMap":{
-                                "1001":{"type":1001,"ival":3826,"val":3826},
-                                "1002":{"type":1002,"ival":1,"val":1},
-                                "1003":{"type":1003,"ival":0,"val":0},
-                                "1004":{"type":1004,"ival":0,"val":0},
-                                "4001":{"type":4001,"ival":20,"val":20}
-                            },
-                            "lifeState":1,
-                            "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
-                            "talentIdList":[71,72,73],
-                            "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
-                            "skillDepotId":704,
-                            "fetterInfo":{
-                                expLevel:10,
-                                expNumber:0,
-                            },
-                            "inherentProudSkillList":[342301],
-                            "skillLevelMap":{"10341":1,"10342":1,"10343":1},
-                            "avatarType":1,
-                            "wearingFlycloakId":140001,
-                            "bornTime":1614324280,
-                            "pendingPromoteRewardList":[1,3,5]
-                        }
+                        avatar: myAvatarInfo
                     }
                 ],
                 "appearType":12,
-                "param":0
             }
 
             // To protobuffer;
@@ -356,7 +1029,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
             
             const EnterSceneDoneRsp = {
-                "enterSceneToken": 23511
+                "enterSceneToken": 3495
             }
             
             sendPacketAsyncByName(kcpobj, "EnterSceneDoneRsp", keyBuffer, await dataUtil.objToProtobuffer(EnterSceneDoneRsp, dataUtil.getPacketIDByProtoName("EnterSceneDoneRsp")));
@@ -389,37 +1062,12 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //AvatarDataNotify
             const AvatarDataNotify = {
-                "avatarList":[
-                    {
-                        "avatarId":10000007,
-                        "guid":"3544845098770497537",
-                        "propMap":{
-                            "1001":{"type":1001,"ival":3826,"val":3826},
-                            "1002":{"type":1002,"ival":1,"val":1},
-                            "1003":{"type":1003,"ival":0,"val":0},
-                            "1004":{"type":1004,"ival":0,"val":0},
-                            "4001":{"type":4001,"ival":20,"val":20}
-                        },
-                        "lifeState":1,
-                        "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
-                        "talentIdList":[71,72,73],
-                        "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
-                        "skillDepotId":704,
-                        "fetterInfo":{
-                            expLevel:10,
-                            expNumber:0,
-                        },
-                        "inherentProudSkillList":[342301],
-                        "skillLevelMap":{"10341":1,"10342":1,"10343":1},
-                        "avatarType":1,
-                        "wearingFlycloakId":140001,
-                        "bornTime":1614324280,
-                        "pendingPromoteRewardList":[1,3,5]
-                    }
-                ],
-                "avatarTeamMap":{"1":{"avatarGuidList":["3544845098770497537"]},"2":{},"3":{},"4":{}},
+                "avatarList":[myAvatarInfo,
+                    {"avatarId":10000060,"guid":"867583397118","propMap":{"1001":{"type":1001,"ival":"0"},"1002":{"type":1002,"ival":"6","val":"6"},"1003":{"type":1003,"ival":"1003","val":"1003"},"1004":{"type":1004,"ival":"100","val":"100"},"4001":{"type":4001,"ival":"90","val":"90"}},"lifeState":1,"equipGuidList":["867583397119"],"fightPropMap":{"1":5705.2490234375,"2":5705.2490234375,"3":0,"4":151.08023071289062,"5":151.08023071289062,"6":0.3840000033378601,"7":346.7430114746094,"8":346.7430114746094,"9":0,"20":0.05000000074505806,"22":0.5,"23":1,"28":0,"75":100,"1001":100,"1002":100,"1003":100,"1004":100,"1005":100,"1006":100,"1010":5705.2490234375,"2000":5705.2490234375,"2001":174.32522583007812,"2002":346.7430114746094,"3004":0,"3005":0,"3016":0,"3018":0,"3019":0,"3021":0,"3024":0},"skillDepotId":6001,"fetterInfo":{"expLevel":1},"skillLevelMap":{"11371":1,"11372":1,"11373":1},"avatarType":1,"wearingFlycloakId":140001,"bornTime":1649775697,"pendingPromoteRewardList":[1,3,5]},
+                    {"avatarId":10000065,"guid":"867583397126","propMap":{"1001":{"type":1001,"ival":"0"},"1002":{"type":1002,"ival":"6","val":"6"},"1003":{"type":1003,"ival":"1003","val":"1003"},"1004":{"type":1004,"ival":"100","val":"100"},"4001":{"type":4001,"ival":"90","val":"90"}},"lifeState":1,"equipGuidList":["867583397127"],"fightPropMap":{"1":5705.2490234375,"2":5705.2490234375,"3":0,"4":151.08023071289062,"5":151.08023071289062,"6":0.3840000033378601,"7":346.7430114746094,"8":346.7430114746094,"9":0,"20":0.05000000074505806,"22":0.5,"23":1,"28":0,"75":100,"1001":100,"1002":100,"1003":100,"1004":100,"1005":100,"1006":100,"1010":5705.2490234375,"2000":5705.2490234375,"2001":174.32522583007812,"2002":346.7430114746094,"3004":0,"3005":0,"3016":0,"3018":0,"3019":0,"3021":0,"3024":0},"skillDepotId":6501,"fetterInfo":{"expLevel":1},"skillLevelMap":{"11371":1,"11372":1,"11373":1},"avatarType":1,"wearingFlycloakId":140001,"bornTime":1649775697,"pendingPromoteRewardList":[1,3,5]}],
+                "avatarTeamMap":{"1":{"avatarGuidList":[myAvatarInfo.guid]},"2":{},"3":{},"4":{}},
                 "curAvatarTeamId":1,
-                "chooseAvatarGuid":"3544845098770497537",
+                "chooseAvatarGuid":myAvatarInfo.guid,
                 "ownedFlycloakList":[140001,140002]
             }
 
@@ -464,7 +1112,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 ActivityScheduleInfoNotify.activityScheduleList[Possible] = {
                     "activityId": 5050 + Possible, // 5000 start
                     "isOpen": true,
-                    "scheduleId": 5039001,
+                    "scheduleId": 5047001,
                     "beginTime": 1626822000,
                     "endTime": 1930450800
                 }
@@ -473,19 +1121,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "ActivityScheduleInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(ActivityScheduleInfoNotify, dataUtil.getPacketIDByProtoName("ActivityScheduleInfoNotify")));
             
 
-            // PlayerPropNotify
-			
-            const PlayerPropNotify = {
-                propMap: { '10020': { type: 10020, ival: 160, val: 160 } }
-            }
-            sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerPropNotify, dataUtil.getPacketIDByProtoName("PlayerPropNotify")));
-            
             // PlayerDataNotify
             const PlayerDataNotify = {
                 "nickName":"여행자",
                 "serverTime":epochTime,
-                "isFirstLoginToday":true,
-                "regionId":51,
+                "regionId":49,
                 "propMap":{
                     "10004":{"type":10004,"ival":1,"val":1},
                     "10005":{"type":10005,"ival":100,"val":100},
@@ -496,12 +1136,12 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "10010":{"type":10010,"ival":16000,"val":16000},
                     "10011":{"type":10011,"ival":16000,"val":16000},
                     "10012":{"type":10012,"ival":0,"val":0},
-                    "10013":{"type":10013,"ival":31,"val":31},
+                    "10013":{"type":10013,"ival":60,"val":60},
                     "10014":{"type":10014,"ival":103,"val":103},
                     "10015":{"type":10015,"ival":157,"val":157},
                     "10016":{"type":10016,"ival":4116603,"val":4116603},
                     "10017":{"type":10017,"ival":2,"val":2},
-                    "10019":{"type":10019,"ival":3,"val":3},
+                    "10019":{"type":10019,"ival":8,"val":8},
                     "10020":{"type":10020,"ival":160,"val":160},
                     "10022":{"type":10022,"ival":0,"val":0},
                     "10023":{"type":10023,"ival":0,"val":0},
@@ -728,28 +1368,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             await dataUtil.getPacketIDByProtoName("StoreWeightLimitNotify")))
 
             // PlayerStoreNotify
-
-            const PlayerStoreNotify = {
-                "storeType": 1,
-                "itemList": [
-                    {
-                        "itemId": 11510,
-                        "guid": "1",
-                        "equip": {
-                            "weapon": {
-                                "level": 90,
-                                "promoteLevel": 6,
-                                "affixMap": {
-                                    "113416": 0
-                                }
-                            }
-                        }
-                    }
-                ],
-                "weightLimit": 2000,
-            }
-
-
+            
             /*
             for (Possible = 1; Possible < 2000; Possible++) { // Unlock Artifacts
                 PlayerStoreNotify.itemList[Possible] = {"itemId":97000+Possible,"guid":"96413"+Possible,"equip":{"reliquary":{"level":1,"mainPropId":12001}}};
@@ -761,7 +1380,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             //AvatarSatiationDataNotify
             const AvatarSatiationDataNotify = {
                 satiationDataList: [{
-                    avatarGuid: 3544845098770497537,
+                    avatarGuid: myAvatarInfo.guid,
                     finishTime: 17169.43359375,
                     penaltyFinishTime: 17169.43359375
                 }]
@@ -783,19 +1402,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 			sendPacketAsyncByName(kcpobj, "RegionSearchNotify", keyBuffer, await dataUtil.objToProtobuffer(RegionSearchNotify, dataUtil.getPacketIDByProtoName("RegionSearchNotify")))
 
             //PlayerEnterSceneNotify
-            const PlayerEnterSceneNotify1 = {
-                "sceneId":sceneIdSelect,
-                "pos":posScene,
-                "sceneBeginTime":epochTime-100,
-                "type":1,
-                "targetUid":83000,
-                "worldLevel":3,
-                "enterSceneToken":23511,
-                "sceneTagIdList":[107,113,117,125,134,139],
-                "isFirstLoginEnterScene": true,
-                "enterReason":1
-            }
-            console.log(PlayerEnterSceneNotify1)
             sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneNotify1, dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify")));
 
             // Response
@@ -915,9 +1521,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     }
                 }
             }
-
-
-
 
             for (Material = 100; Material <= 110; Material++) {
                 for (Material2 = 1; Material2 <= 50; Material2++) {
@@ -1111,7 +1714,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetPlayerBlacklistReq":
 
             // Response
-            // sendPacketAsyncByName(kcpobj, "GetPlayerBlacklistRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "GetPlayerBlacklistRsp", keyBuffer, await dataUtil.objToProtobuffer({blacklist: []}, dataUtil.getPacketIDByProtoName("GetPlayerBlacklistRsp")))
+
 
             break;
 
@@ -1139,14 +1743,14 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 "destSceneId": sceneIdSelect,
                 "peerId": 1,
                 "hostPeerId": 1,
-                "enterSceneToken": 23511
+                "enterSceneToken": 3495
             }
 
             sendPacketAsyncByName(kcpobj, "EnterScenePeerNotify", keyBuffer, await dataUtil.objToProtobuffer(EnterScenePeerNotify, dataUtil.getPacketIDByProtoName("EnterScenePeerNotify")));
 
             // Response
             const EnterSceneReadyRsp = {
-                enterSceneToken: 23511
+                enterSceneToken: 3495
             }
             sendPacketAsyncByName(kcpobj, "EnterSceneReadyRsp", keyBuffer, await dataUtil.objToProtobuffer(EnterSceneReadyRsp, dataUtil.getPacketIDByProtoName("EnterSceneReadyRsp")));
 
@@ -1195,7 +1799,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     activityCoinMap: {},
                     takenRewardList: [],
                     activityId: 5038,
-                    scheduleId: 5038001,
+                    scheduleId: 5002015,
                     beginTime: 1626822000,
                     endTime: 1630450800,
                     activityType: 8
@@ -1215,7 +1819,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "activityCoinMap": {},
                     "takenRewardList": [],
                     "activityId": 5050 + Possible,
-                    "scheduleId": 5038001,
+                    "scheduleId": 5047001,
                 }
             }
             // To protobuffer
@@ -1249,14 +1853,24 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "WorldPlayerInfoNotify", keyBuffer, data);
 
             //WorldDataNotify
-            const WorldDataNotify = {"worldPropMap":{"1":{"type":1,"ival":3,"val":3},"2":{"type":2,"ival":0}}}
+            const WorldDataNotify = {"worldPropMap":{"1":{"type":1,"ival":3,"val":3},"2":{"type":2,"ival":0,"val":0}}}
             sendPacketAsyncByName(kcpobj, "WorldDataNotify", keyBuffer, await dataUtil.objToProtobuffer(WorldDataNotify, dataUtil.getPacketIDByProtoName("WorldDataNotify")));
 
             //WorldOwnerBlossomBriefInfoNotify
-            // sendPacketAsyncByName(kcpobj, "WorldOwnerBlossomBriefInfoNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "WorldOwnerBlossomBriefInfoNotify", keyBuffer, await dataUtil.objToProtobuffer({ briefInfoList: [] }, dataUtil.getPacketIDByProtoName("WorldOwnerBlossomBriefInfoNotify")))
 
             //TeamResonanceChangeNotify
-            // sendPacketAsyncByName(kcpobj, "TeamResonanceChangeNotify", keyBuffer);
+            const TeamResonanceChangeNotify = {
+                infoList: [
+                    {
+                        addTeamResonanceIdList: [10801],
+                        delTeamResonanceIdList: [],
+                        avatarGuid: [myAvatarInfo.guid]
+                    },
+                ]
+            }
+            sendPacketAsyncByName(kcpobj, "TeamResonanceChangeNotify", keyBuffer,  await dataUtil.objToProtobuffer(TeamResonanceChangeNotify, dataUtil.getPacketIDByProtoName("TeamResonanceChangeNotify")))
+
 
             //WorldAllRoutineTypeNotify
             sendPacketAsyncByName(kcpobj, "WorldAllRoutineTypeNotify", keyBuffer, await dataUtil.objToProtobuffer({ worldRoutineTypeList: [] }, dataUtil.getPacketIDByProtoName("WorldAllRoutineTypeNotify")))
@@ -1280,7 +1894,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //AvatarEquipChangeNotify
             const AvatarEquipChangeNotify = {
-                avatarGuid: 3544845098770497537,
+                avatarGuid: myAvatarInfo.guid,
                 equipType: 6,
                 itemId: 11201,
                 equipGuid: 3544845098770512337,
@@ -1324,46 +1938,26 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             //PlayerEnterSceneInfoNotify
             const PlayerEnterSceneInfoNotify = {
+                curAvatarEntityId: 16777677,
                 avatarEnterInfo: [{
-                    buffIdList: [],
                     avatarGuid: 3544845098770497537,
                     avatarEntityId: 16777677,
-                    avatarAbilityInfo: {
-                        dynamicValueMap: [],
-                        appliedAbilities: [],
-                        appliedModifiers: [],
-                        mixinRecoverInfos: []
-                    },
+                    avatarAbilityInfo: {},
                     weaponGuid: 3544845098770512337,
                     weaponEntityId: 100663758,
-                    weaponAbilityInfo: {
-                        dynamicValueMap: [],
-                        appliedAbilities: [],
-                        appliedModifiers: [],
-                        mixinRecoverInfos: []
-                    }
+                    weaponAbilityInfo: {}
                 }],
-                curAvatarEntityId: 16777677,
                 teamEnterInfo: {
                     teamEntityId: 150995686,
-                    teamAbilityInfo: {
-                        dynamicValueMap: [],
-                        appliedAbilities: [],
-                        appliedModifiers: [],
-                        mixinRecoverInfos: []
-                    }
+                    teamAbilityInfo: {},
+                    abilityControlBlock: {}
                 },
                 mpLevelEntityInfo: {
                     entityId: 184550127,
                     authorityPeerId: 1,
-                    abilityInfo: {
-                        dynamicValueMap: [],
-                        appliedAbilities: [],
-                        appliedModifiers: [],
-                        mixinRecoverInfos: []
-                    }
+                    abilityInfo: {}
                 },
-                enterSceneToken: 23511
+                enterSceneToken: 3495
             }
             console.log(PlayerEnterSceneInfoNotify)
 
@@ -1376,85 +1970,36 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "SyncTeamEntityNotify", keyBuffer, await dataUtil.objToProtobuffer(SyncTeamEntityNotify, dataUtil.getPacketIDByProtoName("SyncTeamEntityNotify")));
 
             //SyncScenePlayTeamEntityNotify
-            // sendPacketAsyncByName(kcpobj, "SyncScenePlayTeamEntityNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "SyncScenePlayTeamEntityNotify", keyBuffer, await dataUtil.objToProtobuffer({ entityInfoList: [], sceneId: 3 }, dataUtil.getPacketIDByProtoName("SyncScenePlayTeamEntityNotify")));
 
             //ScenePlayBattleInfoListNotify
-            // sendPacketAsyncByName(kcpobj, "ScenePlayBattleInfoListNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "ScenePlayBattleInfoListNotify", keyBuffer, await dataUtil.objToProtobuffer({ battleInfoList: [] }, dataUtil.getPacketIDByProtoName("ScenePlayBattleInfoListNotify")));
 
             //SceneTeamUpdateNotify
 
             const SceneTeamUpdateNotify = {
                 sceneTeamAvatarList: [{
                     playerUid: 83000,
-                    avatarGuid: 3544845098770497537,
+                    avatarGuid: myAvatarInfo.guid,
                     sceneId: 3,
                     entityId: 16777677,
-                    avatarInfo: {
-                        "avatarId":10000007,
-                        "guid":"3544845098770497537",
-                        "propMap":{
-                            "1001":{"type":1001,"ival":3826,"val":3826},
-                            "1002":{"type":1002,"ival":1,"val":1},
-                            "1003":{"type":1003,"ival":0,"val":0},
-                            "1004":{"type":1004,"ival":0,"val":0},
-                            "4001":{"type":4001,"ival":20,"val":20}
-                        },
-                        "lifeState":1,
-                        "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
-                        "talentIdList":[71,72,73],
-                        "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
-                        "skillDepotId":704,
-                        "fetterInfo":{
-                            expLevel:10,
-                            expNumber:0,
-                        },
-                        "inherentProudSkillList":[342301],
-                        "skillLevelMap":{"10341":1,"10342":1,"10343":1},
-                        "avatarType":1,
-                        "wearingFlycloakId":140001,
-                        "bornTime":1614324280,
-                        "pendingPromoteRewardList":[1,3,5]
-                    },
-                    sceneAvatarInfo: {
-                        uid: 83000,
-                        avatarId: 10000007,
-                        guid: 3544845098770497537,
-                        peerId: 1,
-                        equipIdList: [60341,55321,59352,51312,51332,11101],
-                        skillDepotId: 704,
-                        talentIdList: [71,72,73],
-                        weapon: {
-                            "entityId":100663758,
-                            "gadgetId":50011101,
-                            "itemId":11101,
-                            "guid":"3544845098770512337",
-                            "level":1,
-                            "abilityInfo":{}
-                        },
-        
-                        reliquaryList: [],
-                        coreProudSkillLevel: 5,
-                        inherentProudSkillList: [],
-                        skillLevelMap: {"10341":1,"10342":1,"10343":1},
-                        proudSkillExtraLevelMap: { },
-                        serverBuffList: [],
-                        teamResonanceList: [10801],
-                        wearingFlycloakId: 140001,
-                        bornTime: 1614324280
-                    },
+                    avatarAbilityInfo: {},
+                    
+                    avatarInfo: myAvatarInfo,
+                    sceneAvatarInfo: mySceneAvatarInfo,
+
                     sceneEntityInfo: {
-                        entityId: 16777677,
                         entityType: 1,
-                        name: "여행자",
+                        entityId: 16777677,
                         motionInfo: {
-                            pos: posScene,
-                            rot: {Y: posScene.Y},
+                            pos: {},
+                            rot: {},
                             speed: {}
                         },
                         propList: [
                             {
                                 "type":4001,
-                                "propValue":{"type":4001,"ival":40,"val":40}
+                                "propValue":{"type":4001,"ival":90,"val":90}
                             }
                         ],
                         fightPropList: [
@@ -1473,35 +2018,120 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                             {"propType":26},{"propType":27},{"propType":28},{"propType":29},{"propType":30},{"propType":40},{"propType":41},{"propType":42},{"propType":43},{"propType":44},{"propType":45},{"propType":46},{"propType":50},{"propType":51},{"propType":52},{"propType":53},{"propType":54},{"propType":55},{"propType":56},{"propType":70,"propValue":60},{"propType":2000,"propValue":6127.0283203125},{"propType":2001,"propValue":211.8759002685547},{"propType":2002,"propValue":345.2266540527344},{"propType":2003},{"propType":1000,"propValue":1.0700000524520874},{"propType":1010,"propValue":6127.0283203125}
                         ],
                         lifeState: 1,
-                        avatar: {
-                            "avatarId":10000007,
-                            "guid":"3544845098770497537",
-                            "propMap":{
-                                "1001":{"type":1001,"ival":3826,"val":3826},
-                                "1002":{"type":1002,"ival":1,"val":1},
-                                "1003":{"type":1003,"ival":0,"val":0},
-                                "1004":{"type":1004,"ival":0,"val":0},
-                                "4001":{"type":4001,"ival":20,"val":20}
+                        animatorParaList: [{}],
+                        avatar: { mySceneAvatarInfo },
+                        entityClientData:{},
+                        
+                        entityAuthorityInfo: {
+                            abilityInfo: {},
+                            rendererChangedInfo: {},
+                            aiInfo: {
+                                isAiOpen: true,
+                                bornPos: {}
                             },
-                            "lifeState":1,
-                            "equipGuidList":["3544845098770502149","3544845098770504530","3544845098770501402","3544845098770498441","3544845098770503302","3544845098770504314"],
-                            "talentIdList":[71,72,73],
-                            "fightPropMap":{"1":3023.545654296875,"2":802.8399658203125,"4":158.31173706054688,"5":28,"6":0.28299999237060547,"7":189.76101684570312,"8":18.889999389648438,"9":0.03500000014901161,"20":0.18629999458789825,"21":0,"22":0.5651999711990356,"23":1.395599365234375,"26":0,"27":0,"28":101,"29":0,"30":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"74":60,"1004":60,"1010":3826.3857421875,"2000":3826.3857421875,"2001":231.11395263671875,"2002":215.2926483154297,"2003":0},
-                            "skillDepotId":704,
-                            "fetterInfo":{
-                                expLevel:10,
-                                expNumber:0,
-                            },
-                            "inherentProudSkillList":[342301],
-                            "skillLevelMap":{"10341":1,"10342":1,"10343":1},
-                            "avatarType":1,
-                            "wearingFlycloakId":140001,
-                            "bornTime":1614324280,
-                            "pendingPromoteRewardList":[1,3,5]
+                            bornPos: {}
                         }
+
                     },
+                    
                     weaponGuid: "3544845098770512337",
                     weaponEntityId: 100663758,
+                    weaponAbilityInfo: {},
+                    abilityControlBlock: {
+                        "abilityEmbryoList": [
+                            {
+                                "abilityId": 5,
+                                "abilityNameHash": 1529187430,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 6,
+                                "abilityNameHash": 440915193,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 7,
+                                "abilityNameHash": 664835149,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 8,
+                                "abilityNameHash": 3086456309,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 9,
+                                "abilityNameHash": 413798022,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 10,
+                                "abilityNameHash": 1122239457,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 11,
+                                "abilityNameHash": 487661916,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 12,
+                                "abilityNameHash": 1358503499,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 13,
+                                "abilityNameHash": 981208402,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 14,
+                                "abilityNameHash": 2306062007,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 15,
+                                "abilityNameHash": 3105629177,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 16,
+                                "abilityNameHash": 3771526669,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 17,
+                                "abilityNameHash": 100636247,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 18,
+                                "abilityNameHash": 1564404322,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 19,
+                                "abilityNameHash": 497711942,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 20,
+                                "abilityNameHash": 127390306,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 21,
+                                "abilityNameHash": 2682057395,
+                                "abilityOverrideNameHash": 1178079449
+                            },
+                            {
+                                "abilityId": 22,
+                                "abilityNameHash": 4137789196,
+                                "abilityOverrideNameHash": 1178079449
+                            }
+                        ]
+                    },
+                    
                     isReconnect: false,
                     isPlayerCurAvatar: true,
                     isOnScene: false
@@ -1509,17 +2139,22 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             }
 
             sendPacketAsyncByName(kcpobj, "SceneTeamUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneTeamUpdateNotify, dataUtil.getPacketIDByProtoName("SceneTeamUpdateNotify")));
-
+            //sendPacketAsyncByName(kcpobj, "SceneTeamUpdateNotify", keyBuffer)
+            
             //AllMarkPointNotify
-            // sendPacketAsyncByName(kcpobj, "AllMarkPointNotify", keyBuffer);
+            sendPacketAsyncByName(kcpobj, "AllMarkPointNotify", keyBuffer, await dataUtil.objToProtobuffer({ markList: [] }, dataUtil.getPacketIDByProtoName("AllMarkPointNotify")));
 
-            //PlayerPropNotify1
-            // sendPacketAsyncByName(kcpobj, "PlayerPropNotify1", keyBuffer);
-
+            // PlayerPropNotify
+			
+            const PlayerPropNotify = {
+                propMap: { '10020': { type: 10020, ival: 160, val: 160 } }
+            }
+            sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerPropNotify, dataUtil.getPacketIDByProtoName("PlayerPropNotify")));
+            
             //SceneInitFinishRsp
             // Response
             const SceneInitFinishRsp = {
-                enterSceneToken: 23511
+                enterSceneToken: 3495
             }
             sendPacketAsyncByName(kcpobj, "SceneInitFinishRsp", keyBuffer,  await dataUtil.objToProtobuffer(SceneInitFinishRsp, dataUtil.getPacketIDByProtoName("SceneInitFinishRsp")));
 
@@ -1539,7 +2174,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "PostEnterSceneReq":
 
-            const PostEnterSceneRsp = { enterSceneToken: 23511 }
+            const PostEnterSceneRsp = { enterSceneToken: 3495 }
 
             sendPacketAsyncByName(kcpobj, "PostEnterSceneRsp", keyBuffer,  await dataUtil.objToProtobuffer(PostEnterSceneRsp, dataUtil.getPacketIDByProtoName("PostEnterSceneRsp")));
 
@@ -1609,7 +2244,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 			
         case "GetScenePointReq": // GetScenePointReq
             PointList = []
-            for (Possible = 0; Possible < 1000; Possible++) {
+            for (Possible = 0; Possible < 2000; Possible++) {
                 PointList[Possible] = 0 + Possible
             }
             const GetScenePointRsp = { "unlockedPointList": PointList, "sceneId": 3 }
@@ -1675,7 +2310,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 case "backtonormal":
                 case "reset":
                 case "restart":
-                    sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer)
+                    sendPacketAsyncByName(kcpobj, "PlayerEnterSceneNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneNotify1, dataUtil.getPacketIDByProtoName("PlayerEnterSceneNotify")))
                     reply = "Restarting..."
                     break;
                 case "w":
@@ -1779,7 +2414,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetWidgetSlotReq":
 
-            sendPacketAsyncByName(kcpobj, "GetWidgetSlotRsp", keyBuffer)
+            // sendPacketAsyncByName(kcpobj, "GetWidgetSlotRsp", keyBuffer)
 
             break;
 
@@ -1795,19 +2430,17 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "ReunionBriefInfoReq": // ReunionBriefInfoReq
 
-            // sendPacketAsyncByName(kcpobj, "ReunionBriefInfoRsp", keyBuffer)
-
+            sendPacketAsyncByName(kcpobj, "ReunionBriefInfoRsp", keyBuffer, await dataUtil.objToProtobuffer({}, dataUtil.getPacketIDByProtoName("ReunionBriefInfoRsp")))
             break;
 
         case "GetAllActivatedBargainDataReq": // GetAllActivatedBargainDataReq
 
-            // sendPacketAsyncByName(kcpobj, "GetAllActivatedBargainDataRsp", keyBuffer);
-
+            sendPacketAsyncByName(kcpobj, "GetAllActivatedBargainDataRsp", keyBuffer, await dataUtil.objToProtobuffer({snapshotList: [] }, dataUtil.getPacketIDByProtoName("GetAllActivatedBargainDataRsp")))
             break;
         
         case "GetChatEmojiCollectionReq": // GetChatEmojiCollectionReq
             
-            // sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer);
+            // sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer, await dataUtil.objToProtobuffer({}, dataUtil.getPacketIDByProtoName("GetChatEmojiCollectionRsp")));
             break;
         
         case "PullRecentChatReq":
@@ -1959,7 +2592,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "PersonalLineAllDataRsp", keyBuffer, data)
 
             break;
-
+        
         case "GetGachaInfoReq":
             const GetGachaInfoRsp = {
                 gachaInfoList: [

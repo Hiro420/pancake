@@ -2,18 +2,8 @@
 
 module.exports = {
     execute(req, res) {
-        var ret = {
-            "retcode": "0",
-            "message": "OK",
-            "data": {
-                "account_type": "1",
-                "combo_id": "17185",
-                "combo_token": "Fake-token-hehehe",
-                "data": {"guest": "false"},
-                "heartbeat": "false",
-                "open_id": "4660"
-            }
-        }
+        var ret = {"retcode":0,"message":"OK","data":{"data":"{\"guest\":false}","combo_id":"202","open_id":"202","combo_token":"75f431a1b5c0aff4065efb19550fa0e9854d6fae","heartbeat":false,"account_type":1}}
+        
         res.end(JSON.stringify(ret));
     }
 }
