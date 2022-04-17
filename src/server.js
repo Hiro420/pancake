@@ -32,1787 +32,10 @@ var server = dgram.createSocket("udp4");
 
 var posScene = {
     "X": 1996.01,
-    "Y": 300.01,
+    "Y": 250.01,
     "Z": -673.01
 }
 
-var initialScene = posScene
-
-
-var SceneTeamUpdateNotify = {
-    "sceneTeamAvatarList": [
-        {
-            "playerUid": 620336771,
-            "avatarGuid": {
-                "low": 131773,
-                "high": 620336771,
-                "unsigned": true
-            },
-            "sceneId": 3,
-            "entityId": 16777426,
-            "avatarAbilityInfo": {},
-            "sceneEntityInfo": {
-                "entityType": 1,
-                "entityId": 16777426,
-                "motionInfo": {
-                    "pos": {},
-                    "rot": {},
-                    "speed": {}
-                },
-                "propList": [
-                    {
-                        "type": 4001,
-                        "propValue": {
-                            "type": 4001,
-                            "ival": {
-                                "low": 90,
-                                "high": 0,
-                                "unsigned": false
-                            },
-                            "val": {
-                                "low": 90,
-                                "high": 0,
-                                "unsigned": false
-                            }
-                        }
-                    }
-                ],
-                "fightPropList": [
-                    {
-                        "propType": 1,
-                        "propValue": 13103.125
-                    },
-                    {
-                        "propType": 2,
-                        "propValue": 4780
-                    },
-                    {
-                        "propType": 3,
-                        "propValue": 0.43719998002052307
-                    },
-                    {
-                        "propType": 4,
-                        "propValue": 810.970703125
-                    },
-                    {
-                        "propType": 5,
-                        "propValue": 384.92999267578125
-                    },
-                    {
-                        "propType": 6,
-                        "propValue": 0.8794599771499634
-                    },
-                    {
-                        "propType": 7,
-                        "propValue": 814.6676025390625
-                    },
-                    {
-                        "propType": 8,
-                        "propValue": 34.720001220703125
-                    },
-                    {
-                        "propType": 9,
-                        "propValue": 0.12389999628067017
-                    },
-                    {
-                        "propType": 20,
-                        "propValue": 0.4116000235080719
-                    },
-                    {
-                        "propType": 21
-                    },
-                    {
-                        "propType": 22,
-                        "propValue": 1.7125999927520752
-                    },
-                    {
-                        "propType": 23,
-                        "propValue": 1.051800012588501
-                    },
-                    {
-                        "propType": 26
-                    },
-                    {
-                        "propType": 27
-                    },
-                    {
-                        "propType": 28,
-                        "propValue": 18.649999618530273
-                    },
-                    {
-                        "propType": 29
-                    },
-                    {
-                        "propType": 30
-                    },
-                    {
-                        "propType": 40
-                    },
-                    {
-                        "propType": 41
-                    },
-                    {
-                        "propType": 42,
-                        "propValue": 0.9039999842643738
-                    },
-                    {
-                        "propType": 43
-                    },
-                    {
-                        "propType": 44
-                    },
-                    {
-                        "propType": 45
-                    },
-                    {
-                        "propType": 46
-                    },
-                    {
-                        "propType": 50
-                    },
-                    {
-                        "propType": 51
-                    },
-                    {
-                        "propType": 52
-                    },
-                    {
-                        "propType": 53
-                    },
-                    {
-                        "propType": 54
-                    },
-                    {
-                        "propType": 55
-                    },
-                    {
-                        "propType": 56
-                    },
-                    {
-                        "propType": 72,
-                        "propValue": 60
-                    },
-                    {
-                        "propType": 2000,
-                        "propValue": 23611.810546875
-                    },
-                    {
-                        "propType": 2001,
-                        "propValue": 1909.116943359375
-                    },
-                    {
-                        "propType": 2002,
-                        "propValue": 950.3248291015625
-                    },
-                    {
-                        "propType": 2003
-                    },
-                    {
-                        "propType": 1010,
-                        "propValue": 21250.62890625
-                    }
-                ],
-                "lifeState": 1,
-                "animatorParaList": [
-                    {}
-                ],
-                "avatar": {
-                    "uid": 620336771,
-                    "avatarId": 10000033,
-                    "guid": {
-                        "low": 131773,
-                        "high": 620336771,
-                        "unsigned": true
-                    },
-                    "peerId": 1,
-                    "equipIdList": [
-                        90543,
-                        90523,
-                        90553,
-                        76513,
-                        90533,
-                        15405
-                    ],
-                    "skillDepotId": 3301,
-                    "talentIdList": [
-                        331
-                    ],
-                    "weapon": {
-                        "entityId": 100663507,
-                        "gadgetId": 50015405,
-                        "itemId": 15405,
-                        "guid": {
-                            "low": 4968,
-                            "high": 620336771,
-                            "unsigned": true
-                        },
-                        "level": 90,
-                        "promoteLevel": 6,
-                        "abilityInfo": {},
-                        "affixMap": {
-                            "115405": 1
-                        }
-                    },
-                    "reliquaryList": [
-                        {
-                            "itemId": 90543,
-                            "guid": {
-                                "low": 139654,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 90523,
-                            "guid": {
-                                "low": 139830,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 90553,
-                            "guid": {
-                                "low": 127110,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 76513,
-                            "guid": {
-                                "low": 322856,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 90533,
-                            "guid": {
-                                "low": 125991,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        }
-                    ],
-                    "inherentProudSkillList": [
-                        332101,
-                        332201,
-                        332301
-                    ],
-                    "skillLevelMap": {
-                        "10331": 6,
-                        "10332": 8,
-                        "10333": 8
-                    },
-                    "proudSkillExtraLevelMap": {
-                        "3331": 1
-                    },
-                    "wearingFlycloakId": 140006,
-                    "bornTime": 1617750142,
-                    "excelInfo": {
-                        "prefabPathHash": {
-                            "low": 39441813,
-                            "high": 245,
-                            "unsigned": true
-                        },
-                        "prefabPathRemoteHash": {
-                            "low": -681162818,
-                            "high": 65,
-                            "unsigned": true
-                        },
-                        "controllerPathHash": {
-                            "low": -1558210548,
-                            "high": 138,
-                            "unsigned": true
-                        },
-                        "controllerPathRemoteHash": {
-                            "low": -940225571,
-                            "high": 24,
-                            "unsigned": true
-                        },
-                        "combatConfigHash": {
-                            "low": -487780691,
-                            "high": 151,
-                            "unsigned": true
-                        }
-                    }
-                },
-                "entityClientData": {},
-                "entityAuthorityInfo": {
-                    "abilityInfo": {},
-                    "rendererChangedInfo": {},
-                    "aiInfo": {
-                        "isAiOpen": true,
-                        "bornPos": {}
-                    },
-                    "bornPos": {}
-                }
-            },
-            "weaponGuid": {
-                "low": 4968,
-                "high": 620336771,
-                "unsigned": true
-            },
-            "weaponEntityId": 100663507,
-            "weaponAbilityInfo": {},
-            "abilityControlBlock": {
-                "abilityEmbryoList": [
-                    {
-                        "abilityId": 5,
-                        "abilityNameHash": 4117694238,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 6,
-                        "abilityNameHash": 534122942,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 7,
-                        "abilityNameHash": 4154503075,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 8,
-                        "abilityNameHash": 4264196532,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 9,
-                        "abilityNameHash": 4264196533,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 10,
-                        "abilityNameHash": 4264196534,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 11,
-                        "abilityNameHash": 4264196535,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 12,
-                        "abilityNameHash": 4264196536,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 13,
-                        "abilityNameHash": 4264196537,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 14,
-                        "abilityNameHash": 865738928,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 15,
-                        "abilityNameHash": 855573040,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 16,
-                        "abilityNameHash": 3745977574,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 17,
-                        "abilityNameHash": 3364230707,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 18,
-                        "abilityNameHash": 266205005,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 19,
-                        "abilityNameHash": 3000802652,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 20,
-                        "abilityNameHash": 341379584,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 21,
-                        "abilityNameHash": 401452267,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 22,
-                        "abilityNameHash": 2594993730,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 23,
-                        "abilityNameHash": 987125845,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 24,
-                        "abilityNameHash": 324439278,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 25,
-                        "abilityNameHash": 3155864749,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 26,
-                        "abilityNameHash": 601123348,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 27,
-                        "abilityNameHash": 2117785286,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 28,
-                        "abilityNameHash": 2551964576,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 29,
-                        "abilityNameHash": 2642792750,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 30,
-                        "abilityNameHash": 2306062007,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 31,
-                        "abilityNameHash": 3105629177,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 32,
-                        "abilityNameHash": 3771526669,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 33,
-                        "abilityNameHash": 100636247,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 34,
-                        "abilityNameHash": 1564404322,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 35,
-                        "abilityNameHash": 497711942,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 36,
-                        "abilityNameHash": 127390306,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 37,
-                        "abilityNameHash": 2314260649,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 38,
-                        "abilityNameHash": 3504552398,
-                        "abilityOverrideNameHash": 1178079449
-                    }
-                ]
-            }
-        },
-        {
-            "playerUid": 620336771,
-            "avatarGuid": {
-                "low": 11560,
-                "high": 620336771,
-                "unsigned": true
-            },
-            "sceneId": 3,
-            "entityId": 16777428,
-            "avatarAbilityInfo": {},
-            "sceneEntityInfo": {
-                "entityType": 1,
-                "entityId": 16777428,
-                "motionInfo": {
-                    "pos": {},
-                    "rot": {},
-                    "speed": {}
-                },
-                "propList": [
-                    {
-                        "type": 4001,
-                        "propValue": {
-                            "type": 4001,
-                            "ival": {
-                                "low": 90,
-                                "high": 0,
-                                "unsigned": false
-                            },
-                            "val": {
-                                "low": 90,
-                                "high": 0,
-                                "unsigned": false
-                            }
-                        }
-                    }
-                ],
-                "fightPropList": [
-                    {
-                        "propType": 1,
-                        "propValue": 12397.404296875
-                    },
-                    {
-                        "propType": 2,
-                        "propValue": 5825.6396484375
-                    },
-                    {
-                        "propType": 3,
-                        "propValue": 0.17489999532699585
-                    },
-                    {
-                        "propType": 4,
-                        "propValue": 755.9412231445312
-                    },
-                    {
-                        "propType": 5,
-                        "propValue": 349.42999267578125
-                    },
-                    {
-                        "propType": 6,
-                        "propValue": 0.8614000082015991
-                    },
-                    {
-                        "propType": 7,
-                        "propValue": 771.2493286132812
-                    },
-                    {
-                        "propType": 8,
-                        "propValue": 57.869998931884766
-                    },
-                    {
-                        "propType": 9,
-                        "propValue": 0.06560000032186508
-                    },
-                    {
-                        "propType": 20,
-                        "propValue": 0.14329999685287476
-                    },
-                    {
-                        "propType": 21
-                    },
-                    {
-                        "propType": 22,
-                        "propValue": 0.8341000080108643
-                    },
-                    {
-                        "propType": 23,
-                        "propValue": 1.998400092124939
-                    },
-                    {
-                        "propType": 26
-                    },
-                    {
-                        "propType": 27
-                    },
-                    {
-                        "propType": 28,
-                        "propValue": 109.56999969482422
-                    },
-                    {
-                        "propType": 29
-                    },
-                    {
-                        "propType": 30,
-                        "propValue": 0.344857782125473
-                    },
-                    {
-                        "propType": 40
-                    },
-                    {
-                        "propType": 41
-                    },
-                    {
-                        "propType": 42
-                    },
-                    {
-                        "propType": 43
-                    },
-                    {
-                        "propType": 44
-                    },
-                    {
-                        "propType": 45
-                    },
-                    {
-                        "propType": 46
-                    },
-                    {
-                        "propType": 50
-                    },
-                    {
-                        "propType": 51
-                    },
-                    {
-                        "propType": 52
-                    },
-                    {
-                        "propType": 53
-                    },
-                    {
-                        "propType": 54
-                    },
-                    {
-                        "propType": 55
-                    },
-                    {
-                        "propType": 56
-                    },
-                    {
-                        "propType": 70,
-                        "propValue": 60
-                    },
-                    {
-                        "propType": 2000,
-                        "propValue": 20391.3515625
-                    },
-                    {
-                        "propType": 2001,
-                        "propValue": 1756.5390625
-                    },
-                    {
-                        "propType": 2002,
-                        "propValue": 879.7133178710938
-                    },
-                    {
-                        "propType": 2003
-                    },
-                    {
-                        "propType": 1010,
-                        "propValue": 13479.236328125
-                    }
-                ],
-                "lifeState": 1,
-                "animatorParaList": [
-                    {}
-                ],
-                "avatar": {
-                    "uid": 620336771,
-                    "avatarId": 10000032,
-                    "guid": {
-                        "low": 11560,
-                        "high": 620336771,
-                        "unsigned": true
-                    },
-                    "peerId": 1,
-                    "equipIdList": [
-                        81543,
-                        81523,
-                        73553,
-                        81513,
-                        81533,
-                        11406
-                    ],
-                    "skillDepotId": 3201,
-                    "talentIdList": [
-                        321,
-                        322,
-                        323,
-                        324,
-                        325
-                    ],
-                    "weapon": {
-                        "entityId": 100663509,
-                        "gadgetId": 50011406,
-                        "itemId": 11406,
-                        "guid": {
-                            "low": 3482,
-                            "high": 620336771,
-                            "unsigned": true
-                        },
-                        "level": 90,
-                        "promoteLevel": 6,
-                        "abilityInfo": {},
-                        "affixMap": {
-                            "111406": 0
-                        }
-                    },
-                    "reliquaryList": [
-                        {
-                            "itemId": 81543,
-                            "guid": {
-                                "low": 194429,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 81523,
-                            "guid": {
-                                "low": 135934,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 17
-                        },
-                        {
-                            "itemId": 73553,
-                            "guid": {
-                                "low": 177817,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 81513,
-                            "guid": {
-                                "low": 113383,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 81533,
-                            "guid": {
-                                "low": 182277,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 13
-                        }
-                    ],
-                    "inherentProudSkillList": [
-                        322101,
-                        322201,
-                        322301
-                    ],
-                    "skillLevelMap": {
-                        "10321": 4,
-                        "10322": 4,
-                        "10323": 9
-                    },
-                    "proudSkillExtraLevelMap": {
-                        "3231": 1,
-                        "3232": 3,
-                        "3239": 3
-                    },
-                    "wearingFlycloakId": 140004,
-                    "bornTime": 1614097370,
-                    "excelInfo": {
-                        "prefabPathHash": {
-                            "low": 507354767,
-                            "high": 188,
-                            "unsigned": true
-                        },
-                        "prefabPathRemoteHash": {
-                            "low": -2135733983,
-                            "high": 247,
-                            "unsigned": true
-                        },
-                        "controllerPathHash": {
-                            "low": -970968086,
-                            "high": 202,
-                            "unsigned": true
-                        },
-                        "controllerPathRemoteHash": {
-                            "low": -173374137,
-                            "high": 100,
-                            "unsigned": true
-                        },
-                        "combatConfigHash": {
-                            "low": -111580314,
-                            "high": 45,
-                            "unsigned": true
-                        }
-                    }
-                },
-                "entityClientData": {},
-                "entityAuthorityInfo": {
-                    "abilityInfo": {},
-                    "rendererChangedInfo": {},
-                    "aiInfo": {
-                        "isAiOpen": true,
-                        "bornPos": {}
-                    },
-                    "bornPos": {}
-                }
-            },
-            "weaponGuid": {
-                "low": 3482,
-                "high": 620336771,
-                "unsigned": true
-            },
-            "weaponEntityId": 100663509,
-            "weaponAbilityInfo": {},
-            "abilityControlBlock": {
-                "abilityEmbryoList": [
-                    {
-                        "abilityId": 7,
-                        "abilityNameHash": 427337349,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 8,
-                        "abilityNameHash": 747169903,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 9,
-                        "abilityNameHash": 1373429334,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 10,
-                        "abilityNameHash": 3239179157,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 11,
-                        "abilityNameHash": 3241427248,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 12,
-                        "abilityNameHash": 3241427249,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 13,
-                        "abilityNameHash": 3241427250,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 14,
-                        "abilityNameHash": 3243675339,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 15,
-                        "abilityNameHash": 3243675340,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 16,
-                        "abilityNameHash": 4040586277,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 17,
-                        "abilityNameHash": 1462848084,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 18,
-                        "abilityNameHash": 3016122109,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 19,
-                        "abilityNameHash": 502438081,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 20,
-                        "abilityNameHash": 2872972649,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 21,
-                        "abilityNameHash": 2306062007,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 22,
-                        "abilityNameHash": 3105629177,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 23,
-                        "abilityNameHash": 3771526669,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 24,
-                        "abilityNameHash": 100636247,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 25,
-                        "abilityNameHash": 1564404322,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 26,
-                        "abilityNameHash": 497711942,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 27,
-                        "abilityNameHash": 1719214218,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 28,
-                        "abilityNameHash": 127390306,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 29,
-                        "abilityNameHash": 3052628990,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 30,
-                        "abilityNameHash": 1781025156,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 31,
-                        "abilityNameHash": 4021023955,
-                        "abilityOverrideNameHash": 1178079449
-                    }
-                ]
-            }
-        },
-        {
-            "playerUid": 620336771,
-            "avatarGuid": {
-                "low": 428020,
-                "high": 620336771,
-                "unsigned": true
-            },
-            "sceneId": 3,
-            "entityId": 16777430,
-            "avatarAbilityInfo": {},
-            "sceneEntityInfo": {
-                "entityType": 1,
-                "entityId": 16777430,
-                "motionInfo": {
-                    "pos": {},
-                    "rot": {},
-                    "speed": {}
-                },
-                "propList": [
-                    {
-                        "type": 4001,
-                        "propValue": {
-                            "type": 4001,
-                            "ival": {
-                                "low": 80,
-                                "high": 0,
-                                "unsigned": false
-                            },
-                            "val": {
-                                "low": 80,
-                                "high": 0,
-                                "unsigned": false
-                            }
-                        }
-                    }
-                ],
-                "fightPropList": [
-                    {
-                        "propType": 1,
-                        "propValue": 11387.720703125
-                    },
-                    {
-                        "propType": 2,
-                        "propValue": 6303.6494140625
-                    },
-                    {
-                        "propType": 3,
-                        "propValue": 0.05249999836087227
-                    },
-                    {
-                        "propType": 4,
-                        "propValue": 746.2235107421875
-                    },
-                    {
-                        "propType": 5,
-                        "propValue": 342.1199951171875
-                    },
-                    {
-                        "propType": 6,
-                        "propValue": 0.1923000067472458
-                    },
-                    {
-                        "propType": 7,
-                        "propValue": 696.385986328125
-                    },
-                    {
-                        "propType": 8,
-                        "propValue": 120.3699951171875
-                    },
-                    {
-                        "propType": 9,
-                        "propValue": 0.13120000064373016
-                    },
-                    {
-                        "propType": 20,
-                        "propValue": 0.2794000208377838
-                    },
-                    {
-                        "propType": 21
-                    },
-                    {
-                        "propType": 22,
-                        "propValue": 1.728100061416626
-                    },
-                    {
-                        "propType": 23,
-                        "propValue": 2.5584001541137695
-                    },
-                    {
-                        "propType": 26
-                    },
-                    {
-                        "propType": 27
-                    },
-                    {
-                        "propType": 28
-                    },
-                    {
-                        "propType": 29
-                    },
-                    {
-                        "propType": 30
-                    },
-                    {
-                        "propType": 40
-                    },
-                    {
-                        "propType": 41,
-                        "propValue": 0.4659999907016754
-                    },
-                    {
-                        "propType": 42
-                    },
-                    {
-                        "propType": 43
-                    },
-                    {
-                        "propType": 44
-                    },
-                    {
-                        "propType": 45
-                    },
-                    {
-                        "propType": 46
-                    },
-                    {
-                        "propType": 50
-                    },
-                    {
-                        "propType": 51
-                    },
-                    {
-                        "propType": 52
-                    },
-                    {
-                        "propType": 53
-                    },
-                    {
-                        "propType": 54
-                    },
-                    {
-                        "propType": 55
-                    },
-                    {
-                        "propType": 56
-                    },
-                    {
-                        "propType": 71,
-                        "propValue": 90
-                    },
-                    {
-                        "propType": 2000,
-                        "propValue": 18289.2265625
-                    },
-                    {
-                        "propType": 2001,
-                        "propValue": 1231.84228515625
-                    },
-                    {
-                        "propType": 2002,
-                        "propValue": 908.1217651367188
-                    },
-                    {
-                        "propType": 2003
-                    },
-                    {
-                        "propType": 1010,
-                        "propValue": 16460.3046875
-                    }
-                ],
-                "lifeState": 1,
-                "animatorParaList": [
-                    {}
-                ],
-                "avatar": {
-                    "uid": 620336771,
-                    "avatarId": 10000052,
-                    "guid": {
-                        "low": 428020,
-                        "high": 620336771,
-                        "unsigned": true
-                    },
-                    "peerId": 1,
-                    "equipIdList": [
-                        94543,
-                        94523,
-                        94553,
-                        77514,
-                        94533,
-                        13415
-                    ],
-                    "skillDepotId": 5201,
-                    "weapon": {
-                        "entityId": 100663511,
-                        "gadgetId": 50013415,
-                        "itemId": 13415,
-                        "guid": {
-                            "low": 429830,
-                            "high": 620336771,
-                            "unsigned": true
-                        },
-                        "level": 80,
-                        "promoteLevel": 5,
-                        "abilityInfo": {},
-                        "affixMap": {
-                            "113415": 0
-                        }
-                    },
-                    "reliquaryList": [
-                        {
-                            "itemId": 94543,
-                            "guid": {
-                                "low": 445212,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 94523,
-                            "guid": {
-                                "low": 444057,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 94553,
-                            "guid": {
-                                "low": 441273,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 77514,
-                            "guid": {
-                                "low": 354256,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 94533,
-                            "guid": {
-                                "low": 439740,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        }
-                    ],
-                    "inherentProudSkillList": [
-                        522101,
-                        522201,
-                        522301,
-                        522501
-                    ],
-                    "skillLevelMap": {
-                        "10521": 3,
-                        "10522": 6,
-                        "10525": 8
-                    },
-                    "proudSkillExtraLevelMap": {
-                        "5231": 1
-                    },
-                    "wearingFlycloakId": 140001,
-                    "bornTime": 1631388201,
-                    "excelInfo": {
-                        "prefabPathHash": {
-                            "low": -2078331469,
-                            "high": 154,
-                            "unsigned": true
-                        },
-                        "prefabPathRemoteHash": {
-                            "low": 1116714356,
-                            "high": 118,
-                            "unsigned": true
-                        },
-                        "controllerPathHash": {
-                            "low": 701070043,
-                            "high": 215,
-                            "unsigned": true
-                        },
-                        "controllerPathRemoteHash": {
-                            "low": 932892543,
-                            "high": 60,
-                            "unsigned": true
-                        },
-                        "combatConfigHash": {
-                            "low": 1044450984,
-                            "high": 253,
-                            "unsigned": true
-                        }
-                    }
-                },
-                "entityClientData": {},
-                "entityAuthorityInfo": {
-                    "abilityInfo": {},
-                    "rendererChangedInfo": {},
-                    "aiInfo": {
-                        "isAiOpen": true,
-                        "bornPos": {}
-                    },
-                    "bornPos": {}
-                }
-            },
-            "weaponGuid": {
-                "low": 429830,
-                "high": 620336771,
-                "unsigned": true
-            },
-            "weaponEntityId": 100663511,
-            "weaponAbilityInfo": {},
-            "abilityControlBlock": {
-                "abilityEmbryoList": [
-                    {
-                        "abilityId": 6,
-                        "abilityNameHash": 3615654516,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 7,
-                        "abilityNameHash": 3822074956,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 8,
-                        "abilityNameHash": 2337815395,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 9,
-                        "abilityNameHash": 3402617160,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 10,
-                        "abilityNameHash": 2483967753,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 11,
-                        "abilityNameHash": 3150635223,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 12,
-                        "abilityNameHash": 3995491792,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 13,
-                        "abilityNameHash": 2306062007,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 14,
-                        "abilityNameHash": 3105629177,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 15,
-                        "abilityNameHash": 3771526669,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 16,
-                        "abilityNameHash": 100636247,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 17,
-                        "abilityNameHash": 1564404322,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 18,
-                        "abilityNameHash": 497711942,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 19,
-                        "abilityNameHash": 1150936224,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 20,
-                        "abilityNameHash": 127390306,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 21,
-                        "abilityNameHash": 2433777281,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 22,
-                        "abilityNameHash": 265136204,
-                        "abilityOverrideNameHash": 1178079449
-                    }
-                ]
-            }
-        },
-        {
-            "playerUid": 620336771,
-            "avatarGuid": {
-                "low": 237803,
-                "high": 620336771,
-                "unsigned": true
-            },
-            "sceneId": 3,
-            "entityId": 16777432,
-            "avatarAbilityInfo": {},
-            "sceneEntityInfo": {
-                "entityType": 1,
-                "entityId": 16777432,
-                "motionInfo": {
-                    "pos": {},
-                    "rot": {},
-                    "speed": {}
-                },
-                "propList": [
-                    {
-                        "type": 4001,
-                        "propValue": {
-                            "type": 4001,
-                            "ival": {
-                                "low": 70,
-                                "high": 0,
-                                "unsigned": false
-                            },
-                            "val": {
-                                "low": 70,
-                                "high": 0,
-                                "unsigned": false
-                            }
-                        }
-                    }
-                ],
-                "fightPropList": [
-                    {
-                        "propType": 1,
-                        "propValue": 11243.2080078125
-                    },
-                    {
-                        "propType": 2,
-                        "propValue": 5945.1396484375
-                    },
-                    {
-                        "propType": 3,
-                        "propValue": 2.0653371810913086
-                    },
-                    {
-                        "propType": 4,
-                        "propValue": 506.591064453125
-                    },
-                    {
-                        "propType": 5,
-                        "propValue": 349.1300048828125
-                    },
-                    {
-                        "propType": 6,
-                        "propValue": 0.2856000065803528
-                    },
-                    {
-                        "propType": 7,
-                        "propValue": 564.4993896484375
-                    },
-                    {
-                        "propType": 8,
-                        "propValue": 79.6300048828125
-                    },
-                    {
-                        "propType": 9,
-                        "propValue": 0.10490000247955322
-                    },
-                    {
-                        "propType": 20,
-                        "propValue": 0.2289000004529953
-                    },
-                    {
-                        "propType": 21
-                    },
-                    {
-                        "propType": 22,
-                        "propValue": 0.9429000020027161
-                    },
-                    {
-                        "propType": 23,
-                        "propValue": 1.152899980545044
-                    },
-                    {
-                        "propType": 26
-                    },
-                    {
-                        "propType": 27
-                    },
-                    {
-                        "propType": 28
-                    },
-                    {
-                        "propType": 29
-                    },
-                    {
-                        "propType": 30
-                    },
-                    {
-                        "propType": 40
-                    },
-                    {
-                        "propType": 41
-                    },
-                    {
-                        "propType": 42
-                    },
-                    {
-                        "propType": 43
-                    },
-                    {
-                        "propType": 44
-                    },
-                    {
-                        "propType": 45,
-                        "propValue": 0.14399999380111694
-                    },
-                    {
-                        "propType": 46
-                    },
-                    {
-                        "propType": 50
-                    },
-                    {
-                        "propType": 51
-                    },
-                    {
-                        "propType": 52
-                    },
-                    {
-                        "propType": 53
-                    },
-                    {
-                        "propType": 54
-                    },
-                    {
-                        "propType": 55
-                    },
-                    {
-                        "propType": 56
-                    },
-                    {
-                        "propType": 76,
-                        "propValue": 40
-                    },
-                    {
-                        "propType": 2000,
-                        "propValue": 40409.36328125
-                    },
-                    {
-                        "propType": 2001,
-                        "propValue": 1000.4034423828125
-                    },
-                    {
-                        "propType": 2002,
-                        "propValue": 703.3453979492188
-                    },
-                    {
-                        "propType": 2003
-                    },
-                    {
-                        "propType": 1010,
-                        "propValue": 27865.51953125
-                    }
-                ],
-                "lifeState": 1,
-                "animatorParaList": [
-                    {}
-                ],
-                "avatar": {
-                    "uid": 620336771,
-                    "avatarId": 10000030,
-                    "guid": {
-                        "low": 237803,
-                        "high": 620336771,
-                        "unsigned": true
-                    },
-                    "peerId": 1,
-                    "equipIdList": [
-                        88543,
-                        91523,
-                        91553,
-                        91513,
-                        91433,
-                        13303
-                    ],
-                    "skillDepotId": 3001,
-                    "weapon": {
-                        "entityId": 100663513,
-                        "gadgetId": 50013303,
-                        "itemId": 13303,
-                        "guid": {
-                            "low": 44569,
-                            "high": 620336771,
-                            "unsigned": true
-                        },
-                        "level": 80,
-                        "promoteLevel": 5,
-                        "abilityInfo": {},
-                        "affixMap": {
-                            "113303": 4
-                        }
-                    },
-                    "reliquaryList": [
-                        {
-                            "itemId": 88543,
-                            "guid": {
-                                "low": 95509,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 91523,
-                            "guid": {
-                                "low": 239975,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 91553,
-                            "guid": {
-                                "low": 336407,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 91513,
-                            "guid": {
-                                "low": 304073,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 21
-                        },
-                        {
-                            "itemId": 91433,
-                            "guid": {
-                                "low": 358333,
-                                "high": 620336771,
-                                "unsigned": true
-                            },
-                            "level": 17
-                        }
-                    ],
-                    "inherentProudSkillList": [
-                        302101,
-                        302201,
-                        302301
-                    ],
-                    "skillLevelMap": {
-                        "10301": 2,
-                        "10302": 6,
-                        "10303": 6
-                    },
-                    "proudSkillExtraLevelMap": {
-                        "3031": 1
-                    },
-                    "wearingFlycloakId": 140005,
-                    "bornTime": 1620699348,
-                    "excelInfo": {
-                        "prefabPathHash": {
-                            "low": -238751940,
-                            "high": 142,
-                            "unsigned": true
-                        },
-                        "prefabPathRemoteHash": {
-                            "low": -46435818,
-                            "high": 234,
-                            "unsigned": true
-                        },
-                        "controllerPathHash": {
-                            "low": -1683268110,
-                            "high": 151,
-                            "unsigned": true
-                        },
-                        "controllerPathRemoteHash": {
-                            "low": 1666636965,
-                            "high": 237,
-                            "unsigned": true
-                        },
-                        "combatConfigHash": {
-                            "low": -1820171094,
-                            "high": 147,
-                            "unsigned": true
-                        }
-                    }
-                },
-                "entityClientData": {},
-                "entityAuthorityInfo": {
-                    "abilityInfo": {},
-                    "rendererChangedInfo": {},
-                    "aiInfo": {
-                        "isAiOpen": true,
-                        "bornPos": {}
-                    },
-                    "bornPos": {}
-                }
-            },
-            "weaponGuid": {
-                "low": 44569,
-                "high": 620336771,
-                "unsigned": true
-            },
-            "weaponEntityId": 100663513,
-            "weaponAbilityInfo": {},
-            "abilityControlBlock": {
-                "abilityEmbryoList": [
-                    {
-                        "abilityId": 5,
-                        "abilityNameHash": 1529187430,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 6,
-                        "abilityNameHash": 440915193,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 7,
-                        "abilityNameHash": 664835149,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 8,
-                        "abilityNameHash": 3086456309,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 9,
-                        "abilityNameHash": 413798022,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 10,
-                        "abilityNameHash": 1122239457,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 11,
-                        "abilityNameHash": 487661916,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 12,
-                        "abilityNameHash": 1358503499,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 13,
-                        "abilityNameHash": 981208402,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 14,
-                        "abilityNameHash": 2306062007,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 15,
-                        "abilityNameHash": 3105629177,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 16,
-                        "abilityNameHash": 3771526669,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 17,
-                        "abilityNameHash": 100636247,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 18,
-                        "abilityNameHash": 1564404322,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 19,
-                        "abilityNameHash": 497711942,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 20,
-                        "abilityNameHash": 127390306,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 21,
-                        "abilityNameHash": 2682057395,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 22,
-                        "abilityNameHash": 4137789196,
-                        "abilityOverrideNameHash": 1178079449
-                    }
-                ]
-            },
-            "isPlayerCurAvatar": true
-        }
-    ]
-}
 
 var AvatarDataNotify = {
     "avatarList": [
@@ -15552,6 +13775,2098 @@ var AvatarDataNotify = {
     ]
 }
 
+var curAvatarTeamId = AvatarDataNotify.curAvatarTeamId
+var sceneGuidList = AvatarDataNotify.avatarTeamMap[curAvatarTeamId.toString()].avatarGuidList
+
+var makeSceneTeamUpdateNotify = {
+    "sceneTeamAvatarList": []
+}
+
+for (var x in sceneGuidList){
+    var curGuid = sceneGuidList[x]
+
+    for (var y in AvatarDataNotify.avatarList){
+        if (curGuid == AvatarDataNotify.avatarList[y].guid) {
+            // here is the same
+
+            var sceneTeamAvatar = {
+                "playerUid": 620336771,
+                "avatarGuid": AvatarDataNotify.avatarList[y].guid,
+                "sceneId": 3,
+                "entityId": 16777400 + AvatarDataNotify.avatarList[y].avatarId % 100,
+                "avatarAbilityInfo": {},
+                "sceneEntityInfo": {
+                    "entityType": 1,
+                    "entityId": 16777400 + AvatarDataNotify.avatarList[y].avatarId % 100,
+                    "motionInfo": {
+                        "pos": {},
+                        "rot": {},
+                        "speed": {}
+                    },
+                    "propList": [
+                        {
+                            "type": 4001,
+                            "propValue": {
+                                "type": 4001,
+                                "ival": AvatarDataNotify.avatarList[y].propMap["4001"].ival,
+                                "val": AvatarDataNotify.avatarList[y].propMap["4001"].val
+                            }
+                        }
+                    ],
+                    "fightPropList": [],
+                    "lifeState": 1,
+                    "animatorParaList": [
+                        {}
+                    ],
+                    "avatar": {
+                        "uid": 620336771,
+                        "avatarId": AvatarDataNotify.avatarList[y].avatarId,
+                        "guid": AvatarDataNotify.avatarList[y].guid,
+                        "peerId": 1,
+                        "equipIdList": [],
+                        "skillDepotId": (AvatarDataNotify.avatarList[y].avatarId % 100) * 100 + 1,
+                        "talentIdList": AvatarDataNotify.avatarList[y].talentIdList,
+                        "weapon": {},
+                        "reliquaryList": [],
+                        "inherentProudSkillList": AvatarDataNotify.avatarList[y].inherentProudSkillList,
+                        "skillLevelMap": AvatarDataNotify.avatarList[y].skillLevelMap,
+                        "proudSkillExtraLevelMap": AvatarDataNotify.avatarList[y].proudSkillExtraLevelMap,
+                        "wearingFlycloakId": AvatarDataNotify.avatarList[y].wearingFlycloakId,
+                        "bornTime": AvatarDataNotify.avatarList[y].bornTime,
+                        "excelInfo": AvatarDataNotify.avatarList[y].excelInfo
+                    },
+                    "entityClientData": {},
+                    "entityAuthorityInfo": {
+                        "abilityInfo": {},
+                        "rendererChangedInfo": {},
+                        "aiInfo": {
+                            "isAiOpen": true,
+                            "bornPos": {}
+                        },
+                        "bornPos": {}
+                    }
+                },
+                "weaponGuid": {},
+                "weaponEntityId": {},
+                "weaponAbilityInfo": {},
+                "abilityControlBlock": {
+                    "abilityEmbryoList": [ // TODOTODO but don't think it is actually needed
+                        {
+                            "abilityId": 5,
+                            "abilityNameHash": 4117694238,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 6,
+                            "abilityNameHash": 534122942,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 7,
+                            "abilityNameHash": 4154503075,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 8,
+                            "abilityNameHash": 4264196532,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 9,
+                            "abilityNameHash": 4264196533,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 10,
+                            "abilityNameHash": 4264196534,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 11,
+                            "abilityNameHash": 4264196535,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 12,
+                            "abilityNameHash": 4264196536,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 13,
+                            "abilityNameHash": 4264196537,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 14,
+                            "abilityNameHash": 865738928,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 15,
+                            "abilityNameHash": 855573040,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 16,
+                            "abilityNameHash": 3745977574,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 17,
+                            "abilityNameHash": 3364230707,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 18,
+                            "abilityNameHash": 266205005,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 19,
+                            "abilityNameHash": 3000802652,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 20,
+                            "abilityNameHash": 341379584,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 21,
+                            "abilityNameHash": 401452267,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 22,
+                            "abilityNameHash": 2594993730,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 23,
+                            "abilityNameHash": 987125845,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 24,
+                            "abilityNameHash": 324439278,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 25,
+                            "abilityNameHash": 3155864749,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 26,
+                            "abilityNameHash": 601123348,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 27,
+                            "abilityNameHash": 2117785286,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 28,
+                            "abilityNameHash": 2551964576,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 29,
+                            "abilityNameHash": 2642792750,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 30,
+                            "abilityNameHash": 2306062007,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 31,
+                            "abilityNameHash": 3105629177,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 32,
+                            "abilityNameHash": 3771526669,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 33,
+                            "abilityNameHash": 100636247,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 34,
+                            "abilityNameHash": 1564404322,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 35,
+                            "abilityNameHash": 497711942,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 36,
+                            "abilityNameHash": 127390306,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 37,
+                            "abilityNameHash": 2314260649,
+                            "abilityOverrideNameHash": 1178079449
+                        },
+                        {
+                            "abilityId": 38,
+                            "abilityNameHash": 3504552398,
+                            "abilityOverrideNameHash": 1178079449
+                        }
+                    ]
+                },
+                "isPlayerCurAvatar": false
+            }
+
+            for (var z in AvatarDataNotify.avatarList[y].fightPropMap) {
+
+                var tempList = {
+                    "propType": z,
+                    "propValue": AvatarDataNotify.avatarList[y].fightPropMap[z]
+                }
+
+                sceneTeamAvatar.sceneEntityInfo.fightPropList.push(tempList)
+            }
+            
+            if (x == 3) {
+                sceneTeamAvatar.isPlayerCurAvatar = true
+            }
+
+            makeSceneTeamUpdateNotify.sceneTeamAvatarList.push(sceneTeamAvatar)
+        }
+    }
+}
+
+
+var makePlayerEnterSceneInfoNotify = {
+    curAvatarEntityId: 16777400 + AvatarDataNotify.avatarList[3].avatarId % 100,
+    avatarEnterInfo: [],
+
+    teamEnterInfo: {
+        teamEntityId: 150995153,
+        teamAbilityInfo: {},
+        abilityControlBlock: {}
+    },
+    mpLevelEntityInfo: {
+        entityId: 184549594,
+        authorityPeerId: 1,
+        abilityInfo: {}
+    },
+    enterSceneToken: 8427
+}
+
+for (var x in sceneGuidList){
+    var curGuid = sceneGuidList[x]
+
+    
+    for (var y in AvatarDataNotify.avatarList){
+        if (curGuid == AvatarDataNotify.avatarList[y].guid) {
+            // here is the same
+
+            var avaterEnter = {
+                "avatarGuid": curGuid,
+                "avatarEntityId": 16777400 + AvatarDataNotify.avatarList[y].avatarId % 100,
+                "avatarAbilityInfo": {},
+                "weaponGuid": {},
+                "weaponEntityId": {},
+                "weaponAbilityInfo": {}
+            }
+
+            makePlayerEnterSceneInfoNotify.avatarEnterInfo.push(avaterEnter)
+        }
+    }
+}
+
+var makeSceneEntityAppearNotify = {
+    "entityList": [makeSceneTeamUpdateNotify.sceneTeamAvatarList[3]],
+    "appearType": "VISION_BORN"
+}
+
+
+
+var SceneTeamUpdateNotify = {
+    "sceneTeamAvatarList": [
+        {
+            "playerUid": 620336771,
+            "avatarGuid": {
+                "low": 131773,
+                "high": 620336771,
+                "unsigned": true
+            },
+            "sceneId": 3,
+            "entityId": 16777426,
+            "avatarAbilityInfo": {},
+            "sceneEntityInfo": {
+                "entityType": 1,
+                "entityId": 16777426,
+                "motionInfo": {
+                    "pos": {},
+                    "rot": {},
+                    "speed": {}
+                },
+                "propList": [
+                    {
+                        "type": 4001,
+                        "propValue": {
+                            "type": 4001,
+                            "ival": {
+                                "low": 90,
+                                "high": 0,
+                                "unsigned": false
+                            },
+                            "val": {
+                                "low": 90,
+                                "high": 0,
+                                "unsigned": false
+                            }
+                        }
+                    }
+                ],
+                "fightPropList": [
+                    {
+                        "propType": 1,
+                        "propValue": 13103.125
+                    },
+                    {
+                        "propType": 2,
+                        "propValue": 4780
+                    },
+                    {
+                        "propType": 3,
+                        "propValue": 0.43719998002052307
+                    },
+                    {
+                        "propType": 4,
+                        "propValue": 810.970703125
+                    },
+                    {
+                        "propType": 5,
+                        "propValue": 384.92999267578125
+                    },
+                    {
+                        "propType": 6,
+                        "propValue": 0.8794599771499634
+                    },
+                    {
+                        "propType": 7,
+                        "propValue": 814.6676025390625
+                    },
+                    {
+                        "propType": 8,
+                        "propValue": 34.720001220703125
+                    },
+                    {
+                        "propType": 9,
+                        "propValue": 0.12389999628067017
+                    },
+                    {
+                        "propType": 20,
+                        "propValue": 0.4116000235080719
+                    },
+                    {
+                        "propType": 21
+                    },
+                    {
+                        "propType": 22,
+                        "propValue": 1.7125999927520752
+                    },
+                    {
+                        "propType": 23,
+                        "propValue": 1.051800012588501
+                    },
+                    {
+                        "propType": 26
+                    },
+                    {
+                        "propType": 27
+                    },
+                    {
+                        "propType": 28,
+                        "propValue": 18.649999618530273
+                    },
+                    {
+                        "propType": 29
+                    },
+                    {
+                        "propType": 30
+                    },
+                    {
+                        "propType": 40
+                    },
+                    {
+                        "propType": 41
+                    },
+                    {
+                        "propType": 42,
+                        "propValue": 0.9039999842643738
+                    },
+                    {
+                        "propType": 43
+                    },
+                    {
+                        "propType": 44
+                    },
+                    {
+                        "propType": 45
+                    },
+                    {
+                        "propType": 46
+                    },
+                    {
+                        "propType": 50
+                    },
+                    {
+                        "propType": 51
+                    },
+                    {
+                        "propType": 52
+                    },
+                    {
+                        "propType": 53
+                    },
+                    {
+                        "propType": 54
+                    },
+                    {
+                        "propType": 55
+                    },
+                    {
+                        "propType": 56
+                    },
+                    {
+                        "propType": 72,
+                        "propValue": 60
+                    },
+                    {
+                        "propType": 2000,
+                        "propValue": 23611.810546875
+                    },
+                    {
+                        "propType": 2001,
+                        "propValue": 1909.116943359375
+                    },
+                    {
+                        "propType": 2002,
+                        "propValue": 950.3248291015625
+                    },
+                    {
+                        "propType": 2003
+                    },
+                    {
+                        "propType": 1010,
+                        "propValue": 21250.62890625
+                    }
+                ],
+                "lifeState": 1,
+                "animatorParaList": [
+                    {}
+                ],
+                "avatar": {
+                    "uid": 620336771,
+                    "avatarId": 10000033,
+                    "guid": {
+                        "low": 131773,
+                        "high": 620336771,
+                        "unsigned": true
+                    },
+                    "peerId": 1,
+                    "equipIdList": [
+                        90543,
+                        90523,
+                        90553,
+                        76513,
+                        90533,
+                        15405
+                    ],
+                    "skillDepotId": 3301,
+                    "talentIdList": [
+                        331
+                    ],
+                    "weapon": {
+                        "entityId": 100663507,
+                        "gadgetId": 50015405,
+                        "itemId": 15405,
+                        "guid": {
+                            "low": 4968,
+                            "high": 620336771,
+                            "unsigned": true
+                        },
+                        "level": 90,
+                        "promoteLevel": 6,
+                        "abilityInfo": {},
+                        "affixMap": {
+                            "115405": 1
+                        }
+                    },
+                    "reliquaryList": [
+                        {
+                            "itemId": 90543,
+                            "guid": {
+                                "low": 139654,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 90523,
+                            "guid": {
+                                "low": 139830,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 90553,
+                            "guid": {
+                                "low": 127110,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 76513,
+                            "guid": {
+                                "low": 322856,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 90533,
+                            "guid": {
+                                "low": 125991,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        }
+                    ],
+                    "inherentProudSkillList": [
+                        332101,
+                        332201,
+                        332301
+                    ],
+                    "skillLevelMap": {
+                        "10331": 6,
+                        "10332": 8,
+                        "10333": 8
+                    },
+                    "proudSkillExtraLevelMap": {
+                        "3331": 1
+                    },
+                    "wearingFlycloakId": 140006,
+                    "bornTime": 1617750142,
+                    "excelInfo": {
+                        "prefabPathHash": {
+                            "low": 39441813,
+                            "high": 245,
+                            "unsigned": true
+                        },
+                        "prefabPathRemoteHash": {
+                            "low": -681162818,
+                            "high": 65,
+                            "unsigned": true
+                        },
+                        "controllerPathHash": {
+                            "low": -1558210548,
+                            "high": 138,
+                            "unsigned": true
+                        },
+                        "controllerPathRemoteHash": {
+                            "low": -940225571,
+                            "high": 24,
+                            "unsigned": true
+                        },
+                        "combatConfigHash": {
+                            "low": -487780691,
+                            "high": 151,
+                            "unsigned": true
+                        }
+                    }
+                },
+                "entityClientData": {},
+                "entityAuthorityInfo": {
+                    "abilityInfo": {},
+                    "rendererChangedInfo": {},
+                    "aiInfo": {
+                        "isAiOpen": true,
+                        "bornPos": {}
+                    },
+                    "bornPos": {}
+                }
+            },
+            "weaponGuid": {
+                "low": 4968,
+                "high": 620336771,
+                "unsigned": true
+            },
+            "weaponEntityId": 100663507,
+            "weaponAbilityInfo": {},
+            "abilityControlBlock": {
+                "abilityEmbryoList": [
+                    {
+                        "abilityId": 5,
+                        "abilityNameHash": 4117694238,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 6,
+                        "abilityNameHash": 534122942,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 7,
+                        "abilityNameHash": 4154503075,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 8,
+                        "abilityNameHash": 4264196532,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 9,
+                        "abilityNameHash": 4264196533,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 10,
+                        "abilityNameHash": 4264196534,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 11,
+                        "abilityNameHash": 4264196535,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 12,
+                        "abilityNameHash": 4264196536,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 13,
+                        "abilityNameHash": 4264196537,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 14,
+                        "abilityNameHash": 865738928,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 15,
+                        "abilityNameHash": 855573040,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 16,
+                        "abilityNameHash": 3745977574,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 17,
+                        "abilityNameHash": 3364230707,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 18,
+                        "abilityNameHash": 266205005,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 19,
+                        "abilityNameHash": 3000802652,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 20,
+                        "abilityNameHash": 341379584,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 21,
+                        "abilityNameHash": 401452267,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 22,
+                        "abilityNameHash": 2594993730,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 23,
+                        "abilityNameHash": 987125845,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 24,
+                        "abilityNameHash": 324439278,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 25,
+                        "abilityNameHash": 3155864749,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 26,
+                        "abilityNameHash": 601123348,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 27,
+                        "abilityNameHash": 2117785286,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 28,
+                        "abilityNameHash": 2551964576,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 29,
+                        "abilityNameHash": 2642792750,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 30,
+                        "abilityNameHash": 2306062007,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 31,
+                        "abilityNameHash": 3105629177,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 32,
+                        "abilityNameHash": 3771526669,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 33,
+                        "abilityNameHash": 100636247,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 34,
+                        "abilityNameHash": 1564404322,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 35,
+                        "abilityNameHash": 497711942,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 36,
+                        "abilityNameHash": 127390306,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 37,
+                        "abilityNameHash": 2314260649,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 38,
+                        "abilityNameHash": 3504552398,
+                        "abilityOverrideNameHash": 1178079449
+                    }
+                ]
+            }
+        },
+        {
+            "playerUid": 620336771,
+            "avatarGuid": {
+                "low": 11560,
+                "high": 620336771,
+                "unsigned": true
+            },
+            "sceneId": 3,
+            "entityId": 16777428,
+            "avatarAbilityInfo": {},
+            "sceneEntityInfo": {
+                "entityType": 1,
+                "entityId": 16777428,
+                "motionInfo": {
+                    "pos": {},
+                    "rot": {},
+                    "speed": {}
+                },
+                "propList": [
+                    {
+                        "type": 4001,
+                        "propValue": {
+                            "type": 4001,
+                            "ival": {
+                                "low": 90,
+                                "high": 0,
+                                "unsigned": false
+                            },
+                            "val": {
+                                "low": 90,
+                                "high": 0,
+                                "unsigned": false
+                            }
+                        }
+                    }
+                ],
+                "fightPropList": [
+                    {
+                        "propType": 1,
+                        "propValue": 12397.404296875
+                    },
+                    {
+                        "propType": 2,
+                        "propValue": 5825.6396484375
+                    },
+                    {
+                        "propType": 3,
+                        "propValue": 0.17489999532699585
+                    },
+                    {
+                        "propType": 4,
+                        "propValue": 755.9412231445312
+                    },
+                    {
+                        "propType": 5,
+                        "propValue": 349.42999267578125
+                    },
+                    {
+                        "propType": 6,
+                        "propValue": 0.8614000082015991
+                    },
+                    {
+                        "propType": 7,
+                        "propValue": 771.2493286132812
+                    },
+                    {
+                        "propType": 8,
+                        "propValue": 57.869998931884766
+                    },
+                    {
+                        "propType": 9,
+                        "propValue": 0.06560000032186508
+                    },
+                    {
+                        "propType": 20,
+                        "propValue": 0.14329999685287476
+                    },
+                    {
+                        "propType": 21
+                    },
+                    {
+                        "propType": 22,
+                        "propValue": 0.8341000080108643
+                    },
+                    {
+                        "propType": 23,
+                        "propValue": 1.998400092124939
+                    },
+                    {
+                        "propType": 26
+                    },
+                    {
+                        "propType": 27
+                    },
+                    {
+                        "propType": 28,
+                        "propValue": 109.56999969482422
+                    },
+                    {
+                        "propType": 29
+                    },
+                    {
+                        "propType": 30,
+                        "propValue": 0.344857782125473
+                    },
+                    {
+                        "propType": 40
+                    },
+                    {
+                        "propType": 41
+                    },
+                    {
+                        "propType": 42
+                    },
+                    {
+                        "propType": 43
+                    },
+                    {
+                        "propType": 44
+                    },
+                    {
+                        "propType": 45
+                    },
+                    {
+                        "propType": 46
+                    },
+                    {
+                        "propType": 50
+                    },
+                    {
+                        "propType": 51
+                    },
+                    {
+                        "propType": 52
+                    },
+                    {
+                        "propType": 53
+                    },
+                    {
+                        "propType": 54
+                    },
+                    {
+                        "propType": 55
+                    },
+                    {
+                        "propType": 56
+                    },
+                    {
+                        "propType": 70,
+                        "propValue": 60
+                    },
+                    {
+                        "propType": 2000,
+                        "propValue": 20391.3515625
+                    },
+                    {
+                        "propType": 2001,
+                        "propValue": 1756.5390625
+                    },
+                    {
+                        "propType": 2002,
+                        "propValue": 879.7133178710938
+                    },
+                    {
+                        "propType": 2003
+                    },
+                    {
+                        "propType": 1010,
+                        "propValue": 13479.236328125
+                    }
+                ],
+                "lifeState": 1,
+                "animatorParaList": [
+                    {}
+                ],
+                "avatar": {
+                    "uid": 620336771,
+                    "avatarId": 10000032,
+                    "guid": {
+                        "low": 11560,
+                        "high": 620336771,
+                        "unsigned": true
+                    },
+                    "peerId": 1,
+                    "equipIdList": [
+                        81543,
+                        81523,
+                        73553,
+                        81513,
+                        81533,
+                        11406
+                    ],
+                    "skillDepotId": 3201,
+                    "talentIdList": [
+                        321,
+                        322,
+                        323,
+                        324,
+                        325
+                    ],
+                    "weapon": {
+                        "entityId": 100663509,
+                        "gadgetId": 50011406,
+                        "itemId": 11406,
+                        "guid": {
+                            "low": 3482,
+                            "high": 620336771,
+                            "unsigned": true
+                        },
+                        "level": 90,
+                        "promoteLevel": 6,
+                        "abilityInfo": {},
+                        "affixMap": {
+                            "111406": 0
+                        }
+                    },
+                    "reliquaryList": [
+                        {
+                            "itemId": 81543,
+                            "guid": {
+                                "low": 194429,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 81523,
+                            "guid": {
+                                "low": 135934,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 17
+                        },
+                        {
+                            "itemId": 73553,
+                            "guid": {
+                                "low": 177817,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 81513,
+                            "guid": {
+                                "low": 113383,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 81533,
+                            "guid": {
+                                "low": 182277,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 13
+                        }
+                    ],
+                    "inherentProudSkillList": [
+                        322101,
+                        322201,
+                        322301
+                    ],
+                    "skillLevelMap": {
+                        "10321": 4,
+                        "10322": 4,
+                        "10323": 9
+                    },
+                    "proudSkillExtraLevelMap": {
+                        "3231": 1,
+                        "3232": 3,
+                        "3239": 3
+                    },
+                    "wearingFlycloakId": 140004,
+                    "bornTime": 1614097370,
+                    "excelInfo": {
+                        "prefabPathHash": {
+                            "low": 507354767,
+                            "high": 188,
+                            "unsigned": true
+                        },
+                        "prefabPathRemoteHash": {
+                            "low": -2135733983,
+                            "high": 247,
+                            "unsigned": true
+                        },
+                        "controllerPathHash": {
+                            "low": -970968086,
+                            "high": 202,
+                            "unsigned": true
+                        },
+                        "controllerPathRemoteHash": {
+                            "low": -173374137,
+                            "high": 100,
+                            "unsigned": true
+                        },
+                        "combatConfigHash": {
+                            "low": -111580314,
+                            "high": 45,
+                            "unsigned": true
+                        }
+                    }
+                },
+                "entityClientData": {},
+                "entityAuthorityInfo": {
+                    "abilityInfo": {},
+                    "rendererChangedInfo": {},
+                    "aiInfo": {
+                        "isAiOpen": true,
+                        "bornPos": {}
+                    },
+                    "bornPos": {}
+                }
+            },
+            "weaponGuid": {
+                "low": 3482,
+                "high": 620336771,
+                "unsigned": true
+            },
+            "weaponEntityId": 100663509,
+            "weaponAbilityInfo": {},
+            "abilityControlBlock": {
+                "abilityEmbryoList": [
+                    {
+                        "abilityId": 7,
+                        "abilityNameHash": 427337349,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 8,
+                        "abilityNameHash": 747169903,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 9,
+                        "abilityNameHash": 1373429334,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 10,
+                        "abilityNameHash": 3239179157,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 11,
+                        "abilityNameHash": 3241427248,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 12,
+                        "abilityNameHash": 3241427249,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 13,
+                        "abilityNameHash": 3241427250,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 14,
+                        "abilityNameHash": 3243675339,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 15,
+                        "abilityNameHash": 3243675340,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 16,
+                        "abilityNameHash": 4040586277,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 17,
+                        "abilityNameHash": 1462848084,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 18,
+                        "abilityNameHash": 3016122109,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 19,
+                        "abilityNameHash": 502438081,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 20,
+                        "abilityNameHash": 2872972649,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 21,
+                        "abilityNameHash": 2306062007,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 22,
+                        "abilityNameHash": 3105629177,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 23,
+                        "abilityNameHash": 3771526669,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 24,
+                        "abilityNameHash": 100636247,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 25,
+                        "abilityNameHash": 1564404322,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 26,
+                        "abilityNameHash": 497711942,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 27,
+                        "abilityNameHash": 1719214218,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 28,
+                        "abilityNameHash": 127390306,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 29,
+                        "abilityNameHash": 3052628990,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 30,
+                        "abilityNameHash": 1781025156,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 31,
+                        "abilityNameHash": 4021023955,
+                        "abilityOverrideNameHash": 1178079449
+                    }
+                ]
+            }
+        },
+        {
+            "playerUid": 620336771,
+            "avatarGuid": {
+                "low": 428020,
+                "high": 620336771,
+                "unsigned": true
+            },
+            "sceneId": 3,
+            "entityId": 16777430,
+            "avatarAbilityInfo": {},
+            "sceneEntityInfo": {
+                "entityType": 1,
+                "entityId": 16777430,
+                "motionInfo": {
+                    "pos": {},
+                    "rot": {},
+                    "speed": {}
+                },
+                "propList": [
+                    {
+                        "type": 4001,
+                        "propValue": {
+                            "type": 4001,
+                            "ival": {
+                                "low": 80,
+                                "high": 0,
+                                "unsigned": false
+                            },
+                            "val": {
+                                "low": 80,
+                                "high": 0,
+                                "unsigned": false
+                            }
+                        }
+                    }
+                ],
+                "fightPropList": [
+                    {
+                        "propType": 1,
+                        "propValue": 11387.720703125
+                    },
+                    {
+                        "propType": 2,
+                        "propValue": 6303.6494140625
+                    },
+                    {
+                        "propType": 3,
+                        "propValue": 0.05249999836087227
+                    },
+                    {
+                        "propType": 4,
+                        "propValue": 746.2235107421875
+                    },
+                    {
+                        "propType": 5,
+                        "propValue": 342.1199951171875
+                    },
+                    {
+                        "propType": 6,
+                        "propValue": 0.1923000067472458
+                    },
+                    {
+                        "propType": 7,
+                        "propValue": 696.385986328125
+                    },
+                    {
+                        "propType": 8,
+                        "propValue": 120.3699951171875
+                    },
+                    {
+                        "propType": 9,
+                        "propValue": 0.13120000064373016
+                    },
+                    {
+                        "propType": 20,
+                        "propValue": 0.2794000208377838
+                    },
+                    {
+                        "propType": 21
+                    },
+                    {
+                        "propType": 22,
+                        "propValue": 1.728100061416626
+                    },
+                    {
+                        "propType": 23,
+                        "propValue": 2.5584001541137695
+                    },
+                    {
+                        "propType": 26
+                    },
+                    {
+                        "propType": 27
+                    },
+                    {
+                        "propType": 28
+                    },
+                    {
+                        "propType": 29
+                    },
+                    {
+                        "propType": 30
+                    },
+                    {
+                        "propType": 40
+                    },
+                    {
+                        "propType": 41,
+                        "propValue": 0.4659999907016754
+                    },
+                    {
+                        "propType": 42
+                    },
+                    {
+                        "propType": 43
+                    },
+                    {
+                        "propType": 44
+                    },
+                    {
+                        "propType": 45
+                    },
+                    {
+                        "propType": 46
+                    },
+                    {
+                        "propType": 50
+                    },
+                    {
+                        "propType": 51
+                    },
+                    {
+                        "propType": 52
+                    },
+                    {
+                        "propType": 53
+                    },
+                    {
+                        "propType": 54
+                    },
+                    {
+                        "propType": 55
+                    },
+                    {
+                        "propType": 56
+                    },
+                    {
+                        "propType": 71,
+                        "propValue": 90
+                    },
+                    {
+                        "propType": 2000,
+                        "propValue": 18289.2265625
+                    },
+                    {
+                        "propType": 2001,
+                        "propValue": 1231.84228515625
+                    },
+                    {
+                        "propType": 2002,
+                        "propValue": 908.1217651367188
+                    },
+                    {
+                        "propType": 2003
+                    },
+                    {
+                        "propType": 1010,
+                        "propValue": 16460.3046875
+                    }
+                ],
+                "lifeState": 1,
+                "animatorParaList": [
+                    {}
+                ],
+                "avatar": {
+                    "uid": 620336771,
+                    "avatarId": 10000052,
+                    "guid": {
+                        "low": 428020,
+                        "high": 620336771,
+                        "unsigned": true
+                    },
+                    "peerId": 1,
+                    "equipIdList": [
+                        94543,
+                        94523,
+                        94553,
+                        77514,
+                        94533,
+                        13415
+                    ],
+                    "skillDepotId": 5201,
+                    "weapon": {
+                        "entityId": 100663511,
+                        "gadgetId": 50013415,
+                        "itemId": 13415,
+                        "guid": {
+                            "low": 429830,
+                            "high": 620336771,
+                            "unsigned": true
+                        },
+                        "level": 80,
+                        "promoteLevel": 5,
+                        "abilityInfo": {},
+                        "affixMap": {
+                            "113415": 0
+                        }
+                    },
+                    "reliquaryList": [
+                        {
+                            "itemId": 94543,
+                            "guid": {
+                                "low": 445212,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 94523,
+                            "guid": {
+                                "low": 444057,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 94553,
+                            "guid": {
+                                "low": 441273,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 77514,
+                            "guid": {
+                                "low": 354256,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 94533,
+                            "guid": {
+                                "low": 439740,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        }
+                    ],
+                    "inherentProudSkillList": [
+                        522101,
+                        522201,
+                        522301,
+                        522501
+                    ],
+                    "skillLevelMap": {
+                        "10521": 3,
+                        "10522": 6,
+                        "10525": 8
+                    },
+                    "proudSkillExtraLevelMap": {
+                        "5231": 1
+                    },
+                    "wearingFlycloakId": 140001,
+                    "bornTime": 1631388201,
+                    "excelInfo": {
+                        "prefabPathHash": {
+                            "low": -2078331469,
+                            "high": 154,
+                            "unsigned": true
+                        },
+                        "prefabPathRemoteHash": {
+                            "low": 1116714356,
+                            "high": 118,
+                            "unsigned": true
+                        },
+                        "controllerPathHash": {
+                            "low": 701070043,
+                            "high": 215,
+                            "unsigned": true
+                        },
+                        "controllerPathRemoteHash": {
+                            "low": 932892543,
+                            "high": 60,
+                            "unsigned": true
+                        },
+                        "combatConfigHash": {
+                            "low": 1044450984,
+                            "high": 253,
+                            "unsigned": true
+                        }
+                    }
+                },
+                "entityClientData": {},
+                "entityAuthorityInfo": {
+                    "abilityInfo": {},
+                    "rendererChangedInfo": {},
+                    "aiInfo": {
+                        "isAiOpen": true,
+                        "bornPos": {}
+                    },
+                    "bornPos": {}
+                }
+            },
+            "weaponGuid": {
+                "low": 429830,
+                "high": 620336771,
+                "unsigned": true
+            },
+            "weaponEntityId": 100663511,
+            "weaponAbilityInfo": {},
+            "abilityControlBlock": {
+                "abilityEmbryoList": [
+                    {
+                        "abilityId": 6,
+                        "abilityNameHash": 3615654516,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 7,
+                        "abilityNameHash": 3822074956,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 8,
+                        "abilityNameHash": 2337815395,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 9,
+                        "abilityNameHash": 3402617160,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 10,
+                        "abilityNameHash": 2483967753,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 11,
+                        "abilityNameHash": 3150635223,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 12,
+                        "abilityNameHash": 3995491792,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 13,
+                        "abilityNameHash": 2306062007,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 14,
+                        "abilityNameHash": 3105629177,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 15,
+                        "abilityNameHash": 3771526669,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 16,
+                        "abilityNameHash": 100636247,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 17,
+                        "abilityNameHash": 1564404322,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 18,
+                        "abilityNameHash": 497711942,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 19,
+                        "abilityNameHash": 1150936224,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 20,
+                        "abilityNameHash": 127390306,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 21,
+                        "abilityNameHash": 2433777281,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 22,
+                        "abilityNameHash": 265136204,
+                        "abilityOverrideNameHash": 1178079449
+                    }
+                ]
+            }
+        },
+        {
+            "playerUid": 620336771,
+            "avatarGuid": {
+                "low": 237803,
+                "high": 620336771,
+                "unsigned": true
+            },
+            "sceneId": 3,
+            "entityId": 16777432,
+            "avatarAbilityInfo": {},
+            "sceneEntityInfo": {
+                "entityType": 1,
+                "entityId": 16777432,
+                "motionInfo": {
+                    "pos": {},
+                    "rot": {},
+                    "speed": {}
+                },
+                "propList": [
+                    {
+                        "type": 4001,
+                        "propValue": {
+                            "type": 4001,
+                            "ival": {
+                                "low": 70,
+                                "high": 0,
+                                "unsigned": false
+                            },
+                            "val": {
+                                "low": 70,
+                                "high": 0,
+                                "unsigned": false
+                            }
+                        }
+                    }
+                ],
+                "fightPropList": [
+                    {
+                        "propType": 1,
+                        "propValue": 11243.2080078125
+                    },
+                    {
+                        "propType": 2,
+                        "propValue": 5945.1396484375
+                    },
+                    {
+                        "propType": 3,
+                        "propValue": 2.0653371810913086
+                    },
+                    {
+                        "propType": 4,
+                        "propValue": 506.591064453125
+                    },
+                    {
+                        "propType": 5,
+                        "propValue": 349.1300048828125
+                    },
+                    {
+                        "propType": 6,
+                        "propValue": 0.2856000065803528
+                    },
+                    {
+                        "propType": 7,
+                        "propValue": 564.4993896484375
+                    },
+                    {
+                        "propType": 8,
+                        "propValue": 79.6300048828125
+                    },
+                    {
+                        "propType": 9,
+                        "propValue": 0.10490000247955322
+                    },
+                    {
+                        "propType": 20,
+                        "propValue": 0.2289000004529953
+                    },
+                    {
+                        "propType": 21
+                    },
+                    {
+                        "propType": 22,
+                        "propValue": 0.9429000020027161
+                    },
+                    {
+                        "propType": 23,
+                        "propValue": 1.152899980545044
+                    },
+                    {
+                        "propType": 26
+                    },
+                    {
+                        "propType": 27
+                    },
+                    {
+                        "propType": 28
+                    },
+                    {
+                        "propType": 29
+                    },
+                    {
+                        "propType": 30
+                    },
+                    {
+                        "propType": 40
+                    },
+                    {
+                        "propType": 41
+                    },
+                    {
+                        "propType": 42
+                    },
+                    {
+                        "propType": 43
+                    },
+                    {
+                        "propType": 44
+                    },
+                    {
+                        "propType": 45,
+                        "propValue": 0.14399999380111694
+                    },
+                    {
+                        "propType": 46
+                    },
+                    {
+                        "propType": 50
+                    },
+                    {
+                        "propType": 51
+                    },
+                    {
+                        "propType": 52
+                    },
+                    {
+                        "propType": 53
+                    },
+                    {
+                        "propType": 54
+                    },
+                    {
+                        "propType": 55
+                    },
+                    {
+                        "propType": 56
+                    },
+                    {
+                        "propType": 76,
+                        "propValue": 40
+                    },
+                    {
+                        "propType": 2000,
+                        "propValue": 40409.36328125
+                    },
+                    {
+                        "propType": 2001,
+                        "propValue": 1000.4034423828125
+                    },
+                    {
+                        "propType": 2002,
+                        "propValue": 703.3453979492188
+                    },
+                    {
+                        "propType": 2003
+                    },
+                    {
+                        "propType": 1010,
+                        "propValue": 27865.51953125
+                    }
+                ],
+                "lifeState": 1,
+                "animatorParaList": [
+                    {}
+                ],
+                "avatar": {
+                    "uid": 620336771,
+                    "avatarId": 10000030,
+                    "guid": {
+                        "low": 237803,
+                        "high": 620336771,
+                        "unsigned": true
+                    },
+                    "peerId": 1,
+                    "equipIdList": [
+                        88543,
+                        91523,
+                        91553,
+                        91513,
+                        91433,
+                        13303
+                    ],
+                    "skillDepotId": 3001,
+                    "weapon": {
+                        "entityId": 100663513,
+                        "gadgetId": 50013303,
+                        "itemId": 13303,
+                        "guid": {
+                            "low": 44569,
+                            "high": 620336771,
+                            "unsigned": true
+                        },
+                        "level": 80,
+                        "promoteLevel": 5,
+                        "abilityInfo": {},
+                        "affixMap": {
+                            "113303": 4
+                        }
+                    },
+                    "reliquaryList": [
+                        {
+                            "itemId": 88543,
+                            "guid": {
+                                "low": 95509,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 91523,
+                            "guid": {
+                                "low": 239975,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 91553,
+                            "guid": {
+                                "low": 336407,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 91513,
+                            "guid": {
+                                "low": 304073,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 21
+                        },
+                        {
+                            "itemId": 91433,
+                            "guid": {
+                                "low": 358333,
+                                "high": 620336771,
+                                "unsigned": true
+                            },
+                            "level": 17
+                        }
+                    ],
+                    "inherentProudSkillList": [
+                        302101,
+                        302201,
+                        302301
+                    ],
+                    "skillLevelMap": {
+                        "10301": 2,
+                        "10302": 6,
+                        "10303": 6
+                    },
+                    "proudSkillExtraLevelMap": {
+                        "3031": 1
+                    },
+                    "wearingFlycloakId": 140005,
+                    "bornTime": 1620699348,
+                    "excelInfo": {
+                        "prefabPathHash": {
+                            "low": -238751940,
+                            "high": 142,
+                            "unsigned": true
+                        },
+                        "prefabPathRemoteHash": {
+                            "low": -46435818,
+                            "high": 234,
+                            "unsigned": true
+                        },
+                        "controllerPathHash": {
+                            "low": -1683268110,
+                            "high": 151,
+                            "unsigned": true
+                        },
+                        "controllerPathRemoteHash": {
+                            "low": 1666636965,
+                            "high": 237,
+                            "unsigned": true
+                        },
+                        "combatConfigHash": {
+                            "low": -1820171094,
+                            "high": 147,
+                            "unsigned": true
+                        }
+                    }
+                },
+                "entityClientData": {},
+                "entityAuthorityInfo": {
+                    "abilityInfo": {},
+                    "rendererChangedInfo": {},
+                    "aiInfo": {
+                        "isAiOpen": true,
+                        "bornPos": {}
+                    },
+                    "bornPos": {}
+                }
+            },
+            "weaponGuid": {
+                "low": 44569,
+                "high": 620336771,
+                "unsigned": true
+            },
+            "weaponEntityId": 100663513,
+            "weaponAbilityInfo": {},
+            "abilityControlBlock": {
+                "abilityEmbryoList": [
+                    {
+                        "abilityId": 5,
+                        "abilityNameHash": 1529187430,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 6,
+                        "abilityNameHash": 440915193,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 7,
+                        "abilityNameHash": 664835149,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 8,
+                        "abilityNameHash": 3086456309,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 9,
+                        "abilityNameHash": 413798022,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 10,
+                        "abilityNameHash": 1122239457,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 11,
+                        "abilityNameHash": 487661916,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 12,
+                        "abilityNameHash": 1358503499,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 13,
+                        "abilityNameHash": 981208402,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 14,
+                        "abilityNameHash": 2306062007,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 15,
+                        "abilityNameHash": 3105629177,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 16,
+                        "abilityNameHash": 3771526669,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 17,
+                        "abilityNameHash": 100636247,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 18,
+                        "abilityNameHash": 1564404322,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 19,
+                        "abilityNameHash": 497711942,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 20,
+                        "abilityNameHash": 127390306,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 21,
+                        "abilityNameHash": 2682057395,
+                        "abilityOverrideNameHash": 1178079449
+                    },
+                    {
+                        "abilityId": 22,
+                        "abilityNameHash": 4137789196,
+                        "abilityOverrideNameHash": 1178079449
+                    }
+                ]
+            },
+            "isPlayerCurAvatar": true
+        }
+    ]
+}
+
 
 var AddFriendNotify= { 
     "targetUid": 1337,
@@ -15900,11 +16215,7 @@ var PlayerStoreNotify = {
 
 var PlayerEnterSceneNotify1 = {
     "sceneId": 3,
-    "pos": {
-        "X": 1705.0152587890625,
-        "Y": 210.002685546875,
-        "Z": -2646.8212890625
-    },
+    "pos": posScene,
     "sceneBeginTime": "1634238866027",
     "type": 1,
     "targetUid": 1337,
@@ -17853,10 +18164,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         
         case "SetUpAvatarTeamReq":
             // need to replace
-            // SceneTeamUpdateNotify
-            // SceneEntityAppearNotify
-            // PlayerEnterSceneInfoNotify
-            // AvatarDataNotify - avatarTeamMap, curAvatarTeamId, chooseAvatarGuid
+            // AvatarDataNotify - avatarTeamMap, curAvatarTeamId, chooseAvatarGuid ... if needed
 
             /*
 
@@ -17869,12 +18177,12 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             {
                 "avatarTeamMap": {
                     "1": {
-                    "avatarGuidList": [
-                        "3544845098770497922",
-                        "3544845098770511634",
-                        "3544845098770512321",
-                        "3544845098770498035"
-                    ]
+                        "avatarGuidList": [
+                            "3544845098770497922",
+                            "3544845098770511634",
+                            "3544845098770512321",
+                            "3544845098770498035"
+                        ]
                     }
                 }
             }
@@ -17882,9 +18190,43 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             and SceneTeamUpdateNotify updates
             * generate SceneTeamUpdateNotify is really needed
 
+            // SceneTeamUpdateNotify
+            // SceneEntityAppearNotify // 현재 아바타 정보를 보여주는놈
+            // PlayerEnterSceneInfoNotify
+
             SetUpAvatarTeamRsp responses same as protobuff
 
             */
+
+            const AvatarTeamUpdateNotify = {
+                avatarTeamMap: {
+                }
+            }
+
+            AvatarTeamUpdateNotify.avatarTeamMap[protobuff.teamId.toString()] = {
+                "avatarGuidList": protobuff.avatarGuidList
+            }
+
+            AvatarDataNotify.avatarTeamMap[protobuff.teamId.toString()] = {
+                "avatarGuidList": protobuff.avatarGuidList
+            }
+            AvatarDataNotify.chooseAvatarGuid = protobuff.curAvatarGuid
+            
+            sendPacketAsyncByName(kcpobj, "AvatarTeamUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarTeamUpdateNotify, dataUtil.getPacketIDByProtoName("AvatarTeamUpdateNotify")));
+
+
+
+
+
+            const SetUpAvatarTeamRsp = {
+                teamId: protobuff.teamId,
+                avatarTeamGuidList: protobuff.avatarTeamGuidList,
+                curAvatarGuid: protobuff.curAvatarGuid
+            }
+
+            sendPacketAsyncByName(kcpobj, "SetUpAvatarTeamRsp", keyBuffer, await dataUtil.objToProtobuffer(SetUpAvatarTeamRsp, dataUtil.getPacketIDByProtoName("SetUpAvatarTeamRsp")));
+
+            break;
 
 
         case "GetGachaInfoReq":
