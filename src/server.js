@@ -37,6 +37,121 @@ posScene = {
     "Z": -673.01
 }
 
+
+const AddFriendNotify= { 
+    "targetUid": 83000,
+    "targetFriendBrief": {
+    "uid": 83000,
+    "nickname": "Console",
+    "level": 100,
+    "worldLevel": 8,
+    "signature": "Console Command",
+    "onlineState": 1,
+    "isMpModeAvailable": true,
+    "nameCardId": 210070,
+    "showAvatarInfoList": [
+    {"avatarId": 10000033,"level": 85},
+    {"avatarId": 10000032,"level": 83},
+    {"avatarId": 10000016,"level": 80},
+    {"avatarId": 10000030,"level": 60},
+    {"avatarId": 10000041,"level": 80},
+    {"avatarId": 10000042,"level": 70},
+    {"avatarId": 10000051,"level": 90},
+    {"avatarId": 10000006,"level": 71}]}}
+
+const PlayerEnterSceneInfoNotify = {
+    curAvatarEntityId: 16777677,
+    avatarEnterInfo: [{
+        avatarGuid: 3544845098770497537,
+        avatarEntityId: 16777677,
+        avatarAbilityInfo: {},
+        weaponGuid: 3544845098770512337,
+        weaponEntityId: 100663758,
+        weaponAbilityInfo: {},
+    }],
+    teamEnterInfo: {
+        teamEntityId: 150995686,
+        teamAbilityInfo: {},
+        abilityControlBlock: {}
+    },
+    mpLevelEntityInfo: {
+        entityId: 184550127,
+        authorityPeerId: 1,
+        abilityInfo: {}
+    },
+    enterSceneToken: 3495
+}
+
+const SceneEntityAppearNotify = {
+    entityList:[
+        {
+            entityType: 1,
+            entityId: 16777677,
+            // name: "여행자",
+            motionInfo: {
+                pos: posScene,
+                rot: {
+                    x: 0.0,
+                    y: 0.0,
+                    z: 0.0,
+                },
+                speed: {
+                    x: 0.0,
+                    y: 0.0,
+                    z: 0.0,
+                }
+            },
+            propList: [
+                {
+                    "type":4001,
+                    "propValue":{"type":4001,"ival":90,"val":90}
+                }
+            ],
+            fightPropList: [
+                {"propType":1,"propValue":5162.9599609375},
+                {"propType":2,"propValue":530.3800048828125},
+                {"propType":3,"propValue":0.08399999886751175},
+                {"propType":4,"propValue":102.85320281982422},
+                {"propType":5,"propValue":67.47000122070312},
+                {"propType":6,"propValue":0.40400001406669617},
+                {"propType":7,"propValue":321.1906433105469},
+                {"propType":8,"propValue":10},
+                {"propType":9,"propValue":0.043699998408555984},
+                {"propType":20,"propValue":0.10359999537467957},
+                {"propType":21},{"propType":22,"propValue":0.5465999841690063},
+                {"propType":23,"propValue":1.0700000524520874},
+                {"propType":26},{"propType":27},{"propType":28},{"propType":29},{"propType":30},{"propType":40},{"propType":41},{"propType":42},{"propType":43},{"propType":44},{"propType":45},{"propType":46},{"propType":50},{"propType":51},{"propType":52},{"propType":53},{"propType":54},{"propType":55},{"propType":56},{"propType":70,"propValue":60},{"propType":2000,"propValue":6127.0283203125},{"propType":2001,"propValue":211.8759002685547},{"propType":2002,"propValue":345.2266540527344},{"propType":2003},{"propType":1000,"propValue":1.0700000524520874},{"propType":1010,"propValue":6127.0283203125}
+            ],
+            lifeState: 1,
+            animatorParaList: [],
+
+            avatar: mySceneAvatarInfo,
+            
+            entityClientData:{},
+            entityAuthorityInfo: {
+                abilityInfo: {},
+                rendererChangedInfo: {},
+                aiInfo: {
+                    isAiOpen: true,
+                    bornPos: {
+                        x: 0.0,
+                        y: 0.0,
+                        z: 0.0,
+                    },
+                    skillCdMap: {},
+                    servantInfo: null,
+                    aiThreatMap: {},
+                    skillGroupCdMap: {},
+                    curTactic: 0
+                },
+                bornPos: {},
+                poseParaList: [],
+            },
+        }
+    ],
+    appearType:12,
+}
+
 const PlayerStoreNotify = {
     "storeType": 1,
     "itemList": [
@@ -64,18 +179,17 @@ const PlayerEnterSceneNotify1 = {
     "sceneBeginTime":epochTime-100,
     "type":1,
     "targetUid":83000,
-    "worldLevel":3,
     "enterSceneToken":3495,
+    "isFirstLoginEnterScene": true,
     "sceneTagIdList":[
         102,
         107,
         113,
         117
     ],
-    "isFirstLoginEnterScene": true,
     "enterReason":1,
-    "worldType": 1,
-    "sceneTransaction": "3-1337-1634238866-5602"
+    "worldType": 0,
+    "sceneTransaction": ""
 
 }
 
@@ -87,53 +201,28 @@ var myAvatarInfo = {
     "propMap": {
         "1001": {
             "type": 1001,
-            "ival": {
-                "low": 975,
-                "high": 0,
-                "unsigned": false
-            },
-            "val": {
-                "low": 975,
-                "high": 0,
-                "unsigned": false
-            }
+            "ival": 1,
+            "val": 1
         },
         "1002": {
             "type": 1002,
-            "ival": {
-                "low": 0,
-                "high": 0,
-                "unsigned": false
-            }
+            "ival": 6,
+            "val": 6
         },
         "1003": {
             "type": 1003,
-            "ival": {
-                "low": 0,
-                "high": 0,
-                "unsigned": false
-            }
+            "ival": 0,
+            "val": 0
         },
         "1004": {
             "type": 1004,
-            "ival": {
-                "low": 0,
-                "high": 0,
-                "unsigned": false
-            }
+            "ival": 0,
+            "val": 0,
         },
         "4001": {
             "type": 4001,
-            "ival": {
-                "low": 7,
-                "high": 0,
-                "unsigned": false
-            },
-            "val": {
-                "low": 7,
-                "high": 0,
-                "unsigned": false
-            }
+            "ival": 90,
+            "val": 90
         }
     },
     "lifeState": 1,
@@ -688,31 +777,18 @@ var myAvatarInfo = {
         ]
     },
     "inherentProudSkillList": [
-        92101,
-        92201
+        72101, 72201
     ],
-    "skillLevelMap": {
-        "10077": 1,
-        "10078": 2,
-        "100555": 1
-    },
+    "skillLevelMap": {10067: 3, 100553: 3, 10068: 3},
     "proudSkillExtraLevelMap": {
-        "932": 3,
-        "939": 3
+        "732": 3,
+        "739": 3
     },
     "avatarType": 1,
     "wearingFlycloakId": 140006,
     "bornTime": 1612730395,
-    "pendingPromoteRewardList": [
-        5
-    ],
-    "excelInfo": {
-        "prefabPathHash": "217316872338",
-        "prefabPathRemoteHash": "681809261527",
-        "controllerPathHash": "664801677487",
-        "controllerPathRemoteHash": "980732318872",
-        "combatConfigHash": "1052021163257"
-    }
+    "pendingPromoteRewardList": [],
+    "excelInfo": {}
 }
 
 var mySceneAvatarInfo = {
@@ -730,18 +806,28 @@ var mySceneAvatarInfo = {
         "itemId":11101,
         "guid":"3544845098770512337",
         "level":1,
-        "abilityInfo":{}
+        "abilityInfo":{},
+        "affixMap": {
+            111406: 0
+        }
     },
 
     reliquaryList: [],
     coreProudSkillLevel: 5,
-    inherentProudSkillList: [],
+    inherentProudSkillList: [72101, 72201],
     skillLevelMap: myAvatarInfo.skillLevelMap,
-    proudSkillExtraLevelMap: { },
+    proudSkillExtraLevelMap: {
+        732: 3,
+        739: 3
+    },
     serverBuffList: [],
     teamResonanceList: [],
     wearingFlycloakId: myAvatarInfo.wearingFlycloakId,
-    bornTime: 1617308968
+    bornTime: 1617308968,
+    costumeId: 0,
+    curVehicleInfo: null,
+    excelInfo: null,
+    animHash: 0,
 }
 
 
@@ -837,18 +923,12 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     }
                 }
 
-                const SceneEntityAppearNotifyw = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
-                SceneEntityAppearNotifyw.entityList[0].AvatarId = CharacterID
-                SceneEntityAppearNotifyw.entityList[0].motionInfo.pos = posScene
-                SceneEntityAppearNotifyw.entityList[0].uid = 83000
-
-                const PlayerEnterSceneInfoNotifyMap = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/PlayerEnterSceneInfoNotify.bin"), dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify"))
-                PlayerEnterSceneInfoNotifyMap.curAvatarEntityId = 16777959;
+                SceneEntityAppearNotify.entityList[0].motionInfo.pos = posScene
     
-                sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotifyMap, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify")));
+                sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotify, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify")));
     
                 // To protobuffer;
-                sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotifyw, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
+                sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")));
             }
 
             break;
@@ -984,45 +1064,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "EnterSceneDoneReq":
 
-            const SceneEntityAppearNotify = {
-                "entityList":[
-                    {
-                        entityId: 16777677,
-                        entityType: 1,
-                        name: "여행자",
-                        motionInfo: {
-                            pos: posScene,
-                            rot: {Y: posScene.Y},
-                            speed: {}
-                        },
-                        propList: [
-                            {
-                                "type":4001,
-                                "propValue":{"type":4001,"ival":40,"val":40}
-                            }
-                        ],
-                        fightPropList: [
-                            {"propType":1,"propValue":5162.9599609375},
-                            {"propType":2,"propValue":530.3800048828125},
-                            {"propType":3,"propValue":0.08399999886751175},
-                            {"propType":4,"propValue":102.85320281982422},
-                            {"propType":5,"propValue":67.47000122070312},
-                            {"propType":6,"propValue":0.40400001406669617},
-                            {"propType":7,"propValue":321.1906433105469},
-                            {"propType":8,"propValue":10},
-                            {"propType":9,"propValue":0.043699998408555984},
-                            {"propType":20,"propValue":0.10359999537467957},
-                            {"propType":21},{"propType":22,"propValue":0.5465999841690063},
-                            {"propType":23,"propValue":1.0700000524520874},
-                            {"propType":26},{"propType":27},{"propType":28},{"propType":29},{"propType":30},{"propType":40},{"propType":41},{"propType":42},{"propType":43},{"propType":44},{"propType":45},{"propType":46},{"propType":50},{"propType":51},{"propType":52},{"propType":53},{"propType":54},{"propType":55},{"propType":56},{"propType":70,"propValue":60},{"propType":2000,"propValue":6127.0283203125},{"propType":2001,"propValue":211.8759002685547},{"propType":2002,"propValue":345.2266540527344},{"propType":2003},{"propType":1000,"propValue":1.0700000524520874},{"propType":1010,"propValue":6127.0283203125}
-                        ],
-                        lifeState: 1,
-                        avatar: myAvatarInfo
-                    }
-                ],
-                "appearType":12,
-            }
-
             // To protobuffer;
             console.log(SceneEntityAppearNotify)
 
@@ -1068,7 +1109,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 "avatarTeamMap":{"1":{"avatarGuidList":[myAvatarInfo.guid]},"2":{},"3":{},"4":{}},
                 "curAvatarTeamId":1,
                 "chooseAvatarGuid":myAvatarInfo.guid,
-                "ownedFlycloakList":[140001,140002]
+                "ownedFlycloakList":[140001,140002,140003,140004,140005,140006,140007,140008,140009,140010]
             }
 
             console.log(AvatarDataNotify)
@@ -1344,7 +1385,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 "achievementList": []
             }
 
-            // View all achievments hack
+            // View all achievements hack
             for (x=0; x<=7; x++)
             {
                 for (Possible = 1; Possible<= 200; Possible++){
@@ -1445,6 +1486,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             console.log(PlayerLoginRsp)
             sendPacketAsyncByName(kcpobj, "PlayerLoginRsp", keyBuffer, await dataUtil.objToProtobuffer(PlayerLoginRsp, dataUtil.getPacketIDByProtoName("PlayerLoginRsp")));
 
+            
+            sendPacketAsyncByName(kcpobj, "AddFriendNotify", keyBuffer, await dataUtil.objToProtobuffer(AddFriendNotify, dataUtil.getPacketIDByProtoName("AddFriendNotify")))
+
+            
             const CodexDataFullNotify = {
                 "typeDataList":[
                     {
@@ -1641,6 +1686,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "birthday":{"month":2,"day":27},
                     "worldLevel":3,
                     "onlineState":1,
+                    "param": 0,
                     "isFriend":true,
                     "isMpModeAvailable":true,
                     "nameCardId":210028,
@@ -1721,15 +1767,23 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetShopReq":
 
-            const GetShopRsp = {
-                shop: {
-                    goodsList: [],
-                    mcoinProductList: [],
-                    cardProductList: [],
-                    shopType: 900,
-                }
-            }
+            console.log(protobuff)
 
+            const GetShopRsp = {
+                "shop": {
+                  "shopType": 900,
+                  "cardProductList": [
+                    {
+                      "productId": "ys_glb_blessofmoon_tier5",
+                      "priceTier": "Tier_5",
+                      "mcoinBase": 300,
+                      "hcoinPerDay": 90,
+                      "days": 30,
+                      "cardProductType": 1
+                    }
+                  ]
+                }
+              }
             // Response
             sendPacketAsyncByName(kcpobj, "GetShopRsp", keyBuffer, await dataUtil.objToProtobuffer(GetShopRsp, dataUtil.getPacketIDByProtoName("GetShopRsp")));
 
@@ -1853,7 +1907,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "WorldPlayerInfoNotify", keyBuffer, data);
 
             //WorldDataNotify
-            const WorldDataNotify = {"worldPropMap":{"1":{"type":1,"ival":3,"val":3},"2":{"type":2,"ival":0,"val":0}}}
+            const WorldDataNotify = {"worldPropMap":{"1":{"type":1,"ival":1,"val":0},"2":{"type":2,"ival":2,"val":0}}}
             sendPacketAsyncByName(kcpobj, "WorldDataNotify", keyBuffer, await dataUtil.objToProtobuffer(WorldDataNotify, dataUtil.getPacketIDByProtoName("WorldDataNotify")));
 
             //WorldOwnerBlossomBriefInfoNotify
@@ -1882,10 +1936,10 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer({ gameTime: 16469, uid: 83000 }, dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify")))
 
             //SceneTimeNotify
-            sendPacketAsyncByName(kcpobj, "SceneTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer({ sceneId: 3 }, dataUtil.getPacketIDByProtoName("SceneTimeNotify")))
+            sendPacketAsyncByName(kcpobj, "SceneTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer({ sceneId: 3, is_paused: false, scene_time: 9000 }, dataUtil.getPacketIDByProtoName("SceneTimeNotify")))
 
             //SceneDataNotify
-            sendPacketAsyncByName(kcpobj, "SceneDataNotify", keyBuffer,  await dataUtil.objToProtobuffer( { levelConfigNameList: [] }, dataUtil.getPacketIDByProtoName("SceneDataNotify")))
+            sendPacketAsyncByName(kcpobj, "SceneDataNotify", keyBuffer,  await dataUtil.objToProtobuffer( { levelConfigNameList: ["Level_BigWorld"] }, dataUtil.getPacketIDByProtoName("SceneDataNotify")))
 
 			//SceneAreaWeatherNotify
             const SceneAreaWeatherNotify = { "weatherAreaId": 1, "climateType": 1 }
@@ -1907,7 +1961,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "abilityInfo":{}
                 }
             }
-            sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify", keyBuffer,  await dataUtil.objToProtobuffer(AvatarEquipChangeNotify, dataUtil.getPacketIDByProtoName("AvatarEquipChangeNotify")))
+            // sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify", keyBuffer,  await dataUtil.objToProtobuffer(AvatarEquipChangeNotify, dataUtil.getPacketIDByProtoName("AvatarEquipChangeNotify")))
 
 
             //HostPlayerNotify
@@ -1917,7 +1971,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             const ScenePlayerInfoNotify = {
                 "playerInfoList": [
                     {
-                        "uid":83000,"peerId":1,
+                        "uid":83000,
+                        "peerId":1,
                         "name":"여행자",
                         "sceneId":3,
                         "onlinePlayerInfo":{
@@ -1937,28 +1992,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "ScenePlayerInfoNotify", keyBuffer, data);
 
             //PlayerEnterSceneInfoNotify
-            const PlayerEnterSceneInfoNotify = {
-                curAvatarEntityId: 16777677,
-                avatarEnterInfo: [{
-                    avatarGuid: 3544845098770497537,
-                    avatarEntityId: 16777677,
-                    avatarAbilityInfo: {},
-                    weaponGuid: 3544845098770512337,
-                    weaponEntityId: 100663758,
-                    weaponAbilityInfo: {}
-                }],
-                teamEnterInfo: {
-                    teamEntityId: 150995686,
-                    teamAbilityInfo: {},
-                    abilityControlBlock: {}
-                },
-                mpLevelEntityInfo: {
-                    entityId: 184550127,
-                    authorityPeerId: 1,
-                    abilityInfo: {}
-                },
-                enterSceneToken: 3495
-            }
+            
             console.log(PlayerEnterSceneInfoNotify)
 
             // To protobuffer
@@ -1983,18 +2017,30 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     avatarGuid: myAvatarInfo.guid,
                     sceneId: 3,
                     entityId: 16777677,
+
                     avatarAbilityInfo: {},
-                    
-                    avatarInfo: myAvatarInfo,
-                    sceneAvatarInfo: mySceneAvatarInfo,
 
                     sceneEntityInfo: {
                         entityType: 1,
                         entityId: 16777677,
                         motionInfo: {
-                            pos: {},
-                            rot: {},
-                            speed: {}
+                            pos: posScene,
+                            rot: {
+                                x: 0.0,
+                                y: 0.0,
+                                z: 0.0,
+                            },
+                            speed: {
+                                x: 0.0,
+                                y: 0.0,
+                                z: 0.0,
+                            },
+                            state: 0,
+                            params: [],
+                            refPos: null,
+                            refId: 0,
+                            sceneTime: 0,
+                            intervalVelocity: 0
                         },
                         propList: [
                             {
@@ -2018,20 +2064,33 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                             {"propType":26},{"propType":27},{"propType":28},{"propType":29},{"propType":30},{"propType":40},{"propType":41},{"propType":42},{"propType":43},{"propType":44},{"propType":45},{"propType":46},{"propType":50},{"propType":51},{"propType":52},{"propType":53},{"propType":54},{"propType":55},{"propType":56},{"propType":70,"propValue":60},{"propType":2000,"propValue":6127.0283203125},{"propType":2001,"propValue":211.8759002685547},{"propType":2002,"propValue":345.2266540527344},{"propType":2003},{"propType":1000,"propValue":1.0700000524520874},{"propType":1010,"propValue":6127.0283203125}
                         ],
                         lifeState: 1,
-                        animatorParaList: [{}],
-                        avatar: { mySceneAvatarInfo },
-                        entityClientData:{},
+                        animatorParaList: [],
+
+                        avatar: myAvatarInfo,
                         
+                        entityClientData:{},
                         entityAuthorityInfo: {
                             abilityInfo: {},
                             rendererChangedInfo: {},
                             aiInfo: {
                                 isAiOpen: true,
-                                bornPos: {}
+                                bornPos: {
+                                    x: 0.0,
+                                    y: 0.0,
+                                    z: 0.0,
+                                },
+                                skillCdMap: {},
+                                servantInfo: null,
+                                aiThreatMap: {},
+                                skillGroupCdMap: {},
+                                curTactic: 0
                             },
-                            bornPos: {}
-                        }
+                            bornPos: {},
+                            poseParaList: [],
+                        },
 
+                        tagList: [],
+                        serverBuffList: [],
                     },
                     
                     weaponGuid: "3544845098770512337",
@@ -2132,9 +2191,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         ]
                     },
                     
-                    isReconnect: false,
-                    isPlayerCurAvatar: true,
-                    isOnScene: false
+                    isPlayerCurAvatar: true
                 }],
             }
 
@@ -2149,7 +2206,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             const PlayerPropNotify = {
                 propMap: { '10020': { type: 10020, ival: 160, val: 160 } }
             }
-            sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerPropNotify, dataUtil.getPacketIDByProtoName("PlayerPropNotify")));
+            // sendPacketAsyncByName(kcpobj, "PlayerPropNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerPropNotify, dataUtil.getPacketIDByProtoName("PlayerPropNotify")));
             
             //SceneInitFinishRsp
             // Response
@@ -2168,7 +2225,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             break;
 
         case "EnterWorldAreaReq":
-            sendPacketAsyncByName(kcpobj, "EnterWorldAreaRsp", keyBuffer,await dataUtil.objToProtobuffer({ areaType: 1, areaId: 1 }, dataUtil.getPacketIDByProtoName("EnterWorldAreaRsp")));
+            sendPacketAsyncByName(kcpobj, "EnterWorldAreaRsp", keyBuffer,await dataUtil.objToProtobuffer({ retcode: 0, areaType: protobuff.areaType, areaId: protobuff.areaId }, dataUtil.getPacketIDByProtoName("EnterWorldAreaRsp")));
 
             break;
 
@@ -2182,7 +2239,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetShopmallDataReq":
 
-            sendPacketAsyncByName(kcpobj, "GetShopmallDataRsp", keyBuffer)
+            sendPacketAsyncByName(kcpobj, "GetShopmallDataRsp", keyBuffer, await dataUtil.objToProtobuffer({ shopTypeList: [ 900, 1052, 902, 1001, 903 ] }, dataUtil.getPacketIDByProtoName("GetShopmallDataRsp")));
+
 
             break;
 
@@ -2215,12 +2273,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "PlayerSetPauseReq": // PlayerSetPauseReq
 
-            const PlayerSetPauseRsp = {
-                retcode: 0
-            }
-            // Response
             // To protobuffer
-            data = await dataUtil.objToProtobuffer(PlayerSetPauseRsp, dataUtil.getPacketIDByProtoName("PlayerSetPauseRsp"));
+            data = await dataUtil.objToProtobuffer({}, dataUtil.getPacketIDByProtoName("PlayerSetPauseRsp"));
             sendPacketAsyncByName(kcpobj, "PlayerSetPauseRsp", keyBuffer, data)
 
             break;
@@ -2351,16 +2405,61 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     break;
 
                 case "spawn":
-                    const SceneEntityAppearNotifyMon = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/SceneEntityAppearNotify.bin"), dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify"))
-                    SceneEntityAppearNotifyMon.entityList[0].motionInfo.pos = posScene
-                    SceneEntityAppearNotifyMon.entityList[0].entityType = 2 // monster is 2
-                    delete SceneEntityAppearNotifyMon.entityList[0].avatar
-                    SceneEntityAppearNotifyMon.entityList[0].entityId = temp_entityid
+                    const SceneEntityAppearNotifyMon = {
+                        entityList: [
+                          {
+                            propList: [],
+                            fightPropList: [],
+                            animatorParaList: [],
+                            entityEnvironmentInfoList: [],
+                            tagList: [],
+                            entityType: 2, // monster is 2
+                            entityId: temp_entityid,
+                            motionInfo: {
+                                pos: posScene,
+                                rot: {
+                                    x: 0.0,
+                                    y: 0.0,
+                                    z: 0.0,
+                                },
+                                speed: {
+                                    x: 0.0,
+                                    y: 0.0,
+                                    z: 0.0,
+                                }
+                            },
+                            lifeState: 1,
+                            entityClientData: {},
+                            
+                            entityAuthorityInfo: {
+                                abilityInfo: {},
+                                rendererChangedInfo: {},
+                                aiInfo: {
+                                    isAiOpen: true,
+                                    bornPos: {
+                                        x: 0.0,
+                                        y: 0.0,
+                                        z: 0.0,
+                                    },
+                                    skillCdMap: {},
+                                    servantInfo: null,
+                                    aiThreatMap: {},
+                                    skillGroupCdMap: {},
+                                    curTactic: 0
+                                },
+                                bornPos: {},
+                                poseParaList: [],
+                            },
+                            monster: {
+                                "monsterId":args[1],
+                                "bornType":1
+                            }
+                          }
+                        ],
+                        appearType: 12
+                      }
+
                     temp_entityid += 1
-                    SceneEntityAppearNotifyMon.entityList[0].monster = {
-                        "monsterId":args[1],
-                        "bornType":1
-                    }
 
                     console.log(SceneEntityAppearNotifyMon)
 
@@ -2414,8 +2513,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetWidgetSlotReq":
 
-            // sendPacketAsyncByName(kcpobj, "GetWidgetSlotRsp", keyBuffer)
-
+            sendPacketAsyncByName(kcpobj, "GetWidgetSlotRsp", keyBuffer, await dataUtil.objToProtobuffer({slotList: [ {}, { tag: 1 } ]}, dataUtil.getPacketIDByProtoName("GetWidgetSlotRsp")))
+                    
             break;
 
         case "GetRegionSearchReq":
@@ -2440,7 +2539,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         
         case "GetChatEmojiCollectionReq": // GetChatEmojiCollectionReq
             
-            // sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer, await dataUtil.objToProtobuffer({}, dataUtil.getPacketIDByProtoName("GetChatEmojiCollectionRsp")));
+            sendPacketAsyncByName(kcpobj, "GetChatEmojiCollectionRsp", keyBuffer, await dataUtil.objToProtobuffer({}, dataUtil.getPacketIDByProtoName("GetChatEmojiCollectionRsp")));
             break;
         
         case "PullRecentChatReq":
@@ -2458,26 +2557,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "GetPlayerFriendListReq":
         case "GetRecentMpPlayerListReq": 
 
-            const AddFriendNotify= { 
-            "targetUid": 83000,
-            "targetFriendBrief": {
-            "uid": 83000,
-            "nickname": "Console",
-            "level": 100,
-            "worldLevel": 8,
-            "signature": "Console Command",
-            "onlineState": 1,
-            "isMpModeAvailable": true,
-            "nameCardId": 210070,
-            "showAvatarInfoList": [
-            {"avatarId": 10000033,"level": 85},
-            {"avatarId": 10000032,"level": 83},
-            {"avatarId": 10000016,"level": 80},
-            {"avatarId": 10000030,"level": 60},
-            {"avatarId": 10000041,"level": 80},
-            {"avatarId": 10000042,"level": 70},
-            {"avatarId": 10000051,"level": 90},
-            {"avatarId": 10000006,"level": 71}]}}
             sendPacketAsyncByName(kcpobj, "AddFriendNotify", keyBuffer, await dataUtil.objToProtobuffer(AddFriendNotify, dataUtil.getPacketIDByProtoName("AddFriendNotify")))
 
             break;
@@ -2495,12 +2574,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
         case "ClientAbilityInitFinishNotify": // ClientAbilityInitFinishNotify
 
             console.log("ClientAbilityInitFinishNotify")
-
-            break;
-
-        case "GetShopReq":
-            //console.log("XD %i", protobuff.shopType)
-            //sendPacketAsyncByName(kcpobj, "GetShopRsp4", keyBuffer);
 
             break;
         
@@ -2643,7 +2716,39 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             data = await dataUtil.objToProtobuffer(DoGachaRsp, dataUtil.getPacketIDByProtoName("DoGachaRsp"));
             sendPacketAsyncByName(kcpobj, "DoGachaRsp", keyBuffer, data)
             break;
-            
+        
+        case "CalcWeaponUpgradeReturnItemsReq":
+            const CalcWeaponUpgradeReturnItemsRsp = {
+                "targetWeaponGuid": protobuff.targetWeaponGuid
+            }
+            sendPacketAsyncByName(kcpobj, "CalcWeaponUpgradeReturnItemsRsp", keyBuffer, await dataUtil.objToProtobuffer(CalcWeaponUpgradeReturnItemsRsp, dataUtil.getPacketIDByProtoName("CalcWeaponUpgradeReturnItemsRsp")));
+            break;
+        
+        case "WeaponUpgradeReq":
+
+            const StoreItemChangeNotify = {
+                storeType: 1,
+                itemList: [
+                    {
+                        itemId: 11502,
+                        guid: protobuff.targetWeaponGuid,
+                        equip: {
+                            weapon: {
+                                level: 20
+                            }
+                        }
+                    }
+                ]                
+            }
+
+            const WeaponUpgradeRsp = {
+                "oldLevel": 1,
+                "curLevel": 2
+            }
+            sendPacketAsyncByName(kcpobj, "WeaponUpgradeRsp", keyBuffer, await dataUtil.objToProtobuffer(WeaponUpgradeRsp, dataUtil.getPacketIDByProtoName("WeaponUpgradeRsp")));
+            break;
+
+
         case "SetPlayerSignatureReq":
 
             // $$$ Console Removed $$$

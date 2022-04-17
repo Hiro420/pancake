@@ -5,7 +5,7 @@ const protobuf = require("protobufjs");
 // Util
 const dataUtil = require("./util/dataUtil");
 
-var protoname = "CalcWeaponUpgradeReturnItemsRsp"
+var protoname = "SceneEntityAppearNotify"
 
 var moreSliced = fs.readFileSync("./bin_old/"+protoname+".bin");
 var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName(protoname));
@@ -14,7 +14,7 @@ var protoName = dataUtil.getProtoNameByPacketID(dataUtil.getPacketIDByProtoName(
 protobuf.load("./proto_old/" + protoName + ".proto", function(err, root) {
     const testMessage = root.lookup(protoName);
     const message = testMessage.decode(moreSliced);
-    console.log(message)
+    console.log(message.entityList[0].propList)
     
 });
 
