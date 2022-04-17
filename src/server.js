@@ -1,5 +1,6 @@
 // File reading
 const fs = require("fs")
+const protobuf = require("protobufjs");
 
 // Util
 const dataUtil = require("../util/dataUtil");
@@ -29,11 +30,13 @@ var token = 0x00000000;
 
 var server = dgram.createSocket("udp4");
 
-posScene = {
+var posScene = {
     "X": 1996.01,
     "Y": 300.01,
     "Z": -673.01
 }
+
+var initialScene = posScene
 
 
 var SceneTeamUpdateNotify = {
@@ -15627,11 +15630,7 @@ var SceneEntityAppearNotify = {
             "entityType": 1,
             "entityId": 16777432,
             "motionInfo": {
-                "pos": {
-                    "X": 1705.0152587890625,
-                    "Y": 210.002685546875,
-                    "Z": -2646.8212890625
-                },
+                "pos": posScene,
                 "rot": {
                     "Y": 38.38740158081055
                 },
@@ -17079,23 +17078,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             for (var x in SceneEntityAppearNotify.entityList) {
                 SceneEntityAppearNotify.entityList[x].entityId = PlayerEnterSceneInfoNotify.curAvatarEntityId;
+                SceneEntityAppearNotify.entityList[x].motionInfo.pos = posScene
 
                 for (var y in SceneTeamUpdateNotify.sceneTeamAvatarList) {
                     if (SceneTeamUpdateNotify.sceneTeamAvatarList[y].avatarGuid == protobuff.guid) {
-                        SceneTeamUpdateNotify.sceneTeamAvatarList[y].sceneEntityInfo.motionInfo = protobuff.movePos;
-                        SceneEntityAppearNotify.entityList.pop();
+                        SceneTeamUpdateNotify.sceneTeamAvatarList[y].sceneEntityInfo.motionInfo.pos = posScene;
                         SceneEntityAppearNotify.entityList.push(SceneTeamUpdateNotify.sceneTeamAvatarList[y].sceneEntityInfo);
+                        
                     }
                 }
             }
 
-            console.log("SceneEntityAppearNotify")
-            console.log(SceneEntityAppearNotify)
-
             // Response
             sendPacketAsyncByName(kcpobj, "SceneEntityAppearNotify", keyBuffer, await dataUtil.objToProtobuffer(SceneEntityAppearNotify, dataUtil.getPacketIDByProtoName("SceneEntityAppearNotify")))
             sendPacketAsyncByName(kcpobj, "ChangeAvatarRsp", keyBuffer, await dataUtil.objToProtobuffer(ChangeAvatarRsp, dataUtil.getPacketIDByProtoName("ChangeAvatarRsp")))
-
+        
             break;
 
         case "GetPlayerBlacklistReq":
@@ -17393,9 +17390,50 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "UnionCmdNotify":
 
-            break;
-        
-        case "CombatInvocationsNotify":
+            for (var x in protobuff.cmdList) {
+                if (protobuff.cmdList[x].messageId == 362)
+                {
+                    // CombatInvocationsNotify
+                    // to get current Pos
+
+                    var combatResult = "Placeholder"
+
+                    protobuf.load("./proto/CombatInvocationsNotify.proto", function(err, root) {
+                        const result = root.lookup("CombatInvocationsNotify").decode(protobuff.cmdList[x].body)
+
+                        try {
+                            if (result.invokeList[0].argumentType == 7 && result.invokeList[0].forwardType == 2) {
+                                combatResult = result.invokeList[0].combatData
+                            }
+                        }
+                        catch (err) {
+
+                        }
+
+                        
+                        if (combatResult != "Placeholder") {
+                            
+                            protobuf.load("./proto/EntityMoveInfo.proto", function(err, root) {
+                                const result = root.lookup("EntityMoveInfo").decode(combatResult)
+                                
+                                try {
+
+                                    if (result.entityId == PlayerEnterSceneInfoNotify.curAvatarEntityId) {
+                                        posScene = result.motionInfo.pos
+                                    }
+
+                                }
+                                catch (err) {
+
+                                }
+                            });
+                        }
+                    });
+
+                }
+                
+            }
+
             break;
         
         case "InteractDailyDungeonInfoNotify":
@@ -17819,6 +17857,34 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             // SceneEntityAppearNotify
             // PlayerEnterSceneInfoNotify
             // AvatarDataNotify - avatarTeamMap, curAvatarTeamId, chooseAvatarGuid
+
+            /*
+
+            SetUpAvatarTeamReq requests:
+            - teamId
+            - avatarTeamGuidList
+            - curAvatarGuid
+
+            AvatarTeamUpdateNotify sends:
+            {
+                "avatarTeamMap": {
+                    "1": {
+                    "avatarGuidList": [
+                        "3544845098770497922",
+                        "3544845098770511634",
+                        "3544845098770512321",
+                        "3544845098770498035"
+                    ]
+                    }
+                }
+            }
+
+            and SceneTeamUpdateNotify updates
+            * generate SceneTeamUpdateNotify is really needed
+
+            SetUpAvatarTeamRsp responses same as protobuff
+
+            */
 
 
         case "GetGachaInfoReq":
