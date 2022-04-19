@@ -16348,6 +16348,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             break;
         case "MarkMapReq":
             // hack: mark map will teleport
+            // Use Zhongli only!
             
             if (!protobuff.op) {
 
@@ -16365,8 +16366,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     }
                 }
 
-                SceneEntityAppearNotify.entityList[0].motionInfo.pos = posScene
-    
+                SceneEntityAppearNotify.entityList[SceneEntityAppearNotify.entityList.length - 1].motionInfo.pos = posScene
+                
                 sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotify, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify")));
     
                 // To protobuffer;
@@ -17740,8 +17741,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "UnionCmdNotify":
 
-            /*
-
             for (var x in protobuff.cmdList) {
                 if (protobuff.cmdList[x].messageId == 362)
                 {
@@ -17785,9 +17784,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 }
                 
             }
-            */
-            // remove all
-            // due to wrong teleport position
 
             break;
         
