@@ -16351,23 +16351,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             
             if (!protobuff.op) {
 
-                var tempPos;
-
                 if (protobuff.mark.name != "") {
-                    tempPos = {
+                    posScene = {
                         "X": protobuff.mark.pos.X,
                         "Y": protobuff.mark.name *= 1,
                         "Z": protobuff.mark.pos.Z
                     }
                 } else {
-                    tempPos = {
+                    posScene = {
                         "X": protobuff.mark.pos.X,
                         "Y": 500,
                         "Z": protobuff.mark.pos.Z
                     }
                 }
 
-                SceneEntityAppearNotify.entityList[0].motionInfo.pos = tempPos
+                SceneEntityAppearNotify.entityList[0].motionInfo.pos = posScene
     
                 sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotify, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify")));
     
@@ -17742,6 +17740,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "UnionCmdNotify":
 
+            /*
+
             for (var x in protobuff.cmdList) {
                 if (protobuff.cmdList[x].messageId == 362)
                 {
@@ -17785,6 +17785,9 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 }
                 
             }
+            */
+            // remove all
+            // due to wrong teleport position
 
             break;
         
