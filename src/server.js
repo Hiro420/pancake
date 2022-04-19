@@ -3702,7 +3702,7 @@ var AvatarDataNotify = {
             }
         },
         {
-            "avatarId": 10000032,
+            "avatarId": 10000065,
             "guid": "2664326143951252776",
             "propMap": {
                 "1001": {
@@ -3738,11 +3738,12 @@ var AvatarDataNotify = {
                 "2664326143951244698"
             ],
             "talentIdList": [
-                321,
-                322,
-                323,
-                324,
-                325
+                651,
+                652,
+                653,
+                654,
+                655,
+                656
             ],
             "fightPropMap": {
                 "1": 12397.404296875,
@@ -3784,7 +3785,7 @@ var AvatarDataNotify = {
                 "2002": 879.7133178710938,
                 "2003": 0
             },
-            "skillDepotId": 3201,
+            "skillDepotId": 6501,
             "fetterInfo": {
                 "expLevel": 10,
                 "rewardedFetterLevelList": [
@@ -4126,18 +4127,25 @@ var AvatarDataNotify = {
                 ]
             },
             "inherentProudSkillList": [
-                322101,
-                322201,
-                322301
+                652101,
+                652201,
+                652301
             ],
             "skillLevelMap": {
-                "10321": 4,
-                "10322": 4,
-                "10323": 9
+                "10651": 4,
+                "10652": 4,
+                "10653": 9,
+                "10654": 9,
+                "10655": 9,
+                "10656": 9,
+                "10657": 9,
+                "10658": 9,
+                "10659": 9
             },
             "proudSkillExtraLevelMap": {
-                "3232": 3,
-                "3239": 3
+                "6531": 3,
+                "6532": 3,
+                "6539": 3
             },
             "avatarType": 1,
             "wearingFlycloakId": 140004,
@@ -6328,7 +6336,7 @@ var AvatarDataNotify = {
             }
         },
         {
-            "avatarId": 10000033,
+            "avatarId": 10000060,
             "guid": "2664326143951372989",
             "propMap": {
                 "1001": {
@@ -6364,7 +6372,12 @@ var AvatarDataNotify = {
                 "2664326143951246184"
             ],
             "talentIdList": [
-                331
+                601,
+                602,
+                603,
+                604,
+                605,
+                606
             ],
             "fightPropMap": {
                 "1": 13103.125,
@@ -6406,7 +6419,7 @@ var AvatarDataNotify = {
                 "2002": 950.3248291015625,
                 "2003": 0
             },
-            "skillDepotId": 3301,
+            "skillDepotId": 6001,
             "fetterInfo": {
                 "expLevel": 10,
                 "rewardedFetterLevelList": [
@@ -6744,17 +6757,24 @@ var AvatarDataNotify = {
                 ]
             },
             "inherentProudSkillList": [
-                332101,
-                332201,
-                332301
+                602101,
+                602201,
+                602301
             ],
             "skillLevelMap": {
-                "10331": 6,
-                "10332": 8,
-                "10333": 8
+                "10601": 6,
+                "10602": 8,
+                "10603": 8,
+                "10604": 8,
+                "10605": 8,
+                "10606": 8,
+                "10607": 8,
+                "10608": 8,
+                "10609": 8,
+                "10610": 8
             },
             "proudSkillExtraLevelMap": {
-                "3331": 1
+                "6031": 1
             },
             "avatarType": 1,
             "wearingFlycloakId": 140006,
@@ -13718,9 +13738,7 @@ var AvatarDataNotify = {
                 "combatConfigHash": "529772651469"
             }
         },
-        {"avatarId":10000060,"guid":"867583397118","propMap":{"1001":{"type":1001,"ival":"0"},"1002":{"type":1002,"ival":"6","val":"6"},"1003":{"type":1003,"ival":"1003","val":"1003"},"1004":{"type":1004,"ival":"100","val":"100"},"4001":{"type":4001,"ival":"90","val":"90"}},"lifeState":1,"equipGuidList":["867583397119"],"fightPropMap":{"1":5705.2490234375,"2":5705.2490234375,"3":0,"4":151.08023071289062,"5":151.08023071289062,"6":0.3840000033378601,"7":346.7430114746094,"8":346.7430114746094,"9":0,"20":0.05000000074505806,"22":0.5,"23":1,"28":0,"75":100,"1001":100,"1002":100,"1003":100,"1004":100,"1005":100,"1006":100,"1010":5705.2490234375,"2000":5705.2490234375,"2001":174.32522583007812,"2002":346.7430114746094,"3004":0,"3005":0,"3016":0,"3018":0,"3019":0,"3021":0,"3024":0},"skillDepotId":6001,"fetterInfo":{"expLevel":1},"skillLevelMap":{"11371":1,"11372":1,"11373":1},"avatarType":1,"wearingFlycloakId":140001,"bornTime":1649775697,},
-        {"avatarId":10000065,"guid":"867583397126","propMap":{"1001":{"type":1001,"ival":"0"},"1002":{"type":1002,"ival":"6","val":"6"},"1003":{"type":1003,"ival":"1003","val":"1003"},"1004":{"type":1004,"ival":"100","val":"100"},"4001":{"type":4001,"ival":"90","val":"90"}},"lifeState":1,"equipGuidList":["867583397127"],"fightPropMap":{"1":5705.2490234375,"2":5705.2490234375,"3":0,"4":151.08023071289062,"5":151.08023071289062,"6":0.3840000033378601,"7":346.7430114746094,"8":346.7430114746094,"9":0,"20":0.05000000074505806,"22":0.5,"23":1,"28":0,"75":100,"1001":100,"1002":100,"1003":100,"1004":100,"1005":100,"1006":100,"1010":5705.2490234375,"2000":5705.2490234375,"2001":174.32522583007812,"2002":346.7430114746094,"3004":0,"3005":0,"3016":0,"3018":0,"3019":0,"3021":0,"3024":0},"skillDepotId":6501,"fetterInfo":{"expLevel":1},"skillLevelMap":{"11371":1,"11372":1,"11373":1},"avatarType":1,"wearingFlycloakId":140001,"bornTime":1649775697,},
-    ],
+   ],
     "avatarTeamMap": {
         "1": {
             "avatarGuidList": [
@@ -14273,7 +14291,7 @@ var SceneTeamUpdateNotify = {
                 ],
                 "avatar": {
                     "uid": 620336771,
-                    "avatarId": 10000033,
+                    "avatarId": 10000060,
                     "guid": {
                         "low": 131773,
                         "high": 620336771,
@@ -14288,9 +14306,14 @@ var SceneTeamUpdateNotify = {
                         90533,
                         15405
                     ],
-                    "skillDepotId": 3301,
+                    "skillDepotId": 6001,
                     "talentIdList": [
-                        331
+                        601,
+                        602,
+                        603,
+                        604,
+                        605,
+                        606
                     ],
                     "weapon": {
                         "entityId": 100663507,
@@ -14356,17 +14379,24 @@ var SceneTeamUpdateNotify = {
                         }
                     ],
                     "inherentProudSkillList": [
-                        332101,
-                        332201,
-                        332301
+                        602101,
+                        602201,
+                        602301
                     ],
                     "skillLevelMap": {
-                        "10331": 6,
-                        "10332": 8,
-                        "10333": 8
+                        "10601": 6,
+                        "10602": 8,
+                        "10603": 8,
+                        "10604": 8,
+                        "10605": 8,
+                        "10606": 8,
+                        "10607": 8,
+                        "10608": 8,
+                        "10609": 8,
+                        "10610": 8
                     },
                     "proudSkillExtraLevelMap": {
-                        "3331": 1
+                        "6031": 1
                     },
                     "wearingFlycloakId": 140006,
                     "bornTime": 1617750142,
@@ -14768,7 +14798,7 @@ var SceneTeamUpdateNotify = {
                 ],
                 "avatar": {
                     "uid": 620336771,
-                    "avatarId": 10000032,
+                    "avatarId": 10000065,
                     "guid": {
                         "low": 11560,
                         "high": 620336771,
@@ -14785,11 +14815,12 @@ var SceneTeamUpdateNotify = {
                     ],
                     "skillDepotId": 3201,
                     "talentIdList": [
-                        321,
-                        322,
-                        323,
-                        324,
-                        325
+                        651,
+                        652,
+                        653,
+                        654,
+                        655,
+                        656
                     ],
                     "weapon": {
                         "entityId": 100663509,
@@ -14860,14 +14891,20 @@ var SceneTeamUpdateNotify = {
                         322301
                     ],
                     "skillLevelMap": {
-                        "10321": 4,
-                        "10322": 4,
-                        "10323": 9
+                        "10651": 4,
+                        "10652": 4,
+                        "10653": 9,
+                        "10654": 9,
+                        "10655": 9,
+                        "10656": 9,
+                        "10657": 9,
+                        "10658": 9,
+                        "10659": 9
                     },
                     "proudSkillExtraLevelMap": {
-                        "3231": 1,
-                        "3232": 3,
-                        "3239": 3
+                        "6531": 3,
+                        "6532": 3,
+                        "6539": 3
                     },
                     "wearingFlycloakId": 140004,
                     "bornTime": 1614097370,
@@ -16314,21 +16351,23 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             
             if (!protobuff.op) {
 
+                var tempPos;
+
                 if (protobuff.mark.name != "") {
-                    posScene = {
+                    tempPos = {
                         "X": protobuff.mark.pos.X,
                         "Y": protobuff.mark.name *= 1,
                         "Z": protobuff.mark.pos.Z
                     }
                 } else {
-                    posScene = {
+                    tempPos = {
                         "X": protobuff.mark.pos.X,
                         "Y": 500,
                         "Z": protobuff.mark.pos.Z
                     }
                 }
 
-                SceneEntityAppearNotify.entityList[0].motionInfo.pos = posScene
+                SceneEntityAppearNotify.entityList[0].motionInfo.pos = tempPos
     
                 sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotify, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify")));
     
@@ -16541,7 +16580,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                 ActivityScheduleInfoNotify.activityScheduleList[Possible] = {
                     "activityId": 5050 + Possible, // 5000 start
                     "isOpen": true,
-                    "scheduleId": 5047001,
+                    "scheduleId": 5078001,
                     "beginTime": 1626822000,
                     "endTime": 1930450800
                 }
@@ -17524,7 +17563,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "activityCoinMap": {},
                     "takenRewardList": [],
                     "activityId": 5050 + Possible,
-                    "scheduleId": 5047001,
+                    "scheduleId": 5078001,
                 }
             }
             // To protobuffer
