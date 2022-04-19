@@ -22,7 +22,7 @@ var temp_entityid = 12345678
 var epochTime = Date.now();
 
 // SceneId
-var sceneIdSelect = 3
+var sceneIdSelect = 4
 
 // i hardcoded this so bad lmao
 var seedKey = undefined; // Hardcoding is no more :crab:
@@ -13812,7 +13812,7 @@ for (var x in sceneGuidList){
             var sceneTeamAvatar = {
                 "playerUid": 620336771,
                 "avatarGuid": AvatarDataNotify.avatarList[y].guid,
-                "sceneId": 3,
+                "sceneId": sceneIdSelect,
                 "entityId": 16777400 + AvatarDataNotify.avatarList[y].avatarId % 100,
                 "avatarAbilityInfo": {},
                 "sceneEntityInfo": {
@@ -14121,7 +14121,7 @@ var SceneTeamUpdateNotify = {
                 "high": 620336771,
                 "unsigned": true
             },
-            "sceneId": 3,
+            "sceneId": sceneIdSelect,
             "entityId": 16777426,
             "avatarAbilityInfo": {},
             "sceneEntityInfo": {
@@ -14628,7 +14628,7 @@ var SceneTeamUpdateNotify = {
                 "high": 620336771,
                 "unsigned": true
             },
-            "sceneId": 3,
+            "sceneId": sceneIdSelect,
             "entityId": 16777428,
             "avatarAbilityInfo": {},
             "sceneEntityInfo": {
@@ -15091,7 +15091,7 @@ var SceneTeamUpdateNotify = {
                 "high": 620336771,
                 "unsigned": true
             },
-            "sceneId": 3,
+            "sceneId": sceneIdSelect,
             "entityId": 16777430,
             "avatarAbilityInfo": {},
             "sceneEntityInfo": {
@@ -15498,7 +15498,7 @@ var SceneTeamUpdateNotify = {
                 "high": 620336771,
                 "unsigned": true
             },
-            "sceneId": 3,
+            "sceneId": sceneIdSelect,
             "entityId": 16777432,
             "avatarAbilityInfo": {},
             "sceneEntityInfo": {
@@ -16253,7 +16253,7 @@ var PlayerStoreNotify = {
 
 
 var PlayerEnterSceneNotify1 = {
-    "sceneId": 3,
+    "sceneId": sceneIdSelect,
     "pos": posScene,
     "sceneBeginTime": "1634238866027",
     "type": 1,
@@ -16524,13 +16524,13 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             var pointId = protobuff.pointId
 			console.log(pointId)
             const UnlockTransPointRsp = {
-                "sceneId": 3,
+                "sceneId": sceneIdSelect,
                 "pointId": parseInt(protobuff.pointId),
             }
 			
 			const ScenePointUnlockNotify = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/ScenePointUnlockNotify.bin"), dataUtil.getPacketIDByProtoName("ScenePointUnlockNotify"))
 			
-			ScenePointUnlockNotify.sceneId = 3
+			ScenePointUnlockNotify.sceneId = sceneIdSelect
 			ScenePointUnlockNotify.pointList = protobuff.pointId
 			
             sendPacketAsyncByName(kcpobj, "ScenePointUnlockNotify", keyBuffer, await dataUtil.objToProtobuffer(ScenePointUnlockNotify, dataUtil.getPacketIDByProtoName("ScenePointUnlockNotify")));
@@ -17615,7 +17615,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "PlayerGameTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer({ gameTime: 16469, uid: 1337 }, dataUtil.getPacketIDByProtoName("PlayerGameTimeNotify")))
 
             //SceneTimeNotify
-            sendPacketAsyncByName(kcpobj, "SceneTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer({ sceneId: 3, is_paused: false, scene_time: 9000 }, dataUtil.getPacketIDByProtoName("SceneTimeNotify")))
+            sendPacketAsyncByName(kcpobj, "SceneTimeNotify", keyBuffer,  await dataUtil.objToProtobuffer({ sceneId: sceneIdSelect, is_paused: false, scene_time: 9000 }, dataUtil.getPacketIDByProtoName("SceneTimeNotify")))
 
             //SceneDataNotify
             sendPacketAsyncByName(kcpobj, "SceneDataNotify", keyBuffer,  await dataUtil.objToProtobuffer( { levelConfigNameList: ["Level_BigWorld"] }, dataUtil.getPacketIDByProtoName("SceneDataNotify")))
@@ -17655,7 +17655,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         "uid":1337,
                         "peerId":1,
                         "name":"여행자",
-                        "sceneId":3,
+                        "sceneId":sceneIdSelect,
                         "onlinePlayerInfo":{
                             "uid":1337,
                             "nickname":"여행자",
@@ -17680,11 +17680,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "PlayerEnterSceneInfoNotify", keyBuffer, await dataUtil.objToProtobuffer(PlayerEnterSceneInfoNotify, dataUtil.getPacketIDByProtoName("PlayerEnterSceneInfoNotify")));
 
             //SyncTeamEntityNotify
-            const SyncTeamEntityNotify = { teamEntityInfoList: [], sceneId: 3 }
+            const SyncTeamEntityNotify = { teamEntityInfoList: [], sceneId: sceneIdSelect }
             sendPacketAsyncByName(kcpobj, "SyncTeamEntityNotify", keyBuffer, await dataUtil.objToProtobuffer(SyncTeamEntityNotify, dataUtil.getPacketIDByProtoName("SyncTeamEntityNotify")));
 
             //SyncScenePlayTeamEntityNotify
-            sendPacketAsyncByName(kcpobj, "SyncScenePlayTeamEntityNotify", keyBuffer, await dataUtil.objToProtobuffer({ entityInfoList: [], sceneId: 3 }, dataUtil.getPacketIDByProtoName("SyncScenePlayTeamEntityNotify")));
+            sendPacketAsyncByName(kcpobj, "SyncScenePlayTeamEntityNotify", keyBuffer, await dataUtil.objToProtobuffer({ entityInfoList: [], sceneId: sceneIdSelect }, dataUtil.getPacketIDByProtoName("SyncScenePlayTeamEntityNotify")));
 
             //ScenePlayBattleInfoListNotify
             sendPacketAsyncByName(kcpobj, "ScenePlayBattleInfoListNotify", keyBuffer, await dataUtil.objToProtobuffer({ battleInfoList: [] }, dataUtil.getPacketIDByProtoName("ScenePlayBattleInfoListNotify")));
@@ -17819,14 +17819,13 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
 
             const GetSceneAreaRsp = {
-                areaIdList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,17,18,19,20,200],
+                areaIdList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,17,18,19,100,101,102,103,200,210,300],
                     cityInfoList: [
-                        { cityId: 1, level: 8 },
-                        { cityId: 2, level: 8 },
-                        { cityId: 3, level: 10 },
-                        { cityId: 4, level: 10 }
+                        { cityId: 1, level: 1 },
+                        { cityId: 2, level: 1 },
+                        { cityId: 3, level: 1 },
                     ],
-                        sceneId: 3
+                        sceneId: sceneIdSelect
             }
             sendPacketAsyncByName(kcpobj, "GetSceneAreaRsp", keyBuffer, await dataUtil.objToProtobuffer(GetSceneAreaRsp, dataUtil.getPacketIDByProtoName("GetSceneAreaRsp")))
 
@@ -17837,7 +17836,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             for (Possible = 0; Possible < 2000; Possible++) {
                 PointList[Possible] = 0 + Possible
             }
-            const GetScenePointRsp = { "unlockedPointList": PointList, "sceneId": 3 }
+            const GetScenePointRsp = { "unlockedPointList": PointList, "sceneId": sceneIdSelect }
 
 			sendPacketAsyncByName(kcpobj, "GetScenePointRsp", keyBuffer, await dataUtil.objToProtobuffer(GetScenePointRsp, dataUtil.getPacketIDByProtoName("GetScenePointRsp")))
             break;
