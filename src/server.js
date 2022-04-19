@@ -22,7 +22,11 @@ var temp_entityid = 12345678
 var epochTime = Date.now();
 
 // SceneId
-var sceneIdSelect = 4
+// 3 BigWorld
+// 4 GAA
+// 5 Enka
+// 6 Chasm
+var sceneIdSelect = 3
 
 // i hardcoded this so bad lmao
 var seedKey = undefined; // Hardcoding is no more :crab:
@@ -3780,6 +3784,20 @@ var AvatarDataNotify = {
                 "56": 0,
                 "70": 60,
                 "1010": 13479.236328125,
+                // dunno kuki Q
+                "1000": 100,
+                "1001": 100,
+                "1002": 100,
+                "1003": 100,
+                "1004": 100,
+                "1005": 100,
+                "1006": 100,
+                "1007": 100,
+                "1008": 100,
+                "1009": 100,
+                
+                
+                
                 "2000": 20391.3515625,
                 "2001": 1756.5390625,
                 "2002": 879.7133178710938,
@@ -4150,13 +4168,7 @@ var AvatarDataNotify = {
             "avatarType": 1,
             "wearingFlycloakId": 140004,
             "bornTime": 1614097370,
-            "excelInfo": {
-                "prefabPathHash": "807961206415",
-                "prefabPathRemoteHash": "1063016155425",
-                "controllerPathHash": "870907393002",
-                "controllerPathRemoteHash": "433618322759",
-                "combatConfigHash": "197456915302"
-            }
+            "excelInfo": {}
         },
         {
             "avatarId": 10000025,
@@ -6413,6 +6425,7 @@ var AvatarDataNotify = {
                 "55": 0,
                 "56": 0,
                 "72": 60,
+                "1002":100,  // Yelan Q
                 "1010": 21250.62890625,
                 "2000": 23611.810546875,
                 "2001": 1909.116943359375,
@@ -6780,11 +6793,6 @@ var AvatarDataNotify = {
             "wearingFlycloakId": 140006,
             "bornTime": 1617750142,
             "excelInfo": {
-                "prefabPathHash": "1052306429333",
-                "prefabPathRemoteHash": "282786678718",
-                "controllerPathHash": "595442243596",
-                "controllerPathRemoteHash": "106433956829",
-                "combatConfigHash": "652347248301"
             }
         },
         {
@@ -16262,9 +16270,14 @@ var PlayerEnterSceneNotify1 = {
     "enterSceneToken": 8427,
     "isFirstLoginEnterScene": false,
     "sceneTagIdList": [
+        102,
+        107,
+        109,
         111,
         112,
+        113,
         116,
+        117,
         118,
         125
     ],
@@ -17354,13 +17367,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             // Response
             sendPacketAsyncByName(kcpobj, "SetNameCardRsp", keyBuffer)
-
-            break;
-			
-        case "UnlockTransPointReq":
-
-            // Response
-            sendPacketAsyncByName(kcpobj, "UnlockTransPointRsp", keyBuffer)
 
             break;
 
