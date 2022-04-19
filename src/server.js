@@ -14336,7 +14336,7 @@ var SceneTeamUpdateNotify = {
                         "promoteLevel": 6,
                         "abilityInfo": {},
                         "affixMap": {
-                            "115405": 1
+                            "115508": 1
                         }
                     },
                     "reliquaryList": [
@@ -16250,7 +16250,7 @@ var PlayerStoreNotify = {
                     "level": 90,
                     "promoteLevel": 6,
                     "affixMap": {
-                        "113416": 0
+                        "115508": 0
                     }
                 }
             }
@@ -16494,12 +16494,12 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             const AvatarEquipChangeNotify2 = {
                 avatarGuid: 867583397107,
                 equipType: 6,
-                itemId: 11201,
+                itemId: 15508,
                 equipGuid: 3544845098770512337,
                 weapon: {
                     "entityId":100663758,
-                    "gadgetId":50011101,
-                    "itemId":11101,
+                    "gadgetId":50015508,
+                    "itemId":15508,
                     "guid":"3544845098770512337",
                     "level":1,
                     "abilityInfo":{}
@@ -16509,7 +16509,7 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             AvatarEquipChangeNotify2.avatarGuid = protobuff.avatarGuid
             AvatarEquipChangeNotify2.equipGuid = protobuff.equipGuid
             AvatarEquipChangeNotify2.weapon.guid = protobuff.equipGuid
-			AvatarEquipChangeNotify2.weapon.itemId = 13416
+			AvatarEquipChangeNotify2.weapon.itemId = 15508 // Aqua fix
             
             sendPacketAsyncByName(kcpobj, "AvatarEquipChangeNotify", keyBuffer, await dataUtil.objToProtobuffer(AvatarEquipChangeNotify2, dataUtil.getPacketIDByProtoName("AvatarEquipChangeNotify")));
 
