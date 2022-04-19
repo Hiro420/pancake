@@ -16243,7 +16243,7 @@ var PlayerStoreNotify = {
     "storeType": 1,
     "itemList": [
         {
-            "itemId": 11510,
+            "itemId": 15508,
             "guid": "1",
             "equip": {
                 "weapon": {
