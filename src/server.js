@@ -14324,9 +14324,9 @@ var SceneTeamUpdateNotify = {
                         606
                     ],
                     "weapon": {
-                        "entityId": 100663507,
-                        "gadgetId": 50015405,
-                        "itemId": 15405,
+                        "entityId": 100663507, 
+                        "gadgetId": 50015508, // Aqua fix
+                        "itemId": 15508, // Aqua fix
                         "guid": {
                             "low": 4968,
                             "high": 620336771,
@@ -16244,7 +16244,7 @@ var PlayerStoreNotify = {
     "itemList": [
         {
             "itemId": 15508,
-            "guid": "1",
+            "guid": "123123123123123",
             "equip": {
                 "weapon": {
                     "level": 90,
