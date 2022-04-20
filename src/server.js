@@ -3782,19 +3782,16 @@ var AvatarDataNotify = {
                 "54": 0,
                 "55": 0,
                 "56": 0,
-                "70": 60,
+                "71": 60, // 71 electro
+                // 70 pyro
+                // 72 hydro
+                // and.. more
                 "1010": 13479.236328125,
-                // dunno kuki Q
-                "1000": 100,
                 "1001": 100,
-                "1002": 100,
-                "1003": 100,
-                "1004": 100,
-                "1005": 100,
-                "1006": 100,
-                "1007": 100,
-                "1008": 100,
-                "1009": 100,
+
+                // 1001 electro
+                // 1000 pyro
+                // 1002 hydro
                 
                 
                 
@@ -3809,340 +3806,6 @@ var AvatarDataNotify = {
                 "rewardedFetterLevelList": [
                     10
                 ],
-                "fetterList": [
-                    {
-                        "fetterId": 20202,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 20201,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 120,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 20027,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20026,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20025,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20024,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20023,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20022,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20021,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20020,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20019,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20018,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20017,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20016,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20403,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20015,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20402,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20208,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 20014,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20401,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20207,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 20013,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20303,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20206,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 20012,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20302,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20205,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 20011,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20301,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20204,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 20010,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20203,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 20009,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20070,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20062,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20046,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20047,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20050,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20048,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20071,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20049,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20072,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20028,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20075,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20029,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20076,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20030,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20077,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20031,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20078,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20032,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20039,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20040,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20041,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20043,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20042,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20038,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20037,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20036,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20035,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20034,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20033,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20045,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20074,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20073,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20044,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20051,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20052,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20053,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20054,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20055,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20063,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20056,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20064,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20057,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20065,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20058,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20066,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20059,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20067,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20060,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 20061,
-                        "fetterState": 3
-                    }
-                ]
             },
             "inherentProudSkillList": [
                 652101,
@@ -6438,336 +6101,6 @@ var AvatarDataNotify = {
                 "rewardedFetterLevelList": [
                     10
                 ],
-                "fetterList": [
-                    {
-                        "fetterId": 23202,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 23201,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 23027,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23026,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23025,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23024,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23023,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23022,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23021,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23020,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23019,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23018,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23017,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23016,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23403,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23015,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23033,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23402,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23208,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 23014,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23032,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23401,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23207,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 121,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 23013,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23031,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23303,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23206,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 23012,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23030,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23034,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23035,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23036,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23037,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23038,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23039,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23040,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23041,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23042,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23043,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23044,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23051,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23052,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23053,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23055,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23077,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23054,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23050,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23049,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23048,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23047,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23046,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23045,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23076,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23029,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23075,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23028,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23074,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23073,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23072,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23071,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23068,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23067,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23066,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23065,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23064,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23063,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23062,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23061,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23060,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23059,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23058,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23302,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23205,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 23011,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23057,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23301,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23204,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 23010,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23056,
-                        "fetterState": 3
-                    },
-                    {
-                        "fetterId": 23203,
-                        "fetterState": 2
-                    },
-                    {
-                        "fetterId": 23009,
-                        "fetterState": 3
-                    }
-                ]
             },
             "inherentProudSkillList": [
                 602101,
@@ -13878,7 +13211,7 @@ for (var x in sceneGuidList){
                 "weaponEntityId": {},
                 "weaponAbilityInfo": {},
                 "abilityControlBlock": {
-                    "abilityEmbryoList": [ // TODOTODO but don't think it is actually needed
+                    "abilityEmbryoList": [ // TODOTODO 
                         {
                             "abilityId": 5,
                             "abilityNameHash": 4117694238,
@@ -14456,176 +13789,81 @@ var SceneTeamUpdateNotify = {
             "weaponAbilityInfo": {},
             "abilityControlBlock": {
                 "abilityEmbryoList": [
-                    {
-                        "abilityId": 5,
-                        "abilityNameHash": 4117694238,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 6,
-                        "abilityNameHash": 534122942,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 7,
-                        "abilityNameHash": 4154503075,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 8,
-                        "abilityNameHash": 4264196532,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 9,
-                        "abilityNameHash": 4264196533,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 10,
-                        "abilityNameHash": 4264196534,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 11,
-                        "abilityNameHash": 4264196535,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 12,
-                        "abilityNameHash": 4264196536,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 13,
-                        "abilityNameHash": 4264196537,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 14,
-                        "abilityNameHash": 865738928,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 15,
-                        "abilityNameHash": 855573040,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 16,
-                        "abilityNameHash": 3745977574,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 17,
-                        "abilityNameHash": 3364230707,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 18,
-                        "abilityNameHash": 266205005,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 19,
-                        "abilityNameHash": 3000802652,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 20,
-                        "abilityNameHash": 341379584,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 21,
-                        "abilityNameHash": 401452267,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 22,
-                        "abilityNameHash": 2594993730,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 23,
-                        "abilityNameHash": 987125845,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 24,
-                        "abilityNameHash": 324439278,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 25,
-                        "abilityNameHash": 3155864749,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 26,
-                        "abilityNameHash": 601123348,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 27,
-                        "abilityNameHash": 2117785286,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 28,
-                        "abilityNameHash": 2551964576,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 29,
-                        "abilityNameHash": 2642792750,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 30,
-                        "abilityNameHash": 2306062007,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 31,
-                        "abilityNameHash": 3105629177,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 32,
-                        "abilityNameHash": 3771526669,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 33,
-                        "abilityNameHash": 100636247,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 34,
-                        "abilityNameHash": 1564404322,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 35,
-                        "abilityNameHash": 497711942,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 36,
-                        "abilityNameHash": 127390306,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 37,
-                        "abilityNameHash": 2314260649,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 38,
-                        "abilityNameHash": 3504552398,
-                        "abilityOverrideNameHash": 1178079449
-                    }
+                    {"abilityId": 7,"abilityNameHash": 3658085500,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 8,"abilityNameHash": 1836719789,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 9,"abilityNameHash": 2104631754,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 10,"abilityNameHash": 1946413246,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 11,"abilityNameHash": 1946413247,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 12,"abilityNameHash": 1946413248,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 13,"abilityNameHash": 1946413249,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 14,"abilityNameHash": 1946413250,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 15,"abilityNameHash": 1946413251,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 16,"abilityNameHash": 637038785,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 17,"abilityNameHash": 3324144316,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 18,"abilityNameHash": 2711105693,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 19,"abilityNameHash": 2801350039,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 20,"abilityNameHash": 753428308,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 21,"abilityNameHash": 2334035326,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 22,"abilityNameHash": 546829896,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 23,"abilityNameHash": 1681692485,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 24,"abilityNameHash": 3355580636,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 25,"abilityNameHash": 2671369911,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 26,"abilityNameHash": 2413837291,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 27,"abilityNameHash": 2877912587,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 28,"abilityNameHash": 939989696,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 29,"abilityNameHash": 1054763148,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 30,"abilityNameHash": 2653227910,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 31,"abilityNameHash": 346042929,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 32,"abilityNameHash": 1298769539,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 33,"abilityNameHash": 3519094889,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 34,"abilityNameHash": 4004055550,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 35,"abilityNameHash": 3961656255,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 36,"abilityNameHash": 3262817007,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 37,"abilityNameHash": 545267007,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 38,"abilityNameHash": 134128075,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 39,"abilityNameHash": 614372848,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 40,"abilityNameHash": 558386046,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 41,"abilityNameHash": 1413923014,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 42,"abilityNameHash": 3955926384,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 43,"abilityNameHash": 2687119937,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 44,"abilityNameHash": 4077213942,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 45,"abilityNameHash": 628675405,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 46,"abilityNameHash": 3986961334,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 47,"abilityNameHash": 2298140808,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 48,"abilityNameHash": 91748655,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 49,"abilityNameHash": 1271629785,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 50,"abilityNameHash": 3165059310,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 51,"abilityNameHash": 3477313570,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 52,"abilityNameHash": 687079705,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 53,"abilityNameHash": 636063530,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 54,"abilityNameHash": 2034864807,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 55,"abilityNameHash": 2943802114,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 56,"abilityNameHash": 339122891,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 57,"abilityNameHash": 279317431,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 58,"abilityNameHash": 16212818,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 59,"abilityNameHash": 2164299053,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 60,"abilityNameHash": 1818191273,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 61,"abilityNameHash": 2554960283,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 62,"abilityNameHash": 756178416,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 63,"abilityNameHash": 3400520400,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 64,"abilityNameHash": 4023053652,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 65,"abilityNameHash": 325009464,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 66,"abilityNameHash": 3692884337,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 67,"abilityNameHash": 1397628936,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 68,"abilityNameHash": 831394429,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 69,"abilityNameHash": 935372625,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 70,"abilityNameHash": 935372626,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 71,"abilityNameHash": 935372627,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 72,"abilityNameHash": 935372628,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 73,"abilityNameHash": 950668105,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 74,"abilityNameHash": 16212816,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 75,"abilityNameHash": 744057765,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 76,"abilityNameHash": 925922765,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 77,"abilityNameHash": 2013119018,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 78,"abilityNameHash": 1753792216,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 79,"abilityNameHash": 4131369254,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 80,"abilityNameHash": 2839806880,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 81,"abilityNameHash": 1368965523,"abilityOverrideNameHash": 1178079449},
                 ]
             }
         },
@@ -14964,131 +14202,25 @@ var SceneTeamUpdateNotify = {
             "weaponAbilityInfo": {},
             "abilityControlBlock": {
                 "abilityEmbryoList": [
-                    {
-                        "abilityId": 7,
-                        "abilityNameHash": 427337349,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 8,
-                        "abilityNameHash": 747169903,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 9,
-                        "abilityNameHash": 1373429334,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 10,
-                        "abilityNameHash": 3239179157,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 11,
-                        "abilityNameHash": 3241427248,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 12,
-                        "abilityNameHash": 3241427249,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 13,
-                        "abilityNameHash": 3241427250,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 14,
-                        "abilityNameHash": 3243675339,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 15,
-                        "abilityNameHash": 3243675340,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 16,
-                        "abilityNameHash": 4040586277,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 17,
-                        "abilityNameHash": 1462848084,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 18,
-                        "abilityNameHash": 3016122109,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 19,
-                        "abilityNameHash": 502438081,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 20,
-                        "abilityNameHash": 2872972649,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 21,
-                        "abilityNameHash": 2306062007,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 22,
-                        "abilityNameHash": 3105629177,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 23,
-                        "abilityNameHash": 3771526669,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 24,
-                        "abilityNameHash": 100636247,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 25,
-                        "abilityNameHash": 1564404322,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 26,
-                        "abilityNameHash": 497711942,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 27,
-                        "abilityNameHash": 1719214218,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 28,
-                        "abilityNameHash": 127390306,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 29,
-                        "abilityNameHash": 3052628990,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 30,
-                        "abilityNameHash": 1781025156,
-                        "abilityOverrideNameHash": 1178079449
-                    },
-                    {
-                        "abilityId": 31,
-                        "abilityNameHash": 4021023955,
-                        "abilityOverrideNameHash": 1178079449
-                    }
+                    {"abilityId": 7,"abilityNameHash": 3025809079,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 8,"abilityNameHash": 1662050655,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 9,"abilityNameHash": 752846185,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 10,"abilityNameHash": 731168062,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 11,"abilityNameHash": 3861734037,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 12,"abilityNameHash": 502324281,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 13,"abilityNameHash": 985936588,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 14,"abilityNameHash": 2705947909,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 15,"abilityNameHash": 3323912088,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 16,"abilityNameHash": 1966215531,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 17,"abilityNameHash": 395993297,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 18,"abilityNameHash": 1865022656,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 19,"abilityNameHash": 173656730,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 20,"abilityNameHash": 4153732733,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 21,"abilityNameHash": 2412439820,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 22,"abilityNameHash": 600896811,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 23,"abilityNameHash": 2514158575,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 24,"abilityNameHash": 3833596208,"abilityOverrideNameHash": 1178079449},
+{"abilityId": 25,"abilityNameHash": 1993374714,"abilityOverrideNameHash": 1178079449},
                 ]
             }
         },
@@ -16923,6 +16055,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "2500": 1,
                     "2403": 1,
                     "2501": 1,
+                    "1300": 1,
+                    "1301": 1,
                 }
             }
 			sendPacketAsyncByName(kcpobj, "OpenStateUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(OpenStateUpdateNotify,
@@ -17160,39 +16294,23 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
             // Response
             const PlayerLoginRsp = {
-                "retcode": 0,
-                "playerData": [],
-                "isNewPlayer": false,
-                "targetUid": 1337,
-                "loginRand": 0,
-                "isUseAbilityHash": false,
-                "abilityHashCode": 0,
-                "abilityHashMap": {},
-                "clientDataVersion": 0,
-                "isRelogin": false,
-                "clientSilenceDataVersion": 0,
-                "gameBiz": "",
-                "playerDataVersion": 0,
+                "isUseAbilityHash": true,
+                "abilityHashCode": 1844674,
+                "gameBiz": "hk4e_global",
+                "clientDataVersion": null,
+                "clientSilenceDataVersion": null,
+                
                 "clientMd5": "",
                 "clientSilenceMd5": "",
-                "resVersionConfig": null,
-                "blockInfoMap": {},
+
+                "resVersionConfig": "",
+
                 "clientVersionSuffix": "",
                 "clientSilenceVersionSuffix": "",
-                "shortAbilityHashMap": [],
-                "scInfo": [],
-                "isAudit": false,
+
                 "isScOpen": false,
-                "registerCps": "",
-                "featureBlockInfoList": [],
-                "isDataNeedRelogin": false,
-                "countryCode": "",
-                "nextResVersionConfig": null,
-                "nextResourceUrl": "",
-                "targetHomeOwnerUid": 1337,
-                "isEnableClientHashDebug": false,
-                "isTransfer": false,
-                "totalTickTime": 0.0
+                "registerCps": "mihoyo",
+                "countryCode": "US",
             }
 
             // To protobuffer
