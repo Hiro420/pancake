@@ -6108,16 +6108,16 @@ var AvatarDataNotify = {
                 602301
             ],
             "skillLevelMap": {
-                "10601": 6,
-                "10602": 8,
-                "10603": 8,
-                "10604": 8,
-                "10605": 8,
-                "10606": 8,
-                "10607": 8,
-                "10608": 8,
-                "10609": 8,
-                "10610": 8
+                "10601": 10,
+                "10602": 10,
+                "10603": 10,
+                "10604": 10,
+                "10605": 10,
+                "10606": 10,
+                "10607": 10,
+                "10608": 10,
+                "10609": 10,
+                "10610": 10
             },
             "proudSkillExtraLevelMap": {
                 "6031": 1
@@ -7972,6 +7972,7 @@ var AvatarDataNotify = {
                 "55": 0,
                 "56": 0,
                 "76": 40,
+                "1006": 100,
                 "1010": 27865.51953125,
                 "2000": 40409.36328125,
                 "2001": 1000.4034423828125,
@@ -11397,6 +11398,7 @@ var AvatarDataNotify = {
                 "55": 0,
                 "56": 0,
                 "71": 90,
+                "1001": 100,
                 "1010": 16460.3046875,
                 "2000": 18289.2265625,
                 "2001": 1231.84228515625,
@@ -15783,8 +15785,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     },
                     "10013": {
                         "type": 10013,
-                        "ival": "56",
-                        "val": "56"
+                        "ival": "60",
+                        "val": "60"
                     },
                     "10014": {
                         "type": 10014,
@@ -15793,13 +15795,13 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     },
                     "10015": {
                         "type": 10015,
-                        "ival": "148",
-                        "val": "148"
+                        "ival": "114514",  // Primogem
+                        "val": "114514"
                     },
                     "10016": {
                         "type": 10016,
-                        "ival": "34851",
-                        "val": "34851"
+                        "ival": "83000",  // Mora
+                        "val": "83000"
                     },
                     "10017": {
                         "type": 10017,
@@ -15813,8 +15815,8 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     },
                     "10020": {
                         "type": 10020,
-                        "ival": "75",
-                        "val": "75"
+                        "ival": "9998",  // Resin
+                        "val": "9998"
                     },
                     "10022": {
                         "type": 10022,
@@ -15825,8 +15827,9 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         "ival": "0"
                     },
                     "10025": {
-                        "type": 10025,
-                        "ival": "0"
+                        "type": 10025,  // Genesis Crystal
+                        "ival": "114514",
+                        "val": "114514",
                     },
                     "10026": {
                         "type": 10026,
@@ -16014,8 +16017,6 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                     "1200": 1,
                     "1201": 1,
                     "1202": 1,
-                    "1300": 1,
-                    "1301": 1,
                     "55": 1,
                     "1401": 1,
                     "1402": 1,
@@ -16061,6 +16062,36 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             }
 			sendPacketAsyncByName(kcpobj, "OpenStateUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(OpenStateUpdateNotify,
             await dataUtil.getPacketIDByProtoName("OpenStateUpdateNotify")));
+
+            // BattlePassAllDataNotify
+
+            const BattlePassAllDataNotify = {
+                haveCurSchedule: true,
+                curSchedule: {
+                    scheduleId: 2700, // 2.7 -> 2700 , 2.6 -> 2600
+                    level: 50,
+                    point: 0,
+                    unlockStatus: 2,
+                    rewardTakenList: [],
+                    beginTime: 0,
+                    endTime: 4294967295,
+                    curCycle: {},
+
+                    productInfo: {
+                        normalProductId: "ys_glb_bp_normal_tier10",
+                        extraProductId: "ys_glb_bp_extra_tier20",
+                        upgradeProductId: "ys_glb_bp_upgrade_tier12",
+                    },
+
+                    isViewed: true,
+                    curCyclePoints: 0
+                },
+                missionList: []
+            }
+
+            sendPacketAsyncByName(kcpobj, "BattlePassAllDataNotify", keyBuffer, await dataUtil.objToProtobuffer(BattlePassAllDataNotify, getPacketIDByProtoName("BattlePassAllDataNotify")));
+ 
+
 
             // AchievementAllDataNotify
             
@@ -17004,6 +17035,21 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                             reply = "Usage: inv (add) (w/m) (id) (level/count)"
                             break;
                         }
+
+                        const ItemAddHintNotify = {
+                            "itemList": [{
+                                "itemId": parseInt(args[2]),
+                                "count": parseInt(args[4])
+                            }],
+                            "reason": 37
+                        }
+                        if (args[3] == "w") {
+                            ItemAddHintNotify.itemList[0].count = 1
+                        }
+                        data = await dataUtil.objToProtobuffer(ItemAddHintNotify, dataUtil.getPacketIDByProtoName("ItemAddHintNotify"));
+                        sendPacketAsyncByName(kcpobj, "ItemAddHintNotify", keyBuffer, data)
+
+
                         PlayerStoreNotify.itemList.push(obj);
                         data = await dataUtil.objToProtobuffer(PlayerStoreNotify, dataUtil.getPacketIDByProtoName("PlayerStoreNotify"));
                         sendPacketAsyncByName(kcpobj, "PlayerStoreNotify", keyBuffer, data)
@@ -17061,6 +17107,18 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         reply = "Usage: av ([a]dd/[r]emove/[l]ist) (id)\n\nNOTE: [R]EMOVE IS BY INDEX NOT BY VALUE"
                         break;
                     }
+                    break;
+                
+                case "welkin":
+                    const CardProductRewardNotify = {
+                        "productId": "ys_glb_blessofmoon_tier5",
+                        "hcoin": args[1],
+                        "remainDays": args[2]
+                    }
+                    reply = "Welkin primo: " + args[1] + "  date: " + args[2]
+
+                    sendPacketAsyncByName(kcpobj, "CardProductRewardNotify", keyBuffer, await dataUtil.objToProtobuffer(CardProductRewardNotify, dataUtil.getPacketIDByProtoName("CardProductRewardNotify")))
+                    
                     break;
 
                 case "spawn":
@@ -17394,29 +17452,118 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
         case "GetGachaInfoReq":
             const GetGachaInfoRsp = {
-                gachaInfoList: [
-                    {
-                        gachaUpInfoList: [],
-                        gachaType: 100,
-                        endTime: 4294967295,
-                        costItemId: 224,
-                        costItemNum: 1,
-                        gachaPrefabPath: 'GachaShowPanel_A016',
-                        gachaProbUrl: 'https://webstatic.mihoyo.com/hk4e/event/e20190909gacha/index.html#/newbiegacha',
-                        gachaRecordUrl: 'https://webstatic.mihoyo.com/hk4e/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=100',
-                        gachaPreviewPrefabPath: 'UI_Tab_GachaShowPanel_A016',
-                        tenCostItemId: 224,
-                        tenCostItemNum: 8,
-                        leftGachaTimes: 10,
-                        gachaTimesLimit: 20,
-                        gachaSortId: 9999,
-                        gachaProbUrlOversea: 'https://webstatic-sea.mihoyo.com/hk4e/event/e20190909gacha/index.html#/newbiegacha',
-                        gachaRecordUrlOversea: 'https://webstatic-sea.mihoyo.com/hk4e/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=100'
-                    }
+                "gachaInfoList": [
+                  {
+                    "gachaType": 200,
+                    "scheduleId": 893,
+                    "beginTime": 0,
+                    "endTime": 4294967295,
+                    "costItemId": 224,
+                    "costItemNum": 0,
+                    "gachaPrefabPath": "GachaShowPanel_A022",
+                    "gachaProbUrl": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&gacha_id=cbca8b58edaea048a628aa2ecfe20204f69696&timestamp=1648597701",
+                    "gachaRecordUrl": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=200&gacha_id=cbca8b58edaea048a628aa2ecfe20204f69696&timestamp=1648597701",
+                    "gachaPreviewPrefabPath": "UI_Tab_GachaShowPanel_A022",
+                    "tenCostItemId": 224,
+                    "tenCostItemNum": 0,
+                    "leftGachaTimes": 4294967295,
+                    "gachaTimesLimit": 4294967295,
+                    "gachaSortId": 1000,
+                    "gachaProbUrlOversea": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&gacha_id=cbca8b58edaea048a628aa2ecfe20204f69696&timestamp=1648597701",
+                    "gachaRecordUrlOversea": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=200&gacha_id=cbca8b58edaea048a628aa2ecfe20204f69696&timestamp=1648597701"
+                  },
+                  {
+                    "gachaType": 301,
+                    "scheduleId": 933,
+                    "beginTime": 0,
+                    "endTime": 4294967295,
+                    "costItemId": 223,
+                    "costItemNum": 0,
+                    "gachaPrefabPath": "GachaShowPanel_A079",
+                    "gachaProbUrl": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&gacha_id=eaa07ae07196ca35c36b48213560ab6df7617e&timestamp=1648597988",
+                    "gachaRecordUrl": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=301&gacha_id=eaa07ae07196ca35c36b48213560ab6df7617e&timestamp=1648597988",
+                    "gachaPreviewPrefabPath": "UI_Tab_GachaShowPanel_A079",
+                    "tenCostItemId": 223,
+                    "tenCostItemNum": 0,
+                    "leftGachaTimes": 4294967295,
+                    "gachaTimesLimit": 4294967295,
+                    "gachaSortId": 9998,
+                    "gachaProbUrlOversea": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&gacha_id=eaa07ae07196ca35c36b48213560ab6df7617e&timestamp=1648597988",
+                    "gachaRecordUrlOversea": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=301&gacha_id=eaa07ae07196ca35c36b48213560ab6df7617e&timestamp=1648597988",
+                    "gachaUpInfoList": [
+                      {
+                        "itemParentType": 1,
+                        "itemIdList": [
+                          1002
+                        ]
+                      },
+                      {
+                        "itemParentType": 2,
+                        "itemIdList": [
+                          1020,
+                          1045,
+                          1053
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "gachaType": 302,
+                    "scheduleId": 943,
+                    "beginTime": 0,
+                    "endTime": 4294967295,
+                    "costItemId": 223,
+                    "costItemNum": 0,
+                    "gachaPrefabPath": "GachaShowPanel_A080",
+                    "gachaProbUrl": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&gacha_id=db9eddc6811aa7170b49f251fa5c488e030bd7&timestamp=1648598035",
+                    "gachaRecordUrl": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=302&gacha_id=db9eddc6811aa7170b49f251fa5c488e030bd7&timestamp=1648598035",
+                    "gachaPreviewPrefabPath": "UI_Tab_GachaShowPanel_A080",
+                    "tenCostItemId": 223,
+                    "tenCostItemNum": 0,
+                    "leftGachaTimes": 4294967295,
+                    "gachaTimesLimit": 4294967295,
+                    "gachaSortId": 9996,
+                    "gachaProbUrlOversea": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&gacha_id=db9eddc6811aa7170b49f251fa5c488e030bd7&timestamp=1648598035",
+                    "gachaRecordUrlOversea": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=302&gacha_id=db9eddc6811aa7170b49f251fa5c488e030bd7&timestamp=1648598035",
+                    "gachaUpInfoList": [
+                      {
+                        "itemParentType": 1,
+                        "itemIdList": [
+                          11509,
+                          12504
+                        ]
+                      },
+                      {
+                        "itemParentType": 2,
+                        "itemIdList": [
+                          11401,
+                          12402,
+                          13407,
+                          14401,
+                          15401
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "gachaType": 100,
+                    "endTime": 4294967295,
+                    "costItemId": 224,
+                    "costItemNum": 0,
+                    "gachaPrefabPath": "GachaShowPanel_A016",
+                    "gachaProbUrl": "https://webstatic.mihoyo.com/hk4e/event/e20190909gacha/index.html#/newbiegacha",
+                    "gachaRecordUrl": "https://webstatic.mihoyo.com/hk4e/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=100",
+                    "gachaPreviewPrefabPath": "UI_Tab_GachaShowPanel_A016",
+                    "tenCostItemId": 224,
+                    "tenCostItemNum": 0,
+                    "gachaTimesLimit": 20,
+                    "gachaSortId": 9999,
+                    "gachaProbUrlOversea": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha#/newbiegacha",
+                    "gachaRecordUrlOversea": "https://webstatic-sea.hoyoverse.com/genshin/event/e20190909gacha/index.html?authkey_ver=1&sign_type=2&auth_appid=webview_gacha&init_type=100"
+                  }
                 ],
-                gachaRandom: 3596445971
-            }
-            console.log(GetGachaInfoRsp);
+                "gachaRandom": 1063641077
+              }
             
             // To protobuffer
             data = await dataUtil.objToProtobuffer(GetGachaInfoRsp, dataUtil.getPacketIDByProtoName("GetGachaInfoRsp"));
@@ -17424,9 +17571,11 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             break;
 
         case "DoGachaReq":
-            const DoGachaRsp = await dataUtil.dataToProtobuffer(fs.readFileSync("./bin/DoGachaRsp.bin"), dataUtil.getPacketIDByProtoName("DoGachaRsp"))
-            DoGachaRsp.tenCostItemNum = 0
+            const DoGachaRsp = {
+                gachaItemList: []
+            }
             
+            /*
             for(let x = 0; x<66; x++) {
                 DoGachaRsp.gachaItemList[x] = {
                         transferItems: [],
@@ -17434,10 +17583,41 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
                         gachaItem_: { itemId: 1001+x, count: 1 }
                 }
             }
+            */
+
+            DoGachaRsp.gachaItemList[0] = {
+                transferItems: [],
+                tokenItemList: [ { itemId: 222, count: 15} ],
+                gachaItem_: { itemId: 1060, count: 1 },
+                isGachaItemNew: true,
+                isFlashCard: true,
+
+            }
+
+            for (let x = 1; x<7; x++) {
+                DoGachaRsp.gachaItemList[x] = {
+                    transferItems: [
+                        { item: { itemId: 1160, count: 1}, isTransferItemNew: true},
+                        { item: { itemId: 221, count: 10}, isTransferItemNew: true},
+                    ],
+                    tokenItemList: [ { itemId: 222, count: 15} ],
+                    gachaItem_: { itemId: 1060, count: 1 },
+
+                }
+            }
+
+            for (let x = 7; x<10; x++) {
+                DoGachaRsp.gachaItemList[x] = {
+                    transferItems: [
+                        { item: { itemId: 221, count: 25}, isTransferItemNew: true},
+                    ],
+                    tokenItemList: [ { itemId: 222, count: 15} ],
+                    gachaItem_: { itemId: 1060, count: 1 },
+
+                }
+            }
 
             // To protobuffer
-
-            console.log(DoGachaRsp);
 
             data = await dataUtil.objToProtobuffer(DoGachaRsp, dataUtil.getPacketIDByProtoName("DoGachaRsp"));
             sendPacketAsyncByName(kcpobj, "DoGachaRsp", keyBuffer, data)
