@@ -17190,10 +17190,43 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
 
                 case "quest":
 
-                    const QuestListUpdateNotify = {"questList":[{"questId":7051101,"state":3,"startTime":1648390899,"parentQuestId":70511,"startGameTime":150704,"acceptTime":1648390899,"finishProgressList":[1]}]}
-
-                    sendPacketAsyncByName(kcpobj, "QuestListUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(QuestListUpdateNotify, dataUtil.getPacketIDByProtoName("QuestListUpdateNotify")))
+                    const QuestGlobalVarNotify = {
+                      "varList": [
+                        {
+                          "key": 71044,
+                          "value": 1
+                        }
+                      ]
+                    }
+                    sendPacketAsyncByName(kcpobj, "QuestGlobalVarNotify", keyBuffer, await dataUtil.objToProtobuffer(QuestGlobalVarNotify, dataUtil.getPacketIDByProtoName("QuestGlobalVarNotify")))
                     
+                    const ServerCondMeetQuestListUpdateNotify = {
+                        "addQuestIdList": [
+                            7081201,
+                            7180801,
+                            7180901,
+                            7182901
+                        ],
+                        "delQuestIdList": []
+                    }
+                    sendPacketAsyncByName(kcpobj, "ServerCondMeetQuestListUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(ServerCondMeetQuestListUpdateNotify, dataUtil.getPacketIDByProtoName("ServerCondMeetQuestListUpdateNotify")))
+
+                    const QuestListUpdateNotify = {
+                        "questList": [{
+                            "questId": 7104901,
+                            "state": 1,
+                            "parentQuestId": 71049,
+                            "acceptTime": 1650629976,
+                            "finishProgressList": [0]
+                        }]
+                    }
+                    sendPacketAsyncByName(kcpobj, "QuestListUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(QuestListUpdateNotify, dataUtil.getPacketIDByProtoName("QuestListUpdateNotify")))
+
+                    const QuestProgressUpdateNotify = {
+                        "questId": 7104901,
+                        "finishProgressList": [0]
+                    }
+                    sendPacketAsyncByName(kcpobj, "QuestProgressUpdateNotify", keyBuffer, await dataUtil.objToProtobuffer(QuestProgressUpdateNotify, dataUtil.getPacketIDByProtoName("QuestProgressUpdateNotify")))
 
                     break;
 
@@ -17654,6 +17687,161 @@ async function handleSendPacket(protobuff, packetID, kcpobj, keyBuffer) {
             sendPacketAsyncByName(kcpobj, "WeaponUpgradeRsp", keyBuffer, await dataUtil.objToProtobuffer(WeaponUpgradeRsp, dataUtil.getPacketIDByProtoName("WeaponUpgradeRsp")));
             break;
 
+        case "GetDailyDungeonEntryInfoReq":
+            const GetDailyDungeonEntryInfoRsp = {
+                "dailyDungeonInfoList": [
+                    {
+                        "dungeonEntryId": 38,
+                        "dungeonEntryConfigId": 1006,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 2021,
+                            "maxBossChestNum": 1,
+                            "nextRefreshTime": 1650830400,
+                            "weeklyBossResinDiscountInfo": {
+                                "discountNumLimit": 3,
+                                "resinCost": 30,
+                                "originalResinCost": 60
+                            }
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 42,
+                        "dungeonEntryConfigId": 6,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5009
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 44,
+                        "dungeonEntryConfigId": 10,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 4221,
+                            "startTime": 1650571200,
+                            "endTime": 1650657600
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 48,
+                        "dungeonEntryConfigId": 1,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5003
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 50,
+                        "dungeonEntryConfigId": 2,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 4322,
+                            "startTime": 1650571200,
+                            "endTime": 1650657600
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 107,
+                        "dungeonEntryConfigId": 8,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5107
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 135,
+                        "dungeonEntryConfigId": 3,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5220,
+                            "startTime": 1650571200,
+                            "endTime": 1650657600
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 137,
+                        "dungeonEntryConfigId": 7,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5102
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 139,
+                        "dungeonEntryConfigId": 9,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5112
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 218,
+                        "dungeonEntryConfigId": 1016,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 103,
+                            "maxBossChestNum": 1,
+                            "nextRefreshTime": 1650830400,
+                            "weeklyBossResinDiscountInfo": {
+                            "discountNumLimit": 3,
+                            "resinCost": 30,
+                            "originalResinCost": 60
+                            }
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 221,
+                        "dungeonEntryConfigId": 12,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5120
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 282,
+                        "dungeonEntryConfigId": 13,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5014
+                        }
+                    },
+                    {
+                        "dungeonEntryId": 361,
+                        "dungeonEntryConfigId": 16,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 5200
+                        }
+                    },
+                        {
+                        "dungeonEntryId": 368,
+                        "dungeonEntryConfigId": 14,
+                        "recommendDungeonEntryInfo": {
+                            "dungeonId": 4352,
+                            "startTime": 1650571200,
+                            "endTime": 1650657600
+                        }
+                    }
+                ]
+            }
+            sendPacketAsyncByName(kcpobj, "GetDailyDungeonEntryInfoRsp", keyBuffer, await dataUtil.objToProtobuffer(GetDailyDungeonEntryInfoRsp, dataUtil.getPacketIDByProtoName("GetDailyDungeonEntryInfoRsp")));
+            break;
+        
+        case "GetInvestigationMonsterReq":
+            const GetInvestigationMonsterRsp = {
+                "monsterList": []
+            }
+
+            for (Possible = 1; Possible <= 50; Possible++)
+            {
+                const monsterListItems = {
+                    id: Possible,
+                    cityId: 1,
+                    level: 90,
+                    isAlive: true,
+                    nextRefreshTime: 0,
+                    refreshInterval: 0,
+                    pos: {
+                        x:0,
+                        y:0,
+                        z:0,
+                    }
+                }
+
+                GetInvestigationMonsterRsp.monsterList.push(monsterListItems)
+            }
+
+            sendPacketAsyncByName(kcpobj, "GetInvestigationMonsterRsp", keyBuffer, await dataUtil.objToProtobuffer(GetInvestigationMonsterRsp, dataUtil.getPacketIDByProtoName("GetInvestigationMonsterRsp")));
+            
+            break;
 
         case "SetPlayerSignatureReq":
 
